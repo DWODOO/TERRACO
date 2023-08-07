@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_demande_reglement">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h2 class="text-center">Demande de Reglement -
+                            <span t-field="o.name"/>
+                        </h2>
+                        <br/>
+                        <div class="text-right">
+                            Alger, Le
+                            <span t-esc="datetime.datetime.now().strftime('%d-%m-%Y')"/>
+                        </div>
+                        <br/>
+                        <!--                        <div class="text-left">-->
+                        <!--                            <strong> N°</strong> <span t-field="o.id"/>-->
+                        <!--                        </div>-->
+                        <br/>
+                        <div class="text-right">
+                            <strong>B.P</strong>
+                            <span t-field="o.amount_total"/>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="text-left">
+                            <strong>La Somme De :</strong>
+                            <span t-field="o.amount_total_words"/>
+                        </div>
+                        <br/>
+                        <div class="text-left">
+                            <strong>Veuiller payer a l'ordre :
+                                <span t-field="o.partner_id.name"/>
+                            </strong>
+                        </div>
+                        <br/>
+                        <div class="text-left">
+                            <strong>Mode de Paiement :</strong>
+                            <span t-field="o.payment_mode"/>
+                            <strong>
+                                <t t-if="o.payment_mode_number">, N°
+                                    <span t-field="o.payment_mode_number"/>
+                                </t>
+                                <t t-elif="o.supplier_bank_account">, RIB N°
+                                    <span t-field="o.supplier_bank_account.acc_number"/>
+                                </t>
+                            </strong>
+                        </div>
+                        <br/>
+
+                        <br/>
+                        <div class="text-left">
+                            <strong>Objet de Paiement :</strong>
+                            <t t-foreach="o.invoice_line_ids" t-as="line">
+                                <br/>
+                                -
+                                <span t-field="line.product_id.name"/>
+                                :
+                                <span t-field="line.name"/>
+                            </t>
+                        </div>
+                        <br/>
+                        <div class="text-left">
+                            <strong>Documents justifiant la depense :</strong>
+                            Facture N°
+                            <span
+                                    t-field="o.ref"/>
+                            <div style="display:inline-block;" t-if="o.convention">
+                                Et Convention Générale conclue pour
+                                <span t-field="o.convention"/>
+                                SMARTEST ALGERIA SPA
+                                <div style="display:inline-block;"
+                                     t-if="o.convention_start_date and o.convention_end_date">du
+                                    <span
+                                            t-field="o.convention_start_date"/>
+                                    au
+                                    <span
+                                            t-field="o.convention_end_date"/>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="text-left" t-if="o.observation">
+                            <strong>Observation :</strong>
+                            <span t-field="o.observation"/>
+                        </div>
+                        <div class="oe_structure"/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div name="signataire" class="row" style="page-break-inside: avoid;">
+                            <div class="col-3 border p-1 mt-5" style="min-height: 180px;">
+                                <p class="text-center">
+                                    <b>DEMENDEUR</b>
+                                </p>
+                            </div>
+                            <div class="col-3 border p-1 mt-5" style="min-height: 180px;">
+                                <p class="text-center">
+                                    <b>RESPONSABLE DE FINANCE</b>
+                                </p>
+                            </div>
+                            <div class="col-3 border p-1 mt-5" style="min-height: 180px;">
+                                <p class="text-center">
+                                    <b>DIRECTION GENERALE</b>
+                                </p>
+                            </div>
+                            <div class="col-3 border p-1 mt-5" style="min-height: 180px;">
+                                <p class="text-center">
+                                    <b>ADMINISTRATEUR</b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_report_demande_reglement" model="ir.actions.report">
+        <field name="name">Demande de Reglement</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_purchase_request.report_demande_reglement</field>
+        <field name="report_file">smartest_purchase_request.report_demande_reglement</field>
+        <field name="print_report_name">'Demande de Reglement - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="smartest_teams_tree">
+        <field name="name">smartest.teams.tree</field>
+        <field name="model">project.teams</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="department_id" optional="hide"/>
+                <field name="responsible_user_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="planning_user_id" widget="many2one_avatar_user" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="smartest_teams_form">
+        <field name="name">smartest.teams.form</field>
+        <field name="model">project.teams</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_projects" type="object" class="oe_stat_button" icon="fa-building"
+                                attrs="{'invisible': [('project_count', '&lt;=', 0)]}">
+                            <div class="o_stat_info">
+                                <field name="project_count" class="o_stat_value"/>
+                                <span class="o_stat_text"> Projects</span>
+                            </div>
+                        </button>
+                        <button name="action_view_tasks" type="object" class="oe_stat_button" icon="fa-tasks"
+                                attrs="{'invisible': [('task_count', '&lt;=', 0)]}">
+                            <div class="o_stat_info">
+                                <field name="task_count" class="o_stat_value"/>
+                                <span class="o_stat_text"> Tasks</span>
+                            </div>
+                        </button>
+                        <button name="action_view_sprints" type="object" class="oe_stat_button" icon="fa-history"
+                                attrs="{'invisible': [('sprint_count', '&lt;=', 0)]}">
+                            <div class="o_stat_info">
+                                <field name="sprint_count" class="o_stat_value"/>
+                                <span class="o_stat_text"> Sprints</span>
+                            </div>
+                        </button>
+                        <button name="action_view_ongoing_sprint" type="object"
+                                attrs="{'invisible': [('ongoing_sprint_id', '=', False)]}"
+                                class="oe_stat_button" icon="fa-rocket">
+                            <div class="o_stat_info">
+                                <field class="o_stat_value" name="ongoing_sprint_id" invisible="1"/>
+                                <span class="o_stat_text"> Ongoing Sprint</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="My smart team"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="department_id" string="Department"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                            <field name="responsible_user_id" widget="many2one_avatar_user"/>
+                            <field name="planning_user_id" widget="many2one_avatar_user"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Members">
+                            <field name="user_ids"/>
+                        </page>
+                        <page string="Configuration">
+                            <group>
+                                <group>
+                                    <field name="sprint_sequence_id"/>
+                                    <field name="sprint_auto_close"/>
+                                </group>
+                                <group>
+                                    <label for="sprint_period"/>
+                                    <div class="o_row">
+                                        <field name="sprint_period"/>
+                                        <span> Days</span>
+                                    </div>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="smartest_teams_action">
+        <field name="name">Team</field>
+        <field name="res_model">project.teams</field>
+        <field name="view_mode">project.teams</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p classe="o_view_nocontent_smiling_face">
+                Create new team.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="teams_id" name="Team" parent="project.menu_project_config" sequence="19"
+              action="smartest_teams_action"/>
+</odoo>

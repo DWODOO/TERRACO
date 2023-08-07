@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--******************************************** Cash Desk ********************************************-->
+    <!--    Form View    -->
+    <record id="cash_ticket_cancel_view_form" model="ir.ui.view">
+        <field name="name">cash_ticket_cancel_view_form</field>
+        <field name="model">cash.ticket.cancel</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" string="Confirm" class="oe_highlight" states="draft" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                           <field name="name" nolable="1" placeholder="Ticket N°"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="General">
+                            <field name="cash_ticket_id"/>
+                            <field name="date"/>
+                        </group>
+                        <group string="Divers">
+                            <field name="partner_id"/>
+                            <field name="cash_desk_id"/>
+                        </group>
+                        <field name="note" nolable="1" placeholder="Description"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <!--    Tree View    -->
+    <record id="cash_ticket_cancel_view_tree" model="ir.ui.view">
+        <field name="name">cash_ticket_cancel_view_tree</field>
+        <field name="model">cash.ticket.cancel</field>
+        <field name="arch" type="xml">
+            <tree decoration-warning="state == 'draft'"
+                  decoration-success="state == 'confirm'"
+                  default_order="date desc">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="cash_ticket_id"/>
+                <field name="date"/>
+                <field name="amount" optional="hide"/>
+                <field name="amount_paid" optional="show"/>
+                <field name="cash_desk_id" optional="hide"/>
+                <field name="state" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Search    -->
+    <record id="cash_ticket_cancel_view_search" model="ir.ui.view">
+        <field name="name">cash_ticket_cancel_view_search</field>
+        <field name="model">cash.ticket.cancel</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="cash_ticket_id"/>
+                <field name="state"/>
+                <field name="date"/>
+                <field name="note"/>
+                <separator/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Confirmed" name="confirm" domain="[('state', '=', 'confirm')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Customer" name="group_by_partner_id" context="{'group_by': 'partner_id'}"/>
+                    <filter string="Cash Desk" name="group_by_cash_desk_id" context="{'group_by': 'cash_desk_id'}"/>
+                    <filter string="Date" name="group_by_date" context="{'group_by': 'date'}"/>
+                    <filter string="State" name="group_by_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <!--    Action    -->
+    <record id="cash_ticket_cancel_action" model="ir.actions.act_window">
+        <field name="name">Cancel Tickets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cash.ticket.cancel</field>
+        <field name="view_mode">tree,form</field>
+        <!--By default, when opening cash.ticket.cancel list view, the group_by_state filter will be selected-->
+        <field name="context">{'search_default_group_by_state': True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Cancel Ticket Available !
+            </p>
+        </field>
+    </record>
+</odoo>

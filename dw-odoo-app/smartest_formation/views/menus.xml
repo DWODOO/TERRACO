@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+
+        <!-- Top menu item -->
+        <menuitem name="plans" id="smartest_formation.menu_root" groups="hr.group_hr_manager"/>
+        <menuitem name="Plans" id="plan" parent="smartest_formation.menu_root" sequence="1"/>
+        <menuitem name="Plan de Formation" id="plan_de_formation" parent="smartest_formation.plan" sequence='1'
+                  action="training_plan_action_window"/>
+        <menuitem name="Formations Planifiées" id="start_formation" parent="smartest_formation.plan" sequence='2'
+                action="start_formation_action_window"/>
+
+        <menuitem name="formation" id="smartest_formation.menu_root"/>
+        <menuitem name="Formation" id="formation" parent="smartest_formation.menu_root" sequence="2"/>
+        <menuitem name="Institus" id="institute" parent="formation" sequence="1"
+                  action="res_partner_action_institutes"/>
+        <menuitem name="Themes" id="theme" parent="formation" sequence='2'
+                  action="theme_action_window"/>
+        <menuitem name="Formations" id="formations" parent="formation" sequence="3"
+                  action="action_formation_details"/>
+
+
+</odoo>

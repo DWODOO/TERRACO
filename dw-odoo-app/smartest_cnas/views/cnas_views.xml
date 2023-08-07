@@ -1,0 +1,158 @@
+<odoo>
+  <data>
+
+
+     <record model="ir.ui.view" id="smartest_cnas_form">
+            <field name="name">smartest.cnas.form</field>
+            <field name="model">smartest.cnas</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+<!--                        <button name="get_equipement" string="START INVENTORY" type="object"-->
+<!--                                attrs="{'invisible': [('statut', '!=', 'Start')]}" class="oe_highlight"/>-->
+                        <button name="validate" string="VALIDATE" type="object" attrs="{'invisible': [('status', '!=', 'Posted')]}"/>
+                        <button name="calculate" string="CALCULATE" type="object" attrs="{'invisible': [('status', '!=', 'Draft')]}"/>
+<!--                        <button name="done" string="DONE" type="object" attrs="{'invisible': [('statut', '!=', 'End')]}"-->
+<!--                                class="oe_highlight"/>-->
+
+                    </header>
+
+                    <sheet>
+
+                        <widget name="web_ribbon" title="Paid"
+                                attrs="{'invisible': [('status', '!=', 'Paid')]}" />
+
+                        <widget name="web_ribbon" title="Posted"
+                                attrs="{'invisible': [('status', '!=', 'Posted')]}" bg_color="bg-danger"/>
+
+                        <group>
+                            <group>
+
+                                <field name="name" placeholder="e.g. Paie Janvier"/>
+                                <field name="date"/>
+                                <field name="payslips_batches"/>
+<!--                                <field name="asset"/>-->
+<!--                                <field name="product"/>-->
+                            </group>
+                          <group>
+                                <field name="journal_id" />
+
+                                <field name="bank_account" />
+                              <field name="amount"/>
+                              <!--                                <field name="asset"/>-->
+<!--                                <field name="product"/>-->
+
+                            </group>
+
+
+                        </group>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+
+           <record model="ir.ui.view" id="smartest_cnas_tree">
+            <field name="name">smartest.cnas.tree</field>
+            <field name="model">smartest.cnas</field>
+            <field name="arch" type="xml">
+                <tree>
+
+
+
+
+                                <field name="name"/>
+                                <field name="date"/>
+                                <field name="payslips_batches"/>
+<!--                                <field name="asset"/>-->
+<!--                                <field name="product"/>-->
+
+                                <field name="journal_id" readonly="True"/>
+
+                                <field name="amount"/>
+<!--                                <field name="asset"/>-->
+<!--                                <field name="product"/>-->
+
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="smartest_cnas_action">
+            <field name="name">cnas</field>
+            <field name="res_model">smartest.cnas</field>
+            <field name="view_mode">smartest.cnas</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p classe="o_view_nocontent_smiling_face">
+                    Create new cnas !!
+                </p>
+            </field>
+        </record>
+
+ <menuitem id="cnas_id" name="Cnas Payement" parent="account.menu_finance_entries_accounting_miscellaneous" sequence="20"
+                  action="smartest_cnas_action"/>
+
+
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="smartest_cnas.list">
+      <field name="name">smartest_cnas list</field>
+      <field name="model">smartest_cnas.smartest_cnas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="smartest_cnas.action_window">
+      <field name="name">smartest_cnas window</field>
+      <field name="res_model">smartest_cnas.smartest_cnas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="smartest_cnas.action_server">
+      <field name="name">smartest_cnas server</field>
+      <field name="model_id" ref="model_smartest_cnas_smartest_cnas"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="smartest_cnas" id="smartest_cnas.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="smartest_cnas.menu_1" parent="smartest_cnas.menu_root"/>
+    <menuitem name="Menu 2" id="smartest_cnas.menu_2" parent="smartest_cnas.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="smartest_cnas.menu_1_list" parent="smartest_cnas.menu_1"
+              action="smartest_cnas.action_window"/>
+    <menuitem name="Server to list" id="smartest_cnas" parent="smartest_cnas.menu_2"
+              action="smartest_cnas.action_server"/>
+-->
+  </data>
+</odoo>

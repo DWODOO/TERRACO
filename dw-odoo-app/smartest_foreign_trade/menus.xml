@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>        <!--        Root Menu        -->
+        <menuitem id="foreign_trade_menu_root" name="Import/Export" groups="smartest_foreign_trade.group_foreign_trade_user"
+                  web_icon="smartest_foreign_trade,static/description/icon.png"
+                  action="smartest_foreign_trade.action_purchase_import_folder"/>
+
+        <menuitem id="foreign_trade_export" name="Export"  groups="smartest_foreign_trade.group_foreign_trade_user"
+                  parent="smartest_foreign_trade.foreign_trade_menu_root" sequence="02"
+                  action="smartest_foreign_trade.action_export_folder"/>
+
+        <menuitem id="foreign_trade_import" name="Import"  groups="smartest_foreign_trade.group_foreign_trade_user"
+                  parent="smartest_foreign_trade.foreign_trade_menu_root" sequence="01"
+                  action="smartest_foreign_trade.action_purchase_import_folder"/>
+
+        <menuitem id="foreign_trade_menu_all" name="Credit Commitment"  groups="smartest_foreign_trade.group_foreign_trade_user"
+                  parent="smartest_foreign_trade.foreign_trade_menu_root" sequence="14"
+                  action="smartest_foreign_trade.import_file_lc_action"/>
+        <!--        Configuration        -->
+        <menuitem id="foreign_trade_menu_configuration" name="Configuration"  groups="smartest_foreign_trade.group_foreign_trade_manager"
+                  parent="smartest_foreign_trade.foreign_trade_menu_root" sequence="90"/>
+
+        <menuitem id="foreign_trade_import_plan_menu_configuration" name="Import Plan"
+                  parent="smartest_foreign_trade.foreign_trade_menu_configuration" sequence="10"
+                  action="smartest_foreign_trade.foreign_trade_import_plan_action"/>
+
+        <menuitem id="foreign_trade_banks_menu_configuration" name="Banks"
+                  parent="smartest_foreign_trade.foreign_trade_menu_configuration" sequence="20"
+                  action="base.action_res_bank_form"/>
+
+        <menuitem id="foreign_trade_bank_agencies_menu_configuration" name="Agencies"
+                  parent="smartest_foreign_trade.foreign_trade_menu_configuration" sequence="25"
+                  action="smartest_foreign_trade.foreign_trade_bank_agency_action_form"/>
+
+        <menuitem id="foreign_trade_brand_menu_configuration" name="Brand"
+                  parent="smartest_foreign_trade.foreign_trade_menu_configuration" sequence="30"
+                  action="smartest_base.action_brand_view"/>
+        <menuitem
+                id="menu_ctaegory_product_menu" name="Product Category" action="product.product_category_action_form"
+                parent="smartest_foreign_trade.foreign_trade_menu_configuration" sequence="40"/>
+
+
+        <!--        Purchase          -->
+        <menuitem id="parent_menu_purchase_import_folder_purchase" name="Import Folder"  groups="smartest_foreign_trade.group_foreign_trade_user"
+                  parent="purchase.menu_purchase_root" sequence="20"
+                  action="action_purchase_import_folder"/>
+        <!--        Import Purchase          -->
+
+        <menuitem id="menu_import_purchase" name="Orders"  groups="smartest_foreign_trade.group_foreign_trade_user"
+                  parent="smartest_foreign_trade.foreign_trade_menu_root" sequence="5">
+
+            <menuitem action="smartest_foreign_trade.import_purchase_form_action" id="menu_import_purchase_form_action"  groups="smartest_foreign_trade.group_foreign_trade_user"
+                      sequence="20"/>
+
+            <menuitem action="smartest_foreign_trade.purchase_import_rfq" id="menu_import_purchase_rfq"  groups="smartest_foreign_trade.group_foreign_trade_user"
+                      sequence="10"/>
+            <menuitem
+                    id="menu_product_menu" name="Products" action="purchase.product_normal_action_puchased"  groups="smartest_foreign_trade.group_foreign_trade_user"
+                    sequence="30"/>
+        </menuitem>
+        <!--        Import Invoices-->
+        <menuitem id="menu_finance_payables_import" name="Vendors" sequence="9"  groups="smartest_foreign_trade.group_foreign_trade_user"
+                  parent="smartest_foreign_trade.foreign_trade_menu_root">
+            <menuitem id="menu_action_move_in_invoice_type_import_folder"
+                      action="action_move_in_invoice_type_import_folder" sequence="10"/>
+            <menuitem id="menu_action_move_in_refund_type_import_folder"
+                      action="action_move_in_refund_type_import_folder" sequence="20"/>
+            <menuitem id="foreign_trade_supplier_menu_configuration" name="Supplier" sequence="30"
+                      action="account.res_partner_action_supplier"/>
+            <!--            <menuitem id="menu_action_move_in_receipt_type_import" action="action_move_in_receipt_type" groups="account.group_purchase_receipts" sequence="3"/>-->
+            <!--            <menuitem id="menu_action_account_payments_payable_import_folder" action="action_account_payments_payable_import_folder" sequence="20"/>-->
+        </menuitem>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record model="ir.rule" id="g_50_rule_company">
+            <field name="name">G50 multi-company</field>
+            <field name="model_id" ref="model_g_cinquante"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+        <record model="ir.rule" id="g_50_line_rule_company">
+            <field name="name">G50 lines multi-company</field>
+            <field name="model_id" ref="model_g_cinquante_line"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

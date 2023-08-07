@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+<!--    <record id="formation_service" model="product.template">-->
+<!--        <field name="name">Formation Service</field>-->
+<!--        <field name="detailed_type">service</field>-->
+<!--        <field name="default_code">SERV_FORM</field>-->
+<!--&lt;!&ndash;        <field name="tracking">none</field>&ndash;&gt;-->
+<!--&lt;!&ndash;        <field name="sale_line_warn">no-message</field>&ndash;&gt;-->
+<!--        <field name="sale_ok" eval="False"/>-->
+<!--&lt;!&ndash;        <field name="tracking">none</field>&ndash;&gt;-->
+<!--        <field name="uom_id" ref="uom.product_uom_unit"/>-->
+<!--        <field name="uom_po_id" ref="uom.product_uom_unit"/>-->
+<!--&lt;!&ndash;        <field name="uom_po_id" ref="uom.product_uom_unit"/>&ndash;&gt;-->
+<!--    </record>-->
+    <record id="formation_service_product" model="product.product">
+        <field name="name">Formation Service</field>
+        <field name="detailed_type">service</field>
+        <field name="tracking">none</field>
+        <field name="sale_line_warn">no-message</field>
+        <field name="sale_ok" eval="False"/>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+<!--        <field name="product_tmpl_id" ref="smartest_formation.formation_service"/>-->
+    </record>
+
+    </data>
+</odoo>

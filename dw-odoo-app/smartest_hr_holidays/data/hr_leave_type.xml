@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Override existing Holidays Types -->
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'hr_holidays'), ('name', 'in', ('holiday_status_sl', 'holiday_status_cl','holiday_status_comp','holiday_status_unpaid'))]"/>
+        </function>
+        <value eval="{'noupdate': False}"/>
+    </function>
+    <!--    <record id="hr_holidays.holiday_status_cl" model="hr.leave.type">-->
+    <!--        <field name="leave_validation_type">manager</field>-->
+    <!--&lt;!&ndash;        <field name="smartest_include_carry_over">true</field>&ndash;&gt;-->
+    <!--&lt;!&ndash;        <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_paid_leave"/>&ndash;&gt;-->
+    <!--    </record>-->
+    <record id="hr_holidays.holiday_status_sl" model="hr.leave.type">
+        <field name="leave_validation_type">no_validation</field>
+        <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_unpaid_absence"/>
+    </record>
+    <record id="hr_holidays.holiday_status_comp" model="hr.leave.type">
+        <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_paid_absence"/>
+    </record>
+    <record id="hr_holidays.holiday_status_unpaid" model="hr.leave.type">
+        <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_unpaid_leave"/>
+    </record>
+
+    <!-- Create new Holidays Types -->
+    <data noupdate="0">
+        <record id="holiday_status_wedding" model="hr.leave.type">
+            <field name="name">Wedding</field>
+            <field name="requires_allocation">no</field>
+            <field name="employee_requests">no</field>
+            <field name="leave_validation_type">no_validation</field>
+            <field name="smartest_duration_of_leave">3</field>
+            <field name="request_unit">day</field>
+            <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_paid_absence"/>
+            <field name="smartest_is_mariage">true</field>
+            <field name="color">6</field>
+            <field name="icon_id" ref="hr_holidays.icon_18"/>
+        </record>
+        <record id="holiday_status_accident" model="hr.leave.type">
+            <field name="name">Work Accident</field>
+            <field name="requires_allocation">no</field>
+            <field name="leave_validation_type">both</field>
+            <field name="request_unit">day</field>
+            <field name="smartest_holidays_mode">calendar</field>
+            <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_unpaid_absence"/>
+            <field name="responsible_id" ref="base.user_admin"/>
+            <field name="color">11</field>
+            <field name="icon_id" ref="hr_holidays.icon_31"/>
+        </record>
+        <record id="holiday_status_paternity" model="hr.leave.type">
+            <field name="name">Paternity</field>
+            <field name="requires_allocation">no</field>
+            <field name="employee_requests">no</field>
+            <field name="leave_validation_type">no_validation</field>
+            <field name="smartest_duration_of_leave">3</field>
+            <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_paid_absence"/>
+            <field name="request_unit">day</field>
+            <field name="color">4</field>
+            <field name="icon_id" ref="hr_holidays.icon_13"/>
+        </record>
+        <record id="holiday_status_circumcision" model="hr.leave.type">
+            <field name="name">Circumcision</field>
+            <field name="requires_allocation">no</field>
+            <field name="employee_requests">no</field>
+            <field name="leave_validation_type">no_validation</field>
+            <field name="smartest_duration_of_leave">3</field>
+            <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_paid_absence"/>
+            <field name="request_unit">day</field>
+            <field name="color">8</field>
+            <field name="icon_id" ref="hr_holidays.icon_11"/>
+        </record>
+        <record id="holiday_status_deaths" model="hr.leave.type">
+            <field name="name">Deaths</field>
+            <field name="requires_allocation">no</field>
+            <field name="employee_requests">no</field>
+            <field name="leave_validation_type">no_validation</field>
+            <field name="smartest_duration_of_leave">3</field>
+            <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_paid_absence"/>
+            <field name="request_unit">day</field>
+            <field name="smartest_is_death">true</field>
+            <field name="color">7</field>
+            <field name="icon_id" ref="hr_holidays.icon_25"/>
+        </record>
+        <record id="holiday_status_pilgrimage" model="hr.leave.type">
+            <field name="name">Pilgrimage</field>
+            <field name="requires_allocation">no</field>
+            <field name="employee_requests">no</field>
+            <field name="leave_validation_type">both</field>
+            <field name="smartest_duration_of_leave">30</field>
+            <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_paid_absence"/>
+            <field name="request_unit">day</field>
+            <field name="responsible_id" ref="base.user_admin"/>
+            <field name="color">10</field>
+            <field name="icon_id" ref="hr_holidays.icon_23"/>
+        </record>
+        <record id="holiday_status_motherhood" model="hr.leave.type">
+            <field name="name">Maternity</field>
+            <field name="requires_allocation">no</field>
+            <field name="employee_requests">no</field>
+            <field name="leave_validation_type">no_validation</field>
+            <field name="smartest_duration_of_leave">98</field>
+            <field name="smartest_holidays_mode">calendar</field>
+            <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_unpaid_absence"/>
+            <field name="request_unit">day</field>
+            <field name="color">1</field>
+            <field name="icon_id" ref="hr_holidays.icon_12"/>
+        </record>
+        <record id="holiday_status_anticip" model="hr.leave.type">
+            <field name="name">Anticipated Leave</field>
+            <field name="requires_allocation">yes</field>
+            <field name="employee_requests">no</field>
+            <field name="leave_validation_type">both</field>
+            <field name="allocation_validation_type">officer</field>
+            <field name="smartest_holidays_mode">calendar</field>
+            <field name="smartest_include_carry_over">false</field>
+            <field name="responsible_id" ref="base.user_admin"/>
+            <field name="request_unit">day</field>
+            <field name="color">1</field>
+            <field name="icon_id" ref="hr_holidays.icon_14"/>
+            <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_paid_leave"/>
+        </record>
+        <record id="holiday_Availability" model="hr.leave.type">
+            <field name="name">Availability</field>
+            <field name="requires_allocation">no</field>
+            <field name="leave_validation_type">both</field>
+            <field name="allocation_validation_type">officer</field>
+            <field name="request_unit">hour</field>
+            <field name="unpaid" eval="True"/>
+            <field name="responsible_id" ref="base.user_admin"/>
+            <field name="icon_id" ref="hr_holidays.icon_28"/>
+            <field name="color">5</field>
+            <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_unpaid_absence"/>
+        </record>
+        <record id="holiday_status_deaths_exceptional" model="hr.leave.type">
+            <field name="name">Exceptional Deaths</field>
+            <field name="requires_allocation">no</field>
+            <field name="employee_requests">no</field>
+            <field name="leave_validation_type">no_validation</field>
+            <field name="smartest_duration_of_leave">3</field>
+            <field name="smartest_leave_categories" ref="smartest_hr_holidays.categories_paid_absence"/>
+            <field name="request_unit">day</field>
+            <field name="smartest_is_exceptional_death">true</field>
+            <field name="color">7</field>
+            <field name="icon_id" ref="hr_holidays.icon_25"/>
+        </record>
+    </data>
+</odoo>

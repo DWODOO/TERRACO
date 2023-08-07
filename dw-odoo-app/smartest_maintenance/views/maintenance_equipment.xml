@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Inherit maintenance equipment form view to add add_assignation button-->
+    <record model="ir.ui.view" id="maintenance_equipment_form_view_inherit">
+        <field name="name">maintenance.equipment.form.view.inherit</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button
+                        name="button_assign"
+                        string="Re-assign"
+                        type="object"
+                        class="oe_highlight"
+                        groups="maintenance.group_equipment_manager"
+                    />
+                </header>
+            </xpath>
+            <xpath expr="//field[@name='next_action_date']" position="before">
+                <field name="first_maintenance_request"/>
+            </xpath>
+            <xpath expr="//notebook//page[3]" position="after">
+                <page string="Assignment History">
+                    <field name="history_ids">
+                        <tree string="Assignment History ">
+                            <field name="assign_equipment_to"/>
+                            <field name="old_employee_id" string="From Employee"/>
+                            <field name="new_employee_id" string="To Employee"/>
+                            <field name="old_department_id" string="From Department"/>
+                            <field name="new_department_id" string="To Department"/>
+                            <field name="date_assignment"/>
+                        </tree>
+                    </field>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!--Inherit maintenance equipment HR form view to hide equipment_assign_to field and show both employee_id and department_id-->
+    <record model="ir.ui.view" id="maintenance_equipment_hr_form_view_inherit">
+        <field name="name">maintenance.equipment.hr.form.view.inherit</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="hr_maintenance.maintenance_equipment_view_form_inherit_hr"/>
+        <field name="arch" type="xml">
+            <field name="department_id" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">0</attribute>
+                <attribute name="readonly">1</attribute>
+            </field>
+            <field name="employee_id" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">0</attribute>
+                <attribute name="readonly">1</attribute>
+            </field>
+            <field name="equipment_assign_to" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">0</attribute>
+                <attribute name="readonly">1</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

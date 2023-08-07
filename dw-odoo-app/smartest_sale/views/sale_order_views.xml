@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale_view_order_form_inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="context">{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat':
+                    True, 'default_is_customer': True}
+                </attribute>
+            </xpath>
+            <field name="date_order" position="after">
+                <field name="use_stamp_tax" invisible="1"/>
+                <field name="payment_method_id" context="{'default_payment_type': 'outbound'}"/>
+            </field>
+            <group name="note_group" position="before">
+                <group name="note_group" col="6" class="mt-2 mt-md-0">
+                    <group class="oe_left" colspan="4">
+                    </group>
+                    <group class="oe_right" colspan="2">
+                        <field name="apply_stamp_duty_tax" attrs="{'invisible': [('use_stamp_tax', '=', False)]}"/>
+                        <field name="amount_stamp_tax" force_save="1" invisible="1"/>
+                    </group>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="view_quotation_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <field name="payment_method_id" optional="hide"/>
+                <field name="apply_stamp_duty_tax" optional="hide"/>
+            </field>
+            <field name="amount_total" position="before">
+                <field name="amount_total_with_tva" optional="hide"/>
+                <field name="amount_stamp_tax" optional="hide"/>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+<templates>
+    <div t-name="smartest_hr_appraisal.factorDescriptionWidget">
+        <div t-att-class="!widget.data.factor_description ? 'invisible' : ''">
+            <a tabindex="0" class="fa fa-info-circle text-info"/>
+        </div>
+    </div>
+
+    <div t-name="smartest_hr_appraisal.FactorDescriptionPopOver">
+        <p t-esc="data.factor_description"/>
+    </div>
+</templates>

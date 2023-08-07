@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--         <report -->
+<!--            id="action_contribution_register" -->
+<!--            model="hr.contribution.register" -->
+<!--            string="PaySlip Lines By Conribution Register"-->
+<!--            report_type="qweb-pdf"-->
+<!--            name="hr_payroll.report_contributionregister"-->
+<!--            file="hr_payroll.report_contributionregister"-->
+<!--            menu="False"-->
+<!--        />-->
+<!--    <record id="action_contribution_register" model="ir.actions.report">-->
+<!--        <field name="name">PaySlip Lines By Conribution Register</field>-->
+<!--        <field name="model">hr.contribution.register</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">hr_payroll.report_contributionregister</field>-->
+<!--        <field name="report_file">hr_payroll.report_contributionregister</field>-->
+<!--        <field name="binding_type">report</field>-->
+
+<!--    </record>-->
+<!--        <record id="hr_payslip_run_pret_report_id" model="ir.actions.report">-->
+<!--        <field name="name">État des retenues Prêt</field>-->
+<!--        <field name="model">hr.payslip.run</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">smartest_hr_payroll.hr_payslip_run_report_pret_id</field>-->
+<!--        <field name="report_file">smartest_hr_payroll.hr_payslip_run_report_pret_id</field>-->
+<!--        <field name="binding_model_id" ref="model_hr_payslip_run"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+
+<!--        <record id="hr_payslip_run_avance_report_id" model="ir.actions.report">-->
+<!--        <field name="name">État des retenues Avance</field>-->
+<!--        <field name="model">hr.payslip.run</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">smartest_hr_payroll.hr_payslip_run_report_avance_id</field>-->
+<!--        <field name="report_file">smartest_hr_payroll.hr_payslip_run_report_avance_id</field>-->
+<!--        <field name="binding_model_id" ref="model_hr_payslip_run"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+
+<!--    <record id="hr_payslip_run_mutuelle_report_id" model="ir.actions.report">-->
+<!--        <field name="name">État retenues de la Mutuelle</field>-->
+<!--        <field name="model">hr.payslip.run</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">smartest_hr_payroll.hr_payslip_run_report_mutuelle_id</field>-->
+<!--        <field name="report_file">smartest_hr_payroll.hr_payslip_run_report_mutuelle_id</field>-->
+<!--        <field name="binding_model_id" ref="model_hr_payslip_run"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+
+<!--        <report-->
+<!--            id="payslip_details_report"-->
+<!--            model="hr.payslip"-->
+<!--            string="PaySlip Details"-->
+<!--            report_type="qweb-pdf"-->
+<!--            name="hr_payroll.report_payslipdetails"-->
+<!--            file="hr_payroll.report_payslipdetails"-->
+<!--            print_report_name="'Payslip Details - %s' % (object.employee_id.name)"-->
+
+<!--        />-->
+    <record id="payslip_details_report" model="ir.actions.report">
+        <field name="name">PaySlip Details</field>
+        <field name="model">hr.payslip</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_hr_payroll.report_payslipdetails</field>
+        <field name="report_file">smartest_hr_payroll.report_payslipdetails</field>
+        <field name="print_report_name">'Payslip Details - %s' % (object.employee_id.name)</field>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="paperformat_journal" model="report.paperformat">
+        <field name="name">A4</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">5</field>
+        <field name="dpi">90</field>
+    </record>
+
+
+<!--         <report-->
+<!--            id="payroll_journal_report"-->
+<!--            model="hr.payslip.run"-->
+<!--            string="Payroll Journal"-->
+<!--            report_type="qweb-pdf"-->
+<!--            paperformat="paperformat_journal"-->
+<!--            name="l10n_dz_payroll.report_journal_payroll"-->
+<!--            file="l10n_dz_payroll.report_journal_payroll"-->
+<!--            print_report_name="'Payroll Journal'"-->
+<!--        />-->
+    <record id="payroll_journal_report" model="ir.actions.report">
+        <field name="name">Payroll Journal</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_hr_payroll.report_journal_payroll</field>
+        <field name="report_file">smartest_hr_payroll.report_journal_payroll</field>
+        <field name="print_report_name">'Payroll Journal'</field>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_journal"/>
+    </record>
+
+    <record id="payroll_journal_report_csp" model="ir.actions.report">
+        <field name="name">Payroll Journal CSP</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_hr_payroll.report_journal_payroll_csp</field>
+        <field name="report_file">smartest_hr_payroll.report_journal_payroll_csp</field>
+        <field name="print_report_name">'Payroll Journal csp'</field>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_journal"/>
+    </record>
+
+
+    <record id="loan_report_id" model="ir.actions.report">
+
+        <field name="name">État des retenues</field>
+        <field name="model">hr.loan</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_hr_payroll.loan_report</field>
+        <field name="report_file">smartest_hr_payroll.loan_report</field>
+        <field name="binding_model_id" ref="model_hr_loan"/>
+        <field name="binding_type">report</field>
+
+    </record>
+<!--        <report-->
+<!--            id="cnas_payroll_journal_report"-->
+<!--            model="hr.payslip.run"-->
+<!--            string="CNAS Payroll Journal"-->
+<!--            report_type="qweb-pdf"-->
+<!--            paperformat="paperformat_journal"-->
+<!--            name="l10n_dz_payroll.report_cnas_journal_payroll"-->
+<!--            file="l10n_dz_payroll.report_cnas_journal_payroll"-->
+<!--            print_report_name="'Payroll Journal'"-->
+<!--        />-->
+    <record id="cnas_payroll_journal_report" model="ir.actions.report">
+        <field name="name">CNAS Payroll Journal</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_hr_payroll.report_cnas_journal_payroll</field>
+        <field name="report_file">smartest_hr_payroll.report_cnas_journal_payroll</field>
+        <field name="print_report_name">'Payroll Journal'</field>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_journal"/>
+    </record>
+<!--       <report-->
+<!--            id="individual_sheet_report"-->
+<!--            model="hr.payslip.run"-->
+<!--            string="Individual Sheet Report"-->
+<!--            report_type="qweb-pdf"-->
+<!--            paperformat="paperformat_journal"-->
+<!--            name="l10n_dz_payroll.report_individual_sheet"-->
+<!--            file="l10n_dz_payroll.report_individual_sheet"-->
+<!--            print_report_name="'Individual Sheet - %s' % (object.employee_id.name)"-->
+<!--        />-->
+
+    <record id="individual_sheet_report" model="ir.actions.report">
+        <field name="name">Individual Sheet Report</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_hr_payroll.report_individual_sheet</field>
+        <field name="report_file">smartest_hr_payroll.report_individual_sheet</field>
+        <field name="print_report_name">'Individual Sheet - %s' % (object.employee_id.name)</field>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_journal"/>
+    </record>
+
+</odoo>

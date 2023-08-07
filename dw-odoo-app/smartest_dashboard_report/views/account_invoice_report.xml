@@ -1,0 +1,49 @@
+<odoo>
+    <record id="account-invoice_report_view_dashboard" model="ir.ui.view">
+            <field name="name">account.invoice.report.view.dashboard</field>
+            <field name="model">account.invoice.report</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <dashboard sample="1">
+                    <view type="graph" ref="account.view_account_invoice_report_graph"/>
+                    <group>
+                        <group>
+                            <aggregate name="amount_total_confirmed_invoices" string="Total invoices" field="price_total" help="Total, Tax Included" widget="monetary"/>
+                            <aggregate name="price_subtotal_all_invoices" string="Untaxed Total" field="price_subtotal" widget="monetary"/>
+                            <aggregate name="number_posted_invoice" field="move_id" string="Invoices" domain="[('move_type', '=', 'out_invoice'),('state', '=', 'posted')]"/>
+                            <aggregate name="number_posted_refund" field="move_id" string="Credit Note" domain="[('move_type', '=', 'out_refund'),('state', '=', 'posted')]"/>
+                            <formula name="average_invoice_total" string="Average Invoice" value="record.amount_total_confirmed_invoices /record.number_posted_invoice" widget="monetary"/>
+                            <aggregate name="customers" string="# Customers" field="partner_id" clickable="False"/>
+                        </group>
+                            <group col="2">
+                                <widget name="pie_chart" title="Payment State/ Move" attrs="{'groupby': 'payment_state', 'measure': 'move_id'}"/>
+                                <widget name="pie_chart" title="Payment State/ Subtotal" attrs="{'groupby': 'payment_state', 'measure': 'price_subtotal'}"/>
+                            </group>
+                        </group>
+                    <view type="pivot" ref="account.view_account_invoice_report_pivot"/>
+                </dashboard>
+            </field>
+    </record>
+
+    <record id="smartest_view_account_invoice_report_search_inherit" model="ir.ui.view">
+        <field name="name">account.invoice.report.search.inherit</field>
+        <field name="model">account.invoice.report</field>
+        <field name="inherit_id" ref="account.view_account_invoice_report_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_invoice']" position="before">
+                 <field name="invoice_date"/>
+                <filter string="Date" name="year" invisible="1" date="invoice_date" default_period="this_year"/>
+                <filter string="Date/Month" name="group_datemonth"  domain="[]" context="{'group_by':'invoice_date:month'}"/>
+            </xpath>
+            <xpath expr="//filter[@name='category_product']" position="before">
+               <filter string="Product" name="category_product" context="{'group_by':'product_id','residual_invisible':True}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account.action_account_invoice_report_all" model="ir.actions.act_window">
+        <field name="view_mode">dashboard,graph,pivot</field>
+        <field name="context">{'search_default_year':1, 'search_default_current':1, 'search_default_customer': 1, 'group_by':['invoice_date'], 'graph_groupbys': ['invoice_date:month'], 'graph_mode': 'bar'}</field>
+    </record>
+
+</odoo>

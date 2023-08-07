@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    inherit comex import file Form    -->
+    <record id="smartest_comex_import_file_form_view_inherited" model="ir.ui.view">
+        <field name="name">comex_import_file_form_view_inherited</field>
+        <field name="model">comex.import.file</field>
+        <field name="inherit_id" ref="foreign_trade.comex_import_file_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_bill_lading']" position="before">
+                <button name="action_view_import_folder" type="object" class="oe_stat_button" icon="fa-files-o">
+                    <span>Import Folder</span>
+                </button>
+            </xpath>
+            <xpath expr="//group[3]" position="after">
+                <group>
+                    <field name="import_folder_id"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    inherit comex all import file Form     -->
+    <record id="smartest_comex_all_import_file_form_view_inherited" model="ir.ui.view">
+        <field name="name">comex_all_import_files_form_view_inherited</field>
+        <field name="model">comex.import.file</field>
+        <field name="inherit_id" ref="foreign_trade.comex_all_import_files_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_bill_lading']" position="before">
+                <button name="action_view_import_folder" type="object" class="oe_stat_button" icon="fa-files-o">
+                    <span>Import Folder</span>
+                </button>
+            </xpath>
+            <xpath expr="//group[3]" position="after">
+                <group>
+                    <field name="import_folder_id"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    inherit comex opening request Form     -->
+    <record id="smartest_opening_request_view_form_inherited" model="ir.ui.view">
+        <field name="name">comex_opening_request_form_view_inherited</field>
+        <field name="model">comex.opening.request</field>
+        <field name="inherit_id" ref="foreign_trade.opening_request_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="create_comex_import_file" type="object" string="Create Import File" class="btn-primary"/>
+                </header>
+            </xpath>
+            <xpath expr="//field[@name='proforma_bill_id']" position="before">
+                <field name="import_folder_id"/>
+                <field name="comex_import_file_ids" readonly="1" widget="many2many_tags" options="{'no_create': True, 'no_open': False}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.actions.server" id="action_create_comex_import_files_from_opening_request">
+        <field name="name">Create Import File(s)</field>
+        <field name="model_id" ref="foreign_trade.model_comex_opening_request"/>
+        <field name="binding_model_id" ref="foreign_trade.model_comex_opening_request"/>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.create_comex_import_file()
+        </field>
+    </record>
+
+</odoo>

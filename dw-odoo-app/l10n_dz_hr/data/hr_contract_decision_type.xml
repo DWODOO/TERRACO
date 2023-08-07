@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Contract Types -->
+        <record id="salary_rise" model="hr.contract.decisions.type">
+            <field name="name">Salary Rise</field>
+        </record>
+        <record id="transfer" model="hr.contract.decisions.type">
+            <field name="name">Transfer</field>
+        </record>
+        <record id="job_assignment" model="hr.contract.decisions.type">
+            <field name="name">Job Assignment</field>
+        </record>
+        <record id="promotion" model="hr.contract.decisions.type">
+            <field name="name">Promotion</field>
+        </record>
+        <record id="interim_decision" model="hr.contract.decisions.type">
+            <field name="name">Interim Decision</field>
+        </record>
+        <record id="disciplinary_decision" model="hr.contract.decisions.type">
+            <field name="name">Disciplinary Decision</field>
+        </record>
+    </data>
+</odoo>

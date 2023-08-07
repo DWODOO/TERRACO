@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_purchase_request_product">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h2 class="text-center">Demande D'achats
+                            <span t-field="o.name"/>
+                        </h2>
+                        <p> Le : <span t-field="o.create_date" t-options='{"widget": "date"}'/></p>
+                        <div id="informations" position="before">
+                            <div class="row">
+                                <div class="col-6">
+                                    <table class="table table-borderless" style=";">
+                                        <tbody style="border: solid 1px black;text-left;">
+                                            <tr>
+                                                <th>Requested by:</th>
+                                                <td>
+                                                    <span t-field="o.requested_by"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Assigned to: </th>
+                                                <td>
+                                                    <span t-field="o.assigned_to"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="raw" style="text-left;width:48%;">
+                            <table class="table table-borderless">
+                                <tbody style="border: solid 1px black;">
+                                    <tr>
+                                        <th>Desired reception date:</th>
+                                        <td>
+                                            <span t-field="o.desired_date"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Latest reception date:</th>
+                                        <td>
+                                            <span t-field="o.latest_date"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <t t-if="o.line_ids">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <strong>Description</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Specification</strong>
+                                    </th>
+                                    <th class="text-right">
+                                        <strong>Qty</strong>
+                                    </th>
+                                    <th class="text-center" groups="uom.group_uom">
+                                        <strong>Product UoM</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Estimated Cost</strong>
+                                    </th>
+                                    <th class="text-right">
+                                        <strong>Requested Date</strong>
+                                    </th>
+                                    <th class="text-right">
+                                        <strong>Justification</strong>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.line_ids" t-as="line_ids">
+                                    <td>
+                                        <span t-field="line_ids.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line_ids.description"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line_ids.product_qty"/>
+                                    </td>
+                                    <t>
+                                        <td class="text-center" groups="uom.group_uom">
+                                            <span t-field="line_ids.product_uom_id.category_id.name"/>
+                                        </td>
+                                    </t>
+                                    <td>
+                                        <span t-field="line_ids.estimated_cost"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line_ids.date_required"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line_ids.justification"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                    <div class="oe_structure"/>
+                    <br/>
+                    <br/>
+                    <br/>
+<!--                    <div class="row">-->
+<!--                        <div class="col-4">-->
+<!--                            <h3 class="font-weight-bold" style="margin-bottom: 10px;margin-top: 10px;">-->
+<!--                                <p style="text-decoration: underline;">Demandeur</p>-->
+<!--                            </h3>-->
+<!--                            <p t-field="o.requested_by"/>-->
+<!--                            <p t-field="o.create_date" t-options="{'widget': 'date'}"/>-->
+<!--                        </div>-->
+<!--                        <div class="col-4">-->
+<!--                            <h3 class="font-weight-bold" style="margin-bottom: 10px;margin-top: 10px;">-->
+<!--                                <p style="text-decoration: underline;">Responsable</p>-->
+<!--                            </h3>-->
+<!--                            <p t-field="o.assigned_to"/>-->
+<!--                            <p t-field="o.create_date" t-options="{'widget': 'date'}"/>-->
+<!--                        </div>-->
+<!--                        <div class="col-4">-->
+<!--                            <h3 class="font-weight-bold" style="margin-bottom: 10px;margin-top: 10px;">-->
+<!--                                <p style="text-decoration: underline;">Validateur Financier</p>-->
+<!--                            </h3>-->
+<!--                            <p t-field="o.financial_validator"/>-->
+<!--                            <p t-field="o.po_date_approve" t-options="{'widget': 'date'}"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_purchase_product_request" model="ir.actions.report">
+        <field name="name">demande de Besoin</field>
+        <field name="model">purchase.product.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_tier_validation.report_purchase_request_product</field>
+        <field name="report_file">purchase_tier_validation.report_purchase_request_product</field>
+        <field name="print_report_name">'demande de Besoin - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="purchase_tier_validation.model_purchase_product_request"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

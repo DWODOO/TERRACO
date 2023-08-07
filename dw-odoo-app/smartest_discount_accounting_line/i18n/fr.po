@@ -1,0 +1,131 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_dz_stamp_duty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-20 14:57+0000\n"
+"PO-Revision-Date: 2020-01-20 14:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_dz_stamp_duty
+#: model_terms:ir.ui.view,arch_db:l10n_dz_stamp_duty.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" aria-label=\"Values set here are company-specific.\" "
+"groups=\"base.group_multi_company\" role=\"img\"/>"
+msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Les valeurs utilisées ici sont spécifique à l'entreprise courante-"
+"specific.\" aria-label=\"Values set here are company-specific.\" "
+"groups=\"base.group_multi_company\" role=\"img\"/>"
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_company__stamp_tax_account_id
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_config_settings__stamp_tax_account_id
+#: model_terms:ir.ui.view,arch_db:l10n_dz_stamp_duty.res_config_settings_view_form
+msgid "Account"
+msgstr "Compte"
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_company__invoice_amount_min
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_company__stamp_tax_max
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_config_settings__invoice_amount_min
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_config_settings__stamp_tax_max
+msgid "Amount Max."
+msgstr "Montant Max."
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_company__stamp_tax_min
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_config_settings__stamp_tax_min
+msgid "Amount Min."
+msgstr "Montant Min."
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_account_move__is_cash_payment
+msgid "Cash Payment?"
+msgstr "Paiement en espèces"
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model,name:l10n_dz_stamp_duty.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model,name:l10n_dz_stamp_duty.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: l10n_dz_stamp_duty
+#: model_terms:ir.ui.view,arch_db:l10n_dz_stamp_duty.res_config_settings_view_form
+msgid "Invoice Min Amount"
+msgstr "Montant minimum de la facture"
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model,name:l10n_dz_stamp_duty.model_account_move
+msgid "Journal Entries"
+msgstr "Pièces comptables"
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model,name:l10n_dz_stamp_duty.model_account_move_line
+msgid "Journal Item"
+msgstr "Écriture comptable"
+
+#. module: l10n_dz_stamp_duty
+#: model_terms:ir.ui.view,arch_db:l10n_dz_stamp_duty.res_config_settings_view_form
+msgid "Max Threshold"
+msgstr "Seuil Max."
+
+#. module: l10n_dz_stamp_duty
+#: model_terms:ir.ui.view,arch_db:l10n_dz_stamp_duty.res_config_settings_view_form
+msgid "Min Threshold"
+msgstr "Seuil Min."
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_company__slice
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_config_settings__slice
+#: model_terms:ir.ui.view,arch_db:l10n_dz_stamp_duty.res_config_settings_view_form
+msgid "Slice"
+msgstr "Tranche"
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_company__slice_amount
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_config_settings__slice_amount
+#: model_terms:ir.ui.view,arch_db:l10n_dz_stamp_duty.res_config_settings_view_form
+msgid "Slice Amount"
+msgstr "Montant de la tranche"
+
+#. module: l10n_dz_stamp_duty
+#: code:addons/l10n_dz_stamp_duty/models/account_move.py:0
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_account_move__amount_stamp_tax
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_account_move_line__is_stamp_tax_line
+#, python-format
+msgid "Stamp Duty"
+msgstr "Droit de Timbre"
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_account_move__amount_total_with_tva
+msgid "Total With TVA"
+msgstr "Total + TVA"
+
+#. module: l10n_dz_stamp_duty
+#: model_terms:ir.ui.view,arch_db:l10n_dz_stamp_duty.res_config_settings_view_form
+msgid "Use Stamp Duty Tax on Purchase Invoicing"
+msgstr "Utiliser le Droit de Timbre sur la facture d'achat"
+
+#. module: l10n_dz_stamp_duty
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_company__use_stamp_tax
+#: model:ir.model.fields,field_description:l10n_dz_stamp_duty.field_res_config_settings__use_stamp_tax
+msgid "Use Stamp Duty Tax?"
+msgstr "Utiliser le Droit de Timbre"
+
+#. module: l10n_dz_stamp_duty
+#: model_terms:ir.ui.view,arch_db:l10n_dz_stamp_duty.res_config_settings_view_form
+msgid "Use Stamp Tax"
+msgstr "Utiliser le Droit de Timbre"

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="l10n_dz_hr.hr_contract_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div style="padding-top:250px; padding-bottom:430px">
+                        <div name="contract-title" class="border border-dark rounded-2 p-3 m-3 mx-auto"
+                             style="width: 450px;">
+                            <h2 class="text-capitalize text-center">
+                                <span t-field="o.contract_type_id.name"/>
+                            </h2>
+                        </div>
+                    </div>
+                    <table class="table table-borderless">
+                        <t t-foreach="o.contract_type_id.law_section_ids" t-as="law">
+                            <tr>
+                                <td>
+                                    <t t-if="law.not_article == False">
+                                        <span t-field="law.name"/>
+                                    </t>
+                                    <t t-else="">
+                                        Article:
+                                        <span t-field="law.name"/>
+                                    </t>
+                                </td>
+                                <td>
+                                    <span t-esc="o._get_printed_contract_values(law.description)"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                    <div name="contract-sign" style="font-size: 22px !important;">
+                        <p class="text-right">
+                            Fait à Alger, le:<span
+                                t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/>.
+                        </p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="font-weight-bold text-center">
+                                        <b>
+                                            L'employé
+                                            <br/>
+                                            <span t-field="o.employee_id"/>
+                                        </b>
+                                        <br/>
+                                        (Lu et Approuvé)
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="font-weight-bold text-center">
+                                        Directeur
+                                        <br/>
+                                        Djelal SAIDOUNI
+                                        <br/>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_hr_contract_report_print" model="ir.actions.report">
+        <field name="name">Contract</field>
+        <field name="model">hr.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_dz_hr.hr_contract_report_template</field>
+        <field name="report_file">l10n_dz_hr.hr_contract_report_template</field>
+        <field name="print_report_name">'Contract - %s' % (object.name)</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

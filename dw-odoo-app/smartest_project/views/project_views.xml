@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Reporting menus -->
+    <menuitem id="project.menu_project_report" name="Reporting"
+              groups="project.group_project_manager,smartest_project.group_project_leader"
+              parent="project.menu_main_pm" sequence="99"/>
+
+    <!-- Reporting configuration -->
+    <menuitem id="project.menu_project_config" name="Configuration" parent="project.menu_main_pm"
+              sequence="100" groups="project.group_project_manager,smartest_project.group_project_leader"/>
+
+    <record model="ir.ui.view" id="view_project_kanban">
+        <field name="name">project.project.kanban</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='container o_kanban_card_manage_pane dropdown-menu']" position="attributes">
+                <attribute name="groups">project.group_project_manager,smartest_project.group_project_leader</attribute>
+            </xpath>
+            <xpath expr="//a[@class='o_kanban_manage_toggle_button o_dropdown_kanban']" position="attributes">
+                <attribute name="groups">project.group_project_manager,smartest_project.group_project_leader</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="smartest_edit_project_inherit" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="smartest_team_id"/>
+            </field>
+            <xpath expr="//field[@name='privacy_visibility']//.." position="after">
+                <group>
+                    <field name="smartest_use_sprint" widget="boolean_toggle"/>
+                    <field name="smartest_task_assign_mode" widget="radio"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="smartest_project_project_view_form_simplified_inherit" model="ir.ui.view">
+        <field name="name">smartest.project.project.view.form.simplified.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.project_project_view_form_simplified"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="smartest_team_id" class="o_project_name oe_inline" options="{'no_create': 1, 'no_create_edit': 1, 'no_open': 1}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

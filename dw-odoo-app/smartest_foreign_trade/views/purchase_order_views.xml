@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_purchase_order_inherit_import_folder_form" model="ir.ui.view">
+        <field name="name">purchase.order.inherit_purchase_folder.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='partner_ref']" position="after">
+                <field name="purchase_folder_import_id" groups="smartest_foreign_trade.group_foreign_trade_user" attrs="{'readonly': [('state','not in',['draft','sent'])]}"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="act_apurchase_order_import_folder" model="ir.actions.server">
+        <field name="name">Purchase Order Analysis</field>
+        <field name="model_id"
+               ref="purchase.model_purchase_order"/>
+        <field name="binding_model_id" ref="smartest_foreign_trade.model_smartest_import_folder"/>
+        <field name="state">code</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        <field name="code">action = model.action_purchase_order_analysis()</field>
+    </record>
+
+    <record id="purchase.purchase_rfq" model="ir.actions.act_window">
+        <field name="domain">[('purchase_folder_import_id','=',False)]</field>
+    </record>
+    <record id="purchase.purchase_form_action" model="ir.actions.act_window">
+        <field name="domain">[('state','in',('purchase', 'done')),('purchase_folder_import_id','=',False)]</field>
+    </record>
+
+    <record id="purchase_import_rfq" model="ir.actions.act_window">
+        <field name="name">Requests for Import Quotation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph,calendar,activity</field>
+        <field name="view_id" ref="purchase.purchase_order_kpis_tree"/>
+        <field name="domain">[('purchase_folder_import_id','!=',False)]</field>
+        <field name="search_view_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="context">{'quotation_only': True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No request for Import quotation found. Let's create one!
+            </p>
+            <p>
+                Requests for Import quotation are documents that will be sent to your Import suppliers to request prices
+                for different products you consider buying.
+                Once an agreement has been found with the supplier, they will be confirmed and turned into purchase
+                orders.
+            </p>
+        </field>
+    </record>
+    <record id="import_purchase_form_action" model="ir.actions.act_window">
+        <field name="name">Import Purchase Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph,calendar,activity</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('purchase.purchase_order_view_tree')}),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('purchase.purchase_order_view_kanban_without_dashboard')}),
+            ]"/>
+        <field name="domain">[('state','in',('purchase', 'done')),('purchase_folder_import_id','!=',False)]</field>
+        <field name="search_view_id" ref="purchase.purchase_order_view_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Import purchase order found. Let's create one!
+            </p>
+            <p>
+                Once you ordered your products to your Import supplier, confirm your request for quotation and it
+                will turn into a purchase order.
+            </p>
+        </field>
+    </record>
+
+</odoo>

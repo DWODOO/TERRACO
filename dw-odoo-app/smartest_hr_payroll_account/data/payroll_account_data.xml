@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="payroll_account_record" model="payroll.account">
+            <field name="name">Payroll Account</field>
+        </record>
+    </data>
+</odoo>

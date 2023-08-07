@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="smartest_move_payment_tree_view" model="ir.ui.view">
+        <field name="name">account.move.payments.tree</field>
+        <field name="model">account.move</field>
+        <field name="arch" type="xml">
+            <tree create="0" edit="0" import="0">
+                <field name="name"/>
+                <field name="move_type" readonly="1"/>
+                <field name="partner_id" readonly="1"/>
+                <field name="date" readonly="1"/>
+                <field name="journal_id" readonly="1"/>
+                <field name="smartest_move_payment_amount" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="smartest_move_payment_action" model="ir.actions.act_window">
+        <field name="name">Analyse Factures</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[('journal_id.type', 'in', ('sale','bank', 'cash')),('state', '=', 'posted'),'|',('move_type', '=', 'out_invoice'),('move_type', '=', 'entry')]</field>
+        <field name="view_id" ref="smartest_move_payment_tree_view"/>
+        <field name="context">{'group_by': 'partner_id'}</field>
+    </record>
+
+<!--    <menuitem action="smartest_move_payment_action" id="move_payment_analyse" name="Analyses des factures" parent="account_reports.account_reports_partners_reports_menu" sequence="4"/>-->
+</odoo>

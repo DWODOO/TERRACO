@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_sale_details_form" model="ir.ui.view">
+        <field name="name">sale.details.form</field>
+        <field name="model">sale.details</field>
+        <field name="arch" type="xml">
+        <form>
+            <header>
+                <button string="Validate" name="action_make_done" type="object" class="oe_highlight" attrs="{'invisible': ['|',('state', '==', 'done'),('transaction_type', '==', False)]}" confirm="Want to Proceed ?"/>
+                <button string="Sale" name="action_print_sale_order_report" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                <button string="Bon de Livraison" name="action_print_picking" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                <button string="Ticket" name="action_print_invoice_ticket" type="object" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+            </header>
+            <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button class="oe_stat_button" string="Sale" icon="fa-pencil-square-o" name="action_open_sale" type="object" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                    <button class="oe_stat_button" string="Invoice" icon="fa-pencil-square-o" name="action_open_invoice" type="object" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                    <button class="oe_stat_button" string="Picking" icon="fa-pencil-square-o" name="action_open_picking" type="object" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                </div>
+                <group col="2">
+                    <button string="Scanner" name="open_barcode_scanner" icon="fa-bars" type="object" class="oe_highlight" attrs="{'invisible': [('transaction_type', 'not in', ['sale','return'])]}"/>
+                    <field name="date" invisible="1"/>
+                    <field name="sale_order_id" invisible="1"/>
+                    <field name="user_id" readonly="1" invisible="1"/>
+                </group>
+                <group col="2">
+                    <field name="partner_id" required="1" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                </group>
+                <group col="4">
+                    <field name="price_list_id" attrs="{'invisible': [('partner_id', '==', False)],'readonly': [('state', '=', 'done')]}"/>
+                    <field name="transaction_type" readonly="1" attrs="{'invisible': [('transaction_type', '==', False)]}"/>
+                </group>
+                <group col="6" attrs="{'invisible': ['|',('partner_id', '==', False),('transaction_type', '!=', False)]}">
+                    <button string="Sale" name="action_register_sale_order" type="object" class="oe_highlight"/>
+                    <button string="Payment" name="action_register_payment" type="object" class="oe_highlight"/>
+                    <button string="Return" name="action_register_return" type="object" class="oe_highlight"/>
+                </group>
+                <group>
+                    <field name="warehouse_id" readonly="0" attrs="{'invisible': ['|',('transaction_type', '==', 'payment'),('partner_id', '==', False)],'required': [('transaction_type', '==', 'return')],'readonly': [('state', '=', 'done')]}"/>
+                </group>
+                <notebook>
+                    <page name="lines" string="Lines" attrs="{'invisible': [('transaction_type', 'not in', ['sale','return'])],'readonly': [('state', '=', 'done')]}">
+                        <field name="line_ids">
+                            <tree editable="top">
+                                <field name="product_id"/>
+                                <field name="lot_id"/>
+                                <field name="unit_price" readonly="False"/>
+                                <field name="quantity" force_save="1"/>
+                                <field name="location_id"/>
+                                <field name="company_currency_id" invisible="1"/>
+                                <field name="company_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+        </field>
+    </record>
+
+
+    <record id="view_sale_details_action" model="ir.actions.act_window">
+        <field name="name">Sale Details</field>
+        <field name="res_model">sale.details</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_user_id': uid}</field>
+        <field name="target">new</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new Sale
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_sale_details"
+        name="Sale Details"
+        sequence="5"
+        web_icon="sale_details,static/img/img.png"
+        action="view_sale_details_action"/>
+
+</odoo>

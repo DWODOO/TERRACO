@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'Algeria - HR Management System',
+    'version': '15.0.1',
+    'category': 'Localization',
+    'description': """
+        This module add the necessary fields and features for the Algerian HR system.
+        """,
+    'author': 'SMARTEST - ALGERIA',
+    'website': 'www.smartest.dz',
+    'depends': [
+        'hr_contract',
+        'hr_recruitment',
+        'hr_payroll_attendance',
+        'smartest_base'
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'wizard/hr_contract_decision_wizard.xml',
+        'wizard/hr_contract_amendment_wizard.xml',
+        'views/hr_contract_decisions.xml',
+        'views/hr_contract_decisions_type.xml',
+        'views/hr_contract_type_view.xml',
+        'views/hr_employee_views.xml',
+        'views/hr_contract_views.xml',
+        'views/res_config_settings_views.xml',
+        'views/hr_printing_log.xml',
+        'data/sequences.xml',
+        'data/hr_payment_type_data.xml',
+        'security/hr_security.xml',
+        'report/hr_contract_report.xml',
+        'report/hr_employement_certificate_report.xml',
+        'report/hr_employement_attestation_report.xml',
+        'wizard/printing_wizard_views.xml',
+        'views/employee_children.xml',
+        'views/hr_socio_professional_category_view.xml',
+        'views/hr_department.xml',
+        'views/hr_law_sections.xml',
+        'data/hr_contract_decision_type.xml',
+        # 'data/hr_contract_type_data.xml',
+        'views/hr_contract_menus_view.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}

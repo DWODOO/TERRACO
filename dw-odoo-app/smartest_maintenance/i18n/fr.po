@@ -1,0 +1,586 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* smartest_maintenance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-13 13:52+0000\n"
+"PO-Revision-Date: 2022-04-13 13:52+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.equipment_history_view_form
+msgid "Assign"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.ui.menu,name:smartest_maintenance.maintenance_equipment_history
+msgid "Assignation History"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__user_id
+msgid "Assigne to"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.view_maintenance_preventive_dates_search
+msgid "Assigned"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.view_maintenance_preventive_dates_search
+msgid "Assigned To"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__date_assignment
+msgid "Assignment Date"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_equipment_form_view_inherit
+msgid "Assignment History"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__company_id
+msgid "Company"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_repair_order__compute_state
+msgid "Compute State"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.actions.act_window,help:smartest_maintenance.action_maintenance_equipment_history_tree
+msgid "Create new equipment assignation"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__create_uid
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__create_uid
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__create_date
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__create_date
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__period_str__custom
+msgid "Custom"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__period_str__daily
+msgid "Daily"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,help:smartest_maintenance.field_maintenance_equipment_history__date_assignment
+msgid "Date when the equipment was assigned to the new employee."
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,help:smartest_maintenance.field_maintenance_preventive_lines__product_uom
+msgid "Default unit of measure used for all stock operations."
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_equipment_history__assign_equipment_to__department
+msgid "Department"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__display_name
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__display_name
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__state__done
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_preventive_dates_view_form
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.view_maintenance_preventive_dates_search
+msgid "Done"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_preventive_dates_view_form
+msgid "Durée"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_equipment_history__assign_equipment_to__employee
+msgid "Employee"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__equipment_id
+msgid "Equipement"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_repair_order__equipement_id
+msgid "Equipement to Repair"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.repair_order_form_view_inherit_smart
+msgid "Equipement à réparer"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__equipment_id
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.view_maintenance_preventive_dates_search
+msgid "Equipment"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.actions.act_window,name:smartest_maintenance.action_maintenance_equipment_history_tree
+msgid "Equipment Assignation"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model,name:smartest_maintenance.model_maintenance_equipment_history
+msgid "Equipment History"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.actions.act_window,name:smartest_maintenance.action_repair_on_equipment
+#: model:ir.ui.menu,name:smartest_maintenance.menu_repair_on_equipment
+msgid "Equipment Repair"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.ui.menu,name:smartest_maintenance.menu_equipment
+msgid "Equipments"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment__first_maintenance_request
+msgid "First Maintenance Date"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__old_department_id
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__old_employee_id
+msgid "From"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_equipment_form_view_inherit
+msgid "From Department"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_equipment_form_view_inherit
+msgid "From Employee"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.view_maintenance_preventive_dates_search
+msgid "Group By"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment__history_ids
+msgid "History of assignation"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__id
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__id
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__id
+msgid "ID"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history____last_update
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates____last_update
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__write_uid
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__write_uid
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__write_date
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__write_date
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_repair_order__location_id
+msgid "Location"
+msgstr "Lieu"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__priority__0
+msgid "Low"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.repair_order_form_view_inherit_smart
+msgid "Maintenance"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model,name:smartest_maintenance.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "Equipement de maintenance"
+
+#. module: smartest_maintenance
+#: code:addons/repositories/smartest-odoo-app/smartest_maintenance/models/repair_order.py:0
+#: code:addons/smartest_maintenance/models/repair_order.py:0
+#, python-format
+msgid "Maintenance Order"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.ui.menu,name:smartest_maintenance.menu_maintenance_preventive_dates
+msgid "Maintenance Preventive"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model,name:smartest_maintenance.model_maintenance_request
+#: model:ir.model.fields,field_description:smartest_maintenance.field_repair_order__maintenance_request_id
+msgid "Maintenance Request"
+msgstr "Demande de maintenance"
+
+#. module: smartest_maintenance
+#: code:addons/repositories/smartest-odoo-app/smartest_maintenance/models/maintenance_request.py:0
+#: code:addons/smartest_maintenance/models/maintenance_request.py:0
+#, python-format
+msgid "Maintenance Request(s)"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__maintenance_request_ids
+msgid "Maintenance Requests"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_repair_order__repair_equipement
+msgid "Maintenance sur Equipement"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__period_str__monthly
+msgid "Monthly"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__name
+msgid "Name"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.equipment_history_view_form
+msgid "New Affectation"
+msgstr ""
+
+#. module: smartest_maintenance
+#: code:addons/repositories/smartest-odoo-app/smartest_maintenance/models/maintenance_equipment.py:0
+#: code:addons/smartest_maintenance/models/maintenance_equipment.py:0
+#, python-format
+msgid "New Equipment Assignation"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__nbr_due_dates
+msgid "Nombre D'écheance"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__priority__1
+msgid "Normal"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.equipment_history_view_form
+msgid "Old Affectation"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__is_operation
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_preventive_dates_view_form
+msgid "Operation"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_preventive_dates_view_form
+msgid "Operations"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__operation_line_ids
+msgid "Operations Lines"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__operation_name
+msgid "Opération"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_request__repair_id
+msgid "Ordre de Reparation"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_equipment_history__assign_equipment_to__other
+msgid "Other"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__is_pdr
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_preventive_dates_view_form
+msgid "PDR"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__pdr_line_ids
+msgid "PDR Lines"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__period
+msgid "Period (days)"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.actions.act_window,name:smartest_maintenance.maintenance_preventive_dates_action
+msgid "Plan Preventive Maintenance"
+msgstr ""
+
+#. module: smartest_maintenance
+#: code:addons/repositories/smartest-odoo-app/smartest_maintenance/models/maintenance_request.py:0
+#: code:addons/smartest_maintenance/models/maintenance_request.py:0
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_request_form_view_inherit_smart
+#, python-format
+msgid "Preventive"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__operation_preventive_id
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_request__preventive_id
+msgid "Preventive Date"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__priority
+msgid "Priority"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_repair_order__product_qty
+msgid "Product Quantity"
+msgstr "Quantité d'articles"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_repair_order__product_uom
+msgid "Product Unit of Measure"
+msgstr "Unité de mesure d'article"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_repair_order__product_id
+msgid "Product to Repair"
+msgstr "Article à réparer"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__product_id
+msgid "Produit"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__product_qty
+msgid "Quantity"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_equipment_form_view_inherit
+msgid "Re-assign"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_request_form_view_inherit_smart
+msgid "Repair"
+msgstr ""
+
+#. module: smartest_maintenance
+#: code:addons/repositories/smartest-odoo-app/smartest_maintenance/models/maintenance_request.py:0
+#: code:addons/smartest_maintenance/models/maintenance_request.py:0
+#: model:ir.model,name:smartest_maintenance.model_repair_order
+#: model:ir.model.fields,field_description:smartest_maintenance.field_stock_picking__repair_order_id
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_request_form_view_inherit_smart
+#, python-format
+msgid "Repair Order"
+msgstr "Ordre de réparation"
+
+#. module: smartest_maintenance
+#: code:addons/repositories/smartest-odoo-app/smartest_maintenance/models/repair_order.py:0
+#: code:addons/smartest_maintenance/models/repair_order.py:0
+#, python-format
+msgid "Repair must be repaired in order to make the product moves."
+msgstr ""
+
+#. module: smartest_maintenance
+#: code:addons/repositories/smartest-odoo-app/smartest_maintenance/models/repair_order.py:0
+#: code:addons/smartest_maintenance/models/repair_order.py:0
+#, python-format
+msgid "Repair must be under repair in order to end reparation."
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_request__stage_id_done
+msgid "Request Done"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__number_maintenance_request_ids
+msgid "Request(s)"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.view_maintenance_preventive_dates_search
+msgid "Search Repair Orders"
+msgstr ""
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__start_date
+msgid "Start Date"
+msgstr "Date de depart"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__location_id
+msgid "Start Location"
+msgstr "Emplacement de depart"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__state
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.view_maintenance_preventive_dates_search
+msgid "State"
+msgstr "Etat"
+
+#. module: smartest_maintenance
+#: code:addons/repositories/smartest-odoo-app/smartest_maintenance/models/repair_order.py:0
+#: code:addons/smartest_maintenance/models/repair_order.py:0
+#, python-format
+msgid "Stock Picking"
+msgstr "Transfert"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,help:smartest_maintenance.field_repair_order__location_id
+msgid "This is the location where the product to repair is located."
+msgstr "L'emplacement où l'article à réparer se situe."
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__new_department_id
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__new_employee_id
+msgid "To"
+msgstr "à"
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_equipment_form_view_inherit
+msgid "To Department"
+msgstr "au Departement"
+
+#. module: smartest_maintenance
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.maintenance_equipment_form_view_inherit
+msgid "To Employee"
+msgstr "a L'employée"
+
+#. module: smartest_maintenance
+#: model:ir.model,name:smartest_maintenance.model_stock_picking
+msgid "Transfer"
+msgstr "Transfert"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_repair_order__picking_id
+#: model_terms:ir.ui.view,arch_db:smartest_maintenance.repair_order_form_view_inherit_smart
+msgid "Transfert"
+msgstr "Transfert"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_lines__product_uom
+msgid "UOM"
+msgstr "unite de mesure"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__priority__3
+msgid "Urgent"
+msgstr "Urgent"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_equipment_history__assign_equipment_to
+msgid "Used By"
+msgstr "Utilisé par"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__period_str__weekly
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__period_str__yearly
+msgid "Yearly"
+msgstr "Annuelle"
+
+#. module: smartest_maintenance
+#: code:addons/repositories/smartest-odoo-app/smartest_maintenance/models/repair_order.py:0
+#: code:addons/smartest_maintenance/models/repair_order.py:0
+#, python-format
+msgid "You can not enter negative quantities."
+msgstr "Vous ne pouvez pas entrer des quantités negatives"
+
+#. module: smartest_maintenance
+#: code:addons/repositories/smartest-odoo-app/smartest_maintenance/models/maintenance_request.py:0
+#: code:addons/smartest_maintenance/models/maintenance_request.py:0
+#, python-format
+msgid "You can only delete draft or canceled records."
+msgstr "Vous pouvez supprimer que les records en brouillon"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields.selection,name:smartest_maintenance.selection__maintenance_preventive_dates__priority__2
+msgid "hight"
+msgstr "haut"
+
+#. module: smartest_maintenance
+#: model:ir.model,name:smartest_maintenance.model_maintenance_preventive_dates
+msgid "maintenance.preventive.dates"
+msgstr "dates de maintenances preventive"
+
+#. module: smartest_maintenance
+#: model:ir.model,name:smartest_maintenance.model_maintenance_preventive_lines
+msgid "maintenance.preventive.lines"
+msgstr "Lignes de maintenance preventive"
+
+#. module: smartest_maintenance
+#: model:ir.model.fields,field_description:smartest_maintenance.field_maintenance_preventive_dates__period_str
+msgid "periodically"
+msgstr "périodiquement"

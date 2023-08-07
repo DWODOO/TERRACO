@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_imputation_sheet_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page"/>
+                    <h3 style="border:2px solid black;padding:30px;text-align:center">
+                        FICHE D'IMPUTATION COMPTABLE
+                    </h3>
+                    <br/>
+                    <br/>
+                    <div class="row">
+                        <table class="table table-condensed"
+                               style="border:2px solid black;width:75%;border-collapse: collapse; border-spacing: 0 15px;">
+                            <tr>
+                                <td style="border:1px solid black;text-align: left;width:35%; padding: 5px;">
+                                    <span>
+                                        <strong>
+                                            JOURNAL
+                                        </strong>
+                                    </span>
+                                </td>
+                                <td style="border:1px solid black;text-align: center;width:65%; padding: 5px;">
+                                    <strong>
+                                        <span t-field="o.journal_id"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;width:35%;text-align:left; padding: 5px;">
+                                    <span>
+                                        <strong>
+                                            PIECE
+                                        </strong>
+                                    </span>
+                                </td>
+                                <td style="border:1px solid black;text-align: center;width:65%; padding: 5px;">
+                                    <strong>
+                                        <span t-field="o.name"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;width:35%;text-align:left; padding: 5px;">
+                                    <span>
+                                        <strong>
+                                            DATE
+                                        </strong>
+                                    </span>
+                                </td>
+                                <td style="border:1px solid black;text-align: center;width:65%; padding: 5px;">
+                                    <strong>
+
+                                        <span t-field="o.date"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;width:35%;text-align:left; padding: 5px;">
+                                    <span>
+                                        <strong>
+                                            REFERENCE
+                                        </strong>
+                                    </span>
+                                </td>
+                                <td style="border:1px solid black;text-align: center;width:65%; padding: 5px;">
+                                    <strong>
+                                        <span t-field="o.ref"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid black;width:35%;text-align:left; padding: 5px;">
+                                    <SPAN>
+                                        <strong>
+                                            LIBELLE
+                                        </strong>
+                                    </SPAN>
+
+                                </td>
+                                <td style="border:1px solid black;text-align: center;width:65%; padding: 5px;">
+                                    <strong>
+                                        <!--                                        <span t-field="o.name"/>-->
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <table class="table table-condensed" style="border:2px solid black;">
+                            <tr>
+                                <td style="border:1px solid black; font-size: 10px;white-space: nowrap;padding: 5px;">
+                                    <span>
+                                        COMPTE
+                                    </span>
+                                </td>
+                                <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                    <SPAN>
+                                        <strong>
+                                            LIB. COMPTE
+                                        </strong>
+                                    </SPAN>
+                                </td>
+                                <td style="border:1px solid black;font-size: 10px;white-space: nowrap;padding: 5px;">
+                                    <span>
+                                        AUXILAIRE
+                                    </span>
+                                </td>
+                                <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                    <SPAN>
+                                        <strong>
+                                            LIB. AUXILAIRE
+                                        </strong>
+                                    </SPAN>
+                                </td>
+                                <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                    <span>
+                                        <strong>
+                                            LIBELLE
+                                        </strong>
+                                    </span>
+                                </td>
+                                <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                    <SPAN>
+                                        <strong>
+                                            DEBIT
+                                        </strong>
+                                    </SPAN>
+                                </td>
+                                <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                    <span>
+                                        <strong>
+                                            CREDIT
+                                        </strong>
+                                    </span>
+                                </td>
+
+                            </tr>
+                            <t t-foreach="o.line_ids" t-as="line">
+                                <tr style="height:1px;">
+                                    <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                        <span t-field="line.account_id.code"/>
+                                    </td>
+                                    <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                        <span t-field="line.account_id.name"/>
+
+                                    </td>
+                                    <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                        <!--                                     <span t-field="line.partner_id.code"/>-->
+                                    </td>
+                                    <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                        <span t-field="line.partner_id.name"/>
+                                    </td>
+                                    <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                        <span t-field="line.name"/>
+                                    </td>
+
+                                    <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                        <span t-field="line.debit"/>
+                                    </td>
+                                    <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                        <span t-field="line.credit"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td colspan="5"
+                                    style="text-align:right;white-space: nowrap;padding: 5px;font-size: 17px">
+                                    <strong>
+                                        TOTAL GENERAL
+                                    </strong>
+                                </td>
+                                <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                    <span t-field="o.amount_total"/>
+                                </td>
+                                <td style="border:1px solid black;white-space: nowrap;padding: 5px;">
+                                    <span t-field="o.amount_total_signed"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <table style="border:2px solid black;width:100%; page-break-inside: avoid;margin-top:100px;">
+                        <tr>
+                            <td style="text-align:center;padding: 3px;">
+                                <h5>
+                                    COMPTABILISE PAR
+                                </h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;padding:80px">
+
+                            </td>
+
+                        </tr>
+                    </table>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="report_account_sheet" model="ir.actions.report">
+        <field name="name">Imputation Sheet</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_l10n_dz.report_imputation_sheet_document</field>
+        <field name="report_file">smartest_l10n_dz.report_imputation_sheet_document</field>
+        <field name="binding_model_id" ref="model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="groups_id" eval="[(4, ref('account.group_account_manager'))]"/>
+    </record>
+
+</odoo>

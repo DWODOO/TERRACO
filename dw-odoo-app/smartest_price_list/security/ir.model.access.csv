@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pricelist_margin,pricelist.margin,model_pricelist_margin,base.group_user,1,1,1,1
+access_pricelist_margin_line,pricelist.margin.line,model_pricelist_margin_line,base.group_user,1,1,1,1
+access_pricelist_coefficient,pricelist.coefficient,model_pricelist_coefficient,base.group_user,1,1,1,1

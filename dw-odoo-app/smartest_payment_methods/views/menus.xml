@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        Root Menu        -->
+        <menuitem id="smartest_payment_cash_menu_root" name="Cash" groups="group_cash_user"
+                  web_icon="smartest_payment_cash,static/description/icon.png"/>
+
+        <!--        other        -->
+        <menuitem id="smartest_payment_cash_menu_other" name="Other"
+                  parent="smartest_payment_cash_menu_root" sequence="98"/>
+
+<!--        <menuitem id="smartest_payment_cash_menu_cancel_ticket" name="Cancel Ticket"-->
+<!--                  action="cash_ticket_cancel_action"-->
+<!--                  parent="smartest_payment_cash_menu_other" sequence="20"/>-->
+
+        <menuitem id="smartest_payment_cash_menu_customer_payment" name="Customer payment"
+                  action="account.action_account_payments"
+                  parent="smartest_payment_cash_menu_other" sequence="10"/>
+
+        <menuitem id="smartest_payment_cash_menu_supplier_payment" name="supplier payment"
+                  action="account.action_account_payments_payable"
+                  parent="smartest_payment_cash_menu_other" sequence="10"/>
+
+        <menuitem id="smartest_payment_cash_menu_close_cash_desk" name="Close Cash Desk"
+                  action="cash_desk_close_action"
+                  groups="smartest_payment_cash.group_cash_close"
+                  parent="smartest_payment_cash_menu_other" sequence="30"/>
+
+        <menuitem id="smartest_payment_cash_menu_cash_register" name="Cash Register"
+                  action="cash_register_action"
+                  groups="smartest_payment_cash.group_cash_user"
+                  parent="smartest_payment_cash_menu_root" sequence="20"/>
+
+          <!--        Invoices        -->
+        <menuitem id="car_cash_menu_invoice" name="Invoices" parent="smartest_payment_cash_menu_root" sequence="20"
+                  groups="group_cash_user"/>
+
+        <menuitem id="car_cash_menu_invoice_all" name="All Invoices" parent="car_cash_menu_invoice" sequence="10"
+                  action="account.action_move_out_invoice_type"/>
+
+
+        <!--        Configuration        -->
+        <menuitem id="smartest_payment_cash_menu_configuration" name="Configuration" groups="group_cash_manager"
+                  parent="smartest_payment_cash_menu_root" sequence="99"/>
+            <menuitem id="smartest_payment_cash_menu_settings" name="Settings"
+                      action="action_config_settings"
+                      parent="smartest_payment_cash_menu_configuration" sequence="10"/>
+            <menuitem id="smartest_payment_cash_menu_cash_desk" name="Cash Desk" action="cash_desk_action"
+                      parent="smartest_payment_cash_menu_configuration" sequence="20"/>
+            <menuitem id="smartest_payment_cash_menu_res_users" name="Cashier" action="res_users_action"
+                      parent="smartest_payment_cash_menu_configuration" sequence="30"/>
+            <menuitem id="smartest_payment_cash_menu_payment_method" name="Payment Methods" action="payment_method_action"
+                      parent="smartest_payment_cash_menu_configuration" sequence="40"/>
+
+<!--operations-->
+        <menuitem id="smartest_payment_cash_menu_operation" name="Operations"
+                  parent="smartest_payment_cash_menu_root" sequence="10"/>
+        <menuitem id="smartest_payment_cash_bank_statement" name="Caisse"
+                  action="account.action_view_bank_statement_tree"
+                  parent="smartest_payment_cash_menu_operation" sequence="10"/>
+        <menuitem id="smartest_payment_cash_menu_cus_payment" name="Customer Payment"
+                  action="account.action_account_payments"
+                  parent="smartest_payment_cash_menu_operation" sequence="20"/>
+        <menuitem id="smartest_payment_cash_menu_sup_payment" name="Supplier Payment"
+                  action="account.action_account_payments_payable"
+                  parent="smartest_payment_cash_menu_operation" sequence="30"/>
+        <menuitem id="smartest_payment_cash_menu_transfer" name="Transfer Intern"
+                  action="account.action_account_payments_transfer"
+                  parent="smartest_payment_cash_menu_operation" sequence="40"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hr_payroll_dz_absence_form" model="ir.ui.view">
+        <field name="name">hr.absence.form</field>
+        <field name="model">hr.absence</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm"
+                            string="Confirm"
+                            type="object"
+                            states="draft"
+                            class="oe_highlight"/>
+                    <button name="action_cancel"
+                            string="Cancel"
+                            type="object"
+                            states="confirm"/>
+                    <field name="state"
+                           widget="statusbar"/>
+                </header>
+                <sheet>
+                    <label for="name" class="oe_edit_only"/>
+                    <div>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                        <group>
+                            <field name="duration_type" widget="radio" options="{'horizontal': true}"/>
+                            <label for="duration" string="duration" attrs="{'invisible': [('duration_type', '!=', 'hours')]}"/>
+                            <div attrs="{'invisible': [('duration_type', '!=', 'hours')]}">
+                                <field name="duration" widget="float_time" class="oe_inline" nolabel="1"/>
+                                <span> Hours</span>
+                            </div>
+                            <label for="duration" string="duration" attrs="{'invisible': [('duration_type', '!=', 'days')]}"/>
+                            <div attrs="{'invisible': [('duration_type', '!=', 'days')]}">
+                                <field name="duration" class="oe_inline" nolabel="1"/>
+                                <span> Days</span>
+                            </div>
+                            <field name="work_entry_type_id"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description" nolabel="1" placeholder="Description..."/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_payroll_dz_absence_tree" model="ir.ui.view">
+        <field name="name">hr.absence.tree</field>
+        <field name="model">hr.absence</field>
+        <field name="arch" type="xml">
+            <tree string="absence list"
+                  decoration-info="state == 'draft'"
+                  decoration-muted="state == 'cancel'"
+                  decoration-success="state == 'confirm'">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="date_from" optional="hide"/>
+                <field name="date_to" optional="hide"/>
+                <field name="duration" sum="Total"/>
+                <field name="duration_type"/>
+                <field name="state" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hr_absence_action">
+        <field name="name">Absences</field>
+        <field name="res_model">hr.absence</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click on create button to add employees absence days.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="hr_payroll_dz_absence_menu"
+              parent="l10n_dz_payroll.hr_divers_menu"
+              action="hr_absence_action"
+              sequence="1"/>
+</odoo>

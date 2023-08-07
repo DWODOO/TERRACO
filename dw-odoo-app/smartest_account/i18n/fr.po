@@ -1,0 +1,180 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* smartest_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-20 09:03+0000\n"
+"PO-Revision-Date: 2022-11-20 09:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: smartest_account
+#: model_terms:ir.ui.view,arch_db:smartest_account.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" aria-label=\"Values set here are company-specific.\" "
+"groups=\"base.group_multi_company\" role=\"img\"/>"
+msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" aria-label=\"Les valeurs définies ici sont spécifiques à l'entreprise.\" "
+"groups=\"base.group_multi_company\" role=\"img\"/>"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_res_company__stamp_tax_account_id
+#: model:ir.model.fields,field_description:smartest_account.field_res_config_settings__stamp_tax_account_id
+#: model_terms:ir.ui.view,arch_db:smartest_account.res_config_settings_view_form
+msgid "Account"
+msgstr "Compte"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_res_company__invoice_amount_min
+#: model:ir.model.fields,field_description:smartest_account.field_res_config_settings__invoice_amount_min
+msgid "Amount Max."
+msgstr "Plafond"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_account_bank_statement_line__amount_total_words
+#: model:ir.model.fields,field_description:smartest_account.field_account_move__amount_total_words
+#: model:ir.model.fields,field_description:smartest_account.field_account_payment__amount_total_words
+msgid "Amount Total Words"
+msgstr "Montant total en lettre"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_account_bank_statement_line__apply_stamp_duty_tax
+#: model:ir.model.fields,field_description:smartest_account.field_account_move__apply_stamp_duty_tax
+#: model:ir.model.fields,field_description:smartest_account.field_account_payment__apply_stamp_duty_tax
+#: model:ir.model.fields,field_description:smartest_account.field_account_payment_method__apply_stamp_duty_tax
+msgid "Apply Stamp Duty?"
+msgstr "Appliquer le droit de timbre ?"
+
+#. module: smartest_account
+#: model:ir.model,name:smartest_account.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: smartest_account
+#: model:ir.model,name:smartest_account.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuration"
+
+#. module: smartest_account
+#: model_terms:ir.ui.view,arch_db:smartest_account.res_config_settings_view_form
+msgid "Invoice Min Amount"
+msgstr "Montant minimum de la facture"
+
+#. module: smartest_account
+#: model:ir.model,name:smartest_account.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: smartest_account
+#: model:ir.model,name:smartest_account.model_account_move_line
+msgid "Journal Item"
+msgstr "Écriture comptable"
+
+#. module: smartest_account
+#: model_terms:ir.ui.view,arch_db:smartest_account.res_config_settings_view_form
+msgid "Max Threshold"
+msgstr "Seuil Maximum"
+
+#. module: smartest_account
+#: model_terms:ir.ui.view,arch_db:smartest_account.res_config_settings_view_form
+msgid "Min Threshold"
+msgstr "Seuil Minimum"
+
+#. module: smartest_account
+#: model_terms:ir.actions.act_window,help:smartest_account.payment_method_action
+msgid "No Payment Type Available !"
+msgstr "Aucun type de paiement disponible !"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_account_bank_statement_line__payment_method_id
+#: model:ir.model.fields,field_description:smartest_account.field_account_move__payment_method_id
+#: model_terms:ir.ui.view,arch_db:smartest_account.payment_method_view_form
+#: model_terms:ir.ui.view,arch_db:smartest_account.payment_method_view_tree
+msgid "Payment Method"
+msgstr "Méthode de paiement"
+
+#. module: smartest_account
+#: model:ir.actions.act_window,name:smartest_account.payment_method_action
+#: model:ir.model,name:smartest_account.model_account_payment_method
+#: model:ir.ui.menu,name:smartest_account.account_menu_payment_method
+msgid "Payment Methods"
+msgstr "Méthodes de paiements"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_res_company__slice
+#: model:ir.model.fields,field_description:smartest_account.field_res_config_settings__slice
+#: model_terms:ir.ui.view,arch_db:smartest_account.res_config_settings_view_form
+msgid "Slice"
+msgstr "Tranche"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_res_company__slice_amount
+#: model:ir.model.fields,field_description:smartest_account.field_res_config_settings__slice_amount
+#: model_terms:ir.ui.view,arch_db:smartest_account.res_config_settings_view_form
+msgid "Slice Amount"
+msgstr "Montant de la tranche"
+
+#. module: smartest_account
+#: code:addons/smartest_account/models/account_move.py:0
+#: model:ir.model.fields,field_description:smartest_account.field_account_bank_statement_line__amount_stamp_tax
+#: model:ir.model.fields,field_description:smartest_account.field_account_move__amount_stamp_tax
+#: model:ir.model.fields,field_description:smartest_account.field_account_move_line__is_stamp_tax_line
+#: model:ir.model.fields,field_description:smartest_account.field_account_payment__amount_stamp_tax
+#, python-format
+msgid "Stamp Duty"
+msgstr "Droit de timbre"
+
+#. module: smartest_account
+#. openerp-web
+#: code:addons/smartest_account/static/src/xml/legacy_tax_totals.xml:0
+#: code:addons/smartest_account/static/src/xml/tax_totals.xml:0
+#, python-format
+msgid "Stamp duty"
+msgstr "Droit de timbre"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_res_company__stamp_tax_max
+#: model:ir.model.fields,field_description:smartest_account.field_res_config_settings__stamp_tax_max
+msgid "Tax Amount Max."
+msgstr "Montant maximum de la taxe"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_res_company__stamp_tax_min
+#: model:ir.model.fields,field_description:smartest_account.field_res_config_settings__stamp_tax_min
+msgid "Tax Amount Min."
+msgstr "Montant minimum de la taxe"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_account_bank_statement_line__amount_total_with_tva
+#: model:ir.model.fields,field_description:smartest_account.field_account_move__amount_total_with_tva
+#: model:ir.model.fields,field_description:smartest_account.field_account_payment__amount_total_with_tva
+msgid "Total With TVA"
+msgstr "Montant TTC"
+
+#. module: smartest_account
+#: model_terms:ir.ui.view,arch_db:smartest_account.res_config_settings_view_form
+msgid "Use Stamp Duty Tax on Purchase Invoicing"
+msgstr "Utiliser le droit de timbre sur la facture d'achat"
+
+#. module: smartest_account
+#: model:ir.model.fields,field_description:smartest_account.field_account_bank_statement_line__use_stamp_tax
+#: model:ir.model.fields,field_description:smartest_account.field_account_move__use_stamp_tax
+#: model:ir.model.fields,field_description:smartest_account.field_account_payment__use_stamp_tax
+#: model:ir.model.fields,field_description:smartest_account.field_res_company__use_stamp_tax
+#: model:ir.model.fields,field_description:smartest_account.field_res_config_settings__use_stamp_tax
+msgid "Use Stamp Duty Tax?"
+msgstr "Utiliser le droit de timbre"
+
+#. module: smartest_account
+#: model_terms:ir.ui.view,arch_db:smartest_account.res_config_settings_view_form
+msgid "Use Stamp Tax"
+msgstr "Utiliser le droit de timbre"

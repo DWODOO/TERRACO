@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!--
+        Form View - hr.appraisal.line
+    -->
+    <record model="ir.ui.view" id="view_hr_appraisal_line_form">
+        <field name="name">hr.appraisal.line.form</field>
+        <field name="model">hr.appraisal.line</field>
+        <field name="arch" type="xml">
+            <form string="Appraisal Line" create="false" edit="false" import="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="appraisal_id"/>
+                            <field name="employee_id"/>
+                            <field name="appraisal_employee_id" string="Evaluated by"/>
+                        </group>
+                        <group>
+                            <field name="factor_id"/>
+                            <field name="level_id"/>
+                            <field name="score"/>
+                        </group>
+                    </group>
+                    <div class="oe_chatter" style="display:block;">
+                        <field name="message_follower_ids"
+                           widget="mail_followers" groups="base.group_user"/>
+                        <field name="activity_ids"
+                           widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </sheet>
+          </form>
+        </field>
+    </record>
+
+    <!--
+        Tree View - hr.appraisal.line
+    -->
+    <record model="ir.ui.view" id="view_hr_appraisal_line_tree">
+        <field name="name">hr.appraisal.line.tree</field>
+        <field name="model">hr.appraisal.line</field>
+        <field name="arch" type="xml">
+            <tree string="Appraisal Line" create="false" edit="false" import="false">
+                <field name="appraisal_id" optional="hide"/>
+                <field name="employee_id"/>
+                <field name="appraisal_employee_id" string="Evaluated by" optional="show"/>
+                <field name="factor_id"/>
+                <field name="level_id" optional="hide"/>
+                <field name="score" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--
+        Search View - hr.appraisal.line
+    -->
+    <record model="ir.ui.view" id="view_hr_appraisal_line_search">
+        <field name="name">hr.appraisal.line.search</field>
+        <field name="model">hr.appraisal.line</field>
+        <field name="arch" type="xml">
+            <search string="Employees Performance">
+                <field name="appraisal_id"/>
+                <field name="employee_id"/>
+                <field name="appraisal_employee_id"/>
+                <field name="factor_id"/>
+                <field name="level_id"/>
+                <field name="score"/>
+                <separator/>
+                <group expand="0" string="Group By...">
+                    <filter string="Appraisal" name="group_appraisal_id" context="{'group_by':'appraisal_id'}"
+                            domain="[]"/>
+                    <filter string="Employee" name="group_employee_id" context="{'group_by':'employee_id'}"
+                            domain="[]"/>
+                    <filter string="Evaluated By" name="group_appraisal_employee_id" context="{'group_by':'appraisal_employee_id'}"
+                            domain="[]"/>
+                    <filter string="Factor" name="group_factor_id" context="{'group_by':'factor_id'}"
+                            domain="[]"/>
+                    <filter string="Level" name="group_level_id" context="{'group_by':'level_id'}"
+                            domain="[]"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--
+        Graph View - hr.appraisal.line
+    -->
+    <record model="ir.ui.view" id="view_hr_appraisal_line_graph">
+        <field name="name">hr.appraisal.line.graph</field>
+        <field name="model">hr.appraisal.line</field>
+        <field name="arch" type="xml">
+            <graph string="Employees Performance">
+                <field name="appraisal_id" type="row"/>
+                <field name="employee_id" type="row"/>
+                <field name="factor_id" type="row"/>
+                <field name="score" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!--
+        Pivot View - hr.appraisal.line
+    -->
+    <record model="ir.ui.view" id="view_hr_appraisal_line_pivot">
+        <field name="name">hr.appraisal.line.pivot</field>
+        <field name="model">hr.appraisal.line</field>
+        <field name="arch" type="xml">
+            <graph string="Employees Performance">
+                <field name="appraisal_id" type="row"/>
+                <field name="employee_id" type="row"/>
+                <field name="factor_id" type="row"/>
+                <field name="score" type="measure" widget="percentage"/>
+            </graph>
+        </field>
+    </record>
+
+    <!--
+        Action - hr.appraisal.line
+    -->
+    <record id="appraisal_line_action" model="ir.actions.act_window">
+        <field name="name">Employees Performance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.appraisal.line</field>
+        <field name="view_mode">graph,pivot,tree</field>
+        <field name="context">
+            {'search_default_group_employee_id':1, 'search_default_group_factor_id':1}
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data is available.
+            </p>
+            <p class="text-muted">
+                This report allows you to analyse the performance of your employees.
+            </p>
+        </field>
+    </record>
+
+    <!--
+        Menu Item - Inherit core Analysis menu on hr_appraisal App to make it as a parent menu
+    -->
+    <record id="hr_appraisal.menu_hr_appraisal_report" model="ir.ui.menu">
+        <field name="name">Employees Appraisals</field>
+        <field name="action" eval="False"/>
+    </record>
+
+    <!--
+        Menu Item - Appraisal analysis (hr.appraisal)
+    -->
+    <menuitem id="menu_hr_appraisal_report" name="Employee Appraisals" action="hr_appraisal.action_appraisal_report_all"
+              parent="hr_appraisal.menu_hr_appraisal_report" sequence="10"
+              groups="hr_appraisal.group_hr_appraisal_manager"/>
+
+    <!--
+        Menu Item - Employee Performances Analysis (hr.appraisal.line)
+    -->
+    <menuitem id="menu_appraisal_line_report" name="Employees Performance" action="appraisal_line_action"
+              parent="hr_appraisal.menu_hr_appraisal_report" sequence="20"
+              groups="hr_appraisal.group_hr_appraisal_manager"/>
+
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_data_calculate_in_experience_years" model="ir.cron">
+            <field name="name">HR Employee: Increment experience</field>
+            <field name="model_id" ref="model_hr_employee"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="nextcall" eval="(DateTime.now().replace(hour=0, minute=1) + timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')" />
+            <field name="code">model._cron_calculate_in_experience_years()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

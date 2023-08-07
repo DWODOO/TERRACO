@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Form    -->
+    <record id="smartest_import_file_form_view" model="ir.ui.view">
+        <field name="name">smartest.import.file.form</field>
+        <field name="model">smartest.import.file</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+
+                    <button string="Mark As Draft" class="btn-secondary" name="action_draft" type="object"
+                            attrs="{'invisible': [('state', '=', 'draft')]}"/>
+                    <button string="Mark As Open" class="btn-secondary" name="action_open" type="object"
+                            attrs="{'invisible': [('state', 'in', ['open','pre_dom'])]}"/>
+                    <button string="Mark As Closed" class="btn-secondary" name="action_closed" type="object"
+                            attrs="{'invisible': [('state', 'in', ['open'])]}"/>
+                    <button string="Reject" class="btn-secondary" name="action_rejected" type="object"
+                            attrs="{'invisible': [('state', 'in', ['open'])]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,open,closed,rejected"
+                           attrs="{'invisible': [('import_file_type', '!=', 'withoutdom')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,pre_dom,dom,rejected"
+                           attrs="{'invisible': [('import_file_type', '=', 'withoutdom')]}"/>
+                </header>
+                <sheet>
+
+                        <group>
+                            <div class="row">
+                                <div class="col-3">
+                                    <h1>
+                                        <label for="name" string="Refrence : "/>
+                                    </h1>
+                                </div>
+                                <div class="col-8">
+                                    <h1>
+                                        <field name="name" readonly="False"/>
+                                    </h1>
+                                </div>
+                            </div>
+                        <group>
+                            <div class="row text-right" name="type">
+                                <field name="type" widget="radio" options="{'horizontal': True}" readonly="1"/>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="import_folder_id" attrs="{'invisible' : [('export_folder_id', '!=', False)]}"/>
+                            <field name="export_folder_id" attrs="{'invisible' : [('import_folder_id', '!=', False)]}"/>
+                        </group>
+                        <group attrs="{'invisible' : ['|',('import_file_type', '=', 'tl'),('import_file_type', '=', 'withoutdom')]}">
+                            <div class="row">
+                                <div class="col-6">
+                                </div>
+                                <div class="col-6">
+                                    <h1>
+                                        <span class="badge badge-danger" states="open">Expiration in
+                                            <field name="file_lifetime"/>
+                                            Days
+                                        </span>
+                                    </h1>
+                                    <h1>
+                                        <span class="badge badge-warning" states="open">Remaining Age
+                                            <field name="remaining_age"/>
+                                            Days
+                                        </span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Import File">
+                            <field name="import_file_type" required="True"/>
+                            <field name="importation_type" required="True"/>
+                            <field name="currency_id"/>
+                            <!--                                   attrs="{'invisible' : [('import_file_type', '!=', 'tl')],'required' : [('import_file_type', '=', 'tl')]}"/>-->
+                            <br/>
+                        </group>
+                        <group string="Bank">
+                            <field name="bank_id" required="True" options="{'no_create': True}"/>
+                            <field name="agency_id" options="{'no_create': True}"/>
+                            <field name="bank_authorization"/>
+                            <br/>
+                        </group>
+
+                        <group string="Supplier">
+                            <label for="supplier_id" string="Supplier"/>
+                                                <div class="oe_row">
+
+                            <field name="supplier_id" options="{'no_create': True}" nolabel="1"/>
+                                                    <field name="supplier_image" widget="image" class="oe_avatar" nolabel="1"/></div>
+                        </group>
+                        <group string="Commitment">
+                            <field name="import_file_amount" string="Import File Amount" required="True"/>
+                            <field name="transport_mode"/>
+                            <br/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Opening">
+                            <group string="Opening Request">
+                                <group>
+                                    <field name="import_plan_id" options="{'no_create': True}"/>
+                                    <field name="fiscal_year_use"/>
+                                </group>
+                                <group>
+                                    <field name="air_waylbill_refrence"
+                                           attrs="{'invisible' : ['|',('import_file_type', '!=', 'tl'),('transport_mode', '!=', 'air')]}"/>
+                                    <field name="bank_sent_date"/>
+                                    <br/>
+                                </group>
+                            </group>
+                            <group string="Opening Reply">
+                            <group string="Bank">
+                                    <field name="bank_reply_date" attrs="{'invisible' : [('import_file_type', '=', 'tl')]}"/>
+                                    <field name="domiciliation_number"/>
+                                    <br/>
+                                    <field name="opening_exchange_rate"/>
+                                    <br/>
+                                    <field name="demande_exchange_rate"/>
+                            </group>
+                            <group string="Dates" col="3" colspan="2">
+                                <group>
+                                    <field name="opening_date"/>
+                                    <br/>
+                                </group>
+                                <group>
+                                    <field name="expiration_date" readonly="False"
+                                           attrs="{'invisible' : [('import_file_type', '=', 'tl')]}"/>
+                                    <br/>
+                                </group>
+                                <group>
+                                    <field name="boarding_deadline" readonly="False"
+                                           attrs="{'invisible' : [('import_file_type', '=', 'tl')]}"/>
+                                </group>
+                            </group>
+                                <br/>
+                            </group>
+                        </page>
+
+                        <page string="Confirming Bank">
+                            <group string="Confirming Bank Rate">
+                                    <field name="swift_confirming"/>
+                                    <field name="commission_rate"/>
+                            </group>
+                        </page>
+                        <page string="Closing" states="dom,closed">
+                            <group>
+                                <group>
+                                    <field name="closing_date"/>
+                                </group>
+                                <group>
+                                    <field name="current_user_id"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+
+                    <label for="note"/>
+                    <field name="note" placeholder="Note..."/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <!--    Tree View    -->
+        <record id="import_file_view_tree" model="ir.ui.view">
+            <field name="name">smartest.import.file.tree</field>
+            <field name="model">smartest.import.file</field>
+            <field name="arch" type="xml">
+                <tree
+                      decoration-info="state == 'open'"
+                      decoration-danger="state == 'expired'"
+                      decoration-success="state == 'draft'">
+                    <field name="name"/>
+                    <field name="bank_id"/>
+                    <field name="importation_type" optional="show"/>
+                    <field name="supplier_id" string="Supplier"/>
+                    <field name="import_file_amount"/>
+                    <field name="fiscal_year_use" optional="show"/>
+                    <field name="file_lifetime" optional="show"/>
+                    <field name="state" optional="show" decoration-info="state == 'draft'" decoration-success="state == 'approved'"
+                       decoration-danger="state == 'rejected'" decoration-muted="state == 'expired'" widget="badge"/>
+                </tree>
+            </field>
+        </record>
+
+    <!--    Search    -->
+        <record id="import_file_view_search" model="ir.ui.view">
+            <field name="name">import_file_view_search</field>
+            <field name="model">smartest.import.file</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="bank_id"/>
+                    <field name="agency_id"/>
+                    <field name="fiscal_year_use"/>
+                </search>
+            </field>
+        </record>
+    <!--    Action    -->
+    <record id="import_file_lc_action" model="ir.actions.act_window">
+        <field name="name">Credit Commitment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">smartest.import.file</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new file for the Credit Commitment.
+            </p>
+        </field>
+    </record>
+    <record id="act_simport_file_import_folder" model="ir.actions.server">
+        <field name="name">Credit Commitment Analysis</field>
+        <field name="model_id"
+               ref="smartest_foreign_trade.model_smartest_import_file"/>
+        <field name="binding_model_id" ref="smartest_foreign_trade.model_smartest_import_folder"/>
+        <field name="state">code</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        <field name="code">action = model.action_import_files_analysis()</field>
+    </record>
+</odoo>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_delivery_valued_document" name="bon de livraison inherited">
+        <t t-set="company" t-value="res_company"/>
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout_boxed">
+<!--                <t t-call="rayanox.rayanox_sub_header"/>-->
+            <div class="page">
+                <h2 class="text-center mt-4 mb-4">
+                    <span>Bon de Livraison N°</span>
+                    <span t-field="o.name"/>
+                </h2>
+                <div class="row">
+                    <div class="col-6 p-4">
+                        <ul class="list-unstyled">
+<!--                            <li t-if="o.date">-->
+<!--                                <strong>Le :</strong>-->
+<!--                                <span t-field="o.scheduled_date" t-options='{"widget": "date"}'/>-->
+<!--                            </li>-->
+                            <li t-if="o.payment_method_id">
+                                <strong>Paiement :</strong>
+                                <span t-field="o.payment_method_id"/>
+                            </li>
+                            <li t-if="o.payment_term_id">
+                                <strong>Conditions de règlement :</strong>
+                                <span t-field="o.payment_term_id"/>
+                            </li>
+                            <li t-if="o.create_uid">
+                                <strong>Agent :</strong>
+                                <span t-field="o.create_uid"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 text-dark bg-white p-2 rounded  border border-dark">
+                        <div t-esc="partner"
+                             t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True}"/>
+
+                        <t t-if="o.partner_id.nis">
+                            <strong>NIS:</strong>
+                            <span t-field="o.partner_id.nis"/>
+                        </t>
+                        <br/>
+                        <t t-if="o.partner_id.fiscal_identification">
+                            <strong>NIF:</strong>
+                            <span t-field="o.partner_id.fiscal_identification"/>
+                        </t>
+                        <br/>
+                        <t t-if="o.partner_id.commercial_register">
+                            <strong>RC:</strong>
+                            <span t-field="o.partner_id.commercial_register"/>
+                        </t>
+                        <br/>
+                        <t t-if="o.partner_id.taxation">
+                            <strong>AI:</strong>
+                            <span t-field="o.partner_id.taxation"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+         <table class="table">
+                <thead>
+                    <tr>
+                        <th name="th_sm_product_line_count" class="text-center" style="width:2%;">
+                            <strong>
+                                #
+                            </strong>
+                        </th>
+                        <th name="th_sm_product_code" class="text-left" style="width:18%;">
+                            <strong>Code</strong>
+                        </th>
+                        <th name="th_sm_product_desc">
+                            <strong>Désignation</strong>
+                        </th>
+                        <th name="th_sm_quantity" class="text-right" style="width:8%;">
+                            <strong>QTE</strong>
+                        </th>
+                        <th class="text-right" name="th_sm_price_unit"
+                            style="width:16%;">
+                            <strong>PU HT</strong>
+                        </th>
+                        <th class="text-right" name="th_sm_price_subtotal"
+                            style="width:16%;">
+                            <strong>Sous Total</strong>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-set="count" t-value="0"/>
+                    <t t-set="lines" t-value="o.order_line.filtered(lambda x: not x.display_type)"/>
+                    <tr t-foreach="lines" t-as="move">
+                        <td class="text-center">
+                            <t t-set="count" t-value="count + 1"/>
+                            <span t-esc="count"/>
+                        </td>
+                        <td class="text-left">
+                            <span t-field="move.product_id.default_code"/>
+                        </td>
+                        <td class="text-left">
+                            <span t-field="move.name"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="move.product_uom_qty"/>
+                            <span t-field="move.product_uom" groups="uom.group_uom"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="move.price_unit"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="move.price_subtotal"/>
+                        </td>
+                    </tr>
+                    <t t-set="lines_service" t-value="[]"/>
+                    <tr t-foreach="lines_service" t-as="line">
+                        <td class="text-center">
+                            <t t-set="count" t-value="count + 1"/>
+                            <span t-esc="count"/>
+                        </td>
+                        <td class="text-left">
+                            <span t-field="line.product_id.default_code"/>
+                        </td>
+                        <td class="text-left">
+                            <span t-field="line.name"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="line.product_uom_qty"/>
+                            <span/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="line.price_unit"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="line.price_subtotal"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="clearfix" name="stock_picking_total_summary">
+                <div id="total" class="row" name="total">
+                    <div class="col-6 mt-4">
+                        Arrêter le présent Bon de Livraison à
+                        la somme de
+                        <strong>
+<!--                            <span t-field="o.amount_total_words"/>-->
+                        </strong>
+                    </div>
+                    <div class="col-6">
+                        <table class="table table-sm">
+                            <tr class="border-black o_subtotal" style="">
+                                <td name="td_amount_untaxed_label" class="o_price_total">
+                                    <strong>Sous Total
+                                        HT
+                                    </strong>
+                                </td>
+                                <td name="td_amount_untaxed" class="text-right o_price_total">
+                                    <span t-field="o.amount_untaxed"/>
+                                </td>
+                            </tr>
+                            <tr class="border-black" t-if="o.apply_stamp_duty_tax">
+                                <td name="td_amount_stamp_duty_label">
+                                    <strong>Timbre</strong>
+                                </td>
+                                <td name="td_amount_stamp_duty" class="text-right">
+                                    <span t-field="o.amount_stamp_tax"/>
+                                </td>
+                            </tr>
+                            <tr class="border-black o_total">
+                                <td name="td_amount_net_label">
+                                    <strong>Total TTC DZD</strong>
+                                </td>
+                                <td name="td_amount_net" class="text-right">
+                                    <span t-field="o.amount_total"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h6 class="font-weight-bold" style="margin-bottom: 10px;margin-top: 10px;">
+                <br/>
+                <strong>SIGNATURE ET CACHET</strong>
+            </h6>
+                </t>
+            </t>
+    </template>
+
+</odoo>

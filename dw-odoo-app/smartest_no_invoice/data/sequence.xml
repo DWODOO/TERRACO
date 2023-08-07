@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.sequence" id="seq_account_invoice_not_declared">
+        <field name="name">Not Declared Invoice</field>
+        <field name="code">account.invoice.not.declared</field>
+        <field name="padding">5</field>
+        <field name="prefix">FAC/%(year)s/</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <record model="ir.sequence" id="seq_account_payment_not_declared">
+        <field name="name">Not Declared Payment</field>
+        <field name="code">account.payment.not.declared</field>
+        <field name="padding">5</field>
+        <field name="prefix">ND/Caisse/%(year)s/</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <record model="ir.sequence" id="seq_account_payment_declared">
+        <field name="name">Declared Payment</field>
+        <field name="code">account.payment.declared</field>
+        <field name="padding">5</field>
+        <field name="prefix">%(year)s/</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

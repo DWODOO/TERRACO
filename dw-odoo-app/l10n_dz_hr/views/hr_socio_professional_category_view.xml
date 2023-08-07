@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    TREE     -->
+    <record id="view_hr_socioprofessional_categories_tree" model="ir.ui.view">
+        <field name="name">hr.socioprofessional.categories.tree</field>
+        <field name="model">hr.socioprofessional.categories</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    FORM     -->
+    <record id="view_hr_socioprofessional_categories_form" model="ir.ui.view">
+        <field name="name">hr.socioprofessional.categories.form</field>
+        <field name="model">hr.socioprofessional.categories</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <field name="code"/>
+                        <field name="description"/>
+                        <field name="socio_professional_levels_ids" widget="section_and_note_one2many" mode="tree">
+                            <tree string="Levels" editable="bottom">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_socioprofessional_categoriess" model="ir.actions.act_window">
+        <field name="name">Socio-Professional Categories</field>
+        <field name="res_model">hr.socioprofessional.categories</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

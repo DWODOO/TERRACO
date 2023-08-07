@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="ats_form" model="ir.ui.view">
+            <field name="name">wizard.ats</field>
+            <field name="model">wizard.ats</field>
+            <field name="arch" type="xml">
+                <form>
+                        <group>
+                            <group>
+                                <p> Attestation de travail et de salaire</p>
+
+                                    <field name="type_date_fin" required="1"/>
+
+                            </group>
+                            <group>
+                                <field name="date_fin"  attrs="{'invisible': [('type_date_fin', '!=', 'autre')]}"/>
+                                <field name="date_reprise" attrs="{'invisible': [('type_date_fin', '!=', 'autre')]}"/>
+                            </group>
+                            <group>
+                                <field name="id_emp" required="1"/>
+                                <field name="mois" required="1"/>
+                                <field name="id_signataire" required="1"/>
+                            </group>
+                        </group>
+                        <footer>
+                            <button name="init_ats_excel" icon="fa-print" string="Excel" class="btn-primary" type="object"/>
+                            <button name="init_ats_pdf" icon="fa-print" string="PDF" class="btn-primary" type="object"/>
+                            <button special="cancel" string="Cancel" class="btn-secondary"/>
+<!--                            <button name="test" string="test" type="object" class="btn-secondary"/>-->
+                        </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="wizard_ats_action" model="ir.actions.act_window">
+            <field name="name">ATS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.ats</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="ats_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id ="ats_menu" name="ATS" parent="l10n_dz_payroll.hr_divers_menu" sequence="952" action="wizard_ats_action"/>
+    </data>
+</odoo>

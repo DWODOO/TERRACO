@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_smartest_stock,smartest_stock.smartest.inventory,model_smartest_inventory,base.group_user,1,1,1,1
+access_smartest_stock_inventory_line,smartest_stock.smartest.inventory.line,model_smartest_inventory_line,base.group_user,1,1,1,1
+access_intermed_inventory_line,smartest_stock.interm.inv.line,model_interm_inv_line,base.group_user,1,1,1,1

@@ -1,0 +1,8 @@
+<odoo>
+    <data noupdate="1">
+        <record id="smartest_files_path" model="ir.config_parameter">
+            <field name="key">smartest_base.files_path</field>
+            <field name="value">/home/odoo/exportations</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,1464 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_dz_hr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-27 12:41+0000\n"
+"PO-Revision-Date: 2020-12-27 12:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_dz_hr
+#: model:ir.actions.report,print_report_name:l10n_dz_hr.action_hr_contract_report
+#: model:ir.actions.report,print_report_name:l10n_dz_hr.action_hr_contract_with_bonus_report
+msgid "('Contract - %s' % (object.name))"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.actions.report,print_report_name:l10n_dz_hr.action_hr_employment_attestation
+msgid "('Employment attestation - %s' % (object.name))"
+msgstr "('Attestation de travail - %s' % (object.name))"
+
+#. module: l10n_dz_hr
+#: model:ir.actions.report,print_report_name:l10n_dz_hr.action_hr_employment_certificate
+msgid "('Employment certificate - %s' % (object.name))"
+msgstr "('Certificat de travail - %s' % (object.name))"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+", il est\n"
+"                                    tenu de faire les\n"
+"                                    passations de consignes sur la fonction qu’il occupait à la date de départ et ce\n"
+"                                    quelle que soit les conditions de départ.\n"
+"                                    Tout manquement observé par <b>l’employé</b> aux présentes mesures de délais de\n"
+"                                    préavis et\n"
+"                                    qui engendreront des frais à l’entreprise, baisse de l’activité ou blocage d’un\n"
+"                                    département ou d’un projet pour cause de non passation de consignes ou départ\n"
+"                                    prématuré de l’employée pendant l’exercice et le développement des activités de\n"
+"                                    l’entreprise ayant une influence directe ou indirecte provoquant l’arrêt ou le\n"
+"                                    ralentissement de l’activité, et qui forceront l’entreprise à faire appel à des\n"
+"                                    prestataires de service seront facturés à l’employé afin de procéder aux\n"
+"                                    remboursements."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+".\n"
+"                                    <br/>\n"
+"                                    Il reconnait le droit pour  <b>l’employeur</b> :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+".\n"
+"                            <br/>\n"
+"                            Adresse :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+".\n"
+"                            <br/>\n"
+"                            Représentée par Monsieur <b>Djelal SAIDOUNI</b> agissant en qualité de <b>Directeur</b> ayant\n"
+"                            mandat de signature."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+msgid ""
+".\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        Et ce depuis :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+msgid ""
+".\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        Statut juridique :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid ""
+".\n"
+"                        M(Mme)"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "<b style=\"font-size: 22px !important;\">Entre</b>"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "<b>D’autre part,</b>"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "<b>D’une part</b>"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "<b>Et</b>"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>L’employé</b>\n"
+"                                    est affecté à :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>L’employé</b>\n"
+"                                    est recruté pour une durée déterminé pour une activité à durée limitée (Projet\n"
+"                                    transmission de données de forage)\n"
+"                                    La durée du contrat est de"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>L’employé</b>\n"
+"                                    exercera pour le compte de l’employeur à temps plein, la fonction citée à <b>\n"
+"                                    l’article 01\n"
+"                                </b>  du présent contrat."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>L’employé</b>\n"
+"                                    se déclare libre de tout engagement, et apte à exercer sa fonction.\n"
+"                                    <b>L’employé</b>\n"
+"                                    est lié par l’obligation du secret professionnel. Sauf autorisation écrite\n"
+"                                    de l’autorité investie du pouvoir de nomination ou de recrutement, sont formellement\n"
+"                                    interdites la destruction et la divulgation de documents de service, d’informations,\n"
+"                                    fichiers, de gestion ou de renseignements d’ordre professionnel, ainsi que leur\n"
+"                                    communication à des personnes physique ou morales autres que celles explicitement\n"
+"                                    désignées par les lois et règlement ou par la hiérarchie."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>L’employé</b>\n"
+"                                    s’engage à accomplir toutes les tâches inhérentes à son poste\n"
+"                                    d’affectation conformément aux missions validées en commun accord avec la Direction\n"
+"                                    Générale.\n"
+"                                    En vertu de sa fonction, <b>l’employé</b> aura durant toute sa période d’exercice au\n"
+"                                    sein\n"
+"                                    de la société ainsi qu’au titre des consignes et prescriptions générales ou\n"
+"                                    particulières, permanentes ou occasionnelles, en matière de discipline générale, les\n"
+"                                    obligations suivantes :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>L’employé</b>\n"
+"                                    s’engage à observer, dans tous les cas, au cours et après l’exécution du\n"
+"                                    présent contrat, une conduite exemplaire permettant de préserver les intérêts de la\n"
+"                                    société."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>L’employé</b>\n"
+"                                    s’interdira toute autre activité professionnelle à caractère lucratif et\n"
+"                                    doit se consacrer totalement à sa fonction telle que précisée dans le présent\n"
+"                                    contrat."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>L’employé</b>\n"
+"                                    s’interdit de s’ intéresser directement ou indirectement et à quelque\n"
+"                                    titre que ce soit à toute affaire susceptile de concurrencer par son activité celle\n"
+"                                    de la société."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>L’employé</b> est tenu de prendre toutes les précautions et les mesures\n"
+"                                    nécessaires pour éviter les éventuelles divulgations d’informations pouvant nuire à\n"
+"                                    l’intérêt de la société.\n"
+"                                    En cas de défaillance et ou de préjudice, <b>l’employeur</b> se réserve le droit de\n"
+"                                    mettre fin à ce contrat avec la possibilité de poursuites judiciaires."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>L’employé</b>est tenu de respecter le règlement intérieur et les\n"
+"                                    consignes d’hygiènes et de sécurité de l’entreprise tiers dénommer SONATRACH,\n"
+"                                    entreprise client par la relation commerciale. En cas de manquement constaté à cette\n"
+"                                    disposition <b>l’employeur</b> se réserve la latitude de mettre fin à ce contrat en\n"
+"                                    cas de\n"
+"                                    préjudice à la société."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<b>l’employé</b>\n"
+"                                            s’engage en outre à utiliser rationnellement les ressources de la\n"
+"                                            société mises à sa disposition en veillant personnellement à l’atteinte des\n"
+"                                            objectifs qualitatifs et quantitatifs qui lui seront assignés."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<br/>\n"
+"                                        (Lu et Approuvé)"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<br/>\n"
+"                                    Direction :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<br/>\n"
+"                                    En qualité de :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<br/>\n"
+"                            Demeurant à :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"<br/>\n"
+"                            Né(e) le:"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid ""
+"<br/>\n"
+"                        <br/>\n"
+"                        A été employé au sein de notre entreprise du"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+msgid ""
+"<br/>\n"
+"                        <br/>\n"
+"                        Attestons que : Madame/Monsieur:"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+msgid ""
+"<br/>\n"
+"                        <br/>\n"
+"                        Est employé au sein de notre société en qualité de"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid ""
+"<br/> certifions que:\n"
+"                        <br/>"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" aria-label=\"Values set here are company-specific.\" "
+"groups=\"base.group_multi_company\" role=\"img\"/>"
+msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Les valeurs définies ici sont"
+" spécifiques à l'entreprise.\" aria-label=\"Les valeurs définies ici sont "
+"spécifiques à l'entreprise.\" groups=\"base.group_multi_company\" "
+"role=\"img\"/>"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_contract_form
+msgid "<span>days</span>"
+msgstr "<span>Jours</span>"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"A ce titre, <b>l’employé</b> peut ainsi être affecté en tout lieu du territoire\n"
+"                                    national à titre temporaire ou permanent. En outre, et dans le cadre de ses\n"
+"                                    fonctions, <b>l’employé</b> est appelé à effectuer des missions à l’intérieur ou en\n"
+"                                    dehors du territoire national."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"A faire connaître au propriétaire de\n"
+"                                            l’entreprise et à la Direction des\n"
+"                                            Ressources\n"
+"                                            Humaines, sans délai, toute modification postérieure à son engagement qui\n"
+"                                            pourrait\n"
+"                                            intervenir dans son état civil, sa situation de famille, son adresse."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"A observer le secret professionnel et de ne\n"
+"                                            pas divulguer les informations\n"
+"                                            dont il\n"
+"                                            aura connaissance dans l’exercice de ses fonctions."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"A respecter le règlement intérieur et les\n"
+"                                            consignes de sécurité."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "Address"
+msgstr "Adresse"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid "Alger, le"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_contract_form
+msgid "Allowances"
+msgstr "Allocations"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Après son engagement <b>l’employé</b> est soumis à une période d’essai d’une durée\n"
+"                                    de"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 01: Objet"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 02: Durée du Contrat"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 03: Fonction &amp; Affectation"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 04: Période d’essai"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 05: Horaires de travail"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 06: Rémunération"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 07: Cessation de la relation de travail"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 08: Préavis"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 09: Obligations professionnelles générales"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 10: Engagement"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 11: Secret professionnel"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 12: Propriété et transfert de propriété"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 13: Cumul"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 14: Clause de non concurrence"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 15: Disposition particulaire"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Article 16: Date d’effet"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+msgid "Attestation de travail"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.res_config_settings_view_form
+msgid "Automatically generate employees contract sequence."
+msgstr "Générer automatiquement les séquences des contrats."
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.res_config_settings_view_form
+msgid "Automatically generate employees registration numbers."
+msgstr "Générer automatiquement les matricules des employés."
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_availability
+msgid "Availability Allowance"
+msgstr "Prime d'astreinte"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__birth_commune_id
+msgid "Birth Commune"
+msgstr "Commune de naissance"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "CACOBATPH"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__cacobatph_affiliated
+msgid "CACOBATPH Affiliated?"
+msgstr "Affilié à la CACOBATPH ?"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_filter
+msgid "CACOBATPH Affiliation"
+msgstr "Affiliation à la CACOBATPH"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__cacobatph_patronage_contribution
+msgid "CACOBATPH: Patronage contribution (%)"
+msgstr "CACOBATPH: Contribution patronal (%)"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__cacobatph_services_funds_contribution
+msgid "CACOBATPH: Social Services Fund contribution (%)"
+msgstr "CACOBATPH: contribution au fonds des services sociaux (%)"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "CNAS"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__cnas_affiliated
+msgid "CNAS Affiliated?"
+msgstr "Affilié à la CNAS ?"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_filter
+msgid "CNAS Affiliation"
+msgstr "Affiliation à la CNAS"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_filter
+msgid "CNAS Registration date"
+msgstr "Date d'affiliation à la CNAS"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__cnas_patronage_contribution
+msgid "CNAS: Patronage contribution (%)"
+msgstr "CNAS: contribution patronale (%)"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__cnas_salary_contribution
+msgid "CNAS: Salary contribution (%)"
+msgstr "CNAS: Contribution salariale (%)"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__cnas_social_services_funds_contribution
+msgid "CNAS: Social Services Fund contribution (%)"
+msgstr "CNAS: contribution au fonds des services sociaux (%)"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "CONTRAT DE TRAVAIL A DUREE DETERMINEE"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_cash
+msgid "Cash Allowance"
+msgstr "Prime de caisse"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid "Certificat de travail"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+msgid ""
+"Cette attestation, lui est délivrée pour servir et valoir ce que de droit."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Ci après désigné l’employeur"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Ci après désigné l’employé"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__city
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "City"
+msgstr "Ville"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_clothing
+msgid "Clothing Allowance"
+msgstr "Prime d'habillement"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__commune_id
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "Commune"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model,name:l10n_dz_hr.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__name
+msgid "Complete Name"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model,name:l10n_dz_hr.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__name
+msgid "Contract Reference"
+msgstr "Référence du contrat"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields.selection,name:l10n_dz_hr.selection__hr_contract__nature__amendment
+msgid "Contract amendment "
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.actions.report,name:l10n_dz_hr.action_hr_contract_with_bonus_report
+msgid "Contract with bonus"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.actions.report,name:l10n_dz_hr.action_hr_contract_report
+msgid "Contract without bonus"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "Contributions"
+msgstr "Cotisations"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_contract_form
+msgid "Contributory"
+msgstr "Cotisable"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__country_id
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "Country"
+msgstr "Pays"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee_typepayment__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee_typepayment__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__company_currency
+msgid "Currency"
+msgstr "Devise"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields.selection,name:l10n_dz_hr.selection__hr_contract__allowance_meal_type__day
+#: model:ir.model.fields.selection,name:l10n_dz_hr.selection__hr_contract__allowance_transportation_type__day
+msgid "Day"
+msgstr "Jours"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"De décider de changer cette affectation en fonction du besoin du service et\n"
+"                                            accepte le changement de lieu de travail qui en pourrait résulter"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"De veiller à ce que tout salarié demeure\n"
+"                                            pécuniairement responsable des\n"
+"                                            détériorations du matériel, des matières, des produits ou tout préjudice\n"
+"                                            lorsqu’il\n"
+"                                            est imputable à des négligences graves ou des fautes professionnelles."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid "Demeurant à:"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Devra veiller à préserver et protéger, à tout\n"
+"                                            instant avec une vigilance\n"
+"                                            soutenue\n"
+"                                            tout élément constitutif des moyens de travail, des capacités de production\n"
+"                                            et plus\n"
+"                                            généralement, du patrimoine de la Société."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Directeur\n"
+"                                        <br/>\n"
+"                                        Djelal SAIDOUNI\n"
+"                                        <br/>"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee_typepayment__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model,name:l10n_dz_hr.model_hr_employee
+msgid "Employee"
+msgstr "Employé"
+
+#. module: l10n_dz_hr
+#: model:ir.model,name:l10n_dz_hr.model_hr_contract
+msgid "Employee Contract"
+msgstr "Contrat de l'employé"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_res_company__contract_sequence_id
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_res_config_settings__contract_sequence_id
+msgid "Employee contract sequence"
+msgstr "Séquence de contrat employé"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_res_company__employee_sequence_id
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_res_config_settings__employee_sequence_id
+msgid "Employee registration number"
+msgstr "Matricule de l'employé"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "Employee's First Name"
+msgstr "Prénom de l'employé"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "Employee's Last Name"
+msgstr "Nom de l'employé"
+
+#. module: l10n_dz_hr
+#: model:ir.actions.report,name:l10n_dz_hr.action_hr_employment_attestation
+msgid "Employment attestation"
+msgstr "Attestation de travail"
+
+#. module: l10n_dz_hr
+#: model:ir.actions.report,name:l10n_dz_hr.action_hr_employment_certificate
+msgid "Employment certificate"
+msgstr "Certificat de travail"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"En cas de démission de <b>l’employé</b> au cours du contrat, il est tenu de\n"
+"                                    respecter un\n"
+"                                    préavis de"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_contract_kanban_inherit
+msgid "End  :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_contract_kanban_inherit
+msgid "End Date"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Fait à Alger, le:"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields.selection,name:l10n_dz_hr.selection__hr_employee__gender__female
+msgid "Female"
+msgstr "Féminin"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__first_contract_date
+msgid "First contract start date"
+msgstr "Date de début du contrat"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__first_name
+msgid "First name"
+msgstr "Prénom"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__gender
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_filter
+msgid "Gender"
+msgstr "Genre"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,help:l10n_dz_hr.field_hr_employee_typepayment__sequence
+msgid "Gives the sequence when displaying a list of Contact."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_hse
+msgid "H.S.E"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "Home address"
+msgstr "Adresse personnelle"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_filter
+msgid "Housewife"
+msgstr "Femme au foyer"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__housewife
+msgid "Housewife?"
+msgstr "Femme au foyer ?"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_iff
+msgid "I.F.F"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_ifsp
+msgid "I.F.S.P"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_itp
+msgid "I.T.P"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee_typepayment__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Il a été convenu et arrêté ce qui suit"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_pri
+msgid "Individual Performance Allowance"
+msgstr "P.R.I"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_isolated_area
+msgid "Isolated Area Allowance"
+msgstr "Prime de zone"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"L'employé\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "La rémunération de <b>l’employé</b> est défini telle que :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"La rémunération de <b>l’employé</b> est fixée par un salaire de base mensuel\n"
+"                                    brut de"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "La société"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee_typepayment____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee_typepayment__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee_typepayment__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__last_name
+msgid "Last name"
+msgstr "Nom"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid "Le Directeur"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Le présent contrat de travail à pour objet le recrutement au sein de la société de :\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Le présent contrat est conclu et accepté pour un horaire de travail à plein temps,\n"
+"                                    réparti en fonction de l’organisation de travail et peut être modifié selon les\n"
+"                                    nécessités de services."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Le présent contrat est établi en deux (02) exemplaires dont un (01) est remis à\n"
+"                                    l’employé dûment signé par les deux parties."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Le présent contrat peut cesser par l’effet de l’une des causes énoncées à l’article\n"
+"                                    66 de la loi n°90.11 du 21 avril 1990, modifiée et complétée relative aux relations\n"
+"                                    de travail.\n"
+"                                    Toutefois, en plus de ces causes, il peut être rompu par la volonté commune des\n"
+"                                    parties contractantes qui conviendront, le cas échéant, des conditions de cette\n"
+"                                    rupture."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Le présent contrat prend effet à compter du"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_contract_form
+msgid "Leave"
+msgstr "Congé"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__leave
+msgid "Leave ?"
+msgstr "Quitter ?"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__leave_notice_text
+msgid "Leave Notice Text"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__leave_notice
+msgid "Leave notice"
+msgstr "Péavis"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__leave_date
+msgid "Leaving date"
+msgstr "Date de sortie"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__leave_reason
+msgid "Leaving reason"
+msgstr "Raison de sortie"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid "M(Mme):"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__maiden_name
+msgid "Maiden name"
+msgstr "Nom de jeune fille"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields.selection,name:l10n_dz_hr.selection__hr_employee__gender__male
+msgid "Male"
+msgstr "Masculin"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_filter
+msgid "Marital"
+msgstr "État civil"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_meal
+msgid "Meal Allowance"
+msgstr "Prime de panier"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_meal_type
+msgid "Meal allowance type"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields.selection,name:l10n_dz_hr.selection__hr_contract__allowance_meal_type__month
+#: model:ir.model.fields.selection,name:l10n_dz_hr.selection__hr_contract__allowance_transportation_type__month
+msgid "Month"
+msgstr "Mois"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__nature
+msgid "Nature"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields.selection,name:l10n_dz_hr.selection__hr_contract__nature__contract
+msgid "New Contract"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid "Nous sousignés"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_nuisance
+msgid "Nuisance Allowance"
+msgstr "Indémnité de nuisance"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid "Né(e) le:"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_contract_form
+msgid "Other gains"
+msgstr "Autres gains"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_pap
+msgid "P.A.P"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_in_iep
+msgid "P.E.A (In company)"
+msgstr "I.E.P (Dans l'entreprise)"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_out_iep
+msgid "P.E.A (Out of company)"
+msgstr "I.E.P (Hors l'entreprise)"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_pop
+msgid "P.O.P"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_isp
+msgid "P.S.A"
+msgstr "I.S.P"
+
+#. module: l10n_dz_hr
+#: model:ir.model,name:l10n_dz_hr.model_hr_employee_typepayment
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee_typepayment__name
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.payment_type_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.payment_type_view_search
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.payment_type_view_tree
+msgid "Payment Type"
+msgstr "Type de paiement"
+
+#. module: l10n_dz_hr
+#: model:ir.actions.act_window,name:l10n_dz_hr.action_payment_type
+#: model:ir.ui.menu,name:l10n_dz_hr.menu_payment_type
+msgid "Payment Types"
+msgstr "Types de paiement"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__type_payment_id
+msgid "Payment type"
+msgstr "Type de paiement"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_soiling
+msgid "Performance Allowance"
+msgstr "Prime de performance"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__period_count_text
+msgid "Period Count Text"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,help:l10n_dz_hr.field_hr_contract__allowance_isp
+msgid "Permanent Service Allowance"
+msgstr "I.S.P"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_phone
+msgid "Phone Allowance"
+msgstr "Indémnité téléphonique"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__pre_wage
+msgid "Pre salary"
+msgstr "Pré-salaire(Stagiaire)"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_filter
+msgid "Presume"
+msgstr "Présumé(e)"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__presume
+msgid "Presumed?"
+msgstr "Présumé(e)?"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,help:l10n_dz_hr.field_hr_contract__allowance_out_iep
+msgid "Professional Experience Allowance out of the company"
+msgstr "I.E.P en dehors de l'entreprise"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,help:l10n_dz_hr.field_hr_contract__allowance_in_iep
+msgid "Professional Experience Allowance within the company"
+msgstr "I.E.P au sein de l'entreprise"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Reconnait également le droit pour l’employeur de l’affecter sur tout lieu de\n"
+"                                            travail relevant de la responsabilité de l’employeur"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_refund_rent
+msgid "Refund Rent Allowance"
+msgstr "Remboursement indemnité de logement"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__cnas_registration_start_date
+msgid "Registered in CNAS from"
+msgstr "Affilié à la CNAS à partir de"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__registration_number
+msgid "Registration number"
+msgstr "Matricule"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_rent
+msgid "Rent Allowance"
+msgstr "Indemnité de logement"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_responsibility
+msgid "Responsibility Allowance"
+msgstr "Indémnité de responsabilité"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_employee_view_search
+msgid "Running Contract"
+msgstr "Contrat en cours"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Réf:"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_icr
+msgid "S.I.A"
+msgstr "I.C.R"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__stc_state
+msgid "STC done ?"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.payment_type_view_search
+msgid "Search Payment Type"
+msgstr "Chercher un type de paiement"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee_typepayment__sequence
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.payment_type_view_search
+msgid "Sequence"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__social_security_number
+msgid "Social Security N°"
+msgstr "NSS"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__spouse_complete_name
+msgid "Spouse's Name"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_contract_kanban_inherit
+msgid "Start"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_contract_kanban_inherit
+msgid "Start:"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__state_id
+msgid "State"
+msgstr "État"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__place_of_birth
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_res_users__place_of_birth
+msgid "State of Birth"
+msgstr "Wilaya de naissance"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__street
+msgid "Street"
+msgstr "Rue"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "Street 2..."
+msgstr "Rue 2..."
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "Street..."
+msgstr "Rue..."
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__street2
+msgid "Street2"
+msgstr "Rue 2"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,help:l10n_dz_hr.field_hr_contract__allowance_icr
+msgid "Supplementary Income Allowance"
+msgstr "Indémnité de revenu supplémentaire"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_contract_form
+msgid "Taxable"
+msgstr "Imposable"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_technicality
+msgid "Technicality Allowance"
+msgstr "Indémnité de technicité"
+
+#. module: l10n_dz_hr
+#: code:addons/l10n_dz_hr/models/hr_employee.py:0
+#: model:ir.model.constraint,message:l10n_dz_hr.constraint_hr_employee_unique_reg_num
+#, python-format
+msgid "The registration number must be unique per employee."
+msgstr "Le matricule de l'employé doit être unique."
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Tout travail, technologie, brevet, et invention et code informatique effectués et/ou\n"
+"                                    développés et/ou créés par <b>l’employé</b> au sein de la société\n"
+"                                    <b>SMARTEST ALGERIA SPA</b>\n"
+"                                    durant son contrat de travail, pour le compte de celle-ci, ou pour le compte de\n"
+"                                    tiers sont et/ou deviennent propriété de la société\n"
+"                                    <b>SMARTEST ALGERIA SPA.</b>"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_transportation
+msgid "Transportation Allowance"
+msgstr "Indémnité de transport"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_transportation_type
+msgid "Transportation allowance type"
+msgstr "Type d'indémnité de transport"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_travel
+msgid "Travel Allowance"
+msgstr "Prime de déplacement"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__trial_period_count_text
+msgid "Trial Period Count Text"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Un salaire de base mensuel brut de"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "Une part variable dite prime de performance :"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Une prime de performance trimestrielle est attribuée pour la réalisation\n"
+"                                                des objectifs. En cas de non atteinte répétitive des objectifs,\n"
+"                                                <b>l’employeur</b> se réserve le droit de prendre les dispositions nécessaires."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_unique_salary
+msgid "Unique Salary Allowance"
+msgstr "Indémnité de salaire unique"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__use_contract_sequence
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_res_company__use_contract_sequence
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_res_config_settings__use_contract_sequence
+msgid "Use contract sequence"
+msgstr "Utiliser la séquence de contrat"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__use_employee_sequence
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_res_company__use_employee_sequence
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_res_config_settings__use_employee_sequence
+msgid "Use employee registration number"
+msgstr "Utiliser le matricule d'employé"
+
+#. module: l10n_dz_hr
+#: model:ir.model,name:l10n_dz_hr.model_res_users
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__allowance_vehicle
+msgid "Vehicle Allowance"
+msgstr "Prime de véhicule"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"Veiller à ce que chaque collaborateur, quel\n"
+"                                            que soit son rang dans la\n"
+"                                            hiérarchie,\n"
+"                                            soit responsable de la bonne exécution, des tâches entrant dans le cadre de\n"
+"                                            ses\n"
+"                                            missions."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_filter
+msgid "Wife maiden name"
+msgstr "Nom de jeune fille"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "Wilaya"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__days_per_month
+msgid "Work days / month"
+msgstr "Travail Jours / Mois"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_contract__hours_per_month
+msgid "Work hours / month"
+msgstr "Travail Heures / Mois"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__work_location
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_res_users__work_location
+msgid "Work location"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "ZIP"
+msgstr "Code postal"
+
+#. module: l10n_dz_hr
+#: model:ir.model.fields,field_description:l10n_dz_hr.field_hr_employee__zip
+msgid "Zip"
+msgstr "Code postal"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid ""
+"a quitté l’entreprise, il (elle) est libre de tout engagement.\n"
+"\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"\n"
+"                        La présente attestation est délivrée pour servir et valoir ce que de droit\n"
+"                          <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid "au"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid "du"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.view_employee_form
+msgid "e.g. Part Time"
+msgstr "i.e. Temps partiel"
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid "en qualité de"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: code:addons/l10n_dz_hr/models/hr_contract.py:0
+#: code:addons/l10n_dz_hr/models/hr_contract.py:0
+#, python-format
+msgid "months"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_contract_report_template
+msgid ""
+"renouvelable une\n"
+"                                    seul fois, à compter de la date d’effet du présent contrat de travail. Pendant\n"
+"                                    la période d’essai les deux parties sont libres de rompre la relation de travail à\n"
+"                                    leur entière convenance sans préavis ni indemnité."
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_certificate
+msgid "sis à"
+msgstr ""
+
+#. module: l10n_dz_hr
+#: model_terms:ir.ui.view,arch_db:l10n_dz_hr.hr_report_employment_attestation
+msgid ""
+"à ce jour\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        <br/>"
+msgstr ""

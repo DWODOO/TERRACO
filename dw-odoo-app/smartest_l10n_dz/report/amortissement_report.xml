@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="amortissement_report">
+        <t t-call="web.basic_layout">
+            <style type="text/css">
+                .table th,.table td {border: 2px solid black;padding : 4px;}
+            </style>
+            <div class="page">
+                 <div class="text-left" >
+                    <strong>Company: </strong><span t-esc="company"  /><br/>
+                    Exercice du : <strong t-esc="date_from" t-options="{'widget': 'date', 'format': 'dd/MM/yyyy'}" /> au : <strong t-esc="date_to" t-options="{'widget': 'date', 'format': 'dd/MM/yyyy'}" />
+                </div>
+                    <div  style="margin-top:20px;padding:30px 60px;" class="text-center" >
+                    <strong style="background-color: #90a4ae;text-decoration:underline;padding:18px 55px;border: 2px solid black;"  >
+                        Tableau des amortissements
+                    </strong>
+                </div>
+                <table class="table" style="border-collapse: collapse;width: 100%;margin-top:22px;">
+                    <tr style="background-color: #90a4ae;">
+                        <th class="text-center">Rubriques et Postes</th>
+                        <th class="text-center">Amortissements Cumulées en début d’exercice</th>
+                        <th class="text-center">Augmentations dotations de l’exercice</th>
+                        <th class="text-center">Diminutions éléments sortis</th>
+                        <th class="text-center">Amortissements cumulées en fin d’exercice</th>
+                    </tr>
+                    <tr>
+                        <td>Goodwill</td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['goodwill_amort'][0]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['goodwill_amort'][1]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['goodwill_amort'][2]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['goodwill_amort'][3]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Immobilisations incorporelles</td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['immo_incorp_amort'][0]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['immo_incorp_amort'][1]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['immo_incorp_amort'][2]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['immo_incorp_amort'][3]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Immobilisations corporelles</td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['immo_corp_amort'][0]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['immo_corp_amort'][1]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['immo_corp_amort'][2]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['immo_corp_amort'][3]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Participations</td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['participation_amort'][0]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['participation_amort'][1]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['participation_amort'][2]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['participation_amort'][3]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Autres actifs financiers non courants</td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['autre_actif_amort'][0]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['autre_actif_amort'][1]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['autre_actif_amort'][2]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['autre_actif_amort'][3]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-center">TOTAL</th>
+                        <td class="text-right">
+                            <t t-esc="amortissement['total'][0]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['total'][1]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['total'][2]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                        <td class="text-right">
+                            <t t-esc="amortissement['total'][3]" t-options="{'widget': 'float', 'decimal_precision': 'Product Price'}"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </template>
+    <report id="tableau_amortissement_report_action"
+            model="amortissement.report"
+            string="Tableau des amortissements"
+            report_type="qweb-html"
+            paperformat="dz_account_paperformat"
+            name="smartest_l10n_dz.amortissement_report"
+            file="smartest_l10n_dz.amortissement_report"/>
+
+</odoo>

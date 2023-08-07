@@ -1,0 +1,294 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* smartest_price_list
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-26 15:35+0000\n"
+"PO-Revision-Date: 2022-07-26 15:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: smartest_price_list
+#: model_terms:ir.ui.view,arch_db:smartest_price_list.smartest_price_form
+msgid ""
+"Are you sure that you want to confirm the new new prices in the price lists"
+msgstr "Êtes-vous sûr de vouloir confirmer les nouveaux prix dans les listes de prix ?"
+
+#. module: smartest_price_list
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin__operation_type__category
+msgid "By Category"
+msgstr "Par catégorie"
+
+#. module: smartest_price_list
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin__operation_type__product
+msgid "By Products"
+msgstr "Par produits"
+
+#. module: smartest_price_list
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin__operation_type__reception
+msgid "By Reception"
+msgstr "Par réception"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,help:smartest_price_list.field_pricelist_coefficient__add_articles
+#: model:ir.model.fields,help:smartest_price_list.field_pricelist_margin_line__add_articles
+msgid ""
+"By checking this, we can add a product from the selection below that doesn't"
+" exist in the price list"
+msgstr "En cochant cette case, nous pouvons ajouter un produit de la sélection ci-dessous qui n'existe pas dans la liste de prix."
+
+#. module: smartest_price_list
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin_line__state__confirmed
+msgid "Calculate"
+msgstr "Calculer"
+
+#. module: smartest_price_list
+#: model_terms:ir.ui.view,arch_db:smartest_price_list.smartest_price_form
+msgid "Calculate Prices"
+msgstr "Calculer les prix"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__product_category_ids
+msgid "Categories"
+msgstr "Catégories"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient__coefficient
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__coefficient
+msgid "Coefficient"
+msgstr "Coefficient"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,help:smartest_price_list.field_pricelist_margin__use_highest_cost
+msgid "Compute based on the highest cost for all lines"
+msgstr "Calculer sur la base du coût le plus élevé pour toutes les lignes"
+
+#. module: smartest_price_list
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin__state__confirmed
+msgid "Confirmed"
+msgstr "Confirmé"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__landed_cost
+msgid "Consider Landed Costs"
+msgstr "Tenir compte des frais d'approche"
+
+#. module: smartest_price_list
+#: model_terms:ir.actions.act_window,help:smartest_price_list.smartest_price_action
+msgid "Create New Calculation !!"
+msgstr "Créer un nouveau calcul !"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient__create_uid
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__create_uid
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient__create_date
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__create_date
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient__display_name
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__display_name
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: smartest_price_list
+#: model_terms:ir.ui.view,arch_db:smartest_price_list.smartest_price_form
+msgid "Display Products"
+msgstr "Produit affiché"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__use_highest_cost
+msgid "Highest All"
+msgstr "Utiliser le coût le plus élevé pour Tous"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__highest_cost
+msgid "Highest cost"
+msgstr "Coût le plus élevé"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient__id
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__id
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__id
+msgid "ID"
+msgstr ""
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient____last_update
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin____last_update
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient__write_uid
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__write_uid
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient__write_date
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__write_date
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__pricelist_margin_line_ids
+msgid "Lines"
+msgstr "Lignes"
+
+#. module: smartest_price_list
+#: code:addons/smartest_price_list/models/smartest_pricelist.py:0
+#, python-format
+msgid "New"
+msgstr "Nouveau"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient__add_articles
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__add_articles
+msgid "New Article"
+msgstr "Nouveau Article"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__operation_type
+msgid "Operation Type"
+msgstr "Type d'opération"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient__paricelist_margin_id
+msgid "Paricelist Margin"
+msgstr ""
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__picking_ids
+msgid "Picking"
+msgstr "Réception"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__product_new_price
+msgid "Price"
+msgstr "Prix"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_coefficient__price_list_id
+msgid "Price List"
+msgstr "Liste des prix"
+
+#. module: smartest_price_list
+#: model_terms:ir.ui.view,arch_db:smartest_price_list.smartest_price_form
+msgid "Price List Coeficient"
+msgstr "Coeficient de Liste de prix"
+
+#. module: smartest_price_list
+#: model:ir.ui.menu,name:smartest_price_list.price_id
+msgid "Price Lists"
+msgstr "Listes de prix"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__pricelist_coefficient_ids
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__pricelist_coefficient_id
+msgid "Pricelist Coefficient"
+msgstr "Listes de prix"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__product_id
+#: model_terms:ir.ui.view,arch_db:smartest_price_list.smartest_price_form
+msgid "Product"
+msgstr "Produit"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__name
+msgid "Reception"
+msgstr "Réception"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__state
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__state
+msgid "State"
+msgstr "État"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__use_highest_cost
+msgid "Use Highest Cost"
+msgstr "Utiliser le coût le plus élevé"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin__use_product_sale_price
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__use_product_sale_price
+msgid "Use Product Sale Price"
+msgstr "Utiliser le prix de vente du produit"
+
+#. module: smartest_price_list
+#: model_terms:ir.ui.view,arch_db:smartest_price_list.smartest_price_form
+msgid "Validate"
+msgstr "Valider"
+
+#. module: smartest_price_list
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin__state__validation
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin_line__state__validation
+msgid "Validation"
+msgstr "Validation"
+
+#. module: smartest_price_list
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin__state__done
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin_line__state__done
+msgid "done"
+msgstr "Fait"
+
+#. module: smartest_price_list
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin__state__draft
+#: model:ir.model.fields.selection,name:smartest_price_list.selection__pricelist_margin_line__state__draft
+msgid "draft"
+msgstr "Brouillon"
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__last_cost
+msgid "last cost"
+msgstr "dernier coût"
+
+#. module: smartest_price_list
+#: model:ir.actions.act_window,name:smartest_price_list.smartest_price_action
+msgid "price"
+msgstr "Listes de prix"
+
+#. module: smartest_price_list
+#: model:ir.model,name:smartest_price_list.model_pricelist_coefficient
+msgid "pricelist.coefficient"
+msgstr ""
+
+#. module: smartest_price_list
+#: model:ir.model,name:smartest_price_list.model_pricelist_margin
+msgid "pricelist.margin"
+msgstr ""
+
+#. module: smartest_price_list
+#: model:ir.model,name:smartest_price_list.model_pricelist_margin_line
+msgid "pricelist.margin.line"
+msgstr ""
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__product_line_id
+msgid "priclist id"
+msgstr ""
+
+#. module: smartest_price_list
+#: model:ir.model.fields,field_description:smartest_price_list.field_pricelist_margin_line__purchase_price
+msgid "prix d'achat"
+msgstr ""

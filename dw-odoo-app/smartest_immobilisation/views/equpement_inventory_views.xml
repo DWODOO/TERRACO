@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="stock_quant_form">
+            <field name="name">equipement.inventory.form</field>
+            <field name="model">equipement.inventory</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="statut" widget="statusbar" statusbar_visible="Start,End"/>
+                        <button name="get_equipement" string="START INVENTORY" type="object"
+                                attrs="{'invisible': [('statut', '!=', 'Start')]}" class="oe_highlight"/>
+                        <button name="validate" string="VALIDATE" type="object" attrs="{'invisible': [('statut', '!=', 'Countig')]}"/>
+                        <button name="done" string="DONE" type="object" attrs="{'invisible': [('statut', '!=', 'End')]}"
+                                class="oe_highlight"/>
+
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="date"/>
+<!--                                <field name="asset"/>-->
+<!--                                <field name="product"/>-->
+                                <field name="location" string="Used in location"  required="1"/>
+                            </group>
+
+                        </group>
+                         <field name="equipement_inventory_line_ids" attrs="{'readonly': [('statut', '=', 'End')]}">
+                            <tree editable="top" >
+                                <field name="equipement" string="Equipement"/>
+                                <field name="category" string="Category"/>
+                                <field name="serial_no" />
+                                <field name="first_count" string="First Count" optional="show"/>
+
+                            </tree>
+                        </field>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="equipement_inventory_action">
+            <field name="name">Equipement Inventory</field>
+            <field name="res_model">equipement.inventory</field>
+            <field name="view_mode">equipement.inventory</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p classe="o_view_nocontent_smiling_face">
+                    Create Equipement Inventory !!
+                </p>
+            </field>
+        </record>
+ <menuitem id="test_id" name="Equipement Inventory" parent="stock.menu_stock_warehouse_mgmt" sequence="30"
+                  action="equipement_inventory_action"/>
+
+
+    </data>
+</odoo>

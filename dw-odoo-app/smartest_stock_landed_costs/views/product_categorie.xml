@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="product_category_form_view_inherit_hs_code" model="ir.ui.view">
+        <field name="name">smartest_stock.product.category.form.inherit</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="stock.product_category_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="hs_code_id"/>
+                <label for="hs_code_rate" attrs="{'invisible': [('hs_code_id', '=', False)]}"/>
+                    <div attrs="{'invisible': [('hs_code_id', '=', False)]}">
+                        <field name="hs_code_rate" class="oe_inline" style="vertical-align:baseline"/> %
+                    </div>
+            </field>
+        </field>
+    </record>
+</odoo>

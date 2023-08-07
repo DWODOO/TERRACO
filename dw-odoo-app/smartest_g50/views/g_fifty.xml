@@ -1,0 +1,206 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="smartest_g50.list">
+      <field name="name">smartest_g50 list</field>
+      <field name="model">g_cinquante</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="date_from"/>
+          <field name="date_to"/>
+          <field name="raw_amount"/>
+        </tree>
+      </field>
+    </record>
+
+          <!-- explicit form view definition -->
+
+    <record model="ir.ui.view" id="smartest_g50.form">
+      <field name="name">smartest_g50 form</field>
+      <field name="model">g_cinquante</field>
+      <field name="arch" type="xml">
+            <form>
+              <header>
+<!--                  <button name="test_irg"-->
+<!--                                string="irg"-->
+<!--                                type="object"-->
+<!--                                />-->
+                  <button name="print_g50_"
+                                string="Print g50"
+                                type="object"
+                                class="oe_highlight" attrs="{'invisible': [('state', '!=', 'approved')]}"/>
+                  <button name="prepare_g50_lines_"
+                                string="Prepare Values"
+                                type="object"
+                                class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                  <button name="compute_g50_"
+                                string="Compute"
+                                type="object"
+                                class="oe_highlight" attrs="{'invisible': [('state', '!=', 'ongoing')]}"/>
+                  <button name="draft_g50"
+                                string="Draft"
+                                type="object"
+                                class="btn-secondary" attrs="{'invisible': [('state', '!=', 'ongoing')]}"/>
+                  <field name="state" widget="statusbar" statusbar_visible="draft,ongoing,approved,done" options="{'clickable': '1'}"/>
+              </header>
+              <sheet>
+                  <label for="name"/>
+                  <field name="name"/>
+                  <group>
+                    <field name="ref"/>
+                    <field name="doc_path" invisible="1" attrs="{'readonly': [('state', '!=', 'done')]}"/>
+                    <field name="addons_path" invisible="1" attrs="{'readonly': [('state', '!=', 'done')]}"/>
+                  </group>
+                  <group col="4">
+                    <field name="date_from" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    <field name="date_to" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                  </group>
+                  <group>
+                    <field name="company_id" invisible="0" readonly="1"/>
+                    <field name="payslip_run_id" required="0" options="{'no_create': True, 'no_edit': True, 'no_open': True}"/>
+                  </group>
+                  <label for="attachment" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                  <field name="attachment" readonly="1" attrs="{'invisible': [('state', '!=', 'done')]}"/>
+                  <notebook>
+                      <page string="Lines" attrs="{'readonly': [('state', '!=', 'draft')],'invisible': [('state', '!=', 'draft')]}">
+                          <field name="g50_lines" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                              <tree editable="bottom">
+                                  <field name="payment_id" readonly="0"/>
+                                  <field name="invoice_id" readonly="0"/>
+                                  <field name="invoice_totat_taxe" readonly="1"/>
+                                  <field name="is_purchase_invoice" readonly="1" invisible="1"/>
+                              </tree>
+                          </field>
+                      </page>
+                      <page string="Lines factures d'achats" attrs="{'readonly': [('state', '!=', 'draft')],'invisible': [('state', '!=', 'draft')]}">
+                          <field name="g50_lines1" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                              <tree editable="bottom">
+                                  <field name="purchase_invoice_id" readonly="0"/>
+                                  <field name="is_purchase_invoice" readonly="1" invisible="1"/>
+                              </tree>
+                          </field>
+                      </page>
+                      <page string="Excel Page 1" attrs="{'invisible': [('state', '=', 'draft')]}">
+                          <table class="table">
+                              <thead>
+                                  <tr>
+                                      <th>Libellé</th>
+                                      <th>ligne</th>
+                                      <th>Colonne</th>
+                                      <th>Amount</th>
+                                  </tr>
+                              </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label for="raw_amount"/>
+                                    </td>
+                                    <td>
+                                        <field name="raw_amount_row" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                    </td>
+                                    <td>
+                                        <field name="raw_amount_column" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                    </td>
+                                    <td>
+                                        <field name="raw_amount" readonly="1"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </page>
+                      <page string="Excel Page 2" attrs="{'invisible': [('state', '=', 'draft')]}">
+                          <field name="p2_impot_ids">
+                              <tree editable="top" create="false" delete="false">
+                                  <field name="name" readonly="1"/>
+                                  <field name="account_id"/>
+                                  <field name="column"/>
+                                  <field name="row"/>
+                                  <field name="total" readonly="1"/>
+                              </tree>
+                          </field>
+                      </page>
+                      <page string="Excel Page 3" attrs="{'invisible': [('state', '=', 'draft')]}">
+                          <table class="table">
+                              <thead>
+                                  <tr>
+                                      <th>Libellé</th>
+                                      <th>ligne</th>
+                                      <th>Colonne</th>
+                                      <th>Amount</th>
+                                  </tr>
+                              </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label for="total_imposable"/>
+                                    </td>
+                                    <td>
+                                        <field name="total_imposable_row" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                    </td>
+                                    <td>
+                                        <field name="total_imposable_column" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                    </td>
+                                    <td>
+                                        <field name="total_imposable" readonly="1"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="total_exonere"/>
+                                    </td>
+                                    <td>
+                                        <field name="total_exonere_row" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                    </td>
+                                    <td>
+                                        <field name="total_exonere_column" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                    </td>
+                                    <td>
+                                        <field name="total_exonere" readonly="1"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </page>
+                      <page string="Excel TVA" attrs="{'invisible': [('state', '=', 'draft')]}">
+                          <group col="4">
+                              <field name="tva_purchase_inves_1st_row"/>
+                              <field name="tva_purchase_stck_1st_row"/>
+                          </group>
+                          <field name="g50_lines1" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                              <tree editable="bottom">
+<!--                                  <field name="g_fifty" invisible="1" readonly="1"/>-->
+                                  <field name="purchase_invoice_id" readonly="1"/>
+                                  <field name="purchase_invoice_partner_id" readonly="1"/>
+                                  <field name="purchase_invoice_date" readonly="1"/>
+                                  <field name="purchase_invoice_amount_ht" readonly="1"/>
+                                  <field name="purchase_invoice_tva_inves" readonly="1"/>
+                                  <field name="purchase_invoice_tva_stk" readonly="1"/>
+                                  <field name="is_purchase_invoice" readonly="1" invisible="1"/>
+                              </tree>
+                          </field>
+                      </page>
+                  </notebook>
+              </sheet>
+<!--              <div class="oe_chatter">-->
+<!--                <field name="message_follower_ids" widget="mail_attachment"/>-->
+<!--              </div>-->
+            </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="smartest_g50.action_window">
+      <field name="name">G 50</field>
+      <field name="res_model">g_cinquante</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="G 50" id="smartest_g50.menu_1_list" parent="smartest_l10n_dz.financial_reports_menu_item"
+              action="smartest_g50.action_window"/>
+
+  </data>
+</odoo>

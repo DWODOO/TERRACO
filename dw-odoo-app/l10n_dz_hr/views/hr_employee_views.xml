@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_filter" model="ir.ui.view">
+        <field name="name">hr.employee.search</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="first_name" filter_domain="[('first_name','ilike',self)]"/>
+                <field name="last_name" filter_domain="[('last_name','ilike',self)]"/>
+                <separator/>
+                <field name="registration_number"/>
+                <field name="social_security_number"/>
+                <field name="cnas_registration_start_date" string="CNAS Registration date"/>
+                <separator/>
+                <field name="maiden_name" string="Wife maiden name"/>
+                <separator/>
+                <field name="mobile_phone"/>
+                <field name="work_phone"/>
+                <field name="emergency_phone"/>
+                <separator/>
+                <field name="presume"/>
+                <field name="housewife"/>
+                <field name="cnas_affiliated"/>
+                <field name="cacobatph_affiliated"/>
+            </field>
+            <filter name="inactive" position="after">
+                <separator/>
+                <filter string="Presume" name="filter_presume" domain="[('presume', '=', True)]"/>
+                <filter string="Housewife" name="filter_housewife" domain="[('housewife', '=', True)]"/>
+                <filter string="CNAS Affiliation" name="filter_cnas" domain="[('cnas_affiliated', '=', True)]"/>
+                <filter string="CACOBATPH Affiliation" name="filter_cacobatph"
+                        domain="[('cacobatph_affiliated', '=', True)]"/>
+            </filter>
+            <filter name="group_manager" position="before">
+                <filter name="group_gender" string="Gender" domain="[]" context="{'group_by':'gender'}"/>
+                <filter name="group_marital" string="Marital" domain="[]" context="{'group_by':'marital'}"/>
+            </filter>
+        </field>
+        <!-- Inherit employee view to make the fields below redonly for Employees (hr_users)-->
+    </record>
+
+    <record model="ir.ui.view" id="view_employee_form_read">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+<!--        <field name="groups_id" eval="[(6, 0, [ref('hr.group_hr_user') ])]"/>-->
+        <field name="arch" type="xml">
+            <field name="department_id" position="attributes">
+                <attribute name="readonly">1</attribute>
+                <attribute name="required">1</attribute>
+                <attribute name="options">{'no_open': True}</attribute>
+            </field>
+            <field name="job_id" position="attributes">
+                <attribute name="readonly">1</attribute>
+                <attribute name="options">{'no_open': True}</attribute>
+            </field>
+            <field name="parent_id" position="attributes">
+                <attribute name="readonly">1</attribute>
+                <attribute name="options">{'no_open': True}</attribute>
+            </field>
+            <xpath expr="//field[@name='km_home_work']" position="before">
+                <field name="type_payment_id" readonly="True" options="{'no_open': True}"/>
+            </xpath>
+            <field name="bank_account_id" position="attributes">
+                <attribute name="readonly">1</attribute>
+                <attribute name="options">{'no_open': True}</attribute>
+
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherit employee view to set the right of modifications to the fields below for Hr managers-->
+    <record model="ir.ui.view" id="view_employee_form_write">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+<!--        <field name="groups_id" eval="[(6, 0, [ref('hr.group_hr_manager') ])]"/>-->
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_employee_children" type="object" class="oe_stat_button" icon="fa-files-o">
+                    <field name="children_ids_count" widget="statinfo" string="Children"/>
+                </button>
+            </xpath>
+            <field name="department_id" position="attributes">
+                <attribute name="readonly">0</attribute>
+                <attribute name="required">1</attribute>
+                <attribute name="options">{'no_open': False}</attribute>
+            </field>
+            <field name="job_id" position="attributes">
+                <attribute name="readonly">0</attribute>
+                <attribute name="options">{'no_open': False}</attribute>
+            </field>
+            <field name="parent_id" position="attributes">
+                <attribute name="readonly">0</attribute>
+                <attribute name="options">{'no_open': False}</attribute>
+            </field>
+            <field name="type_payment_id" position="attributes">
+                <attribute name="readonly">0</attribute>
+                <attribute name="options">{'no_open': False}</attribute>
+            </field>
+            <field name="bank_account_id" position="attributes">
+                <attribute name="readonly">0</attribute>
+                <attribute name="options">{'no_open': False}</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="category_ids" position="replace"/>
+            <xpath expr="//div[hasclass('oe_title')]" position="replace">
+                <div class="oe_title" style="padding-left: 110px !important;">
+                    <div class="oe_edit_only">
+                        <label for="first_name"/>
+                        <h1>
+                            <field name="first_name" placeholder="Employee's First Name"/>
+                        </h1>
+                        <label for="last_name"/>
+                        <h1>
+                            <field name="last_name" placeholder="Employee's Last Name"/>
+                        </h1>
+                    </div>
+                    <div class="oe_read_only">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <field name="category_ids" widget="many2many_tags"
+                           options="{'color_field': 'color', 'no_create_edit': True}" placeholder="e.g. Part Time"
+                           groups="hr.group_hr_user"/>
+                </div>
+            </xpath>
+            <field name="user_id" position="after">
+                <field name="registration_number" readonly="0"/>
+            </field>
+
+            <field name="spouse_complete_name" position="after">
+                <field name="maiden_name"
+                       attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"
+                       groups="hr.group_hr_user"/>
+            </field>
+            <field name="spouse_birthdate" position="after">
+                <field name="housewife"
+                       attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"
+                       groups="hr.group_hr_user"/>
+            </field>
+            <field name="birthday" position="after">
+                <field name="birth_commune_id"/>
+                <field name="presume" groups="hr.group_hr_user"/>
+            </field>
+
+            <xpath expr="//notebook/page[@name='hr_settings']" position="attributes">
+                <attribute name="groups">hr.group_hr_manager</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='hr_settings']" position="before">
+                <page name="contributions" string="Contributions" groups="hr.group_hr_manager">
+                    <group>
+                        <group string="CNAS" name="cnas_group">
+                            <field name="cnas_affiliated"/>
+                            <field name="social_security_number"
+                                   attrs="{'invisible': [('cnas_affiliated', '=', False)]}"/>
+                            <field name="cnas_registration_start_date"
+                                   attrs="{'invisible': [('cnas_affiliated', '=', False)]}"/>
+                            <field name="cnas_salary_contribution"
+                                   attrs="{'invisible': [('cnas_affiliated', '=', False)]}"/>
+                            <field name="cnas_patronage_contribution"
+                                   attrs="{'invisible': [('cnas_affiliated', '=', False)]}"/>
+                            <field name="cnas_social_services_funds_contribution"
+                                   attrs="{'invisible': [('cnas_affiliated', '=', False)]}"/>
+                        </group>
+                        <group string="CACOBATPH" name="cacobatph_group">
+                            <field name="cacobatph_affiliated"/>
+                            <field name="cacobatph_patronage_contribution"
+                                   attrs="{'invisible': [('cacobatph_affiliated', '=', False)]}"/>
+                            <field name="cacobatph_services_funds_contribution"
+                                   attrs="{'invisible': [('cacobatph_affiliated', '=', False)]}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//notebook/page[@name='personal_information']//group//group[position() = 2]" position="before">
+
+                <group string="Home address">
+                    <label for="street" string="Address"/>
+
+                    <div class="o_address_format">
+                        <field name="street" placeholder="Street..." class="o_address_street"/>
+                        <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                        <field name="city" placeholder="City" style="width: 40%" invisible="1"/>
+                        <field name="country_id" placeholder="Country" class="address_format" style="width: 20%"
+                               options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True} "/>
+
+                        <field name="commune_id" class="oe_no_button" placeholder="Commune" style="width: 40%"
+                               optionsEtat="{&quot;no_open&quot;: True}"/>
+                        <field name="state_id" class="oe_no_button" placeholder="Wilaya" style="width: 40%"
+                               options="{&quot;no_open&quot;: True}"/>
+
+
+                    </div>
+                    <field name="zip" placeholder="ZIP" style="width: 26%"/>
+                </group>
+            </xpath>
+
+        </field>
+
+
+    </record>
+
+    <!-- Inherit employee form to add the smart button that leads to all employee contracts decisions -->
+    <record model="ir.ui.view" id="view_employee_form2_inherit_contract_managers">
+        <field name="name">hr.employee.form2.inherit.contract.managers</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/>
+<!--        <field name="groups_id" eval="[(6, 0, [ref('hr_contract.group_hr_contract_manager') ])]"/>-->
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@name='action_open_contract_history']" position="after">
+                <button name="action_open_contract_decisions" class="oe_stat_button"
+                        groups="hr_contract.group_hr_contract_manager" icon="fa-file-text" type="object">
+                    <field name="contract_decisions_ids_count" widget="statinfo" string="Decisions"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!--    Payment type-->
+    <record id="payment_type_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.typepayment.form</field>
+        <field name="model">hr.employee.typepayment</field>
+        <field name="arch" type="xml">
+            <form string="Payment Type">
+                <group col="4">
+                    <field colspan="4" name="name"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="payment_type_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.patypepayment.tree</field>
+        <field name="model">hr.employee.typepayment</field>
+        <field name="arch" type="xml">
+            <tree string="Payment Type">
+                <field name="sequence" widget="handle"/>
+                <field colspan="4" name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="payment_type_view_search" model="ir.ui.view">
+        <field name="name">hr.employee.typepayment.search</field>
+        <field name="model">hr.employee.typepayment</field>
+        <field name="arch" type="xml">
+            <search string="Search Payment Type">
+                <field name="name" string="Payment Type"/>
+                <field name="sequence" string="Sequence"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_payment_type" model="ir.actions.act_window">
+        <field name="name">Payment Types</field>
+        <field name="res_model">hr.employee.typepayment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="payment_type_view_search"/>
+    </record>
+
+    <menuitem id="menu_payment_type"
+              action="action_payment_type"
+              parent="hr.menu_human_resources_configuration"
+              sequence="3"/>
+
+    <record id="hr_employee_kanban_inhereted" model="ir.ui.view">
+        <field name="name">hr.employee.kanban</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_kanban_record_headings')]" position="inside">
+
+                <span t-if="record.job_id.raw_value" class="o_kanban_record_subtitle">
+                    <field name="job_id"/>
+                </span>
+                <span t-if="record.contract_id.raw_value" class="o_kanban_record_subtitle">
+                    <field name="contract_id"/>
+                </span>
+
+
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

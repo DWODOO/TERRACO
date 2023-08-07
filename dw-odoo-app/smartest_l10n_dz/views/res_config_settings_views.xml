@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        Settings View        -->
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.account</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="41"/>
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='eu_service']" position="after">
+                    <div class="col-12 col-lg-6 o_setting_box" id="stamp_tax">
+                        <div class="o_setting_left_pane">
+                            <field name="use_stamp_tax"/>
+                        </div>
+                        <div class="o_setting_right_pane" name="stamp_tax">
+                            <label for="use_stamp_tax" string="Use Stamp Tax"/>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."
+                                  aria-label="Values set here are company-specific."
+                                  groups="base.group_multi_company" role="img"/>
+                            <div class="text-muted">
+                                Use Stamp Duty Tax on Purchase Invoicing
+                            </div>
+                            <div class="content-group" attrs="{'invisible':[('use_stamp_tax', '=', False)]}">
+                                <div class="row mt16">
+                                    <label string="Account" for="stamp_tax_account_id" class="col-lg-3 o_light_label"/>
+                                    <field name="stamp_tax_account_id" attrs="{'required': [('use_stamp_tax', '=', True)]}"/>
+                                </div>
+                                <div class="row" groups="base.group_no_one">
+                                    <label string="Invoice Min Amount" for="invoice_amount_min" class="col-lg-3 o_light_label"/>
+                                    <field name="invoice_amount_min"/>
+                                </div>
+                                <div class="row" groups="base.group_no_one">
+                                    <label string="Max Threshold" for="stamp_tax_max" class="col-lg-3 o_light_label"/>
+                                    <field name="stamp_tax_max"/>
+                                </div>
+                                <div class="row" groups="base.group_no_one">
+                                    <label string="Min Threshold" for="stamp_tax_min" class="col-lg-3 o_light_label"/>
+                                    <field name="stamp_tax_min"/>
+                                </div>
+                            </div>
+                            <div class="content-group" attrs="{'invisible':[('use_stamp_tax', '=', False)]}" groups="base.group_no_one">
+                                <div class="row mt16">
+                                    <label string="Slice" for="slice" class="col-lg-3 o_light_label"/>
+                                    <field name="slice"/>
+                                </div>
+                                <div class="row" groups="base.group_no_one">
+                                    <label string="Slice Amount" for="slice_amount" class="col-lg-3 o_light_label"/>
+                                    <field name="slice_amount"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

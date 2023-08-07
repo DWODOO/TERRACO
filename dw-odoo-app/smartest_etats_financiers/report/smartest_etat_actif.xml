@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="algerian_report_actif_custom_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <style type="text/css">
+                    .rules_table th{background-color:#90a4ae;padding: 5px 5px;font-size: 13px; border: 1px solid black;}
+                    .rules_table table,td{ border: 2px solid black}
+                </style>
+                <div class="page">
+                    <div class="head">
+                        <div style="width: 100%; display: table;">
+                            <div style="display: table-row">
+                                <div style="font-weight: bold;width: 320px; display: table-cell; border: 2px solid black">IMPRIME DESTINE A L'ADMINISTRATION</div>
+                                <div style="width: 30px; display: table-cell"></div>
+                                <div style="table-cell; border: 1px solid black"> <span>N.I.F</span>
+                                <t t-esc="company_nif"/>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="text-left"
+                             style="display:inline-block;vertical-align: top;width:100%;padding-top:10px; border: 1px solid black">
+                            <p>
+                                <span style="font-weight: bold;">Désignataion de l'entreprise:</span>
+                                <span style="font-weight: bold;"><t t-esc="company_name"/></span>
+                            </p>
+                            <br/>
+                            <p>
+                                <span>Activité:</span>
+                                <span style="font-weight: bold;"><t t-esc=""/></span>
+                            </p>
+                            <p>
+                                <span>Adresse:</span>
+                                <span style="font-weight: bold;"><t t-esc="company_street"/></span>
+                            </p>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div style="display: table;text-align: center;margin: auto;width: 40%;border: 1px solid black">
+                                <span style="display: table-cell;border: 1px solid black">Exercice clos le</span>
+                            <span style="display: table-cell;border: 1px solid black"><t t-esc="date_to"/></span>
+                        </div>
+                        <br/>
+                        <div style="background-color:#90a4ae;text-align: center;margin: auto;width: 30%;border: 1px solid black">
+                            <h2>BILAN (ACTIF)</h2>
+                        </div>
+                        <table class="rules_table"
+                               style="border: 2px solid black;border-collapse: collapse;width: 100%;margin-top:25px;">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">ACTIF</th>
+                                    <th colspan="3">
+                                        <t t-esc="year_1"/>
+                                    </th>
+                                    <th t-if="comparison != 'no_comparison'">
+                                        <t t-esc="year_2"/>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <t t-foreach="table_data_column" t-as="column">
+                                        <th>
+                                            <t t-esc="column['name']"/>
+                                        </th>
+                                    </t>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="table_data_line" t-as="line">
+                                    <t t-if="line['line_code']=='ACT_IMM'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S1L1'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+
+
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S2L1'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S3L0'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S3L1'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S3L2'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S3L3'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S3L4'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S4L1'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_IF'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S5L1'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S5L2'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S5L3'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S5L4'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1S5L5'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R1ST'">
+                                        <tr style="background-color:#90a4ae;">
+                                            <td style="text-align: right">
+                                                <span style="font-weight: bold">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_AC'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td>
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R2S1L1'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_CEA'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R2S2L1'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R2S2L2'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R2S2L3'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R2S2L4'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_DA'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R2S3L1'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R2S3L2'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_R2ST'">
+                                        <tr style="background-color:#90a4ae;">
+                                            <td style="text-align: right">
+                                                <span  style="font-weight: bold;">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='ACT_RG'">
+                                        <tr style="background-color:#90a4ae;">
+                                            <td style="text-align: right">
+                                                <span style="font-weight: bold">
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                </t>
+                            </tbody>
+                        </table>
+                        <br/>
+
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+    <record id="algerian_report_actif_custom_pdf_report" model="ir.actions.report">
+        <field name="name">Rapport Actif</field>
+        <field name="model">account.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_etats_financiers.algerian_report_actif_custom_pdf</field>
+        <field name="report_file">smartest_etats_financiers.algerian_report_actif_custom_pdf</field>
+        <field name="print_report_name">'raport_actif'</field>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_journal"/>
+    </record>
+</odoo>

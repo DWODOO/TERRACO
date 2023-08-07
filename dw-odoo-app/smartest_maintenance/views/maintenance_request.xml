@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Inherit maintenance request form view -->
+    <record model="ir.ui.view" id="maintenance_request_form_view_inherit_smart">
+        <field name="name">maintenance.request.form.view.inherit_smart</field>
+        <field name="model">maintenance.request</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='archive_equipment_request']" position="attributes">
+                <attribute name="attrs">{'invisible': ['|',('stage_id_done', '=', True),('repair_id', '!=', False)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='stage_id']" position="replace">
+                    <field name="stage_id" widget="statusbar" attrs="{'invisible': [('archive', '=', True)]}"/>
+            </xpath>
+            <xpath expr="//button[@name='archive_equipment_request']" position="before">
+                <field name="stage_id_done" invisible="1"/>
+                <button string="Repair" name="proceed_reparation" type="object" class="oe_highlight" attrs="{'invisible': ['|',('stage_id_done', '=', True),('repair_id', '!=', False)]}"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_right')]" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <field name="repair_id" invisible="1"/>
+                    <field name="preventive_id" invisible="1"/>
+                    <button name="open_repair_order" type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible': [('repair_id', '=', False)]}">Repair Order</button>
+                    <button name="open_preventive_dates" type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible': [('preventive_id', '=', False)]}">Preventive</button>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='maintenance_type']" position="attributes">
+                <attribute name="attrs">{'readonly': [('stage_id_done', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='schedule_date']" position="attributes">
+                <attribute name="attrs">{'readonly': [('stage_id_done', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="attrs">{'readonly': [('stage_id_done', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='equipment_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('stage_id_done', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='employee_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('stage_id_done', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('stage_id_done', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='maintenance_team_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('stage_id_done', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//sheet[1]" position="inside">
+                <notebook colspan="6">
+                    <page string="General Information">
+                        <group col="4" string="Operations" name="operations">
+                            <field name="is_replacement"/>
+                            <field name="is_diagnostic"/>
+                            <field name="is_amelioration"/>
+                            <field name="is_control"/>
+                        </group>
+                        <group col="4" string="Cause de defaillance" name="defaillance">
+                            <field name="normale_defaillance"/>
+                            <field name="user_defaillance"/>
+                            <field name="product_defaillance"/>
+                            <field name="autre"/>
+                        </group>
+                        <group col="4" string="Nature de l'intervention" name="nature">
+                            <field name="is_mecanique"/>
+                            <field name="is_electric"/>
+                            <field name="is_instrumentation"/>
+                            <field name="is_automatisme"/>
+                        </group>
+                </page>
+    </notebook>
+            </xpath>
+        </field>
+    </record>
+
+        <!--Inherit maintenance request calendar view -->
+    <record id="hr_equipment_view_calendar_inherit" model="ir.ui.view">
+        <field name="name">equipment.request.calendar_inherit</field>
+        <field name="model">maintenance.request</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_calendar"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="stage_id" filters="1"/>
+                <field name="equipment_id" filters="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_hr_employee_registration_number" model="ir.sequence">
+            <field name="name">Employee Registration Number</field>
+            <field name="code">hr.employee.registration.number</field>
+            <field name="prefix">EMP/%(year)s/</field>
+            <field name="padding">3</field>
+        </record>
+        <record id="sequence_hr_employee_contract" model="ir.sequence">
+            <field name="name">Employee Contract Sequence</field>
+            <field name="code">hr.employee.contract.sequence</field>
+            <field name="prefix">CONT/%(year)s/</field>
+            <field name="padding">3</field>
+        </record>
+        <record id="sequence_hr_employee_contract_decision" model="ir.sequence">
+            <field name="name">Employee Contract Decision Sequence</field>
+            <field name="code">hr.employee.contract.decision.sequence</field>
+            <field name="prefix">DECISION/%(year)s/</field>
+            <field name="padding">3</field>
+        </record>
+        <record id="sequence_hr_employee_documents" model="ir.sequence">
+            <field name="name">Employee Sequence Documents</field>
+            <field name="code">hr.employee.sequence.documents</field>
+            <field name="prefix">SMARTEST/RH/%(year)s/</field>
+            <field name="padding">3</field>
+        </record>
+<!--         <record id="sequence_hr_employment_certificate" model="ir.sequence">-->
+<!--            <field name="name">Work Certificate Sequence</field>-->
+<!--            <field name="prefix">SMARTEST/RH/</field>-->
+<!--            <field name="suffix">/%(year)s</field>-->
+<!--            <field name="padding">3</field>-->
+<!--        </record>-->
+<!--        <record id="sequence_hr_employment_attestation" model="ir.sequence">-->
+<!--            <field name="name">Work Attestation Sequence</field>-->
+<!--            <field name="prefix">SMARTEST/RH/</field>-->
+<!--             <field name="suffix">/%(year)s</field>-->
+<!--            <field name="padding">3</field>-->
+<!--        </record>-->
+<!--        <record id="sequence_hr_employee_printing_log" model="ir.sequence">-->
+<!--            <field name="name">Employee Printing Log Sequence</field>-->
+<!--            <field name="code">hr.employee.printing.log.sequence</field>-->
+<!--            <field name="prefix">REF/%(year)s/</field>-->
+<!--            <field name="padding">3</field>-->
+<!--        </record>-->
+    </data>
+</odoo>

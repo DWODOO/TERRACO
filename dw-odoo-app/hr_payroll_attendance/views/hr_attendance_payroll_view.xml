@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    employee inclus en presence -->
+    <record id="add_new_fields_employee_presence_non_incluse" model="ir.ui.view">
+        <field name="name">add_new_fields_employee_presence_non_incluse</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pin']" position="before">
+                <field name="inclus_presence" string="Présence NON-INCLUSE ?"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!--     inherit res config pour ajouter fields retard legal -->
+    <record id="hr_config_form_attendance_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr_attendance.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='pincode_setting_container']/div[1]" position="after">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <field name="nombre_heure_present_journee" force_save="1" default="OO:15"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <span class="o_form_label">Maximum heures de retard</span>
+                        <div class="text-muted">
+                            heures de retard legal
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!--    heritage de prestation pour masquer check-in et checkout des presence -->
+    <record id="hr_work_entry_inherit" model="ir.ui.view">
+        <field name="name">hr.work.entry.tree.inherit</field>
+        <field name="model">hr.work.entry</field>
+        <field name="inherit_id" ref="hr_work_entry.hr_work_entry_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="replace">
+                <tree multi_edit="1" sample="1">
+                    <field name="name"/>
+                    <field name="work_entry_type_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="duration" readonly="1"/>
+                    <field name="state"/>
+                </tree>
+            </xpath>
+        </field>
+    </record>
+    <!--    TREE     -->
+    <record id="view_smartest_hr_attendance_payroll_tree" model="ir.ui.view">
+        <field name="name">smartest.hr_attendance.payroll.tree</field>
+        <field name="model">smartest.hr_attendance.payroll</field>
+        <field name="arch" type="xml">
+            <tree sample="1" decoration-success="state=='prestation'">
+                <field name="date"/>
+                <field name="create_uid" string="Responsable"/>
+                <field name="state" string="State"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_smartest_hr_attendance_payroll_form" model="ir.ui.view">
+        <field name="name">smartest.hr_attendance.payroll.form</field>
+        <field name="model">smartest.hr_attendance.payroll</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="get_default_data" string="Charger" type="object"
+                            attrs="{'invisible':[('bool','=',True)]}" states="draft"/>
+                    <button name="charger_paie" string="Charger en module prestation" type="object"
+                            attrs="{'invisible':['|',('state','=','draft'),('state','=','prestation')]}" states="loaded"
+                    />
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group name="header">
+                        <group>
+                            <div class="alert alert-warning" role="alert"
+                                 attrs="{'invisible': [('check', '=', False)]}">
+                                Vous avez des absences a justifier !!!
+                            </div>
+                        </group>
+                        <group>
+                            <field name="date" attrs="{'readonly':[('state','=','prestation')]}"/>
+                            <field name="bool" invisible="1"/>
+                            <field name="check" invisible="1"/>
+                            <field name="prestation_check" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Présences/Absences">
+                            <field name="attendance_payroll_ids" attrs="{'readonly':[('state','=','prestation')]}"
+                                   required="1">
+                                <tree editable="bottom" create="0" delete="0" decoration-success="worked_hours > 7.44"
+                                      decoration-warning="abs_hours != 0" decoration-danger="abs_days != 0">
+                                    <field name="employee_id"/>
+                                    <field name="worked_hours" widget="float_time"/>
+                                    <field name="abs_days" string="Absences/Jours"/>
+                                    <field name="abs_hours" string="Retard" widget="float_time"/>
+                                    <field name="justification"
+                                           attrs="{'readonly':[('abs_days','=',0),('abs_hours','=',0)],'required':['|',('abs_days','>',0),('abs_hours','>',0)]}"/>
+                                    <field name="type_prestation" domain="[('is_leave','=',True)]"
+                                           attrs="{'readonly':[('abs_days','=',0),('abs_hours','=',0)],'required':['|',('abs_days','>',0),('abs_hours','>',0)]}"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_smartest_hr_attendance_payroll_list_tree" model="ir.ui.view">
+        <field name="name">smartest.hr_attendance.payroll.list.tree</field>
+        <field name="model">smartest.hr_attendance.payroll.list</field>
+        <field name="arch" type="xml">
+            <tree create="0" delete="0" decoration-success="worked_hours > 7.44"
+                  decoration-warning="abs_hours != 0" decoration-danger="abs_days != 0">
+                <field name="employee_id"/>
+                <field name="worked_hours" widget="float_time"/>
+                <field name="date_presence"/>
+                <field name="abs_days" string="Absences/Jours"/>
+                <field name="abs_hours" string="Retard" widget="float_time"/>
+                <field name="justification"
+                       attrs="{'readonly':[('abs_days','=',0),('abs_hours','=',0)]}"/>
+                <field name="type_prestation" domain="[('is_leave','=',True)]"
+                       attrs="{'readonly':[('abs_days','=',0),('abs_hours','=',0)]}"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_smartest_hr_attendance_payroll" model="ir.actions.act_window">
+        <field name="name">Absences</field>
+        <field name="res_model">smartest.hr_attendance.payroll</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_smartest_hr_attendance_list_payroll" model="ir.actions.act_window">
+        <field name="name">Absences/Presences DETAIL</field>
+        <field name="res_model">smartest.hr_attendance.payroll.list</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem
+            id="menu_attendance_payroll"
+            action="action_smartest_hr_attendance_payroll"
+            parent="hr_attendance.menu_hr_attendance_root"
+            sequence="20"/>
+
+    <menuitem
+            id="menu_attendance_payroll_list"
+            action="action_smartest_hr_attendance_list_payroll"
+            parent="hr_payroll.menu_hr_payroll_report"
+            sequence="23"/>
+
+</odoo>

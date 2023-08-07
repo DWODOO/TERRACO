@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="smartest_report_payslip_inherit" inherit_id="hr_payroll.report_payslip">
+        <xpath expr="//t[@t-call='web.external_layout']" position="attributes">
+            <attribute name="t-call">smartest_hr_payroll.external_smartest_layout</attribute>
+        </xpath>
+
+        <xpath expr="//div" position="replace">
+            <div style="background-color:rgba(128, 128, 128, 0.5686274509803921); width:100%;border-style: double; border: solid 1px black;height: 20px;"/>
+            <br/>
+            <br/>
+            <div class="row">
+                <div style="width:55%;padding-left: 15px;font-size: 18px;">
+                    <br/>
+                    <br/>
+                    <t t-if="not o.struct_id.smartest_is_stc">
+                    <h3 style="text-align:center;text-decoration: underline;font-size: 18px;" name="payslip_name">BULLETIN DE PAIE</h3>
+                    </t>
+                    <t t-else="">
+                    <h3 style="text-align:center;text-decoration: underline;font-size: 18px;" name="payslip_name">BULLETIN DE PAIE STC</h3>
+                    </t>
+                    <br/>
+                    <br/>
+                    <table style="width: 400px;">
+                        <tr>
+                            <td>
+                                <strong>Période du:</strong>
+                            </td>
+                            <td>
+<!--                                <t t-if="'o.date_to', '&gt;', context_timestamp(datetime.datetime.now().-->
+<!--                                replace(year=2021, month=9, day=30))">-->
+<!--                                    <span t-esc="o.date_to.strftime('%B %Y')"/>-->
+<!--                                </t>-->
+<!--                                <t t-else="">-->
+                                    <span t-field="o.date_from" options="{'format': 'DD/MM/YYYY'}"/>
+                                    <strong>Au:</strong>
+                                    <span t-field="o.date_to" options="{'format': 'DD/MM/YYYY'}"/>
+<!--                                </t>-->
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Paiement le:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.date_to" options="{'format': 'DD/MM/YYYY'}"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Nr compte:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.employee_id.bank_account_id.acc_number"/>
+
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Mode de réglement:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.employee_id.type_payment_id"/>
+                            </td>
+
+                        </tr>
+
+                    </table>
+                </div>
+                <div style="padding:20px;border: solid 1px black;padding-right: 0px;font-size: 18px;">
+
+                    <table style="border-collapse:separate; border-spacing: 5px; font-size: 18px;">
+                        <tr>
+
+
+                            <td>
+                                <strong>
+                                    <span>Matricule: </span>
+                                </strong>
+                            </td>
+
+                            <td>
+                                <span t-field="o.employee_id.registration_number"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+
+
+                            <td>
+                                <strong>
+                                    <span>Nom:</span>
+                                </strong>
+                            </td>
+
+                            <td>
+                                <span t-field="o.employee_id"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+
+
+                            <td>
+                                <strong>Fonction:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.employee_id.job_id"/>
+                            </td>
+                        </tr>
+                        <tr>
+
+
+                            <td>
+                                <strong>Département:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.employee_id.department_id"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <tr>
+
+
+                                <td>
+                                    <strong>Date d'entrée:</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.employee_id.recruitment_date"/>
+                                </td>
+
+                            </tr>
+
+
+                            <td>
+                                <strong>N° Sec.Soc:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.employee_id.social_security_number"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+
+
+                            <td>
+                                <strong>Situ. Famille:</strong>
+                            </td>
+                            <td>
+                                <span t-field="o.employee_id.marital"/>
+                            </td>
+
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <br/>
+            <br/>
+
+            <style>
+                table.payroll { border: none;
+                border-collapse: collapse;
+                width:100%;
+                border-bottom:solid 1px black;
+
+                }
+                table.payroll th { border-left: 1px solid black;
+                border-right: 1px solid black;
+                border-top: 1px solid black;
+                background-color: rgba(128, 128, 128, 0.5686274509803921);
+                text-align:center;
+                }
+                .espace{ /* last row */
+                height:20px;
+                }
+                table.payroll td { border-left: 1px solid black;
+                border-right: 1px solid black;
+                padding:5px;
+                padding-left:10px;
+
+
+                }
+
+            </style>
+
+            <table class="payroll" style="font-size: 18px;">
+                <thead>
+                    <tr style="text-align:center;">
+                        <th rowspan="2">N°</th>
+                        <th rowspan="2">Designation</th>
+                        <th rowspan="2">Nombre</th>
+                        <th rowspan="2">Base</th>
+                        <th colspan="3">Part salariale</th>
+
+                    </tr>
+                    <tr>
+                        <th>Taux</th>
+                        <th>Gain</th>
+                        <th>Retenue</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr t-foreach="o.line_ids.filtered(lambda line: line.appears_on_payslip and line.sequence &lt; 500 )"
+                        t-as="line">
+                        <td>
+                            <span t-field="line.code"/>
+                        </td>
+                        <td>
+                            <span t-field="line.name"/>
+                        </td>
+                        <td>
+                            <span t-field="line.quantity"/>
+                        </td>
+
+
+                        <td>
+                            <span t-esc="'{:,.2f}'.format(line.amount)"/>
+                        </td>
+                        <td>
+                            <t t-if="line.amount_percentage &gt;0">
+                                <t t-if="line.amount_percentage &lt;= 100">
+                                    <span t-field="line.amount_percentage"/>
+                                </t>
+                            </t>
+                        </td>
+
+                        <td>
+                            <t t-if="line.total &gt;= 0">
+                                <span t-esc="'{:,.2f}'.format(line.total)"/>
+                            </t>
+                        </td>
+
+
+                        <td>
+                            <t t-if="line.total &lt;= 0">
+                                <span t-esc="'{:,.2f}'.format(line.total)"/>
+                            </t>
+                        </td>
+
+
+                    </tr>
+
+                    <tr>
+                        <td/>
+                        <td style="text-align:center;">
+                            Total Brut
+                        </td>
+
+                        <td/>
+                        <td/>
+                        <td/>
+                        <td>
+                            <span t-esc="'{:,.2f}'.format(sum(line.total for line in o.line_ids.filtered(lambda x: x.code == 'R400')))"/>
+                        </td>
+                        <td/>
+                    </tr>
+                    <tr>
+                    <tr t-foreach="o.line_ids.filtered(lambda line:  line.code in ['R401','R407'] )"
+                        t-as="line">
+
+                        <td>
+                            <span t-field="line.code"/>
+                        </td>
+                        <td>
+                            <span t-field="line.name"/>
+                        </td>
+                        <td>
+                            <span t-field="line.quantity"/>
+                        </td>
+
+                        <td>
+                            <span t-esc="'{:,.2f}'.format(line.amount)"/>
+                        </td>
+                        <td>
+                            <t t-if="line.amount_percentage &gt;0">
+                                <t t-if="line.amount_percentage &lt;= 100">
+                                    <span t-field="line.amount_percentage"/>
+                                </t>
+                            </t>
+                        </td>
+                        <td>
+
+                        </td>
+
+
+                        <td>
+
+                            <span t-esc="'{:,.2f}'.format(line.total)"/>
+
+                        </td>
+                    </tr>
+
+                        <td>
+                        </td>
+
+                        <td style="text-align:center;">
+                            Total Cotisation
+                        </td>
+                        <td/>
+                        <td/>
+                        <td/>
+                        <td/>
+
+                        <td>
+                            <span t-esc="'{:,.2f}'.format(sum(line.total for line in o.line_ids.filtered(lambda x: x.code in ['R401','R407'])))"/>
+                        </td>
+
+                    </tr>
+
+                    <tr t-foreach="o.line_ids.filtered(lambda line: line.sequence &gt; 509 and line.sequence &lt;= 899 )"
+                        t-as="line">
+
+                        <td>
+                            <span t-field="line.code"/>
+                        </td>
+                        <td>
+                            <span t-field="line.name"/>
+                        </td>
+                        <td>
+                            <span t-field="line.quantity"/>
+                        </td>
+
+                        <td>
+                            <span t-esc="'{:,.2f}'.format(line.amount)"/>
+                        </td>
+                        <td>
+                            <t t-if="line.amount_percentage &gt;0">
+                                <t t-if="line.amount_percentage &lt;= 100">
+                                    <span t-field="line.amount_percentage"/>
+                                </t>
+                            </t>
+                        </td>
+                        <td>
+                            <t t-if="line.total &gt;= 0">
+                                <span t-esc="'{:,.2f}'.format(line.total)"/>
+                            </t>
+                        </td>
+
+
+                        <td>
+                            <t t-if="line.total &lt;= 0">
+                                <span t-esc="'{:,.2f}'.format(line.total)"/>
+                            </t>
+                        </td>
+                    </tr>
+                    <tr class="espace">
+                        <td/>
+                        <td/>
+                        <td/>
+                        <td/>
+                        <td/>
+                        <td/>
+                        <td/>
+                    </tr>
+
+                </tbody>
+            </table>
+            <br/>
+            <br/>
+            <br/>
+
+            <table style="width:100%;border:solid black 1px;font-size: 18px;">
+                <tr>
+
+                    <td style="text-align: right; width:85%;border-right:solid black 1px;background-color:rgba(128, 128, 128, 0.5686274509803921);">
+                        <strong>NET A PAYER:</strong>
+                    </td>
+                    <td style="text-align:center;">
+                        <strong>
+
+                            <span t-esc="'{:,.2f}'.format(sum(line.total for line in o.line_ids.filtered(lambda x: x.code == 'NET')))"/>
+                        </strong>
+
+
+                    </td>
+                </tr>
+
+
+            </table>
+        </xpath>
+    </template>
+</odoo>

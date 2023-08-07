@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <!--    Form View    -->
+        <record id="smartest_view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">smartest.view.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+<!--                <xpath expr="//field[@name='child_ids']//form//sheet//group//group//field[@name='comment']" position="before">-->
+<!--                    <field name="birthday" attrs="{'invisible': [('type', '!=', 'contact')]}"/>-->
+<!--                </xpath>-->
+                <xpath expr="//div[hasclass('oe_title')]//h1//field[@name='name']" position="before">
+                    <field name="partner_code" placeholder="Code" readonly="1"
+                           groups="smartest_base.group_res_partner_code"
+                           attrs="{'invisible' : [('is_supplier', '=', False), ('is_customer', '=', False)]}"/>
+                    <br/>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_title')]//h1" position="after">
+                    <field name="is_supplier"/>
+                    <label for="is_supplier"/>
+                    <br/>
+                    <field name="is_customer"/>
+                    <label for="is_customer"/>
+                </xpath>
+                <xpath expr="//notebook/page[@name='internal_notes']" position="before">
+                    <page string="Company Information" attrs="{'invisible': [('company_type', '!=', 'company')]}">
+                        <group name="container_row_2" col="4">
+                            <field name="budget"/>
+                            <field name="turnover"/>
+                            <field name="business_capital"/>
+                            <field name="start_date"/>
+                        </group>
+                    </page>
+                    <page string="Country">
+                        <group sting="Fiscal" name="container_row_2" col="4">
+                            <field name="commercial_register"/>
+                            <field name="fiscal_identification"/>
+                            <field name="taxation"/>
+                            <field name="nis"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!--    Action    -->
+        <!--
+        Inheriting the following action in order to:
+            1- Add domain that force showing only supplier partners when calling this action.
+            2- Add default_is_supplier context attribute as True in order to make is_supplier field checked when
+            hitting create button from this action.
+        -->
+        <record id="base.action_partner_supplier_form" model="ir.actions.act_window">
+                <field name="domain">[('is_supplier', '=', True)]</field>
+                <field name="context">{'default_is_supplier': True}</field>
+        </record>
+    </data>
+</odoo>

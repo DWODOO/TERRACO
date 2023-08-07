@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_so_delivery_valued" model="ir.actions.report">
+        <field name="name">Bon de livraison Valorisé</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_no_invoice.report_delivery_valued_document</field>
+        <field name="report_file">smartest_no_invoice.report_delivery_valued_document</field>
+        <field name="print_report_name">'Delivery Slip - %s - %s' % (object.partner_id.name or '', object.name)</field>
+        <field name="binding_model_id" ref="model_sale_order"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

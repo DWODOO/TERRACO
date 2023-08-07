@@ -1,0 +1,211 @@
+<odoo>
+    <data>
+
+        <record id="feuille_comptage_1" model="ir.ui.view">
+            <field name="name">smartest.inventory.form1</field>
+            <field name="model">smartest.inventory</field>
+            <field name="arch" type="xml">
+
+                <!--                <header>-->
+                <!--                    <button name="validate_first_count" type="object" string="validate" />-->
+                <!--                </header>-->
+                <form string="First Counting">
+                    <header>
+                        <button name="done_first_count" type="object" string="Done" optional="show"
+                                class="oe_highlight"/>
+                        <button name="validate_first_count" type="object" string="validate"/>
+                    </header>
+                    <sheet>
+                        <!--                        <group>-->
+                        <!--                    <field name="name"/>-->
+                        <!--                        </group>-->
+                        <field name="inventory_line_ids">
+                            <tree editable="top">
+                                <field name="product_id" string="Product"/>
+                                <field name="location" string="Location"/>
+                                <field name="first_count" string="First Count" optional="show"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="feuille_comptage_2" model="ir.ui.view">
+            <field name="name">smartest.inventory.form2</field>
+            <field name="model">smartest.inventory</field>
+            <field name="arch" type="xml">
+
+                <!--                <header>-->
+                <!--                    <button name="validate_first_count" type="object" string="validate" />-->
+                <!--                </header>-->
+                <form string="First Counting">
+                    <header>
+                        <button name="done_second_count" type="object" string="Done" optional="show"
+                                class="oe_highlight"/>
+                        <button name="validate_second_count" type="object" string="validate"/>
+                    </header>
+                    <sheet>
+                        <!--                        <group>-->
+                        <!--                    <field name="name"/>-->
+                        <!--                        </group>-->
+                        <field name="inventory_line_ids">
+                            <tree editable="top">
+                                <field name="product_id" string="Product"/>
+                                <field name="location" string="Location"/>
+                                <field name="second_count" string="Second Count" optional="show"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="feuille_comptage_3" model="ir.ui.view">
+            <field name="name">smartest.inventory.form3</field>
+            <field name="model">smartest.inventory</field>
+            <field name="arch" type="xml">
+
+                <!--                <header>-->
+                <!--                    <button name="validate_first_count" type="object" string="validate" />-->
+                <!--                </header>-->
+                <form string="Third Counting">
+                    <header>
+                        <button name="done_third_count" type="object" string="Done" optional="show"
+                                class="oe_highlight"/>
+                        <button name="validate_third_count" type="object" string="validate"/>
+                    </header>
+                    <sheet>
+                        <!--                        <group>-->
+                        <!--                    <field name="name"/>-->
+                        <!--                        </group>-->
+                        <field name="inventory_line_ids">
+                            <tree editable="top" decoration-danger="difference_qty &gt; 0" decoration-success="third_count &gt; 0">
+                                <field name="product_id" string="Product"
+                                       attrs="{'readonly': [('difference_qty','=',0)]}"/>
+                                <field name="location" string="Location"
+                                       attrs="{'readonly': [('difference_qty','=',0)]}"/>
+                                <field name="third_count" string="Third Count"
+                                       attrs="{'invisible': [('difference_qty','=',0)]}"/>
+                                <field name="difference_qty" string="Difference" readonly="True" invisible="True"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="stock_quant_form">
+            <field name="name">smartest.inventory.form</field>
+            <field name="model">smartest.inventory</field>
+            <field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="statut" widget="statusbar" statusbar_visible="Start,End"/>
+
+                        <!--                        <button name="active_id_test" string="active id test" type="object" />-->
+
+                        <button name="create_inventory" string="START INVENTORY" type="object"
+                                attrs="{'invisible': [('statut', '!=', 'Start')]}"/>
+                        <!--                        <button name="get_location" string="hello" type="object"/>-->
+                        <!--                        <button name="just_test" string="CONTINUE INVENTORY " type="object"/>-->
+                        <button name="chek_count" string="CHEK COUNT " type="object"
+                                attrs="{'invisible': [('statut', '!=','Chek')
+                                    ]}"/>
+                        <button name="create_first_counting" string="FIRST COUNTING" type="object"
+                                class="oe_highlight" attrs="{'invisible': [('statut', '!=', 'First')]}"/>
+
+                        <button name="create_second_counting" string="SECOND COUNTING" type="object"
+                                class="oe_highlight" attrs="{'invisible': [('statut', '!=', 'Second')]}"/>
+
+                        <button name="create_third_counting" string="THIRD COUNTING" type="object"
+                                class="oe_highlight" attrs="{'invisible': [('statut', '!=', 'Third')]}"/>
+
+                        <button name="end_counting" string="VALIDATE" type="object"
+                                class="oe_highlight" attrs="{'invisible': [('statut', '!=', 'End')]}"/>
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="date"/>
+                                <field name="warehouse_name"/>
+                                <field name="barcode_adjustment" attrs="{'readonly': [('statut','!=','Start')]}"/>
+                            </group>
+                        </group>
+                            <field name="inventory_line_ids">
+                                <tree editable="top" decoration-danger="difference_qty &gt; 0" decoration-success="third_count &gt; 0">
+                                    <field name="product_id" string="Product"/>
+                                    <field name="location" string="Location"/>
+                                    <field name="first_count" string="First Count" optional="show" readonly="True"/>
+                                    <field name="second_count" string="Second Count" readonly="True"/>
+                                    <field name="difference_qty" string="Difference" readonly="True"/>
+                                    <field name="third_count" string="third count"
+                                           attrs="{'invisible': [('difference_qty','=',0)]}" readonly="True"/>
+                                </tree>
+                            </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="smartest_stock_action">
+            <field name="name">Smartest Inventory</field>
+            <field name="res_model">smartest.inventory</field>
+            <field name="view_mode">smartest.inventory</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p classe="o_view_nocontent_smiling_face">
+                    create inventory !!
+                </p>
+            </field>
+        </record>
+
+        <record id="smartest_stock_tree" model="ir.ui.view">
+            <field name="name">smartest_sock.tree</field>
+            <field name="model">smartest.inventory</field>
+            <field name="arch" type="xml">
+                <tree string="Inventory Valuation" js_class="inventory_validate_button">
+                    <field name="name" string="Name"/>
+                    <field name="date" string="Date"/>
+                    <!--                    <field name="inventory_quantity"  string="Counted Quantity"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="view_inventory_form" model="ir.ui.view">
+            <field name="name">smartest.inventory.form</field>
+            <field name="model">smartest.inventory</field>
+            <field name="arch" type="xml">
+                <form string="Inventory Adjustment">
+                    <header>
+                        <!--                <button name="test" states="draft" string="Start Inventory" type="object" class="oe_highlight" groups="stock.group_stock_user"/>-->
+                        <!--                <button name="action_open_inventory_lines" states="confirm" string="Continue Inventory" type="object" class="oe_highlight" groups="stock.group_stock_user"/>-->
+                        <!--                <button name="action_validate" string="Validate Inventory" type="object" attrs="{'invisible': ['|', ('state', '!=', 'confirm'), ('line_ids', '!=', [])]}" groups="stock.group_stock_manager"/>-->
+                        <!--                <button name="action_validate" string="Validate Inventory" type="object" attrs="{'invisible': ['|', ('state', '!=', 'confirm'), ('line_ids', '=', [])]}" class="oe_highlight" groups="stock.group_stock_manager"/>-->
+                        <!--                <button name="action_print" string="Print Count Sheet" type="object" attrs="{'invisible': [('state', '=', 'draft')]}" groups="stock.group_stock_user"/>-->
+                        <!--                <button name="action_cancel_draft" states="cancel" string="Set to Draft" type="object"/>-->
+                        <!--                <button name="action_cancel_draft" states="confirm" string="Cancel Inventory" type="object"-->
+                        <!--                    confirm="If you cancel this inventory adjustment, all its inventory adjustment lines will be lost. Are you sure you want to discard it ?"/>-->
+                    </header>
+
+
+                </form>
+            </field>
+        </record>
+
+
+
+<!--        <menuitem name="Smartest Inventory" id="product_test_root" sequence="10"/>-->
+
+<!--        <menuitem name="smart stock" id="smartsale_root" parent="product_test_root" sequence="10"/>-->
+
+<!--        <menuitem name="smart_stock" id="product_test_smartsale" parent="smartsale_root" action="smartest_stock_action"-->
+<!--                  sequence="10"/>-->
+
+        <menuitem id="test_id" name="Inventory counting" parent="stock.menu_stock_warehouse_mgmt" sequence="30"
+                  action="smartest_stock_action"/>
+
+    </data>
+</odoo>

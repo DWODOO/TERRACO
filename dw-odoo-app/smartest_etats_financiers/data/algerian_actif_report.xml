@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="accounting_bilan_actif" model="account.report">
+            <field name="name">Bilan actif Algérien</field>
+            <field name="filter_show_draft">False</field>
+            <field name="filter_unreconciled">True</field>
+        </record>
+        <record id="accounting_bilan_actif_column_brut" model="account.report.column">
+            <field name="name">Brut</field>
+            <field name="expression_label">brut</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+        </record>
+        <record id="accounting_bilan_actif_column_amort" model="account.report.column">
+            <field name="name">Amort prov</field>
+            <field name="expression_label">amort_prov</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+        </record>
+        <record id="accounting_bilan_actif_parent1" model="account.report.line">
+            <field name="name">ACTIF IMMOBILISE (NON COURANT)</field>
+            <field name="code">ACT_IMM</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="hierarchy_level">1</field>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S1L1" model="account.report.line">
+            <field name="name">Ecart d'acquisition</field>
+            <field name="code">ACT_R1S1L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_parent1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S1L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','207%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S1L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S1L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">['|',('account_id.code','=ilike','2807%'),('account_id.code','=ilike','2907%')]
+            </field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S1L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S2L1" model="account.report.line">
+            <field name="name">Immobilsations incorporelles</field>
+            <field name="code">ACT_R1S2L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_parent1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S2L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','20%'),('account_id.code','not ilike','207%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S2L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S2L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">['|',
+                '&amp;',('account_id.code','=ilike','280%'),('account_id.code','not
+                ilike','2807%'),
+                '&amp;',('account_id.code','=ilike','290%'),('account_id.code','not ilike','2907%')]
+            </field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S2L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S3L0" model="account.report.line">
+            <field name="name">Immobilsations corporelles</field>
+            <field name="code">ACT_R1S3L0</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_parent1"/>
+        </record>
+
+        <record id="accounting_bilan_actif_ACT_R1S3L1" model="account.report.line">
+            <field name="name">Terrains</field>
+            <field name="code">ACT_R1S3L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L0"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S3L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','211%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S3L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">['|',('account_id.code','=ilike','2811%'),('account_id.code','=ilike','2911%')]
+            </field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L1"/>
+        </record>
+
+        <record id="accounting_bilan_actif_ACT_R1S3L2" model="account.report.line">
+            <field name="name">Bâtiments</field>
+            <field name="code">ACT_R1S3L2</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L0"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S3L2_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">['|',('account_id.code','=ilike','212%'),('account_id.code','=ilike','213%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S3L2_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">
+                ['|','|','|',('account_id.code','=ilike','2812%'),('account_id.code','=ilike','2912%'),('account_id.code','=ilike','2813%'),('account_id.code','=ilike','2913%')]
+            </field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L2"/>
+        </record>
+
+        <record id="accounting_bilan_actif_ACT_R1S3L3" model="account.report.line">
+            <field name="name">Autres immobilisations corporelles</field>
+            <field name="code">ACT_R1S3L3</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L0"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S3L3_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','21%'),('account_id.code','not
+                ilike','211%'),('account_id.code','not ilike','212%'),('account_id.code','not ilike','213%')]
+            </field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L3"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S3L3_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">['|',
+                '&amp;','&amp;','&amp;',('account_id.code','=ilike','281%'),('account_id.code','not
+                ilike','2811%'),('account_id.code','not ilike','2812%'),('account_id.code','not ilike','2813%'),
+                '&amp;','&amp;','&amp;',('account_id.code','=ilike','291%'),('account_id.code','not
+                ilike','2911%'),('account_id.code','not ilike','2912%'),('account_id.code','not ilike','2913%')]
+            </field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L3"/>
+        </record>
+
+        <record id="accounting_bilan_actif_ACT_R1S3L4" model="account.report.line">
+            <field name="name">Immobilisations en concession</field>
+            <field name="code">ACT_R1S3L4</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L0"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S3L4_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','22%'),('account_id.code','not ilike','229%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L4"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S3L4_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">
+                ['|','&amp;',('account_id.code','=ilike','282%'),('account_id.code','not ilike','2829%'),
+                '&amp;',('account_id.code','=ilike','292%'),('account_id.code','not ilike','2929%')]
+            </field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S3L4"/>
+        </record>
+
+        <record id="accounting_bilan_actif_ACT_R1S4L1" model="account.report.line">
+            <field name="name">Immobilsations encours</field>
+            <field name="code">ACT_R1S4L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_parent1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S4L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','23%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S4L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S4L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">['|',('account_id.code','=ilike','283%'),('account_id.code','=ilike','293%')]
+            </field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S4L1"/>
+        </record>
+
+
+        <record id="accounting_bilan_actif_child5_parent1" model="account.report.line">
+            <field name="name">immobilisations financières</field>
+            <field name="code">ACT_IF</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L1" model="account.report.line">
+            <field name="name">Titre mis en équivalence - entreprise associé</field>
+            <field name="code">ACT_R1S5L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child5_parent1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','265%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S5L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L2" model="account.report.line">
+            <field name="name">Autres participations et créances rattachées</field>
+            <field name="code">ACT_R1S5L2</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child5_parent1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L2_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','26%'),('account_id.code','not
+                ilike','265%'),('account_id.code','not ilike','269%')]
+            </field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S5L2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L2_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','296%'),('account_id.code','not
+                ilike','2965%'),('account_id.code','not ilike','2969%')]
+            </field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S5L2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L3" model="account.report.line">
+            <field name="name">Autres titres immobilisé</field>
+            <field name="code">ACT_R1S5L3</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child5_parent1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L3_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">
+                ['|','|',('account_id.code','=ilike','271%'),('account_id.code','=ilike','272%'),('account_id.code','=ilike','273%')]
+            </field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S5L3"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L3_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">
+                ['|','|',('account_id.code','=ilike','2971%'),('account_id.code','=ilike','2972%'),('account_id.code','=ilike','2973%')]
+            </field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S5L3"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L4" model="account.report.line">
+            <field name="name">Prets et autres actifs financiers non courants</field>
+            <field name="code">ACT_R1S5L4</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child5_parent1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L4_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">
+                ['|','|',('account_id.code','=ilike','274%'),('account_id.code','=ilike','275%'),('account_id.code','=ilike','276%')]
+            </field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S5L4"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L4_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">
+                ['|','|','|',('account_id.code','=ilike','2974%'),('account_id.code','=ilike','2975%'),('account_id.code','=ilike','2976%'),('account_id.code','=ilike','2978%')]
+            </field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S5L4"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L5" model="account.report.line">
+            <field name="name">Impots différés actif</field>
+            <field name="code">ACT_R1S5L5</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child5_parent1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1S5L5_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','133%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R1S5L5"/>
+        </record>
+
+        <record id="accounting_bilan_actif_total_I" model="account.report.line">
+            <field name="name">Total ACTIF NON COURANT </field>
+            <field name="code">ACT_R1ST</field>
+            <field name="hierarchy_level">1</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1ST_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">aggregation</field>
+            <field name="formula">
+                ACT_R1S1L1.brut+ACT_R1S2L1.brut+ACT_R1S3L1.brut+ACT_R1S3L2.brut+ACT_R1S3L3.brut+ACT_R1S3L4.brut+ACT_R1S4L1.brut+ACT_R1S5L1.brut+ACT_R1S5L2.brut+ACT_R1S5L3.brut+ACT_R1S5L4.brut+ACT_R1S5L5.brut
+            </field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_total_I"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R1ST_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">aggregation</field>
+            <field name="formula">
+                ACT_R1S1L1.amort_prov+ACT_R1S2L1.amort_prov+ACT_R1S3L1.amort_prov+ACT_R1S3L2.amort_prov+ACT_R1S3L3.amort_prov+ACT_R1S3L4.amort_prov+ACT_R1S4L1.amort_prov+ACT_R1S5L2.amort_prov+ACT_R1S5L3.amort_prov+ACT_R1S5L4.amort_prov
+            </field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_total_I"/>
+        </record>
+
+        <record id="accounting_bilan_actif_parent2" model="account.report.line">
+            <field name="name">ACTIF COURANT</field>
+            <field name="code">ACT_AC</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S1L1" model="account.report.line">
+            <field name="name">Stocks et encours</field>
+            <field name="code">ACT_R2S1L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S1L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','3%'),('account_id.code','not ilike','39%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S1L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S1L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','39%')]</field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S1L1"/>
+        </record>
+        <record id="accounting_bilan_actif_child2_parent2" model="account.report.line">
+            <field name="name">Créances et emplois assimilés</field>
+            <field name="code">ACT_CEA</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S2L1" model="account.report.line">
+            <field name="name">Client</field>
+            <field name="code">ACT_R2S2L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child2_parent2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S2L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','41%'),('account_id.code','not ilike','419%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S2L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S2L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','419%')]</field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S2L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S2L2" model="account.report.line">
+            <field name="name">Autres débiteurs</field>
+            <field name="code">ACT_R2S2L2</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child2_parent2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S2L2_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">409+42D+43D+440D+441D+442D+443D+446D+448D+449D+45D+46D+47D+486D+489D</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S2L2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S2L2_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">['|',('account_id.code','=ilike','495%'),('account_id.code','=ilike','496%')]</field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S2L2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S2L3" model="account.report.line">
+            <field name="name">Impots et assimilés</field>
+            <field name="code">ACT_R2S2L3</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child2_parent2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S2L3_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">444D+445D+447D</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S2L3"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S2L4" model="account.report.line">
+            <field name="name">Autres actifs courants</field>
+            <field name="code">ACT_R2S2L4</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child2_parent2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S2L4_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">48D\(486, 489)D</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S2L4"/>
+        </record>
+        <record id="accounting_bilan_actif_child3_parent2" model="account.report.line">
+            <field name="name">Disponibilités et assimilés</field>
+            <field name="code">ACT_DA</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S3L1" model="account.report.line">
+            <field name="name">Placements et autres financiers courants</field>
+            <field name="code">ACT_R2S3L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child3_parent2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S3L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','50%'),('account_id.code','not ilike','509%')]</field>
+            <field name="subformula">sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S3L1"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S3L2" model="account.report.line">
+            <field name="name">Trésorerie</field>
+            <field name="code">ACT_R2S3L2</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_etats_financiers.accounting_bilan_actif_child3_parent2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S3L2_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">53+54+51D+52D+58D</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S3L2"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2S3L2_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">domain</field>
+            <field name="formula">[('account_id.code','=ilike','59%')]</field>
+            <field name="subformula">-sum</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_ACT_R2S3L2"/>
+        </record>
+        <record id="accounting_bilan_actif_total_II" model="account.report.line">
+            <field name="name">TOTAL ACTIF COURANT</field>
+            <field name="code">ACT_R2ST</field>
+            <field name="hierarchy_level">1</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2ST_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">aggregation</field>
+            <field name="formula">
+                ACT_R2S1L1.brut+ACT_R2S2L1.brut+ACT_R2S2L2.brut+ACT_R2S2L3.brut+ACT_R2S2L4.brut+ACT_R2S3L1.brut+ACT_R2S3L2.brut
+            </field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_total_II"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_R2ST_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">aggregation</field>
+            <field name="formula">
+                ACT_R2S1L1.amort_prov+ACT_R2S2L1.amort_prov+ACT_R2S2L2.amort_prov+ACT_R2S3L2.amort_prov
+            </field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_total_II"/>
+        </record>
+
+        <record id="accounting_bilan_actif_total_G" model="account.report.line">
+            <field name="name">TOTAL GENERAL ACTIF </field>
+            <field name="code">ACT_RG</field>
+            <field name="hierarchy_level">1</field>
+            <field name="report_id" ref="smartest_etats_financiers.accounting_bilan_actif"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_RG_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">aggregation</field>
+            <field name="formula">ACT_R1ST.brut+ACT_R2ST.brut</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_total_G"/>
+        </record>
+        <record id="accounting_bilan_actif_ACT_RG_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">aggregation</field>
+            <field name="formula">ACT_R1ST.amort_prov+ACT_R2ST.amort_prov</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_etats_financiers.accounting_bilan_actif_total_G"/>
+        </record>
+    </data>
+</odoo>

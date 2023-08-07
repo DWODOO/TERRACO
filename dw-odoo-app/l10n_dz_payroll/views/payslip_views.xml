@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_payslip_view_form" model="ir.ui.view">
+        <field name="name">hr.payslip.form</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <!--            <field name="line_ids" position="attributes">-->
+            <!--                <attribute name="decoration-danger">total &lt; 0</attribute>-->
+            <!--            </field>-->
+
+            <xpath expr="//notebook//page[2]//field[@name='line_ids']//field[@name='name']" position="replace">
+                <field name="name" invisible="1"/>
+                <field name="salary_rule_id" readonly="1"/>
+            </xpath>
+            <xpath expr="//notebook//page[2]//field[@name='line_ids']" position="after">
+                <group name="summary">
+                    <group string="Salary" name="salary_summary">
+                        <!--                        <field name="base_salary"/>-->
+                        <field name="post_salary"/>
+                        <field name="irg_base_salary"/>
+                        <field name="net_salary"/>
+                        <field name="payroll"/>
+                        <field name="csp_cat" invisible="1"/>
+                    </group>
+                    <field name="company_id" invisible="1"/>
+                    <field name="company_currency" invisible="1"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//sheet//group//field[@name='contract_id']" position="attributes">
+                <attribute name="domain">[('employee_id','=',employee_id)]</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='work_entry_type_id']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='number_of_days']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='number_of_hours']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='worked_days_line_ids']//tree" position="attributes">
+                <attribute name="create">1</attribute>
+                <attribute name="edit">1</attribute>
+                <attribute name="delete">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="hr_payslip_view_search" model="ir.ui.view">
+        <field name="name">hr.payslip.view.search</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_filter"/>
+        <field name="arch" type="xml">
+            <filter name="group_by_batch" position="after">
+                <separator/>
+                <filter string="Department" name="group_department_id" context="{'group_by':'department_id'}"/>
+            </filter>
+        </field>
+    </record>
+
+
+    <record id="hr_payslip_view_tree" model="ir.ui.view">
+        <field name="name">hr.payslip.tree</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='net_wage']" position="attributes">
+                <attribute name="sum">Net</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

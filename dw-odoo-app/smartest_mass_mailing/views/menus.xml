@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add Emails menu entry in Email Marketing/Configuration/Emails -->
+    <menuitem name="Emails" id="menu_mail_mail" parent="mass_mailing.mass_mailing_configuration"
+              action="mail.action_view_mail_mail"/>
+</odoo>

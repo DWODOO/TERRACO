@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_create_date_wizard","smartest_compte_resultat.create.report.wizard","model_create_report_wizard","base.group_user",1,1,1,1
+access_smartest_bilan,access.smartest_bilan.resultat_fiscal,model_smartest_bilan_resultat_fiscal,base.group_user,1,1,1,0
+access_smartest_bilan_list,access.smartest_bilan.resultat_fis,model_smartest_bilan_resultat_fis,,1,1,1,1
+access_to_detail_client,access_to_detail_client,model_detaill_client_wizard,base.group_user,1,1,1,1

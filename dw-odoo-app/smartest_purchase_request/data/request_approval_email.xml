@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!--************************** Approval Email template *************************-->
+
+        <record id="mail_template_request_RFQ" model="mail.template">
+            <field name="name">Purchase Request - Approved</field>
+            <field name="lang">{{ object.assigned_to.partner_id.lang }}</field>
+            <field name="model_id" ref="model_purchase_request"/>
+            <field name="subject">PR Pending RFQ-{{ object.name }}</field>
+            <field name="email_from">{{ object.assigned_to.partner_id.email }}</field>
+            <field name="email_to">{{ object.purchase_team_members_id.partner_id.email }}</field>
+            <field name="body_html" type="html">
+                <p>
+                    Mrs./Mr. {{ object.purchase_team_members_id.partner_id.name }} ,<br/><br/>
+                    A purchase request with number {{ object.name }} is waiting for you to create RFQ. <br/><br/>
+                        - Requested by:   {{ object.assigned_to.name }}<br/><br/>
+                        - Latest reception date:  {{ object.latest_date }}<br/><br/>
+                    Sincerely<br/><br/>
+                                        <span>{{ object.url }}</span>
+                    INCOMS Team<br/><br/>
+                    ***Please do not reply to this e-mail, as this is an unmonitored alias.***
+                </p>
+            </field>
+        </record>
+        <record id="mail_template_request_Quantity_validation" model="mail.template">
+            <field name="name">Purchase Order - Quantity Validation</field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="model_id" ref="model_purchase_order"/>
+            <field name="subject">PO Pending Quantity Approval-{{ object.name }}</field>
+            <field name="email_from">{{ object.create_uid.partner_id.email }}</field>
+            <field name="email_to">{{ object.team_members_id.partner_id.email }}</field>
+            <field name="body_html" type="html">
+                <p>
+                    Mrs./Mr. {{ object.team_members_id.partner_id.name }} ,<br/><br/>
+                    A purchase Order with number {{ object.name }} is waiting for you Validate the Quantity Approval. <br/><br/>
+                        - Requested by:   {{ object.create_uid.name }}<br/><br/>
+                        - Latest reception date:  {{ object.date_planned }}<br/><br/>
+                    Sincerely<br/><br/>
+                                        <span>{{ object.url }}</span>
+                    INCOMS Team<br/><br/>
+                    ***Please do not reply to this e-mail, as this is an unmonitored alias.***
+                </p>
+            </field>
+        </record>
+        <record id="mail_template_request_Financial_validation" model="mail.template">
+            <field name="name">Purchase Order - Financial Validation</field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="model_id" ref="model_purchase_order"/>
+            <field name="subject">PO Pending Financial Approval-{{ object.name }}</field>
+            <field name="email_from">{{ object.create_uid.partner_id.email }}</field>
+            <field name="email_to">{{ object.team_members_id.partner_id.email }}</field>
+            <field name="body_html" type="html">
+                <p>
+                    Mrs./Mr. {{ object.team_members_id.partner_id.name }} ,<br/><br/>
+                    A purchase order with number {{ object.name }} is waiting for you for Financial validation. <br/><br/>
+                        - Requested by:   {{ object.create_uid.name }}<br/><br/>
+                        - Amount:  {{ object.amount_total }} DA<br/><br/>
+                    Sincerely<br/><br/>
+                    <span>{{ object.url }}</span>
+                    INCOMS Team<br/><br/>
+                    ***Please do not reply to this e-mail, as this is an unmonitored alias.***
+                </p>
+            </field>
+        </record>
+        <record id="mail_template_request_Tehcnical_validation" model="mail.template">
+            <field name="name">Purchase Order - Technical Validation</field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="model_id" ref="model_purchase_order"/>
+            <field name="subject">PO Pending Technical Approval-{{ object.name }}</field>
+            <field name="email_from">{{ object.create_uid.partner_id.email }}</field>
+            <field name="email_to">{{ object.tech_validator_id.partner_id.email }}</field>
+            <field name="body_html" type="html">
+                <p>
+                    Mrs./Mr. {{ object.tech_validator_id.partner_id.name }} ,<br/><br/>
+                    A purchase order with number {{ object.name }} is waiting for you for Technical validation. <br/><br/>
+                        - You can check the PO from the link above<br/><br/>
+                    <span>http://192.168.14.56/my/validation/{{ object.name }}</span><br/><br/>
+                    Sincerely<br/><br/>
+                    INCOMS Team<br/><br/>
+                    ***Please do not reply to this e-mail, as this is an unmonitored alias.***
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="1">
+        <!--
+            Factor Category Data
+        -->
+        <record id="appraisal_factor_category_commitment" model="hr.appraisal.factor.category">
+            <field name="name">Commitment</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="appraisal_factor_category_integrity" model="hr.appraisal.factor.category">
+            <field name="name">Integrity</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="appraisal_factor_category_teamwork" model="hr.appraisal.factor.category">
+            <field name="name">Teamwork</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="appraisal_factor_category_drive" model="hr.appraisal.factor.category">
+            <field name="name">Drive</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <!--
+            Factor Category
+        -->
+        <record id="appraisal_factor_improvement" model="hr.appraisal.factor">
+            <field name="name">Continuous improvement</field>
+            <field name="sequence">10</field>
+            <field name="category_id" ref="appraisal_factor_category_commitment"/>
+        </record>
+
+        <record id="appraisal_factor_development" model="hr.appraisal.factor">
+            <field name="name">Self-development</field>
+            <field name="sequence">20</field>
+            <field name="category_id" ref="appraisal_factor_category_commitment"/>
+        </record>
+
+        <record id="appraisal_factor_service_focus" model="hr.appraisal.factor">
+            <field name="name">Service Focus</field>
+            <field name="sequence">30</field>
+            <field name="category_id" ref="appraisal_factor_category_commitment"/>
+        </record>
+
+        <record id="appraisal_factor_decision_making" model="hr.appraisal.factor">
+            <field name="name">Decision making</field>
+            <field name="sequence">40</field>
+            <field name="category_id" ref="appraisal_factor_category_integrity"/>
+        </record>
+
+        <record id="appraisal_factor_responsibility" model="hr.appraisal.factor">
+            <field name="name">Responsibility</field>
+            <field name="sequence">50</field>
+            <field name="category_id" ref="appraisal_factor_category_integrity"/>
+        </record>
+
+        <record id="appraisal_factor_collaborating" model="hr.appraisal.factor">
+            <field name="name">Collaborating</field>
+            <field name="sequence">60</field>
+            <field name="category_id" ref="appraisal_factor_category_teamwork"/>
+        </record>
+
+        <record id="appraisal_factor_communication" model="hr.appraisal.factor">
+            <field name="name">Communication</field>
+            <field name="sequence">70</field>
+            <field name="category_id" ref="appraisal_factor_category_teamwork"/>
+        </record>
+
+        <record id="appraisal_factor_coaching" model="hr.appraisal.factor">
+            <field name="name">Coaching and monitoring</field>
+            <field name="sequence">80</field>
+            <field name="category_id" ref="appraisal_factor_category_teamwork"/>
+        </record>
+
+        <record id="appraisal_factor_Diversity" model="hr.appraisal.factor">
+            <field name="name">Diversity (Multi-skills)</field>
+            <field name="sequence">90</field>
+            <field name="category_id" ref="appraisal_factor_category_teamwork"/>
+        </record>
+
+        <record id="appraisal_factor_creativity" model="hr.appraisal.factor">
+            <field name="name">Creativity</field>
+            <field name="sequence">100</field>
+            <field name="category_id" ref="appraisal_factor_category_drive"/>
+        </record>
+
+        <record id="appraisal_factor_initiative" model="hr.appraisal.factor">
+            <field name="name">Initiative</field>
+            <field name="sequence">110</field>
+            <field name="category_id" ref="appraisal_factor_category_drive"/>
+        </record>
+
+        <record id="appraisal_factor_result_focus" model="hr.appraisal.factor">
+            <field name="name">Result focus</field>
+            <field name="sequence">120</field>
+            <field name="category_id" ref="appraisal_factor_category_drive"/>
+        </record>
+
+        <record id="appraisal_factor_adaptability" model="hr.appraisal.factor">
+            <field name="name">Adaptability (Agile)</field>
+            <field name="sequence">130</field>
+            <field name="category_id" ref="appraisal_factor_category_drive"/>
+        </record>
+
+    </data>
+</odoo>

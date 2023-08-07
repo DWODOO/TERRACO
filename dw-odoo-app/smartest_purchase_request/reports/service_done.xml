@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_service_done_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <style>
+                        table td {
+                            border-bottom: 1px dotted black;
+                        }
+                        .second-div {
+                            border: 1px solid black;
+                        }
+                    </style>
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div style="border: 1px solid ! important;background-color: #E0E0E0;">
+                            <h2 class="text-center">Service Fait -
+                                <span t-field="o.company_id.name"/>
+                            </h2>
+                        </div>
+                        <br/>
+                        <table class="table">
+                            <thead style="display: table-row-group">
+                                <tr>
+                                    <td rowspan="2" style="text-align : center; vertical-align: middle;background-color: #E0E0E0;border: 1px solid ! important;"><span>Prestation réalisée</span></td>
+                                    <td colspan="3" class="text-center" style="background-color: #E0E0E0;border: 1px solid ! important;"><span>Affectation Analytique</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #E0E0E0;border: 1px solid ! important;">
+                                        <span>Direction</span>
+                                    </td>
+                                    <td style="background-color: #E0E0E0;border: 1px solid ! important;">
+                                        <span>Structure</span>
+                                    </td>
+                                    <td style="background-color: #E0E0E0;border: 1px solid ! important;">
+                                        <span>Montant TTC</span>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span style="text-decoration: underline;">Nature de la prestation :</span></td>
+                                    <td><span style="text-decoration: underline;">DEPARTEMENT :</span></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr t-foreach="o.invoice_line_ids" t-as="line">
+                                    <td>
+                                        <t t-if="line.product_id and line.name">
+                                            <span t-field="line.name"/>
+                                        </t>
+                                        <t t-if="line.product_id and not line.name">
+                                            <span t-field="line.product_id.name"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span>DG</span>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                         <t t-if="line.price_subtotal">
+                                            <span t-field="line.price_subtotal"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span style="text-decoration: underline;">Observation :</span></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <t t-if="o.observation">
+                                            <span t-field="o.observation"/>
+                                        </t>
+                                        <t t-if="not o.observation">
+                                            <br/>
+                                        </t>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-center" style="background-color: #E0E0E0;">
+                                        <span>Total Général</span>
+                                    </td>
+                                    <td style="background-color: #E0E0E0;">
+                                        <t t-if="o.amount_total">
+                                            <span t-field="o.amount_total"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="second-div">
+                            <div class="commande" style="padding-left: 90px;">
+                                <div><span style="text-decoration: underline;"><strong>Commande/Contrat :</strong></span></div>
+                                <div><span style="text-decoration: underline;padding-left: 120px;"><strong><span t-field="o.invoice_origin"/></strong></span></div>
+                            </div>
+                            <div class="invoice" style="padding-left: 90px;">
+                                <div><span style="text-decoration: underline;"><strong>Facture :</strong></span></div>
+                                <div><span style="text-decoration: underline;padding-left: 120px;"><strong><span t-field="o.ref"/></strong></span></div>
+                                <div><span style="text-decoration: underline;padding-left: 120px;"><strong><span t-field="o.partner_id.name"/></strong></span></div>
+                            </div>
+                            <p style="width:100%;">Nous attestons par la présente que les prestations ou sous-traitance ont été réalisées et ce, conformément à la demande de <strong><span t-field="o.company_id.name"/></strong></p>
+                            <table style="margin-left:0px;margin-right:0px;width:100%;">
+                                <thead>
+                                    <tr>
+                                        <td class="text-center" style="border-right: 1px solid black;background-color: #E0E0E0;">
+                                            <span>Circulation</span>
+                                        </td>
+                                        <td class="text-center" style="background-color: #E0E0E0;">
+                                            <span>Direction Ordonnatrice</span>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center" style="background-color: #E0E0E0;"><strong><span>Nom Prénom / Fonction</span></strong></td>
+                                        <td class="text-center" ><strong></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" style="background-color: #E0E0E0;"><strong><span>Visa</span></strong></td>
+                                        <td class="text-center" ><strong><span></span></strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_service_done" model="ir.actions.report">
+        <field name="name">Service Fait</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">smartest_purchase_request.report_service_done_document</field>
+        <field name="report_file">smartest_purchase_request.report_service_done_document</field>
+        <field name="print_report_name">'Service Fait - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

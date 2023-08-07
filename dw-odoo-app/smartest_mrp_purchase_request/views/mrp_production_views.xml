@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="smartest_mrp_production_inherit_form" model="ir.ui.view">
+        <field name="name">smartest.mrp.production.form.inherit</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <button name="action_assign" position="after">
+                <button name="action_create_purchase_request"
+                        attrs="{'invisible': ['|', ('state', 'in', ('draft', 'done', 'cancel')), ('reserve_visible', '=', False)]}"
+                        string="Send Request" type="object" data-hotkey="q"/>
+
+            </button>
+
+        </field>
+    </record>
+</odoo>

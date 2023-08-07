@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Appraisal lines -->
+    <record model="ir.rule" id="hr_appraisal_comp_rule">
+        <field name="name">Appraisal Line by employee</field>
+        <field name="model_id" ref="model_hr_appraisal_line"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('employee_id.user_id', '=', uid), ('appraisal_employee_id.user_id', '=', uid)]</field>
+    </record>
+
+    <!-- Multi - Company Rules -->
+    <record model="ir.rule" id="hr_appraisal_comp_rule">
+        <field name="name">Appraisal Line multi-company</field>
+        <field name="model_id" ref="model_hr_appraisal_line"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('appraisal_id.company_id', '=', False), ('appraisal_id.company_id', 'in', company_ids)]</field>
+    </record>
+
+    <!-- Appraisals-->
+    <record id="hr_appraisal.hr_appraisal_emp_rule" model="ir.rule">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="hr_appraisal.hr_appraisal_all_rule" model="ir.rule">
+        <field name="groups" eval="[(4, ref('hr_appraisal.group_hr_appraisal_manager'))]"/>
+    </record>
+
+    <record id="hr_appraisal.hr_appraisal_rule_base_user" model="ir.rule">
+        <field name="domain_force">[
+            '|', '|', '|','|',
+            ('employee_id.user_id', '=', user.id),
+            ('manager_ids.user_id', 'in', user.ids),
+            ('collaborators_ids.user_id', 'in', user.ids),
+            ('colleagues_ids.user_id', 'in', user.ids),
+            ('validator_id.user_id', '=', user.id)
+        ]</field>
+    </record>
+
+</odoo>

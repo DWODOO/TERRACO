@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--******************************************** Res Users ********************************************-->
+    <!--     Form View     -->
+    <!--
+        Inheriting the res.users form view to add fields 'cash_desk_id' and 'cash_desk_ids'
+        that allow attribution of cash desks to an user.
+    -->
+    <record id="view_users_form" model="ir.ui.view">
+        <field name="name">res.users.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook//page[last()]" position="after">
+                <page string="Cash Desk" groups="smartest_payment_cash.group_cash_manager">
+                    <group>
+                        <field name="cash_desk_id"/>
+                        <field name="cash_desk_ids" widget="many2many_tags"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <!--    Search View    -->
+    <!--
+        Inheriting the res.users search view to add filter 'cashier' that allow showing only cash desk users.
+    -->
+    <record id="view_users_search" model="ir.ui.view">
+        <field name="name">res.users.search</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_search"/>
+        <field name="arch" type="xml">
+            <filter name="Inactive" position="after">
+                <separator/>
+                <filter name="cashier" string="Cashiers" domain="[('cash_desk_id','!=',False)]"/>
+            </filter>
+        </field>
+    </record>
+    <!--      Action       -->
+    <!--
+        Calling this action will only show cash desk users and this is due to setting 'search_default_cashier'
+        on the context.
+    -->
+    <record id="res_users_action" model="ir.actions.act_window">
+        <field name="name">Cashiers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="base.view_users_tree"/>
+        <field name="search_view_id" ref="base.view_users_search"/>
+<!--        <field name="context">{'search_default_no_share': 1, 'search_default_cashier': 1}</field>-->
+        <field name="domain">[('cash_desk_id','!=',False)] </field>
+    </record>
+    <!--      Action View      -->
+    <!--
+        The goal of the following action.view object is attribute the base view_users_form form view to the above action
+    -->
+    <record id="action_res_users_view_form" model="ir.actions.act_window.view">
+        <field eval="20" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base.view_users_form"/>
+        <field name="act_window_id" ref="res_users_action"/>
+    </record>
+    <record id="action_res_users_tree_form" model="ir.actions.act_window.view">
+        <field eval="10" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="base.view_users_tree"/>
+        <field name="act_window_id" ref="res_users_action"/>
+
+
+
+    </record>
+</odoo>

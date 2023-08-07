@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+       <!--tree view-->
+      <record id="resultat_fiscal_tree" model="ir.ui.view">
+        <field name="name">smartest_bilan.resultat_fiscal.tree</field>
+        <field name="model">smartest_bilan.resultat_fiscal</field>
+        <field name="arch" type="xml">
+            <tree string="Resultat fiscal">
+                 <field name="name"/>
+                 <field name="catego"/>
+            </tree>
+        </field>
+    </record>
+         <!-- action of menu -->
+<!--    <record id="action_resultat_fiscal" model="ir.actions.act_window">-->
+<!--        <field name="name">Resultat fiscal</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">import_export.resultat_fiscal</field>-->
+<!--        <field name="view_mode">tree</field>-->
+<!--    </record>-->
+<!--    <menuitem id ="menu_fiscal" name="fiscal" action="action_resultat_fiscal"/>-->
+</odoo>

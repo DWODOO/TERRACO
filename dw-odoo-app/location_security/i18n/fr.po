@@ -1,0 +1,68 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* location_security
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-13 12:46+0000\n"
+"PO-Revision-Date: 2020-01-13 12:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: location_security
+#: model:ir.model.fields,field_description:location_security.field_stock_location__user_ids
+#: model:ir.model.fields,field_description:location_security.field_stock_warehouse__user_ids
+msgid "Allowed Users"
+msgstr "Utilisateurs Autorisés"
+
+#. module: location_security
+#: model:ir.model.fields,field_description:location_security.field_res_users__authorized_location_ids
+msgid "Authorized Locations"
+msgstr "Emplacements Autorisés"
+
+#. module: location_security
+#: model:ir.model,name:location_security.model_stock_location
+msgid "Inventory Locations"
+msgstr "Emplacements de stock"
+
+#. module: location_security
+#: model:ir.model.fields,field_description:location_security.field_res_users__stock_location_ids
+#: model_terms:ir.ui.view,arch_db:location_security.view_location_security_users_form
+msgid "Locations"
+msgstr "Emplacements"
+
+#. module: location_security
+#: model:ir.model.fields,field_description:location_security.field_res_users__restricted_by_warehouse_location_ids
+msgid "Restricted Locations"
+msgstr "Emplacements Limités"
+
+#. module: location_security
+#: model_terms:ir.ui.view,arch_db:location_security.view_location_security_users_form
+msgid "Stock"
+msgstr "Stock"
+
+#. module: location_security
+#: model:res.groups,name:location_security.stock_restriction_group
+msgid "Stock Restriction"
+msgstr "Restriction sur le Stock"
+
+#. module: location_security
+#: model:ir.model,name:location_security.model_res_users
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: location_security
+#: model:ir.model,name:location_security.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Magasin"
+
+#. module: location_security
+#: model:ir.model.fields,field_description:location_security.field_res_users__stock_warehouse_ids
+msgid "Warehouses"
+msgstr "Magasins"

@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_contract_form" model="ir.ui.view">
+        <field name="name">hr.contract.form</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <field name="date_start" position="after">
+                <field name="trial_date_end"/>
+            </field>
+            <xpath expr="//field[@name='state']" position="before">
+                <button name="%(action_contract_amendment_wizard)d" string="Create Amendment" type="action"
+                        context="{'default_contract_id' : active_id, 'default_employee_id': employee_id}"/>
+                <button name="%(action_contract_decision_wizard)d" string="Create Decision" type="action"
+                        context="{'default_contract_id' : active_id, 'default_employee_id': employee_id}"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="replace">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_open_contract_decisions" class="oe_stat_button"
+                            groups="hr_contract.group_hr_contract_manager" icon="fa-file-text" type="object">
+                        <field name="contract_decisions_ids_count" widget="statinfo" string="Decisions"/>
+                    </button>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='contract_type_id']" position="after">
+                <field name="article12"/>
+                <field name="socio_professional_category_level_id"/>
+            </xpath>
+            <xpath expr="//field[@name='hr_responsible_id']" position="after">
+                <field name="nature" readonly="1"/>
+                <field name="parent_contract_id" readonly="1"/>
+            </xpath>
+            <field name="name" position="after">
+                <field name="use_contract_sequence" invisible="1"/>
+            </field>
+            <field name="name" position="attributes">
+                <attribute name="attrs">{'readonly': [('use_contract_sequence', '=', True)], 'required':
+                    [('use_contract_sequence', '=', False)]}
+                </attribute>
+            </field>
+            <field name="resource_calendar_id" position="before">
+                <field name="first_contract_date"/>
+            </field>
+            <field name="resource_calendar_id" position="after">
+                <field name="days_per_month"/>
+                <field name="hours_per_month"/>
+            </field>
+            <xpath expr="//group[@name='contract_details']" position="after">
+                <group name="leave" string="Leave">
+                    <label for="leave_notice"/>
+                    <div class="o_row" name="wage">
+                        <field name="leave_notice" nolabel="1"/>
+                        <span>days</span>
+                    </div>
+                    <field name="leave"/>
+                    <field name="leave_date" attrs="{'invisible': [('leave', '=', False)]}"/>
+                    <field name="leave_reason" attrs="{'invisible': [('leave', '=', False)]}"/>
+                    <field name="stc_state" attrs="{'invisible': [('leave', '=', False)]}"/>
+                </group>
+            </xpath>
+
+            <field name="wage" position="attributes">
+                <attribute name="widget">monetary</attribute>
+                <attribute name="options">{'currency_field': 'company_currency'}</attribute>
+            </field>
+            <xpath expr="//group[@name='salary']" position="inside">
+                <field name="pre_wage" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+                <field name="company_id" invisible="1"/>
+                <field name="company_currency" invisible="1"/>
+            </xpath>
+            <xpath expr="//group[@name='salary_info']" position="after">
+                <group string="Gains Mensuels" name="gain">
+                    <label for="allowance_responsibility"/>
+                    <div>
+                        <field name="allowance_responsibility" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_responsibility_paid_in" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_responsibility_type" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_responsibility_dependency" class="oe_inline"/>
+                    </div>
+
+                    <label for="allowance_availability"/>
+                    <div>
+                        <field name="allowance_availability" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_availability_paid_in" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_availability_type" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_availability_dependency" class="oe_inline"/>
+                    </div>
+                    <!--P.O.P-->
+                    <label for="allowance_pop"/>
+                    <div>
+                        <field name="allowance_pop" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_pop_paid_in" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_pop_type" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_pop_dependency" class="oe_inline"/>
+                    </div>
+                    <label for="allowance_cash"/>
+                    <div>
+                        <field name="allowance_cash" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_cash_paid_in" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_cash_type" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_cash_dependency" class="oe_inline"/>
+                    </div>
+                    <!--P.A.P-->
+                    <label for="allowance_pap"/>
+                    <div>
+                        <field name="allowance_pap" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_pap_paid_in" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_pap_type" class="oe_inline"/>
+                        <span class="oe_inline">/</span>
+                        <field name="allowance_pap_dependency" class="oe_inline"/>
+                    </div>
+                <!--H.S.E-->
+                <label for="allowance_hse"/>
+                <div>
+                    <field name="allowance_hse" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_hse_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_hse_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_hse_dependency" class="oe_inline"/>
+                </div>
+                <!--I.F.F-->
+                <label for="allowance_iff"/>
+                <div>
+                    <field name="allowance_iff" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_iff_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_iff_type" class="oe_inline"/>
+                     <span class="oe_inline">/</span>
+                    <field name="allowance_iff_dependency" class="oe_inline"/>
+                </div>
+                <!--I.F.S.P-->
+                <label for="allowance_ifsp"/>
+                <div>
+                    <field name="allowance_ifsp" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_ifsp_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_ifsp_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_ifsp_dependency" class="oe_inline"/>
+                </div>
+                <!--I.T.P-->
+                <label for="allowance_itp"/>
+                <div>
+                    <field name="allowance_itp" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_itp_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_itp_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_itp_dependency" class="oe_inline"/>
+                </div>
+                <!-- NUISANCE-->
+                <label for="allowance_nuisance"/>
+                <div>
+                    <field name="allowance_nuisance" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_nuisance_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_nuisance_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_nuisance_dependency" class="oe_inline"/>
+                </div>
+
+                <!--IEP IN ALLOWANCE-->
+                <label for="allowance_in_iep"/>
+                <div>
+                    <field name="allowance_in_iep" class="oe_inline"/>
+
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_in_iep_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_in_iep_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_in_iep_dependency" class="oe_inline"/>
+                </div>
+
+                <!--IEP OUT ALLOWANCE-->
+                <label for="allowance_out_iep"/>
+                <div>
+                    <field name="allowance_out_iep" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_out_iep_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_out_iep_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_out_iep_dependency" class="oe_inline"/>
+                </div>
+
+                <!-- ISP-->
+                <label for="allowance_isp"/>
+                <div>
+                    <field name="allowance_isp" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_isp_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_isp_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_isp_dependency" class="oe_inline"/>
+                </div>
+
+
+                <label for="allowance_phone"/>
+                <div>
+                    <field name="allowance_phone" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_phone_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_phone_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_phone_dependency" class="oe_inline"/>
+                </div>
+                <label for="allowance_soiling"/>
+                <div>
+                    <field name="allowance_soiling" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_soiling_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_soiling_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_soiling_dependency" class="oe_inline"/>
+                </div>
+                <label for="allowance_rent"/>
+                <div>
+                    <field name="allowance_rent" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_rent_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_rent_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_rent_dependency" class="oe_inline"/>
+                </div>
+                <label for="allowance_vehicle"/>
+                <div>
+                    <field name="allowance_vehicle" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_vehicle_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_vehicle_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_vehicle_dependency" class="oe_inline"/>
+                </div>
+                <!--MEAL ALLOWANCE-->
+                <label for="allowance_meal"/>
+                <div>
+                    <field name="allowance_meal" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_meal_type" class="oe_inline"
+                           attrs="{'required': [('allowance_meal', '!=', 0)]}"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_meal_paid_in" class="oe_inline"/>
+                </div>
+                <!--TRANSPORTATION ALLOWANCE-->
+                <label for="allowance_transportation"/>
+                <div>
+                    <field name="allowance_transportation" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_transportation_type" class="oe_inline"
+                           attrs="{'required': [('allowance_transportation', '!=', 0)]}"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_transportation_paid_in" class="oe_inline"/>
+                </div>
+                <label for="allowance_mutuel"/>
+                <div>
+                    <field name="allowance_mutuel" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_mutuel_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_mutuel_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_mutuel_dependency" class="oe_inline"/>
+                </div>
+
+
+                <label for="allowance_technicality"/>
+                <div>
+                    <field name="allowance_technicality" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_technicality_paid_in" class="oe_inline"/>
+                   <span class="oe_inline">/</span>
+                    <field name="allowance_technicality_type" class="oe_inline"/>
+                   <span class="oe_inline">/</span>
+                    <field name="allowance_technicality_dependency" class="oe_inline"/>
+                </div>
+                <label for="allowance_isolated_area"/>
+                <div>
+                    <field name="allowance_isolated_area" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_isolated_area_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_isolated_area_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_isolated_area_dependency" class="oe_inline"/>
+                </div>
+                <label for="allowance_unique_salary"/>
+                <div>
+                    <field name="allowance_unique_salary" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_unique_salary_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_unique_salary_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_unique_salary_dependency" class="oe_inline"/>
+                </div>
+                <label for="allowance_travel"/>
+                <div>
+                    <field name="allowance_travel" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_travel_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_travel_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_travel_dependency" class="oe_inline"/>
+                </div>
+                <label for="allowance_refund_rent"/>
+                <div>
+                    <field name="allowance_refund_rent" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_refund_rent_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_refund_rent_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_refund_rent_dependency" class="oe_inline"/>
+                </div>
+                <label for="allowance_clothing"/>
+                <div>
+                    <field name="allowance_clothing" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_clothing_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_clothing_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_clothing_dependency" class="oe_inline"/>
+                </div>
+                <label for="allowance_risk"/>
+                <div>
+                    <field name="allowance_risk" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_risk_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_risk_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_risk_dependency" class="oe_inline"/>
+                </div>
+                <label for="allowance_master_apprentice"/>
+                <div>
+                    <field name="allowance_master_apprentice" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_master_apprentice_paid_in" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_master_apprentice_type" class="oe_inline"/>
+                    <span class="oe_inline">/</span>
+                    <field name="allowance_master_apprentice_dependency" class="oe_inline"/>
+                </div>
+            </group>
+
+
+        </xpath>
+    </field>
+</record>
+
+<record id="hr_employee_view_search" model="ir.ui.view">
+<field name="name">hr.employee.view.search</field>
+<field name="model">hr.employee</field>
+<field name="inherit_id" ref="hr.view_employee_filter"/>
+<field name="arch" type="xml">
+    <data>
+        <xpath expr="//filter[@name='message_needaction']" position="after">
+            <separator/>
+            <filter string="Running Contract" name="with_contract_warning"
+                    domain="[('contract_warning', '=', False)]"/>
+        </xpath>
+    </data>
+</field>
+</record>
+
+<record model="ir.ui.view" id="view_contract_kanban_inherit">
+<field name="name">contract.kanban</field>
+<field name="model">hr.contract</field>
+<field name="inherit_id" ref="hr_contract.hr_contract_view_kanban"/>
+<field name="arch" type="xml">
+
+
+    <xpath expr="//div[@name='div_job_id']" position="before">
+        <div class="text-muted o_kanban_record_subtitle o_hr_contract_employee_id" name="div_employee_id">
+            <field name="employee_id"/>
+        </div>
+    </xpath>
+    <xpath expr="//div[@class='oe_kanban_content']" position="inside">
+        <div name="date" class="o_kanban_record_subtitle">
+            <strong>Start:
+                <field name="date_start" string="Start"/>
+            </strong>
+            <div name="date" class="o_kanban_record_subtitle" t-if="record.date_end.raw_value">
+                <strong>End :
+                    <field name="date_end" string="End Date"/>
+                </strong>
+            </div>
+        </div>
+    </xpath>
+</field>
+</record>
+
+        </odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="categories_paid_leave" model="leave.categories">
+            <field name="name">Paid Leave</field>
+            <field name="sequence">1</field>
+            <field name="code">PL</field>
+        </record>
+        <record id="categories_unpaid_leave" model="leave.categories">
+            <field name="name">Unpaid Leave</field>
+            <field name="sequence">2</field>
+            <field name="code">UL</field>
+        </record>
+        <record id="categories_paid_absence" model="leave.categories">
+            <field name="name">Paid Absence</field>
+            <field name="sequence">1</field>
+            <field name="code">PA</field>
+        </record>
+        <record id="categories_unpaid_absence" model="leave.categories">
+            <field name="name">Unpaid Absence</field>
+            <field name="sequence">2</field>
+            <field name="code">UA</field>
+        </record>
+    </data>
+</odoo>

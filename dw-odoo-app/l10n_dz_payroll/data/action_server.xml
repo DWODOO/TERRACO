@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.actions.server" id="set_payslip_as_draft">
+        <field name="name">Set As Draft</field>
+        <field name="model_id" ref="model_hr_payslip"/>
+        <field name="binding_model_id" ref="hr_payroll.model_hr_payslip"/>
+        <field name="state">code</field>
+        <field name="code">
+            records.write({'state':'draft'})
+        </field>
+    </record>
+</odoo>

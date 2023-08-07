@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="dac_form" model="ir.ui.view">
+            <field name="name">wizard.dac</field>
+            <field name="model">wizard.dac</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group invisible="context.get('smartest_hide_excel_btn')">
+                            <p> Please enter Date</p>
+                            <field name="date_year" required="1" />
+                            <field name="month" required="1" />
+                        </group>
+                        <group invisible="not context.get('smartest_hide_excel_btn')">
+                            <p> File generated </p>
+                            <field name="document"/>
+                        </group>
+                        <footer>
+                            <button name="init_dac" icon="fa-print" string="Excel" class="btn-primary" type="object" invisible="context.get('smartest_hide_excel_btn')"/>
+                            <button special="cancel" string="Cancel" class="btn-secondary"/>
+<!--                            <button name="test" string="test" type="object" class="btn-secondary"/>-->
+                        </footer>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="wizard_dac_action" model="ir.actions.act_window">
+            <field name="name">DAC</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.dac</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="dac_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id ="dac_menu" name="DAC" parent="l10n_dz_payroll.hr_divers_menu" sequence="951" action="wizard_dac_action"/>
+    </data>
+</odoo>

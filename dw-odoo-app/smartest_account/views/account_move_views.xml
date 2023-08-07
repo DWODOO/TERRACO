@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_view_move_form_inherit" model="ir.ui.view">
+        <field name="name">account_view_move_form_inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_draft']" position="attributes">
+                <attribute name="groups">base.group_no_one</attribute>
+            </xpath>
+            <group id="header_right_group" position="inside">
+                <field name="use_stamp_tax" invisible="1"/>
+                <field name="payment_method_id" attrs="{'invisible': [('move_type', '=', 'entry')]}"
+                       context="{'default_payment_type': 'outbound'}"/>
+            </group>
+            <xpath expr="//group[hasclass('oe_subtotal_footer')]//..//.." position="before">
+                <group class="oe_right" colspan="2">
+                    <field name="apply_stamp_duty_tax"
+                       attrs="{'invisible': ['|', ('move_type', 'not in', ('out_invoice', 'out_refund')), ('use_stamp_tax', '=', False)]}"/>
+                    <field name="amount_stamp_tax" force_save="1" invisible="1"/>
+                </group>
+            </xpath>
+            <xpath expr="//notebook//page[@id='aml_tab']//field[@name='line_ids']//tree//field[@name='currency_id']"
+                   position="after">
+                <field name="is_stamp_tax_line" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_move_tree_inherit" model="ir.ui.view">
+        <field name="name">account.move.tree</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <field name="payment_method_id" optional="hide"/>
+                <field name="apply_stamp_duty_tax" optional="hide"/>
+            </field>
+            <field name="amount_untaxed_signed" position="after">
+                <field name="amount_stamp_tax" optional="hide"/>
+                <field name="amount_total_with_tva" optional="hide"/>
+            </field>
+        </field>
+    </record>
+</odoo>

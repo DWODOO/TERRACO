@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_institute_form_inherited" model="ir.ui.view">
+        <field name="name">view.model.form inherited</field>
+        <field name="model">res.partner</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="before">
+                <field name="smartest_is_institute"/>
+                <field name="smartest_is_licensed"/>
+            </xpath>
+
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page string="Courses" name="courses">
+                    <field name="smartest_theme">
+                        <tree editable="bottom" create="0" delete="1">
+                            <field name="smartest_course_id" readonly="1"/>
+                            <field name="smartest_name" readonly="1"/>
+                            <field name="user_id" readonly="1"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="institute_view_search" model="ir.ui.view">
+        <field name="name">institutes</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='inactive']" position="before">
+                <filter string="Institutes" name="institutes" domain="[('smartest_is_institute','=', True)]"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_partner_action_institutes" model="ir.actions.act_window">
+        <field name="name">institutes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+      (0, 0, {'view_mode': 'kanban', 'view_id': ref('base.res_partner_kanban_view')}),
+      (0, 0, {'view_mode': 'form', 'view_id': ref('view_institute_form_inherited')})]"/>
+        <field name="context">{'search_default_institutes': 1}</field>
+        <field name="domain">[('smartest_is_institute','=', True)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new institute in your address book
+            </p>
+            <p>
+                Odoo helps you easily track all activities related to a institute.
+            </p>
+        </field>
+    </record>
+</odoo>

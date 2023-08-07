@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payroll_account,payroll.account,model_payroll_account,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_payroll_account_line,payroll.account.line,model_payroll_account_line,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_payroll_account_rule_config,payroll.account.rule_config,model_payroll_account_rule_config,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_payslip_hidden_line,payroll.payslip.hidden.line,model_payslip_hidden_line,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_hr_payroll_transfer,hr.payroll.transfer,model_hr_payroll_transfer,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_hr_payroll_account_verif,hr.payroll.account.verifr,model_hr_payroll_account_verif,hr_payroll.group_hr_payroll_user,1,1,1,1
+smartest_hr_payroll_account.access_hr_payroll_account,access_hr_payroll_account,smartest_hr_payroll_account.model_hr_payroll_account,base.group_user,1,0,0,0

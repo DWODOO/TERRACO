@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "Payment  Management",
+    'version': '1.0.0',
+    'summary': "Manage cash activities.",
+    'author': 'SMARTEST - ALGERIA',
+    'website': 'www.smartest.dz',
+    'category': 'Accounting/Accounting',
+    'depends': [
+        'account',
+    ],
+    'data': [
+        'data/account_data.xml',
+        # 'data/sequence.xml',
+        # 'views/cash_desk_views.xml',
+        # 'views/cash_ticket_views.xml',
+        # 'views/cash_register_views.xml',
+        # 'views/cash_ticket_cancel_views.xml',
+        # 'views/res_users_views.xml',
+        'views/payment_method_views.xml',
+        # 'views/res_config_settings_views.xml',
+        # 'wizard/cash_desk_close_views.xml',
+        # 'views/menus.xml',
+        # 'views/cash_statement.xml',
+        # 'views/res_partner.xml',
+        # 'views/account_payment.xml',
+        # 'report/cash_statement.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}

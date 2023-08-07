@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_journal" model="report.paperformat">
+        <field name="name">A4</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">5</field>
+        <field name="dpi">90</field>
+    </record>
+    <template id="algerian_report_passif_custom_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <style type="text/css">
+                    .rules_table th{background-color:#90a4ae;padding: 5px 5px;font-size: 13px; border: 1px solid black;}
+                    .rules_table table,td{ border: 1px solid black}
+                </style>
+                <div class="page">
+                    <div class="head">
+                        <div style="width: 100%; display: table;">
+                            <div style="display: table-row">
+                                <div style="font-weight: bold;width: 320px; display: table-cell; border: 2px solid black">
+                                    IMPRIME DESTINE A L'ADMINISTRATION
+                                </div>
+                                <div style="width: 30px; display: table-cell"></div>
+                                <div style="table-cell; border: 1px solid black">
+                                    <span>N.I.F</span>
+                                    <t t-esc="company_nif"/>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="text-left"
+                             style="display:inline-block;vertical-align: top;width:100%;padding-top:10px; border: 1px solid black">
+                            <p>
+                                <span style="font-weight: bold;">Désignataion de l'entreprise:</span>
+                                <span style="font-weight: bold;">
+                                    <t t-esc="company_name"/>
+                                </span>
+                            </p>
+                            <br/>
+                            <p>
+                                <span>Activité:</span>
+                                <span style="font-weight: bold;">
+                                    <t t-esc=""/>
+                                </span>
+                            </p>
+                            <p>
+                                <span>Adresse:</span>
+                                <span style="font-weight: bold;">
+                                    <t t-esc="company_street"/>
+                                </span>
+                            </p>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div style="display: table;text-align: center;margin: auto;width: 40%;border: 1px solid black">
+                            <span style="display: table-cell;border: 1px solid black">Exercice clos le</span>
+                            <span style="display: table-cell;border: 1px solid black">
+                                <t t-esc="date_to"/>
+                            </span>
+                        </div>
+                        <br/>
+                        <div style="background-color:#90a4ae;text-align: center;margin: auto;width: 30%;border: 1px solid black">
+                            <h2>BILAN (PASSIF)</h2>
+                        </div>
+                        <table class="rules_table"
+                               style="border: 2px solid black;border-collapse: collapse;width: 100%;margin-top:25px;">
+                            <thead>
+                                <tr>
+                                    <th>PASSIF</th>
+                                    <th>
+                                        <t t-esc="year_1"/>
+                                    </th>
+                                    <t t-if="comparison != 'no_comparison'">
+                                        <th> <t t-esc="year_2"/> </th>
+
+                                    </t>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="table_data_line" t-as="line">
+                                    <t t-if="line['line_code']=='PAS_CP'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                        <t t-esc="line['line_name']"/>
+                                                    </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R1L01'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R1L02'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R1L03'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R1L04'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R1L05'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R1L06'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R1L07'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R1L08'">
+                                        <tr>
+                                            <td style="text-align: right">
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold">
+                                                        <t t-esc="line['line_name']"/>
+                                                    </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R1L09'">
+                                        <tr>
+                                            <td style="text-align: right">
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold">
+                                                        <t t-esc="line['line_name']"/>
+                                                    </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+
+
+                                    <t t-if="line['line_code']=='PAS_R1LT'">
+                                        <tr style="background-color:#90a4ae">
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                        <t t-esc="line['line_name']"/>
+                                                    </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_PNC'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                        <t t-esc="line['line_name']"/>
+                                                    </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R2L01'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R2L02'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R2L03'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R2L04'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R2LT'">
+                                        <tr style="background-color:#90a4ae">
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                        <t t-esc="line['line_name']"/>
+                                                    </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_PC'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                        <t t-esc="line['line_name']"/>
+                                                    </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R3L01'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R3L02'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R3L03'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R3L04'">
+                                        <tr>
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span>
+                                                    <t t-esc="line['line_name']"/>
+                                                </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_R3LT'">
+                                        <tr style="background-color:#90a4ae">
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                        <t t-esc="line['line_name']"/>
+                                                    </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                    <t t-if="line['line_code']=='PAS_TG'">
+                                        <tr style="background-color:#90a4ae">
+                                            <td>
+                                                <t t-set="qty" t-value="line['line_level']"/>
+                                                <t t-foreach="range(qty)" t-as="item">
+                                                    <![CDATA[&nbsp;]]>
+                                                </t>
+                                                <span style="font-weight: bold;">
+                                                        <t t-esc="line['line_name']"/>
+                                                    </span>
+                                            </td>
+                                            <t t-foreach="line['columns']" t-as="col">
+                                                <td style="text-align: right">
+                                                    <t t-esc="col['with_format_int']"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+
+
+                                </t>
+                            </tbody>
+                        </table>
+                        <br/>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+    <record id="algerian_report_passif_custom_pdf_report" model="ir.actions.report">
+        <field name="name">Rapport Passif</field>
+        <field name="model">account.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_etats_financiers.algerian_report_passif_custom_pdf</field>
+        <field name="report_file">smartest_etats_financiers.algerian_report_passif_custom_pdf</field>
+        <field name="print_report_name">'raport_passif'</field>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_journal"/>
+    </record>
+</odoo>

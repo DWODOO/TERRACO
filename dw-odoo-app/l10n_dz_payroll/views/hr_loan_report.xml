@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="loan_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <style>
+                            table.center {
+                              margin-left: auto;
+                              margin-right: 0px;
+                                }
+                    </style>
+                    <div class="page">
+                        <t t-if="o.type == 'advance'">
+                        <h3 style="text-align:center"> État des retenues des avances N° <span t-field="o.name" style="color:red"/></h3>
+                        </t>
+                        <t t-if="o.type == 'loan'">
+                        <h3 style="text-align:center"> État des retenues des préts N° <span t-field="o.name"/></h3>
+                        </t>
+                        <br></br>
+                        <table style="width:100%;">
+                            <tr>
+                        <td >
+                            <strong>Employé : </strong><span t-field="o.employee_id"/>
+                            <br></br>
+                            <strong>Date de Prêt/Avance : </strong><span t-field="o.date_loan"/>
+                            <br></br>
+                            <strong>Type : </strong><span t-field="o.type"/>
+                        </td>
+                        <td style="width:40%;">
+                            <strong>Montant de Prêt/Avance : </strong><span t-field="o.amount_loan"/>
+                                                        <br></br>
+                            <strong>Refund : </strong><span t-field="o.refund_amount"/>
+                                                        <br></br>
+                            <strong>Chaque : </strong><span t-field="o.refund_months"/><span> mois</span>
+                                                        <br></br>
+                            <strong>From : </strong><span t-field="o.date_refund"/>
+                        </td>
+                            </tr>
+                        </table>
+                        <br></br>
+                        <br></br>
+
+                        <table style="border:2px solid black;width:100%;border-collapse: collapse; border-spacing: 0 15px;">
+                            <tr style="background-color:#90a4ae;">
+                                <td style="border:2px solid black; text-align:center;"><strong>Date de remboursement</strong></td>
+                                <td style="border:2px solid black; text-align:center;"><strong>État de payment</strong></td>
+                                <td style="border:2px solid black; text-align:center;"><strong>Feuille de paye</strong></td>
+                                <td style="border:2px solid black; text-align:center;"><strong>Montant de remboursement</strong></td>
+                            </tr>
+                            <t t-foreach="o.loan_line_ids" t-as="line">
+                                <t t-if="line.payment_state == 'paid'">
+                                    <tr style="color: green">
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.date"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.payment_state"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.payslip_id"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.refund_amount"/></td>
+                                    </tr>
+                                    </t>
+                                <t t-if="line.payment_state == 'waiting'">
+                                    <tr style="color: peru">
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.date"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.payment_state"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.payslip_id"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.refund_amount"/></td>
+                                    </tr>
+                                    </t>
+
+                                <t t-if="line.payment_state == 'postponed'">
+                                    <tr style="color: orangered">
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.date"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.payment_state"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.payslip_id"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.refund_amount"/></td>
+                                    </tr>
+                                    </t>
+
+                                <t t-if="line.payment_state == 'canceled'">
+                                    <tr style="color: slategrey">
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.date"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.payment_state"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.payslip_id"/></td>
+                                        <td style="border:2px solid black; text-align:center;"><span t-field="line.refund_amount"/></td>
+                                    </tr>
+                                    </t>
+
+                            </t>
+                        </table>
+                        <br></br>
+                        <table class="center" style="width:50%;margin-right:0 px">
+                            <tr>
+                                <td style="text-align:right;"><strong>Montant de Prêt/Avance:</strong></td>
+                                <td style="text-align:right;"><span t-field="o.amount_loan"/></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:right;"><strong>Montant remboursé:</strong></td>
+                                <td style="text-align:right;"><span t-field="o.amount_refunded"/></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:right;"><strong>Reste à rembourser:</strong></td>
+                                <td style="text-align:right;"><strong><span t-field="o.amount_refund_remaining"/></strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+
+
+    </template>
+</odoo>

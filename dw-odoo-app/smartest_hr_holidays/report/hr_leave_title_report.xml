@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="titre_leave__paperformat" model="report.paperformat">
+            <field name="name">A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">40</field>
+            <field name="margin_left">30</field>
+            <field name="margin_right">30</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+        <template id="hr_report_leave_title">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <div>
+                        <div style="text-align:right">
+                            Alger, le
+                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/>
+                        </div>
+                    </div>
+
+                    <h1 class="text-center font-weight-bold text-capitalize my-3">
+                        <u>LEAVE TITLE</u>
+                    </h1>
+                    <table class="table table-borderless" width="50%" style="font-size: 18px; border:none;">
+                        <tr class="pl-4">
+                            <td class="pl-2" width="30%" style="border:none;">LAST NAME</td>
+                            <td style="background-color: white;border:none;">
+                                <span class="mr-2">:</span>
+                                <span t-field="o.employee_id.last_name"/>
+                            </td>
+                        </tr>
+                        <tr class="pl-4">
+                            <td class="pl-2" width="30%" style="border:none;">FIRST NAME</td>
+                            <td style="background-color: white;border:none;">
+                                <span class="mr-2">:</span>
+                                <span t-field="o.employee_id.first_name"/>
+                            </td>
+                        </tr>
+                        <tr class="pl-4">
+                            <td class="pl-2" width="30%" style="border:none;">JOB</td>
+                            <td style="background-color: white;border:none;">
+                                <span class="mr-2">:</span>
+                                <span t-field="o.employee_id.job_id.name"/>
+                            </td>
+                        </tr>
+                        <tr class="pl-4">
+                            <td class="pl-2" width="30%" style="border:none;">DEPARTEMENT</td>
+                            <td style="background-color: white;border:none;">
+                                <span class="mr-2">:</span>
+                                <span t-field="o.employee_id.department_id.name"/>
+                            </td>
+                        </tr>
+                        <tr class="pl-4">
+                            <td class="pl-2" width="30%" style="border:none;">Number of days</td>
+                            <td style="background-color: white;border:none;">
+                                <span class="mr-2">:</span>
+                                <span t-field="o.number_of_days"/>
+                                Days
+                            </td>
+                        </tr>
+                        <tr class="pl-4">
+                            <td class="pl-2" width="30%" style="border:none;">DATE OF DEPARTURE</td>
+                            <td style="background-color: white;border:none;">
+                                <span class="mr-2">:</span>
+                                <span t-esc="o.date_from.strftime('%d/%m/%Y')"/>
+                            </td>
+                        </tr>
+
+                        <tr class="pl-4">
+                            <td class="pl-2" width="30%" style="border:none;">RETURN DATE</td>
+                            <td style="background-color: white;border:none;">
+                                <span class="mr-2">:</span>
+                                <span t-esc="o.date_to.strftime('%d/%m/%Y')"/>
+                            </td>
+                        </tr>
+                        <t t-if="o.smartest_interim_id">
+                            <tr class="pl-4">
+                                <td class="pl-2" width="30%" style="border:none;">INTERIM WORKER</td>
+                                <td style="background-color: white;border:none;">
+                                    <span class="mr-2">:</span>
+                                    <span t-esc="o.smartest_interim_id.last_name"/>-<span t-esc="o.smartest_interim_id.first_name"/>
+                                </td>
+                            </tr>
+                        </t>
+
+
+                        <tr class="pl-4">
+                            <td class="pl-2" width="30%" style="border:none;">ALLOCATION</td>
+                            <td style="background-color: white;border:none;">
+                                <span class="mr-2">:</span>
+                                <span t-field="o.employee_id.remaining_leaves"/>
+                                Days
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <p class="text-right">HR Department</p>
+                </div>
+            </t>
+        </template>
+        <template id="smartest_hr_holidays.hr_report_leave_title_parent">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="smartest_hr_holidays.hr_report_leave_title"/>
+                </t>
+            </t>
+        </template>
+        <record id="action_hr_leave_title" model="ir.actions.report">
+            <field name="name">Leave Title</field>
+            <field name="model">hr.leave</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">smartest_hr_holidays.hr_report_leave_title_parent</field>
+            <field name="report_file">smartest_hr_holidays.hr_report_leave_title_parent</field>
+            <field name="print_report_name">('Employment Leave Title - %s' % (object.employee_id.display_name))</field>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="titre_leave__paperformat"/>
+        </record>
+    </data>
+</odoo>

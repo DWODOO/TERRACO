@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="prepare_das_view_form" model="ir.ui.view">
+            <field name="name">prepare.das.form.view</field>
+            <field name="model">l10n_dz_payroll.das.cnas.wizard</field>
+            <field name="arch" type="xml">
+                <form string="DAS">
+                    <h1>
+                        <field name="year_reference"/>
+                    </h1>
+                    <notebook>
+                        <page name="header" string="Header">
+                            <group col="4">
+                                <field name="company_cnas_ids"/>
+                                <field name="no_fourth_trimester"/>
+                                <field name="declaration_type"/>
+                                <field name="payer_center"/>
+                                <field name="nomination"/>
+                                <field name="rs"/>
+                                <field name="address"/>
+                            </group>
+                            <group col="4">
+                                <field name="amount_number_employee"/>
+                                <field name="total_annual_salaries"/>
+                                <field name="total_amount_first_trimester"/>
+                                <field name="total_amount_second_trimester"/>
+                                <field name="total_amount_third_trimester"/>
+                                <field name="total_amount_fourth_trimester"/>
+                            </group>
+                            <field name="das_header"/>
+                        </page>
+                        <page string="Lines">
+                            <field name="das_lines"/>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button name="action_export_header" string="Header" type="object" class="oe_highlight"/>
+                        <button name="action_export_lines" string="Lines" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_das_cnas_wizard" model="ir.actions.act_window">
+            <field name="name">DAS</field>
+            <field name="res_model">l10n_dz_payroll.das.cnas.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="prepare_das_view_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="das_cnas_wizard_menu"
+                  name="DAS"
+                  action="action_das_cnas_wizard"
+                  parent="smartest_hr_payroll.hr_divers_menu"
+                  sequence="901"
+                  groups="hr_payroll.group_hr_payroll_manager"/>
+    </data>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_payroll_transfer_form" model="ir.ui.view">
+        <field name="name">hr.payroll.transfer.form</field>
+        <field name="model">hr.payroll.transfer</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Transfer">
+                <field name="transfer_report_printed" invisible="1"/>
+                <group attrs="{'invisible':[('transfer_report_printed','=',True)]}">
+                    <group>
+                        <field name="payslip_run_id" required="1"/>
+                    </group>
+                    <group>
+                        <label for="date_start" string="Period"/>
+                        <div>
+                            <field name="date_start" class="oe_inline"/> - <field name="date_end" class="oe_inline"/>
+                        </div>
+                    </group>
+                </group>
+                <group attrs="{'invisible':[('transfer_report_printed','=',False)]}">
+                    <field name="file_name" invisible="1"/>
+                    <field name="transfer_file" readonly="1" filename="file_name"/>
+                </group>
+                <footer>
+                    <button string='Print' name="action_hr_payroll_transfer"
+                            type="object" class="btn-primary" attrs="{'invisible':[('transfer_report_printed','=',True)]}"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_payroll_transfer" model="ir.actions.act_window">
+        <field name="name">Transfer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.payroll.transfer</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_hr_payroll_transfer_report" action="action_hr_payroll_transfer"
+              sequence="200" parent="hr_payroll.menu_hr_payroll_report"/>
+
+</odoo>

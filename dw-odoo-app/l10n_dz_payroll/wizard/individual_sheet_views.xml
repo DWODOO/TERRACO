@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="individual_sheet_form" model="ir.ui.view">
+        <field name="name">individual.sheet.wizard</field>
+        <field name="model">individual.sheet</field>
+        <field name="arch" type="xml">
+            <form string="Individual sheet">
+
+                <group>
+                    <label for="date_start" string="Period"/>
+                    <div>
+                        <field name="date_start" class="oe_inline"/>
+                        -
+                        <field name="date_end" class="oe_inline"/>
+                    </div>
+                </group>
+                <group>
+                    <label for="employee_id" string="Employee"/>
+                            <div>
+                                <field name="employee_id" class="oe_inline" />
+                            </div>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="individual_sheet_wizard" model="ir.actions.act_window">
+        <field name="name">Individual sheet</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">individual.sheet</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="individual_sheet_form"/>
+        <field name="target">new</field>
+
+    </record>
+
+    <menuitem id="hr_individual_sheet"
+              parent="hr_payroll.menu_hr_payroll_report"
+              name="Individual sheet"
+              action="individual_sheet_wizard"
+              sequence="100"/>
+
+</odoo>

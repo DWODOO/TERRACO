@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!--
+        Inherit helpdesk.team core view
+    -->
+    <record model="ir.ui.view" id="smartest_helpdesk_team_view_form_inherit">
+        <field name="name">helpdesk.team.form.inherit</field>
+        <field name="model">helpdesk.team</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_team_view_form"/>
+        <field name="arch" type="xml">
+            <!--
+                Make the alias always visible
+            -->
+            <xpath expr="//div[@id='alias_channels']//div[hasclass('o_setting_right_pane')]//div[hasclass('mt16')]" position="attributes">
+                <attribute name="attrs">{'invisible': [('use_alias','=',False), ('use_alias','=',True)]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='alias_id']//..//.." position="attributes">
+                <attribute name="attrs">{'invisible': [('alias_domain','=',False), ('alias_domain','=',True)]}</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

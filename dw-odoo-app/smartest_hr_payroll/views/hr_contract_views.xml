@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="smartest_hr_contract_view_form_inherit" model="ir.ui.view">
+            <field name="name">smartest.hr.contract.form.inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <!--                <field name="resource_calendar_id" position="after">-->
+                <!--                    <field name="days_per_month" placeholder="Days Per Month"/>-->
+                <!--                    <field name="hours_per_month" placeholder="Hours Per Month"/>-->
+                <!--                </field>-->
+                <group name="salary" position="after">
+                    <group name="customizable_rule_fields"/>
+                </group>
+
+                <page name="information" position="after">
+                    <page string="Payroll Configuration" name="payroll_configuration">
+                        <group string="Work entry Configuration">
+                            <field name="smartest_paid_in_calendar"/>
+                            <field name="smartest_work_entry_type_ids"  widget="many2many_tags"/>
+                        </group>
+                    </page>
+                </page>
+
+
+                <field name="allowance_meal_type" position="after">
+                    <field name="allowance_meal_dependencies" class="oe_inline"
+                           attrs="{'required': [('allowance_meal', '!=', 0)]}"/>
+                </field>
+                <field name="allowance_transportation_type" position="after">
+                    <field name="allowance_transportation_dependencies" class="oe_inline"
+                           attrs="{'required': [('allowance_transportation', '!=', 0)]}"/>
+                </field>
+
+                <xpath expr="//group[@name='contract_details']" position="before">
+                    <group>
+                        <field name="paid_hourly_attendance"/>
+                        <!--                        <field name="paid_hourly_attendance" groups="base.group_no_one"/>-->
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+    <data noupdate="1">
+
+        <record id="smartest_hr_contract_view_form_customizable" model="ir.ui.view">
+            <field name="name">smartest.hr.contract.form.customizable</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <group name="customizable_rule_fields" position="inside">
+
+                </group>
+            </field>
+        </record>
+    </data>
+</odoo>
+

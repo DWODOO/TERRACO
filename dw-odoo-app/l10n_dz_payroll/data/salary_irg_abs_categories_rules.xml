@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+    <!--   CATEGORIES     -->
+        <record id="GROSS2" model="hr.salary.rule.category">
+            <field name="name">Brut2</field>
+            <field name="code">BRUT2</field>
+        </record>
+
+        <record id="CI_ALL2" model="hr.salary.rule.category">
+            <field name="name">Cotisable2</field>
+            <field name="code">CI_ALL2</field>
+        </record>
+
+        <record id="CI2" model="hr.salary.rule.category">
+            <field name="name">Cotisable2</field>
+            <field name="code">CI2</field>
+        </record>
+
+        <record id="NCI_ALL2" model="hr.salary.rule.category">
+            <field name="name">Imposable2</field>
+            <field name="code">NCI_ALL2</field>
+        </record>
+
+        <record id="NCI2" model="hr.salary.rule.category">
+            <field name="name">Imposable2</field>
+            <field name="code">NCI2</field>
+        </record>
+
+    <!--  RULES  -->
+
+        <record id="salary_rule_base2" model="hr.salary.rule">
+            <field name="name">Base2</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">BASIC2</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="appears_on_payslip" eval="False"/>
+            <field name="amount_python_compute">result = contract.wage</field>
+            <field name="is_base_salary" eval="True"/>
+             <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="True"/>
+       </record>
+
+        <record id="salary_rule_all_account_balance2" model="hr.salary.rule">
+            <field name="name">All account balance2</field>
+            <field name="sequence" eval="30"/>
+            <field name="code">R0302</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (inputs.I030 and inputs.I030.amount)</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = abs(inputs.I030.amount)</field>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz')),(4, ref('l10n_dz_payroll.structure_stc_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="paid_annual_leave2" model="hr.salary.rule">
+            <field name="name">Paid annual leave2</field>
+            <field name="sequence" eval="29"/>
+            <field name="code">R0292</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (inputs.I029 and inputs.I029.amount)</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = abs(inputs.I029.amount)</field>
+            <field name="appears_on_payslip" eval="False"/>
+                   <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz')),(4, ref('l10n_dz_payroll.structure_stc_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+
+       <field name="is_base_salary" eval="False"/>
+       </record>
+        <record id="salary_rule_restraint_leave2" model="hr.salary.rule">
+            <field name="name">Abs for leave2</field>
+            <field name="sequence" eval="20"/>
+            <field name="code">R0202</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (worked_days.LEGAL_LEAVE and worked_days.LEGAL_LEAVE.number_of_days)</field>
+            <field name="amount_select">percentage</field>
+             <field name="quantity">-((worked_days.LEGAL_LEAVE and worked_days.LEGAL_LEAVE.number_of_days) if not contract.paid_hourly_attendance else(worked_days.LEGAL_LEAVE and worked_days.LEGAL_LEAVE.number_of_hours))</field>
+            <field name="amount_percentage_base">(contract.wage / (worked_days.WORK100.number_of_days if not contract.paid_hourly_attendance else worked_days.WORK100.number_of_hours))</field>
+            <field name="appears_on_payslip" eval="False"/>
+            <field name="amount_percentage" eval="100"/>
+              <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+
+        </record>
+
+
+        <record id="salary_rule_brut2" model="hr.salary.rule">
+            <field name="name">BRUT2</field>
+            <field name="appears_on_payslip" eval="False"/>
+            <field name="sequence" eval="500"/>
+            <field name="code">R5002</field>
+            <field name="category_id" ref="l10n_dz_payroll.GROSS2"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="appears_on_payslip" eval="False"/>
+            <field name="amount_python_compute">result = categories.CI2 + categories.NCI2 + categories.BASIC2 </field>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz')),(4, ref('l10n_dz_payroll.structure_stc_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_responsibility2" model="hr.salary.rule">
+            <field name="name">Responsibility allowance2</field>
+            <field name="sequence" eval="210"/>
+            <field name="code">R2102</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_responsibility > 0</field>
+            <field name="amount_select">code</field>
+            <field name="appears_on_payslip" eval="False"/>
+            <field name="amount_python_compute">result=contract.allowance_responsibility</field>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_nuisance2" model="hr.salary.rule">
+            <field name="name">Nuisance allowance2</field>
+            <field name="sequence" eval="220"/>
+            <field name="code">R2202</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_nuisance > 0</field>
+            <field name="amount_select">percentage</field>
+            <field name="amount_percentage_base">categories.CI2 + categories.BASIC</field>
+            <field name="quantity">contract.allowance_nuisance / 100</field>
+            <field name="amount_percentage" eval="100"/>
+            <field name="appears_on_payslip" eval="False"/>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_availability2" model="hr.salary.rule">
+            <field name="name">Availability allowance2</field>
+            <field name="sequence" eval="230"/>
+            <field name="code">R2302</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_availability > 0</field>
+            <field name="amount_select">percentage</field>
+            <field name="amount_percentage_base">contract.allowance_availability</field>
+            <field name="quantity">1</field>
+            <field name="amount_percentage" eval="100"/>
+            <field name="appears_on_payslip" eval="False"/>
+            <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_in_iep2" model="hr.salary.rule">
+            <field name="name">IEP allowance (IN)2</field>
+            <field name="sequence" eval="240"/>
+            <field name="code">R2402</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_in_iep > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">exp = contract.allowance_in_iep
+if exp > 31:
+    exp = 31
+iep = 0
+if exp > 3:
+    iep += (contract.wage * 3 /100)
+    if exp > 6:
+        iep += (contract.wage * (3*1.5) /100)
+        if exp > 10:
+            iep += (contract.wage * (4*2) /100)
+            if exp > 15:
+                iep += (contract.wage * (5*2.5) /100)
+                if exp > 19:
+                    iep += (contract.wage * (4*3.5) /100)
+                    if exp >=20:
+                       iep += (contract.wage * ((exp-19)*4) /100)
+                else:
+                    iep += (contract.wage * ((exp-15)*3.5) /100)
+            else:
+                iep += (contract.wage * ((exp-10)*2.5) /100)
+        else:
+            iep += (contract.wage * ((exp-6)*2) /100)
+    else:
+        iep += (contract.wage * ((exp-3) * 1.5) /100)
+else:
+    iep += (contract.wage * (exp * 1) /100)
+result = iep</field>
+            <field name="appears_on_payslip" eval="False"/>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_out_iep2" model="hr.salary.rule">
+            <field name="name">IEP allowance (OUT)2</field>
+            <field name="sequence" eval="250"/>
+            <field name="code">R2502</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_out_iep > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">exp = int(contract.allowance_out_iep )
+if exp > 15:
+    exp = 15
+iep = 0
+percent = 0
+if exp > 3:
+    iep += (contract.wage * 3/2 /100)
+    percent += 3
+    if exp > 6:
+        iep += (contract.wage * (3*1.5)/2 /100)
+        percent += 3
+        if exp > 10:
+            iep += (contract.wage * (4*2)/2 /100)
+            percent += 4
+            if exp > 15:
+                iep += (contract.wage * (4*2.5)/2 /100)
+                percent += 4
+            else:
+                iep += (contract.wage * ((exp-10)*2.5)/2 /100)
+                percent += (exp-10)
+        else:
+            iep += (contract.wage * ((exp-6)*2)/2 /100)
+            percent += (exp-6)
+    else:
+        iep += (contract.wage * ((exp-3) * 1.5)/2 /100)
+        percent += (exp-3)
+else:
+    iep += (contract.wage * (exp * 1)/2 /100)
+iep = iep
+result = iep</field>
+            <field name="appears_on_payslip" eval="False"/>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_isp2" model="hr.salary.rule">
+            <field name="name">ISP allowance2</field>
+            <field name="sequence" eval="260"/>
+            <field name="code">R2602</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_isp > 0</field>
+            <field name="amount_select">percentage</field>
+            <field name="amount_percentage_base">categories.CI + categories.BASIC</field>
+            <field name="quantity">contract.allowance_isp / 100</field>
+            <field name="amount_percentage" eval="100"/>
+            <field name="appears_on_payslip" eval="False"/>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_performance2" model="hr.salary.rule">
+            <field name="name">Performance allowance2</field>
+            <field name="sequence" eval="270"/>
+            <field name="code">R2702</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_soiling > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result=contract.allowance_soiling</field>
+            <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_additional_hours_502" model="hr.salary.rule">
+            <field name="name">Additional Hours (50%)2</field>
+            <field name="sequence" eval="280"/>
+            <field name="code">R2802</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (worked_days.H50 and worked_days.H50.number_of_hours) > 0 and worked_days.WORK100</field>
+            <field name="amount_select">percentage</field>
+            <field name="amount_percentage_base">contract.wage / (worked_days.WORK100 and worked_days.WORK100.number_of_hours)</field>
+            <field name="quantity">(worked_days.H50 and worked_days.H50.number_of_hours)</field>
+            <field name="amount_percentage" eval="150"/>
+            <field name="appears_on_payslip" eval="False"/>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz')),(4, ref('l10n_dz_payroll.structure_stc_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_additional_hours_752" model="hr.salary.rule">
+            <field name="name">Additional Hours (75%)2</field>
+            <field name="sequence" eval="285"/>
+            <field name="code">R2852</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (worked_days.H75 and worked_days.H75.number_of_hours) > 0 and worked_days.WORK100</field>
+            <field name="amount_select">percentage</field>
+            <field name="amount_percentage_base">contract.wage / (worked_days.WORK100 and worked_days.WORK100.number_of_hours)</field>
+            <field name="quantity">(worked_days.H75 and worked_days.H75.number_of_hours)</field>
+            <field name="amount_percentage" eval="175"/>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz')),(4, ref('l10n_dz_payroll.structure_stc_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_additional_hours_1002" model="hr.salary.rule">
+            <field name="name">Additional Hours (100%)2</field>
+            <field name="sequence" eval="290"/>
+            <field name="code">R2902</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (worked_days.H100 and worked_days.H100.number_of_hours) > 0</field>
+            <field name="amount_select">percentage</field>
+            <field name="amount_percentage_base">contract.wage / (worked_days.WORK100 and worked_days.WORK100.number_of_hours)</field>
+            <field name="quantity">(worked_days.H100 and worked_days.H100.number_of_hours)</field>
+            <field name="amount_percentage" eval="200"/>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz')),(4, ref('l10n_dz_payroll.structure_stc_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_pop2" model="hr.salary.rule">
+            <field name="name">P.O.P allowance2</field>
+            <field name="sequence" eval="300"/>
+            <field name="code">R3002</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_pop > 0 and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result=contract.allowance_pop</field>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_pap2" model="hr.salary.rule">
+            <field name="name">P.A.P allowance2</field>
+            <field name="sequence" eval="310"/>
+            <field name="code">R3102</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_pap > 0 and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result=contract.allowance_pap</field>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_hse" model="hr.salary.rule">
+            <field name="name">H.S.E allowance</field>
+            <field name="sequence" eval="320"/>
+            <field name="code">R320</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_hse > 0 and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result=contract.allowance_hse</field>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_iff2" model="hr.salary.rule">
+            <field name="name">I.F.F allowance2</field>
+            <field name="sequence" eval="330"/>
+            <field name="code">R3302</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_iff > 0 and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result=contract.allowance_iff</field>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_ifsp2" model="hr.salary.rule">
+            <field name="name">I.F.S.P allowance2</field>
+            <field name="sequence" eval="340"/>
+            <field name="code">R3402</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_ifsp > 0 and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.allowance_ifsp</field>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_itp2" model="hr.salary.rule">
+            <field name="name">I.T.P allowance2</field>
+            <field name="sequence" eval="350"/>
+            <field name="code">R3502</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_itp > 0 and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.allowance_itp</field>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_cash2" model="hr.salary.rule">
+            <field name="name">Cash allowance2</field>
+            <field name="sequence" eval="353"/>
+            <field name="code">R3532</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_cash > 0 and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.allowance_cash</field>
+               <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_interim2" model="hr.salary.rule">
+            <field name="name">Interim allowance2</field>
+            <field name="sequence" eval="356"/>
+            <field name="code">R3562</field>
+            <field name="category_id" ref="l10n_dz_payroll.CI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (inputs.I356 and inputs.I356.amount)</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = abs(inputs.I356.amount)</field>
+             <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       </record>
+
+    <!--   IMPOSABLE     -->
+        <record id="salary_rule_allowance_meal_day2" model="hr.salary.rule">
+            <field name="name">Meal allowance2</field>
+            <field name="sequence" eval="410"/>
+            <field name="code">R4102</field>
+            <field name="category_id" ref="l10n_dz_payroll.NCI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_meal > 0 and contract.allowance_meal_type == 'day' and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">if not contract.paid_hourly_attendance:
+    result=contract.allowance_meal * (worked_days.WORK100 and  worked_days.WORK100.number_of_days)
+else:
+    result=contract.allowance_meal * (worked_days.WORK100 and  worked_days.WORK100.number_of_hours)</field>
+            <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_meal_month2" model="hr.salary.rule">
+            <field name="name">Meal allowance2</field>
+            <field name="sequence" eval="420"/>
+            <field name="code">R4202</field>
+            <field name="category_id" ref="l10n_dz_payroll.NCI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_meal > 0 and contract.allowance_meal_type == 'month' and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.allowance_meal</field>
+         <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_transportation_day2" model="hr.salary.rule">
+            <field name="name">Transportation allowance2</field>
+            <field name="sequence" eval="430"/>
+            <field name="code">R4302</field>
+            <field name="category_id" ref="l10n_dz_payroll.NCI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_transportation > 0 and contract.allowance_transportation_type == 'day' and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">if not contract.paid_hourly_attendance:
+    result=contract.allowance_transportation * (worked_days.WORK100 and  worked_days.WORK100.number_of_days)
+else: result=contract.allowance_transportation * (worked_days.WORK100 and  worked_days.WORK100.number_of_hours)</field>
+                    <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_transportation_month2" model="hr.salary.rule">
+            <field name="name">Transportation allowance2</field>
+            <field name="sequence" eval="440"/>
+            <field name="code">R4402</field>
+            <field name="category_id" ref="l10n_dz_payroll.NCI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_transportation > 0 and contract.allowance_transportation_type == 'month' and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.allowance_transportation</field>
+             <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_rent2" model="hr.salary.rule">
+            <field name="name">Rent allowance2</field>
+            <field name="sequence" eval="460"/>
+            <field name="code">R4602</field>
+            <field name="category_id" ref="l10n_dz_payroll.NCI2"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_rent > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result=contract.allowance_rent</field>
+            <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_clothing2" model="hr.salary.rule">
+            <field name="name">Clothing allowance2</field>
+            <field name="sequence" eval="470"/>
+            <field name="code">R4702</field>
+            <field name="category_id" ref="l10n_dz_payroll.NCI2"/>
+              <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_clothing > 0 and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.allowance_clothing</field>
+             <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       </record>
+
+        <record id="salary_rule_allowance_vehicle2" model="hr.salary.rule">
+            <field name="name">Vehicle allowance2</field>
+            <field name="sequence" eval="480"/>
+            <field name="code">R4802</field>
+            <field name="category_id" ref="l10n_dz_payroll.NCI2"/>
+              <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.allowance_vehicle > 0 and worked_days.WORK100</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.allowance_vehicle</field>
+             <field name="struct_id"  eval="[(5, 0), (4, ref('l10n_dz_payroll.structure_base_dz'))]"/>
+       <field name="is_post_salary" eval="False"/>
+       <field name="is_irg_base_salary" eval="False"/>
+       <field name="is_base_salary" eval="False"/>
+            <field name="appears_on_payslip" eval="False"/>
+       </record>
+
+    </data>
+</odoo>

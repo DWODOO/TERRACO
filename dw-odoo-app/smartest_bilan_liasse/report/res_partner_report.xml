@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_res_partner">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <table class="table table-bordered">
+                            <thead>
+                                <th style="height: 3px;">Num</th>
+                                <th  style="height: 3px;">Numero Article D'imposition</th>
+                                <th style="height: 3px;">Numero Registre de commerce</th>
+                                <th style="height: 3px;">Matricule fiscale</th>
+                                <th  style="height: 3px;">Nom,Prenom</th>
+                                <th  style="height: 3px;">Adresse compléte</th>
+                                <th  style="height: 3px;">Opérations</th>
+                                <th  style="height: 3px;">TVA</th>
+                            </thead>
+
+                            <tbody>
+                                <t t-set="i" t-value="0" />
+                                <t t-set="total" t-value="0" />
+                                <t t-set="tva" t-value="0" />
+                                <t t-foreach="request.env['res.partner'].search([('is_customer','=','true')])" t-as="partner">
+                                    <t t-if="docs._get_taxs_total_invoice(partner,docs.date_year_id)">
+                                        <t t-set="i" t-value="i+1"/>
+                                        <tr>
+                                            <td>
+                                                <span t-esc="i"/>
+                                            </td>
+                                            <td><span t-field="partner.taxation"/></td>
+                                            <td><span t-field="partner.commercial_register"/></td>
+                                            <td><span t-field="partner.fiscal_identification"/></td>
+                                            <td><span t-field="partner.name"/></td>
+                                            <td><span t-if="partner.city" t-field="partner.city"/><span t-field="partner.street"/></td>
+                                            <td><span t-esc="docs._get_amount_total_invoice(partner,docs.date_year_id)" /></td>
+                                            <t t-set="total" t-value="total+docs._get_amount_total_invoice(partner,docs.date_year_id)"/>
+                                            <td><span t-esc="docs._get_taxs_total_invoice(partner,docs.date_year_id)"/></td>
+                                            <t t-set="tva" t-value="tva+docs._get_taxs_total_invoice(partner,docs.date_year_id)"/>
+                                        </tr>
+                                    </t>
+                                </t>
+                                <tr>
+                                            <td style="border:none;"></td>
+                                            <td style="border:none;"></td>
+                                            <td style="border:none;"></td>
+                                            <td style="border:none;"></td>
+                                            <td style="border:none;"></td>
+                                    <td class="font-weight-bold">TOTAL GENERAL</td>
+                                            <td class="font-weight-bold"><span t-esc="round(total,2)"/></td>
+                                    <td class="font-weight-bold"><span t-esc="round(tva,2)"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+                </t>
+        </template>
+
+        <report id="action_report_res_partner"
+                model="detaill.client.wizard"
+                string="ETAT DETAILLE DES CLIENTS"
+                report_type="qweb-pdf"
+                name="smartest_bilan_liasse.report_res_partner"
+                file="smartest_bilan_liasse.report_res_partner"
+                menu="False"/>
+    </data>
+</odoo>

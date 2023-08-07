@@ -1,0 +1,1232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="input_base_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Base regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I002</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_base_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Base regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I003</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_base_regulation_restraint_per_days" model="hr.payslip.input.type">
+            <field name="name">Base regulation Per Days(-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="smartest_paid_in_days">True</field>
+            <field name="code">I002D</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_base_regulation_gain_per_days" model="hr.payslip.input.type">
+            <field name="name">Base regulation Per Days(+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="smartest_paid_in_days">True</field>
+
+            <field name="code">I003D</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_pre_base_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Pre Base regulation (-)</field>
+            <field name="code">I006</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_pre_base_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Pre Base regulation (+)</field>
+            <field name="code">I007</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_absence_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Absence regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I011</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_absence_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Absence regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I012</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_absence_punish_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Absence Punish regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I024</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_absence_punish_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Absence Punish regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I025</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_paid_annual_leave" model="hr.payslip.input.type">
+            <field name="name">Paid annual leave</field>
+            <field name="code">I029</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_research_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">research regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I214</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_research_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">research regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I215</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_bilan_allowance" model="hr.payslip.input.type">
+            <field name="name">bilan allowance amount</field>
+
+            <field name="code">I375</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_bilan_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Bilan allowance regulation (-)</field>
+            <field name="code">I376</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_bilan_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Bilan allowance regulation (+)</field>
+            <field name="code">I377</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+
+        <record id="input_encouragement_allowance" model="hr.payslip.input.type">
+            <field name="name">encouragement allowance amount</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_encouragement_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Encouragement allowance regulation (-)</field>
+            <field name="code">I371</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_encouragement_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Encouragement allowance regulation (+)</field>
+            <field name="code">I372</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_all_account_balance" model="hr.payslip.input.type">
+            <field name="name">All account balance</field>
+            <field name="code">I030</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+
+        <record id="input_paid_annual_leave_regation_restraint" model="hr.payslip.input.type">
+            <field name="name">Paid annual leave regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I031</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_paid_annual_leave_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Paid annual leave regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I032</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_risk_regation_restraint" model="hr.payslip.input.type">
+            <field name="name">Allowance Risk regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I036</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_risk_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Allowance Risk regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I037</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_master_apprentice_regation_restraint" model="hr.payslip.input.type">
+            <field name="name">Allowance master apprentice regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I041</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_master_apprentice_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Allowance master apprentice regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I042</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+
+        <record id="input_responsibility_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Responsibility regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I211</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_responsibility_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Responsibility regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I212</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_nuisance_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Nuisance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I221</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_nuisance_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Nuisance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I222</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_availability_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">availability regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I231</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_availability_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">availability regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I232</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_in_iep_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">IEP (IN) regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I241</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_in_iep_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">IEP (IN) regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I242</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_out_iep_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">IEP (OUT) regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I251</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_out_iep_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">IEP (OUT) regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I252</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_out_isp_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">ISP regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I261</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_out_isp_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">ISP regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I262</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_performance_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Performance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I271</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_performance_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Performance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I272</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_additional_hours_50_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Additional hours (50%) regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I281</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_additional_hours_50_soiling_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Additional hours (50%) regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I282</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_additional_hours_75_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Additional hours (75%) regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I286</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_additional_hours_75_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Additional hours (75%) regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I287</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_additional_hours_100_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Additional hours (100%) regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I291</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_additional_hours_100_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Additional hours (100%) regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I292</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_pop_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">P.O.P allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I301</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_pop_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">P.O.P allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I302</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_pap_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">P.A.P allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I311</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_pap_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">P.A.P allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I312</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_hse_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">H.S.E allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I321</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_hse_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">H.S.E allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I322</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_iff_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">I.F.F allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I331</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_iff_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">I.F.F allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I332</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_ifsp_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">I.F.S.P allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I341</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_ifsp_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">I.F.S.P allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I342</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_itp_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">I.T.P allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I351</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_itp_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">I.T.P allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I352</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_cash_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Cash allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I354</field>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_cash_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Cash allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I355</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_interim_allowance" model="hr.payslip.input.type">
+            <field name="name">Interim Amount</field>
+
+            <field name="code">I356</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_interim_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Interim allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I357</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_interim_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Interim allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I358</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+
+        <record id="input_yield_allowance" model="hr.payslip.input.type">
+            <field name="name">Yield Amount</field>
+            <field name="code">I360</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_yield_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Yield allowance regulation (-)</field>
+            <field name="code">I361</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_yield_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Yield allowance regulation (+)</field>
+            <field name="code">I362</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_inventory_allowance" model="hr.payslip.input.type">
+            <field name="name">Inventory allowance amount</field>
+
+            <field name="code">I363</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_inventory_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Inventory allowance regulation (-)</field>
+            <field name="code">I364</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_inventory_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Inventory allowance regulation (+)</field>
+            <field name="code">I365</field>
+            <field name="country_id" ref="base.dz"/>
+
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_exceptional_allowance" model="hr.payslip.input.type">
+            <field name="name">Exceptional allowance amount</field>
+
+            <field name="code">I415</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_exceptional_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Exceptional allowance regulation (-)</field>
+            <field name="code">I416</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_exceptional_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Exceptional allowance regulation (+)</field>
+            <field name="code">I417</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+
+        <record id="input_contribution_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">contribution regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I402</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_contribution_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">contribution regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I403</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+
+        <record id="input_contribution10_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">contribution 10% regulation (-)</field>
+            <field name="code">I408</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_contribution10_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">contribution 10% regulation (+)</field>
+            <field name="code">I409</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+
+        <record id="input_allowance_meal_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Meal allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I421</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_meal_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Meal allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I422</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_transportation_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Transportation allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I441</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_transportation_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Transportation allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I442</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_phone_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Phone allowance regulation (-)</field>
+            <field name="code">I451</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_phone_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Phone allowance regulation (+)</field>
+            <field name="code">I452</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_rent_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Rent allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I461</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_rent_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Rent allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I462</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_clothing_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Clothing allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I471</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_clothing_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Clothing allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I472</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_clothing_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Vehicle allowance regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I481</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_clothing_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Vehicle allowance regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="code">I482</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+
+        <record id="input_irg_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">IRG restraint regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I602</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_irg_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">IRG restraint regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I603</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_irg10_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">IRG restraint 10% regulation (-)</field>
+            <field name="code">I607</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_irg10_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">IRG restraint 10% regulation (+)</field>
+            <field name="code">I608</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_employer_contribution_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Employer contribution restraint regulation (-)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I405</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_employer_contribution_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Employer contribution restraint regulation (+)</field>
+            <field name="smartest_is_regul">True</field>
+
+            <field name="code">I406</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+
+        <record id="input_allowance_unique_salary_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Unique salary allowance regulation (-)</field>
+            <field name="code">I611</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_unique_salary_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Unique salary allowance regulation (+)</field>
+            <field name="code">I612</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_displacement_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Displacement allowance (-)</field>
+            <field name="code">I621</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_displacement_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Displacement allowance (+)</field>
+            <field name="code">I622</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_technicality_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Technicality allowance regulation (-)</field>
+            <field name="code">I631</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_technicality_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Technicality allowance regulation (+)</field>
+            <field name="code">I632</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_isolated_area_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Isolated area allowance regulation (-)</field>
+            <field name="code">I641</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_isolated_area_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Isolated area allowance regulation (+)</field>
+            <field name="code">I642</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_mission_expenses" model="hr.payslip.input.type">
+            <field name="name">Mission expenses</field>
+            <field name="code">I650</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_mission_expenses_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Mission expenses gain</field>
+            <field name="code">I651</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_mission_expenses_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Mission expenses restraint</field>
+            <field name="code">I652</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_advance_mission_expenses" model="hr.payslip.input.type">
+            <field name="name">Mission expenses advance</field>
+            <field name="code">I655</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_advance_mission_expenses_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Mission expenses advance gain</field>
+            <field name="code">I656</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_advance_mission_expenses_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Mission expenses advance restraint</field>
+            <field name="code">I657</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_scholarity" model="hr.payslip.input.type">
+            <field name="name">Scholarity allowance amount</field>
+            <field name="code">I660</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_scholarity_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Scholarity allowance regulation (-)</field>
+            <field name="code">I661</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_scholarity_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Scholarity allowance regulation (+)</field>
+            <field name="code">I662</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_mutual_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">mutual allowance regulation (-)</field>
+            <field name="code">I671</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_mutual_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">mutual allowance regulation (+)</field>
+            <field name="code">I672</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+
+        <record id="input_allowance_advance_on_wages" model="hr.payslip.input.type">
+            <field name="name">advance on wages</field>
+            <field name="code">I800</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_advance_on_wages_gain" model="hr.payslip.input.type">
+            <field name="name">advance on wages (+)</field>
+            <field name="code">I802</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_advance_on_wages_ret" model="hr.payslip.input.type">
+            <field name="name">advance on wages (-)</field>
+            <field name="code">I801</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_refund_loan_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Refund loan regulation (-)</field>
+            <field name="code">I811</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_refund_loan_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Refund loan regulation (+)</field>
+            <field name="code">I812</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_refund_advance_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Refund Advance regulation (-)</field>
+            <field name="code">I821</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_refund_advance_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Refund Advance regulation (+)</field>
+            <field name="code">I822</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_refund_rent_regulation_restraint" model="hr.payslip.input.type">
+            <field name="name">Refund Rent regulation (-)</field>
+            <field name="code">I831</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_refund_rent_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Refund Rent regulation (+)</field>
+            <field name="code">I832</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_rappel_sur_salaire_gain" model="hr.payslip.input.type">
+            <field name="name">Rappel sur Salaire</field>
+            <field name="code">I00104</field>
+            <field name="smartest_is_regul">True</field>
+            <field name="smartest_paid_in_calendar">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_21_gain" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2021</field>
+            <field name="code">ica_21</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_22_gain" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2022</field>
+            <field name="code">ica_22</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_23_gain" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2023</field>
+            <field name="code">ica_23</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_20_gain" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2020</field>
+            <field name="code">ica_20</field>
+            <field name="smartest_configurable_irg">True</field>
+
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_19_gain" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2019</field>
+            <field name="code">ica_19</field>
+            <field name="smartest_configurable_irg">True</field>
+
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_18_gain" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2018</field>
+            <field name="code">ica_18</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_17_gain" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2017</field>
+            <field name="code">ica_17</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+<record id="input_ica_21_gain_per_days" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2021 (Par Jour)</field>
+            <field name="code">ica_21D</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="smartest_auto_irg">True</field>
+            <field name="smartest_irg_prorata">True</field>
+            <field name="smartest_paid_in_days">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_22_gain_per_days" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2022 (Par Jour)</field>
+            <field name="code">ica_22D</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="smartest_auto_irg">True</field>
+            <field name="smartest_irg_prorata">True</field>
+            <field name="smartest_paid_in_days">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_23_gain_per_days" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2023 (Par Jour)</field>
+            <field name="code">ica_23D</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="smartest_auto_irg">True</field>
+            <field name="smartest_irg_prorata">True</field>
+            <field name="smartest_paid_in_days">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_20_gain_per_days" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2020 (Par Jour)</field>
+            <field name="code">ica_20D</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="smartest_auto_irg">True</field>
+            <field name="smartest_irg_prorata">True</field>
+            <field name="smartest_paid_in_days">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_19_gain_per_days" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2019 (Par Jour)</field>
+            <field name="code">ica_19D</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="smartest_auto_irg">True</field>
+            <field name="smartest_irg_prorata">True</field>
+            <field name="smartest_paid_in_days">True</field>
+
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_18_gain_per_days" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2018 (Par Jour)</field>
+            <field name="code">ica_18D</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="smartest_auto_irg">True</field>
+            <field name="smartest_irg_prorata">True</field>
+            <field name="smartest_paid_in_days">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_ica_17_gain_per_days" model="hr.payslip.input.type">
+            <field name="name">I.C.A EXERCICE 2017 (Par Jour)</field>
+            <field name="code">ica_17D</field>
+            <field name="smartest_configurable_irg">True</field>
+            <field name="smartest_auto_irg">True</field>
+            <field name="smartest_irg_prorata">True</field>
+            <field name="smartest_paid_in_days">True</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_indemnite_conge_gain" model="hr.payslip.input.type">
+            <field name="name">Indemnité Congé</field>
+            <field name="code">LEGAL_LEAVE</field>
+            <field name="smartest_configurable_irg">False</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_regul_absence_gain" model="hr.payslip.input.type">
+            <field name="smartest_is_regul">True</field>
+            <field name="smartest_paid_in_calendar">True</field>
+            <field name="name">Regul ABSENCE (+)</field>
+            <field name="code">I00105</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_regul_absenc_restraint" model="hr.payslip.input.type">
+            <field name="smartest_is_regul">True</field>
+            <field name="smartest_paid_in_calendar">True</field>
+            <field name="name">Regul ABSENCE (-)</field>
+            <field name="code">I00106</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_loan" model="hr.payslip.input.type">
+            <field name="name">Loan</field>
+            <field name="code">I809</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+
+        <record id="input_allowance_per" model="hr.payslip.input.type">
+            <field name="name">Restraint per</field>
+            <field name="code">I675</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_per_regation_restraint" model="hr.payslip.input.type">
+            <field name="name">Restraint per regulation (-)</field>
+            <field name="code">I676</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+        <record id="input_allowance_per_regulation_gain" model="hr.payslip.input.type">
+            <field name="name">Restraint per regulation (+)</field>
+            <field name="code">I677</field>
+            <field name="country_id" ref="base.dz"/>
+            <field name="struct_ids"
+                   eval="[Command.clear(), Command.link(ref('smartest_hr_payroll.structure_base_dz')),Command.link(ref('smartest_hr_payroll.structure_stc_dz'))]"/>
+        </record>
+    </data>
+</odoo>

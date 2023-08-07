@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_template_test" name="My Validation">
+        <div t-call="website.layout">
+            <div class="container">
+                <div class="text-center">
+                    <strong><span t-field="po.name"/></strong>
+                </div>
+                <div class="text-right">
+                    <span t-field="po.state" widget="statusbar"/>
+
+                </div>
+                <div class="text-left">
+                    Date de la commande : <span t-field="po.date_order"/>
+                </div>
+                <div class="text-left">
+                    Date de reception : <span t-field="po.date_planned"/>
+                </div>
+                <div class="col-12">
+                    <table class="table table-sm o_main_table">
+                        <thead style="display: table-row-group">
+                            <tr>
+                                <th name="th_product" class="text-center" style="width:15%;"><strong>
+                                    Product</strong></th>
+                                <th name="th_description" class="text-center" style="width:15%;"><strong>
+                                    Désignation</strong></th>
+                                <th name="th_quantity" class="text-right" style="width:8%;">QTE</th>
+                                <th name="th_priceunit" class="text-right" style="width:16%;">PU HT</th>
+                                <th name="th_subtotal" class="text-right" style="width:16%;"><span>Sous
+                                    Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="purchase_tbody">
+                            <!--                                    <t t-set="count" t-value="0"/>-->
+                            <!--                                    <t t-set="current_subtotal" t-value="0"/>-->
+
+                            <t t-foreach="po.order_line" t-as="line">
+
+                                <!--                                        <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"-->
+                                <!--                                           groups="account.group_show_line_subtotals_tax_excluded"/>-->
+                                <!--                                        <t t-set="current_subtotal" t-value="current_subtotal + line.price_total"-->
+                                <!--                                           groups="account.group_show_line_subtotals_tax_included"/>-->
+
+                                <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                    <t t-if="not line.display_type">
+                                        <!--                                                <td class="text-center">-->
+                                        <!--                                                    <t t-set="count" t-value="count + 1"/>-->
+                                        <!--                                                    <span t-esc="count"/>-->
+                                        <!--                                                </td>-->
+                                        <td name="td_product" class="text-center"><span t-field="line.product_id"/></td>
+                                        <td name="td_name" class="text-center"><span t-field="line.name"/></td>
+                                        <td name="td_quantity" class="text-right">
+                                            <span t-field="line.product_uom_qty"/>
+                                            <span t-field="line.product_uom" groups="uom.group_uom"/>
+                                        </td>
+                                        <td name="td_priceunit" class="text-right">
+                                            <span t-field="line.price_unit"/>
+                                        </td>
+                                        <td name="td_subtotal" class="text-right o_price_total">
+                                            <span t-field="line.price_subtotal"/>
+                                        </td>
+                                    </t>
+
+                                </tr>
+
+
+                            </t>
+                        </tbody>
+                    </table>
+                    <div>
+                        <form role='form' action="/validate" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input name="purchase_id" t-att-value="po.id" type="hidden"/>
+                            <button type="submit" class="btn btn-primary">Validate</button>
+                        </form>
+                        <form action="/reject/" method="post">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input name="purchase_id" t-att-value="po.id" type="hidden"/>
+                            <button type="submit" class="btn btn-secondary">Reject</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="portal_template_thank" name="Thank you!">
+        <div t-call="website.layout">
+            <div class="container">
+                <div class="alert alert-success alert-dismissable d-print-none text-center mt-2" role="status">
+                    <strong>Thank You!</strong><br/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+</odoo>

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="smartest_accounting_bilan_actif" model="account.report">
+            <field name="name">Bilan actif Algérien</field>
+            <field name="filter_show_draft">False</field>
+            <field name="filter_unreconciled">True</field>
+        </record>
+        <record id="smartest_accounting_bilan_actif_column_brut" model="account.report.column">
+            <field name="name">Brut</field>
+            <field name="expression_label">brut</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_column_amort" model="account.report.column">
+            <field name="name">Amort prov</field>
+            <field name="expression_label">amort_prov</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_parent1" model="account.report.line">
+            <field name="name">ACTIF IMMOBILISE (NON COURANT)</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="hierarchy_level">1</field>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S1L1" model="account.report.line">
+            <field name="name">Ecart d'acquisition</field>
+            <field name="code">ACT_R1S1L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S1L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">207</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S1L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S1L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">2807 + 2907</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S1L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S2L1" model="account.report.line">
+            <field name="name">Immobilsations incorporelles</field>
+            <field name="code">ACT_R1S2L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S2L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">20\(207)</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S2L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S2L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">280\(2807) + 290\(2907)</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S2L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S3L1" model="account.report.line">
+            <field name="name">Immobilsations corporelles</field>
+            <field name="code">ACT_R1S3L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S3L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">21 + 22\(229)</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S3L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S3L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">281 + 282 + 291 + 292</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S3L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S4L1" model="account.report.line">
+            <field name="name">Immobilsations encours</field>
+            <field name="code">ACT_R1S4L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S4L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">23</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S4L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S4L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">293</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S4L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_child5_parent1" model="account.report.line">
+            <field name="name">immobilisations financières</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S5L1" model="account.report.line">
+            <field name="name">Titre mis en équivalence - entreprise associé</field>
+            <field name="code">ACT_R1S5L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child5_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S5L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">265</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S5L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S5L2" model="account.report.line">
+            <field name="name">Autres participations et créances rattachées</field>
+            <field name="code">ACT_R1S5L2</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child5_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S5L2_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">26\(265,269)</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S5L2"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S5L3" model="account.report.line">
+            <field name="name">Autres titres immobilisé</field>
+            <field name="code">ACT_R1S5L3</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child5_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S5L3_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">271 + 272 + 273</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S5L3"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S5L4" model="account.report.line">
+            <field name="name">Prets et autres actifs financiers non courants</field>
+            <field name="code">ACT_R1S5L4</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child5_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S5L4_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">274 + 275 + 276</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S5L4"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S5L5" model="account.report.line">
+            <field name="name">Impots différés actif</field>
+            <field name="code">ACT_R1S5L5</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child5_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R1S5L5_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">133</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R1S5L5"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_parent2" model="account.report.line">
+            <field name="name">ACTIF COURANT</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S1L1" model="account.report.line">
+            <field name="name">Stocks et encours</field>
+            <field name="code">ACT_R2S1L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S1L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">3\(39)</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S1L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S1L1_amort" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">39</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S1L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_child2_parent2" model="account.report.line">
+            <field name="name">Créances et emplois assimilés</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L1" model="account.report.line">
+            <field name="name">Client</field>
+            <field name="code">ACT_R2S2L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child2_parent2"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L1_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">41\(419)</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S2L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L1_brut" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">419</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S2L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L2" model="account.report.line">
+            <field name="name">Autres débiteurs</field>
+            <field name="code">ACT_R2S2L2</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child2_parent2"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L2_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">409 + 42D + 43D + 44D\(444D, 448D) + 45D + 46D + 486D + 489D</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S2L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L2_brut" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">495 + 496</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S2L2"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L3" model="account.report.line">
+            <field name="name">Impots</field>
+            <field name="code">ACT_R2S2L3</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child2_parent2"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L3_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">444 + 445 + 447</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S2L3"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L4" model="account.report.line">
+            <field name="name">Autres actifs courants</field>
+            <field name="code">ACT_R2S2L4</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child2_parent2"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L4_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">48</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S2L4"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_child3_parent2" model="account.report.line">
+            <field name="name">Disponibilités et assimilés</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S3L1" model="account.report.line">
+            <field name="name">Placements et autres financiers courants</field>
+            <field name="code">ACT_R2S3L1</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child3_parent2"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L4_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">50\(509)</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S3L1"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S3L2" model="account.report.line">
+            <field name="name">Trésorerie</field>
+            <field name="code">ACT_R2S3L2</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">5</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_child3_parent2"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S3L2_brut" model="account.report.expression">
+            <field name="label">brut</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">519 + 51D + 52D + 53D + 54D</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S3L2"/>
+        </record>
+        <record id="smartest_accounting_bilan_actif_ACT_R2S2L4_brut" model="account.report.expression">
+            <field name="label">amort_prov</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">59</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_actif_ACT_R2S3L2"/>
+        </record>
+    </data>
+</odoo>

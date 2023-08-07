@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="smartest_sale_purchase_document_inherited" name="Smartest Purchase Order"
+              inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//div[@id='total']" position="after">
+            <p class="text-center text-muted border rounded mt-2 p-1" style="font-size:12px;"
+               t-if="show_service and o.service_done">
+                Nous attestons par la presente que les prestations ou sous-traitance ont été réalisées et ce,
+                confermément à la demande de SMARTEST-ALGERIA SPA
+            </p>
+        </xpath>
+    </template>
+
+    <template id="smartest_purchase_document_service_fait">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="purchase.report_purchaseorder_document"> t-lang="o.partner_id.lang">
+                    <t t-set="show_service" t-value="True"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+<!--    <template id="smartest_report_purchaseorder_document_inherit_inherit" inherit_id="smartest_purchase.smartest_report_purchaseorder_document_inherit">-->
+<!--        <xpath expr="//div[hasclass('page')]//h2[3]" position="replace">-->
+<!--            <h2 t-if="o.state in ['purchase', 'done'] and show_service and o.service_done">Service Fait - Bon de commande N°-->
+<!--                <span t-field="o.name"/>-->
+<!--            </h2>-->
+<!--&lt;!&ndash;            <h2 t-if="o.state in ['purchase', 'done'] and not show_service">Bon de commande N°&ndash;&gt;-->
+<!--&lt;!&ndash;                <span t-field="o.name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            </h2>&ndash;&gt;-->
+<!--        </xpath>-->
+<!--        <xpath expr="//div[@name='signataire']" position="replace">-->
+<!--            <div name="signataire" class="row" style="page-break-inside: avoid;" t-if="show_service and o.service_done">-->
+<!--                <div class="col-6 border p-1 mt-5" style="min-height: 180px;">-->
+<!--                    <p class="text-center">-->
+<!--                        <b>DEMENDEUR</b>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="col-6 border p-1 mt-5" style="min-height: 180px;">-->
+<!--                    <p class="text-center">-->
+<!--                        <b>DIRECTION GENERALE</b>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div name="signataire" class="row" style="page-break-inside: avoid;" t-if="not show_service">-->
+<!--                <div class="col-4 border p-1 mt-5" style="min-height: 180px;">-->
+<!--                    <p class="text-center">-->
+<!--                        <b>DEMENDEUR</b>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="col-4 border p-1 mt-5" style="min-height: 180px;">-->
+<!--                    <p class="text-center">-->
+<!--                        <b>FINANCE</b>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <div class="col-4 border p-1 mt-5" style="min-height: 180px;">-->
+<!--                    <p class="text-center">-->
+<!--                        <b>DIRECTION GENERALE</b>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </xpath>-->
+<!--    </template>-->
+    <record id="action_report_service_fait" model="ir.actions.report">
+        <field name="name">Bon de Commande et Service Fait</field>
+        <field name="model">purchase.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_purchase_request.smartest_purchase_document_service_fait</field>
+        <field name="report_file">smartest_purchase_request.smartest_purchase_document_service_fait</field>
+        <field name="print_report_name">'Service Fait - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

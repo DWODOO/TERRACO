@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_purchase_import_folder_kanban" model="ir.ui.view">
+        <field name="name">smartest.import.folder.kanban</field>
+        <field name="model">smartest.import.folder</field>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state_folder" class="o_kanban_mobile" archivable="false"
+                    sample="1">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="purchase_order_ids"/>
+                <field name="state"/>
+                <field name="state_folder"/>
+                <progressbar field="state"
+                             colors='{"draft": "muted", "ongoing": "warning","done": "success", "cancel": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                            <div>
+                                <strong class="o_kanban_record_title">
+                                    <span>Number :
+                                        <field name="name"/>
+                                    </span>
+                                </strong>
+                            </div>
+                            <div>
+                                <span class="o_kanban_record_subtitle">Date :
+                                    <field name="date"/>
+                                </span>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_purchase_import_folder_tree" model="ir.ui.view">
+        <field name="name">smartest.import.folder.tree</field>
+        <field name="model">smartest.import.folder</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state in ('done')" decoration-danger="state in ('cancel')"
+                  string="Import Folder">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="company_id"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'"
+                       decoration-danger="state == 'cancel'" decoration-info="state in [ 'ongoing'] "
+                       decoration-muted="state in ['draft'] "/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_purchase_import_folder_form" model="ir.ui.view">
+        <field name="name">smartest.import.folder.form</field>
+        <field name="model">smartest.import.folder</field>
+        <field name="arch" type="xml">
+            <form string="Import Folder">
+                <header>
+                    <button name="button_validate"
+                            attrs="{'invisible': [('state_folder','in', ['payment_reception'])]}" string="Validate"
+                            type="object"
+                            class="oe_highlight"/>
+                    <button name="button_draft"
+                            attrs="{'invisible': [('state_folder','in', ['supplier_offer','payment_reception'])]}"
+                            string="Reset" type="object"/>
+                    <button name="button_cancel"
+                            attrs="{'invisible': [('state_folder','in', ['supplier_offer'])]}"
+                            string="Cancel" type="object"/>
+
+                    <field name="state" invisible="1"/>
+                    <field name="state_folder" widget="statusbar"
+                           statusbar_visible="supplier_offer,expedition,dedouanement,payment_reception"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(smartest_foreign_trade.act_simport_file_import_folder)d"
+                                type="action"
+                                class="oe_stat_button text-danger"
+                                icon="fa-exchange"
+                                groups="base.group_user"
+                                attrs="{'invisible': [('import_file_count','!=',0)]}"
+
+                                help="Credit Commitment">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="import_file_count"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    Credit
+                                    Commitment
+                                </span>
+                            </div>
+                        </button>
+                        <button name="%(smartest_foreign_trade.act_simport_file_import_folder)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-exchange"
+                                groups="base.group_user"
+                                attrs="{'invisible': [('import_file_count','=',0)]}"
+
+                                help="Credit Commitment">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="import_file_count"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    Credit
+                                    Commitment
+                                </span>
+                            </div>
+                        </button>
+                        <button name="%(smartest_foreign_trade.act_apurchase_order_import_folder)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-credit-card"
+                                groups="base.group_user"
+                                help="Purchase Order">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="order_count"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    Purchase
+                                    Order(s)
+                                </span>
+                            </div>
+                        </button>
+                        <button name="%(smartest_foreign_trade.act_supplier_invoices_import_folder)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                groups="base.group_user"
+                                help="Supplier Invoices">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="supplier_invoices_count"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    Supplier Invoice(s)
+                                </span>
+                            </div>
+                        </button>
+                        <button name="%(smartest_foreign_trade.act_landed_costs_invoices_import_folder)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                groups="base.group_user"
+                                help="Landed Costs Invoices">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="landed_costs_invoices_count"/>
+                                </span>
+
+                                <span class="o_stat_text">
+                                    Invoices Cost(s)
+                                </span>
+                            </div>
+                        </button>
+                        <button name="%(smartest_foreign_trade.act_sstock_landed_cost_import_folder)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-usd"
+                                groups="base.group_user"
+                                help="Landed Costs">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="valorisation_count"/>
+                                </span>
+                                <span class="o_stat_text">
+                                    Valorisation
+                                </span>
+                            </div>
+                        </button>
+                    <br/>
+                    </div>
+                    <div class="oe_edit_only">
+                        <label for="name" class="oe_inline" attrs="{'readonly': [('state','not in', ['draft'])]}"/>
+                    </div>
+                    <h1>
+                        <field name="name" class="oe_inline" attrs="{'readonly': [('state','not in', ['draft'])]}"/>
+                    </h1>
+                    <group col="6">
+                        <field name="date" attrs="{'readonly': [('state','!=', 'draft')]}"/>
+                        <field name="company_id" groups="base.group_multi_company" widget="selection"
+                               attrs="{'readonly': [('state','not in', ['draft'])]}"/>
+                    </group>
+
+                    <group>
+                        <field name="description" attrs="{'readonly': [('state','!=', 'draft')]}"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_purchase_import_folder_search" model="ir.ui.view">
+        <field name="name">smartest.import.folder.search</field>
+        <field name="model">smartest.import.folder</field>
+        <field name="arch" type="xml">
+            <search string="Search Import Folder">
+                <field name="name" string="Import Folder"/>
+                <separator/>
+                <field name="state"/>
+                <field name="state_folder"/>
+                <filter name="state_draft" string="Draft" domain="[('state','=','draft')]" help="Folder is draft"/>
+                <filter name="state_ongoing" string="Ongoing" domain="[('state','=','ongoing')]" help="Folder is open"/>
+                <filter name="state_done" string="Done" domain="[('state','=','done')]" help="Folder is Validated"/>
+                <filter name="state_cancel" string="Rejected" domain="[('state','=','cancel')]"
+                        help="Folder is rejected"/>
+                <group expand="0" string="Group By...">
+                    <filter name="date" string="Date" icon="fa-calendar" domain="[]" context="{'group_by':'date'}"/>
+                    <filter name="filter_state_folder" string="Folder State"  context="{'group_by':'state_folder'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_purchase_import_folder">
+        <field name="name">Purchase Import Folder</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">smartest.import.folder</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to start a new purchase Import Folder.
+            </p>
+            <p>
+                An import folder is a folder that contains all data related to an import purchase.
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve" owl="1">
+<!--    <t t-name="base_tier_validation.ReviewMenuPreview">-->
+    <!--        <t t-if="_.isEmpty(reviews)">-->
+    <!--            <div class="dropdown-item-text text-center o_no_activity">-->
+    <!--                <span>No reviews to do.</span>-->
+    <!--            </div>-->
+    <!--        </t>-->
+    <!--        <t t-foreach="reviews" t-as="review">-->
+    <!--            <div-->
+    <!--                class="o_mail_preview dropdown-item-text text-center d-flex justify-content-center"-->
+    <!--                t-att-data-res_model="review.model"-->
+    <!--                t-att-data-model_name="review.name"-->
+    <!--            >-->
+    <!--                <div class="o_mail_preview_image o_tier_systray_dropdown_items o_mail_preview_app">-->
+    <!--                    <img t-att-src="review.icon" alt="Review" style="width:30px;height:30px;"/>-->
+    <!--                </div>-->
+    <!--                <div class="o_preview_info ">-->
+    <!--                    <div class="o_preview_title">-->
+    <!--                        <span class="o_preview_name">-->
+    <!--                            <t t-esc="review.name" />-->
+    <!--                        </span>-->
+    <!--                        <div-->
+    <!--                            t-if="review.actions"-->
+    <!--                            class="o_mail_activity_action_buttons"-->
+    <!--                        >-->
+    <!--                            <t t-foreach="review.actions" t-as="action">-->
+    <!--                                <button-->
+    <!--                                    type="button"-->
+    <!--                                    t-att-title="action.name"-->
+    <!--                                    t-att-class="'o_mail_activity_action btn btn-link fa ' + action.icon"-->
+    <!--                                    t-att-data-action_xmlid="action.action_xmlid"-->
+    <!--                                    t-att-data-res_model="review.model"-->
+    <!--                                    t-att-data-model_name="review.name"-->
+    <!--                                >-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+    <!--                                </button>-->
+    <!--                            </t>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                    <div>-->
+    <!--                        <button-->
+    <!--                            t-if="review.pending_count"-->
+    <!--                            type="button"-->
+    <!--                            class="btn btn-link o_activity_filter_button mr16"-->
+    <!--                            t-att-data-res_model="review.model"-->
+    <!--                            t-att-data-model_name="review.name"-->
+    <!--                            data-filter='pending_count'-->
+    <!--                        >-->
+    <!--                            <t t-esc="review.pending_count" />-->
+    <!--                            Pending-->
+    <!--                        </button>-->
+    <!--                        <span t-if="!review.pending_count" class="o_no_activity mr16">-->
+    <!--                            0 Pending-->
+    <!--                        </span>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </t>-->
+    <!--    </t>-->
+    <t t-name="base_tier_validation.SystrayItem" owl="1">
+            <div t-attf-class="o_tier_navbar_item dropdown" t-ref="root" t-on-click.prevent="_onClick">
+                <a
+                        class="dropdown-toggle o-no-caret o-dropdown--narrow "
+                        aria-expanded="false"
+                        title="Reviews"
+                        href="#"
+                        role="button"
+
+                >
+                    <i class="fa fa-pencil-square-o" role="img" aria-label="Activities"/>
+                    <span class="o_notification_counter badge badge-pill"/>
+                </a>
+
+                <div t-if="state.flag"
+                     class="o_ActivityMenuView_dropdownMenu o-dropdown-menu dropdown-menu-end show bg-view" role="menu">
+                <div class="o_ActivityMenuView_activityGroups">
+<!--                      <t t-if="_.isEmpty(reviews)">-->
+                    <!--            <div class="o_ActivityMenuView_noActivity dropdown-item-text text-center d-flex justify-content-center">-->
+                    <!--                <span>No reviews to do.</span>-->
+                    <!--            </div>-->
+
+                    <t t-foreach="reviews" t-as="review" t-key="review.name">
+                        <div class="o_ActivityMenuView_activityGroup"
+                             t-att-data-res_model="review.model"
+                             t-att-data-model_name="review.name"
+                             t-on-click="_onReviewFilterClick"
+                        >
+                            <div class="o_ActivityMenuView_activityGroupIconContainer">
+                                <img t-att-src="review.icon" alt="Review"/>
+                            </div>
+                            <div class="o_ActivityMenuView_activityGroupInfo ">
+                                <div class="o_ActivityMenuView_activityGroupTitle">
+                                    <span class="o_ActivityMenuView_activityGroupName">
+                                        <t t-esc="review.name"/>
+                                    </span>
+                                    <div
+                                            t-if="review.actions"
+                                            class="o_ActivityMenuView_activityGroupActionButtons"
+                                    >
+                            <t t-foreach="review.actions" t-as="action" t-key="action.name">
+                                <button
+                                        type="button"
+                                        t-att-title="action.name"
+                                        t-att-class="'o_mail_activity_action btn btn-link fa ' + action.icon"
+                                        t-att-data-action_xmlid="action.action_xmlid"
+                                        t-att-data-res_model="review.model"
+                                        t-att-data-model_name="review.name"
+                                >
+<!---->
+                                </button>
+                            </t>
+                        </div>
+                    </div>
+                                <div>
+                        <button
+                                t-if="review.pending_count"
+                                type="button"
+                                class="btn btn-link o_activity_filter_button mr16"
+                                t-att-data-res_model="review.model"
+                                t-att-data-model_name="review.name"
+                                data-filter='pending_count'
+
+                        >
+                            <t t-esc="review.pending_count"/>
+                            Pending
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </t>
+                    <span t-if="!reviews.length" class="o_no_activity mr16">
+                            No review to do.
+                    </span>
+                </div>
+                    </div>
+              </div>
+        <!---->
+        <!--            </div>-->
+        <!--                <a href="#" class="o_tier_navbar_item o_tier_systray_dropdown show"/>-->
+        </t>
+</templates>

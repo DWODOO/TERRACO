@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_smartest_hr_payroll_leave_allowance_payroll_user,smartest.hr.payroll.leave.allowance,model_smartest_hr_payroll_leave_allowance,base.group_user,1,1,1,1
+access_smartest_hr_payroll_leave_allowance_attributions_payroll_user,smartest.hr.payroll.leave.allowance.attributions,model_smartest_hr_payroll_leave_allowance_attributions,base.group_user,1,1,1,1
+access_smartest_hr_payroll_leave_allowance_payroll_line_user,smartest.hr.payroll.leave.allowance.line,model_smartest_hr_payroll_leave_allowance_line,base.group_user,1,1,1,1
+
+
+
+
+
+

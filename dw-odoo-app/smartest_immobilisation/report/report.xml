@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="equipment_barcode" model="ir.actions.report">
+
+        <field name="name">Equipment barcode</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smartest_immobilisation.equipment_barcode</field>
+        <field name="report_file">smartest_immobilisation.equipment_barcode</field>
+        <field name="binding_model_id" ref="model_maintenance_equipment"/>
+        <field name="binding_type">report</field>
+
+    </record>
+</odoo>

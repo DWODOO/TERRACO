@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="1">
+        <!--
+            Objective Types
+        -->
+        <record id="appraisal_objective_type_growth" model="hr.appraisal.objective.type">
+            <field name="name">Growth</field>
+            <field name="sequence">10</field>
+            <field name="score">20</field>
+        </record>
+
+        <record id="appraisal_objective_type_return" model="hr.appraisal.objective.type">
+            <field name="name">Return</field>
+            <field name="sequence">20</field>
+            <field name="score">15</field>
+        </record>
+
+        <record id="appraisal_objective_type_integrity" model="hr.appraisal.objective.type">
+            <field name="name">Integrity</field>
+            <field name="sequence">20</field>
+            <field name="score">15</field>
+        </record>
+
+        <record id="appraisal_objective_type_engagement" model="hr.appraisal.objective.type">
+            <field name="name">Engagement</field>
+            <field name="sequence">40</field>
+            <field name="score">50</field>
+        </record>
+        
+    </data>
+</odoo>

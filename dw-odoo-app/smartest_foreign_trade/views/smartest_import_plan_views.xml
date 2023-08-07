@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Form View    -->
+    <record id="smartest_import_plan_view_form" model="ir.ui.view">
+        <field name="name">smartest.import.plan.form</field>
+        <field name="model">smartest.import.plan</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="action_draft" type="object" string="Draft" states="approved,rejected"
+                            class="oe_highlight"/>
+                    <button name="action_approved" type="object" string="Approve" states="draft" class="oe_highlight"/>
+                    <button name="action_rejected" type="object" string="Reject" states="draft" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,rejected"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <label for="name" string="Refrence"/>
+                            <br/>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="fiscal_year"/>
+                            <field name="fiscal_month"/>
+                            <field name="validity_date" force_save="1"/>
+                        </group>
+                        <group>
+                            <field name="supplier_id"/>
+                            <field name="currency_id"/>
+                            <field name="value"/>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--    Tree View    -->
+
+    <record id="smartest_import_plan_view_tree" model="ir.ui.view">
+        <field name="name">smartest.import.plan.tree</field>
+        <field name="model">smartest.import.plan</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+                <field name="fiscal_year"/>
+                <field name="fiscal_month"/>
+                <field name="validity_date"/>
+                <field name="supplier_id"/>
+                <field name="value"/>
+                <field name="currency_id"/>
+                <field name="state" decoration-info="state == 'draft'" decoration-success="state == 'approved'"
+                       decoration-danger="state == 'rejected'" decoration-muted="state == 'expired'" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    Action    -->
+    <record id="foreign_trade_import_plan_action" model="ir.actions.act_window">
+        <field name="name">Import Plan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">smartest.import.plan</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'group_by':['fiscal_year']}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new Import Plan
+            </p>
+        </field>
+    </record>
+</odoo>

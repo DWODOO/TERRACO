@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!--************************** IRG BARèME Plan *************************-->
+        <record id="hr_bareme_irg_line0" model="hr.bareme.irg">
+            <field name="smartest_bound_from">0</field>
+            <field name="smartest_bound_to">30000</field>
+            <field name="smartest_amount_deducted">0</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">0</field>
+            <field name="smartest_amount_cumul">0</field>
+            <field name="smartest_active">True</field>
+             
+        </record>
+        <record id="hr_bareme_irg_line1" model="hr.bareme.irg">
+            <field name="smartest_bound_from">30000</field>
+            <field name="smartest_bound_to">40000</field>
+            <field name="smartest_amount_deducted">20000</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">23</field>
+            <field name="smartest_amount_cumul">0</field>
+            <field name="smartest_active">True</field>
+             
+        </record>
+        <record id="hr_bareme_irg_line2" model="hr.bareme.irg">
+            <field name="smartest_bound_from">40000</field>
+            <field name="smartest_bound_to">80000</field>
+            <field name="smartest_amount_deducted">40000</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">27</field>
+            <field name="smartest_amount_cumul">4600</field>
+            <field name="smartest_active">True</field>
+             
+        </record>
+        <record id="hr_bareme_irg_line3" model="hr.bareme.irg">
+            <field name="smartest_bound_from">80000</field>
+            <field name="smartest_bound_to">160000</field>
+            <field name="smartest_amount_deducted">80000</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">30</field>
+            <field name="smartest_amount_cumul">15400</field>
+            <field name="smartest_active">True</field>
+             
+        </record>
+        <record id="hr_bareme_irg_line4" model="hr.bareme.irg">
+            <field name="smartest_bound_from">160000</field>
+            <field name="smartest_bound_to">320000</field>
+            <field name="smartest_amount_deducted">160000</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">33</field>
+            <field name="smartest_amount_cumul">39400</field>
+            <field name="smartest_active">True</field>
+             
+        </record>
+        <record id="hr_bareme_irg_line5" model="hr.bareme.irg">
+            <field name="smartest_bound_from">320000</field>
+            <field name="smartest_bound_to">1000000000000</field>
+            <field name="smartest_amount_cumul">92200</field>
+            <field name="smartest_amount_deducted">320000</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">35</field>
+            <field name="smartest_active">True</field>
+        </record>
+
+    </data>
+</odoo>

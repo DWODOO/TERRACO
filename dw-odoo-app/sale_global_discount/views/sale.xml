@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="smartest_sale_order_global_discount_view_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.smartest_global_discount</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='discount']" position="before">
+                <field name="discount_amount" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='tax_totals_json']" position="before">
+                <field name="amount_untaxed_with_discount" attrs="{'invisible': [('global_discount','==',0)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='note']" position="before">
+                <group name="note_group" col="6">
+                    <label for="global_discount" string="Global Discount" class="text-left"/>
+                    <div class="o_row no-gutters d-flex">
+                            <field name="global_discount" class="text-left" force_save="1"/>
+                            |
+                        <field name="global_discount_percent" class="oe_inline text-left" force_save="1"/>%
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

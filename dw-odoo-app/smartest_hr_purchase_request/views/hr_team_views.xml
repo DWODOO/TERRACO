@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Form View    -->
+    <record id="smartest_hr_team_view_form" model="ir.ui.view">
+        <field name="name">smartest.hr.team.form.view</field>
+        <field name="model">smartest.hr.team</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+
+                            <field name="name"/>
+                        </group>
+                        <group>
+
+                            <field name="leader_id"/>
+                        </group>
+
+                    </group>
+                    <notebook>
+                        <page name="Members">
+                            <field name="member_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    Tree View    -->
+
+    <record id="smartest_hr_team_view_tree" model="ir.ui.view">
+        <field name="name">smartest.hr.team.view.tree</field>
+        <field name="model">smartest.hr.team</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+                <field name="leader_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    Action    -->
+    <record id="smartest_hr_team_action_form" model="ir.actions.act_window">
+        <field name="name">Agencies</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">smartest.hr.team</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new Team
+            </p>
+        </field>
+    </record>
+<!--    menu-->
+    <menuitem id="menu_hr_team" name="Teams" action="smartest_hr_purchase_request.smartest_hr_team_action_form"
+              parent="	hr.menu_human_resources_configuration" sequence="5"/>
+</odoo>

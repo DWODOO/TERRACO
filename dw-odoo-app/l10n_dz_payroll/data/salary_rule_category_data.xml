@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+                                                                        Net
+                                                                         |
+                                  --------------------------------------- --------------------------------------------
+                                 |        |                |              |        |     |                             |
+                             Deduction  REG_Ci             NCNI         Base     CI10  Ded_CI10                      Gain
+                                 |                                                                                    |
+      ------------ -------------- -------------- ---------------------                 -------------- ---------------- ----------------- ------------------
+     |            |              |              |                     |               |              |                |                 |                  |
+   Autre(-)      IRG(-)      Rappel IRG(-)   Rappel Caco(+)     Rappel Cot(-)       Autre(+)        IRG(+)       Rappel IRG(+)      Rappel Caco(+)    Rappel Cot(-)
+                  |                                                                                  |
+          -------- ----------                                                              ---------- ----------
+         |                   |                                                            |                     |
+     CACO ABAT(-)         COT ABAT(-)                                                   CACO ABAT(+)         COT ABAT(+)
+         |                   |                                                            |                     |
+      Caco(-)           Imposable(-)                                                    Caco(+)              Imposable(+)
+                             |                                                                                  |
+                           Cot(-)                                                                             Cot(+)
+
+
+
+    <data noupdate="1">
+        <!--************************* DELETE SOME EXISTING DATA ON hr_payroll MODULE ********************************-->
+<!--        <delete id="hr_payroll.hr_rule_basic" model="hr.salary.rule"/>-->
+<!--        <delete id="hr_payroll.hr_rule_taxable" model="hr.salary.rule"/>-->
+<!--        <delete id="hr_payroll.hr_rule_net" model="hr.salary.rule"/>-->
+<!--        <delete id="hr_payroll.COMP" model="hr.salary.rule.category"/>-->
+    </data>
+
+    <data noupdate="0">
+        <!--************************* UPDATE SOME EXISTING DATA ON hr_payroll MODULE ********************************-->
+        <record id="hr_payroll.BASIC" model="hr.salary.rule.category">
+            <field name="name">Base</field>
+            <field name="code">BASE</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+        <record id="hr_payroll.GROSS" model="hr.salary.rule.category">
+            <field name="name">Brut</field>
+            <field name="code">BRUT</field>
+        </record>
+
+        <record id="hr_payroll.NET" model="hr.salary.rule.category">
+            <field name="name">Net</field>
+            <field name="code">NET</field>
+        </record>
+        <record id="hr_payroll.DED" model="hr.salary.rule.category">
+            <field name="name">Deduction</field>
+            <field name="code">DED</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+        <record id="hr_payroll.ALW" model="hr.salary.rule.category">
+            <field name="name">Gain</field>
+            <field name="code">GAIN</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+
+        <!--************************************** ******CREATE NEW CATEGORIES ********************************************-->
+
+
+        <!--****************************************************Absence******************************************-->
+        <record id="HA" model="hr.salary.rule.category">
+            <field name="name">Absence</field>
+            <field name="code">HA</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+
+    <!--****************************************************Cotisable******************************************-->
+
+         <record id="CI_ALL" model="hr.salary.rule.category">
+            <field name="name">Cotisable</field>
+            <field name="code">CI_ALL</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+
+
+         <record id="CI" model="hr.salary.rule.category">
+            <field name="name">Cotisable</field>
+            <field name="code">CI</field>
+            <field name="parent_id" ref="l10n_dz_payroll.CI_ALL"/>
+        </record>
+
+
+        <record id="rappel_ci_ded" model="hr.salary.rule.category">
+            <field name="name">Rappel Cotisable (-)</field>
+            <field name="code">RAPPEL_CI_DED</field>
+            <field name="parent_id" ref="l10n_dz_payroll.CI_ALL"/>
+        </record>
+         <record id="rappel_ci_gain" model="hr.salary.rule.category">
+            <field name="name">Rappel Cotisable (+)</field>
+            <field name="code">RAPPEL_CI_GAIN</field>
+            <field name="parent_id" ref="l10n_dz_payroll.CI_ALL"/>
+        </record>
+
+        <!--**********************************Non Cotisable Imposable*********************************************-->
+
+        <record id="NCI_ALL" model="hr.salary.rule.category">
+            <field name="name">Imposable</field>
+            <field name="code">NCI_ALL</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+
+        <record id="NCI" model="hr.salary.rule.category">
+            <field name="name">Imposable</field>
+            <field name="code">NCI</field>
+            <field name="parent_id" ref="l10n_dz_payroll.NCI_ALL"/>
+        </record>
+
+       <record id="rappel_nci_ded" model="hr.salary.rule.category">
+            <field name="name">Rappel Imposable(-)</field>
+            <field name="code">RAPPEL_NCI_DED</field>
+            <field name="parent_id" ref="l10n_dz_payroll.NCI_ALL"/>
+        </record>
+        <record id="rappel_nci_gain" model="hr.salary.rule.category">
+            <field name="name">Rappel Imposable(+)</field>
+            <field name="code">RAPPEL_NCI_GAIN</field>
+            <field name="parent_id" ref="l10n_dz_payroll.NCI_ALL"/>
+        </record>
+
+   <!--*******************Non cotisable imposable à 10%******************************************   -->
+          <record id="NCI10" model="hr.salary.rule.category">
+            <field name="name">Non Cotisable Imposable à 10%</field>
+            <field name="code">NCI10</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+        <record id="rappel_nci10_ded" model="hr.salary.rule.category">
+            <field name="name">Rappel Non Cotisable Imposable à 10% (-)</field>
+            <field name="code">RAPPEL_NCI10_DED</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+          <record id="rappel_nci10_gain" model="hr.salary.rule.category">
+            <field name="name">Rappel Non Cotisable Imposable à 10% (+)</field>
+            <field name="code">RAPPEL_NCI10_GAIN</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+  <!--******************************************* Cotisable Imposable à 10%***********************************************-->
+        <record id="CI10" model="hr.salary.rule.category">
+            <field name="name">Imposable à 10%</field>
+            <field name="code">CI10</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+        <record id="rappel_ci10_ded" model="hr.salary.rule.category">
+            <field name="name">Rappel Imposable à 10% (-)</field>
+            <field name="code">RAPPEL_CI10_DED</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+          <record id="rappel_ci10_gain" model="hr.salary.rule.category">
+            <field name="name">Rappel Imposable à 10% (+)</field>
+            <field name="code">RAPPEL_CI10_GAIN</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+<!--       ************************** Retenues et Rappels SS Soumis à 10%**********************************-->
+         <record id="DED_CI10" model="hr.salary.rule.category">
+            <field name="name">Retenue SS CI10</field>
+            <field name="code">DED_CI10</field>
+            <field name="parent_id" ref="hr_payroll.DED"/>
+        </record>
+         <record id="Rappel_SS_CI10_DED" model="hr.salary.rule.category">
+            <field name="name">Rappel Retenue SS CI10 DED </field>
+            <field name="code">Rappel_SS_CI10_DED</field>
+            <field name="parent_id" ref="hr_payroll.DED"/>
+        </record>
+          <record id="Rappel_SS_CI10_GAIN" model="hr.salary.rule.category">
+            <field name="name">Rappel Retenue SS CI10 GAIN</field>
+            <field name="code">Rappel_SS_CI10_GAIN</field>
+            <field name="parent_id" ref="hr_payroll.DED"/>
+        </record>
+
+
+
+
+
+<!--    ****************************************** Retenues et Rappels SS 9%******************************************-->
+         <record id="DED_SS" model="hr.salary.rule.category">
+            <field name="name">Retenue SS</field>
+            <field name="code">DED_SS</field>
+            <field name="parent_id" ref="hr_payroll.DED"/>
+        </record>
+
+<!--  ***********************************************Non cotisables Non imposables************************************** -->
+         <record id="NCNI" model="hr.salary.rule.category">
+            <field name="name">Non Cotisable Non Imposable</field>
+            <field name="code">NCNI</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+           <record id="rappel_ncni_gain" model="hr.salary.rule.category">
+            <field name="name">Rappel NCNI (+)</field>
+            <field name="code">RAPPEL_NCNI_GAIN</field>
+            <field name="parent_id" ref="l10n_dz_payroll.NCNI"/>
+        </record>
+
+        <record id="rappel_ncni_ded" model="hr.salary.rule.category">
+            <field name="name">Rappel NCNI (-)</field>
+            <field name="code">RAPPEL_NCNI_DED</field>
+            <field name="parent_id" ref="l10n_dz_payroll.NCNI"/>
+        </record>
+
+<!--     ******************************************** Hors Salaire    -->
+        <record id="HS" model="hr.salary.rule.category">
+            <field name="name">Hors Salaire</field>
+            <field name="code">HS</field>
+            <field name="parent_id" ref="hr_payroll.NET"/>
+        </record>
+
+  <!-- ********************************************** IRG ******************************************************-->
+        <record id="irg_ded" model="hr.salary.rule.category">
+            <field name="name">IRG</field>
+            <field name="code">IRG_DED</field>
+            <field name="parent_id" ref="hr_payroll.DED"/>
+        </record>
+  <!--**************************************************Autres***************************************************-->
+        <record id="others" model="hr.salary.rule.category">
+            <field name="name">Others</field>
+            <field name="code">OTHERS</field>
+            <field name="parent_id" eval="False"/>
+        </record>
+
+
+
+    </data>
+</odoo>

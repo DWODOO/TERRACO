@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_form_inherit_purchase_request" model="ir.ui.view">
+        <field name="name">account.move.form.inherit_purchase_request</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='ref']" position="after">
+                    <field name="purchase_id" attrs="{'invisible': [('move_type', 'not in', ('in_invoice', 'in_refund', 'in_receipt'))]}"/>
+            </xpath>
+            <xpath expr="//page[@name='other_info']" position="after">
+                <page id="purchase_doc" string="Documents" name="purchase_doc" attrs="{'invisible': [('move_type', 'not in', ('in_invoice'))]}">
+                                <group id="other_tab_group">
+                                    <group string="Documents">
+                                        <field name="has_purchase_request"/>
+                                        <field name="has_purchase_order"/>
+                                        <field name="has_delivery_order" attrs="{'invisible': [('has_service_fait', '=', True)]}"/>
+                                        <field name="has_service_fait" attrs="{'invisible': [('has_delivery_order', '=', True)]}"/>
+                                        <field name="has_account_move"/>
+
+                                    </group>
+                                    <group string="Reglement">
+                                        <field name="payment_mode"  widget="radio"/>
+                                        <field name="payment_mode_number" string="Numéro de cheque" attrs="{'invisible': [('payment_mode', '!=', 'cheque')]}"/>
+                                        <field name="supplier_bank_account"/>
+                                        <field name="convention"/>
+                                        <field name="convention_start_date" attrs="{'invisible': [('convention', '=', False)]}"/>
+                                        <field name="convention_end_date" attrs="{'invisible': [('convention', '=', False)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="observation"/>
+                                    </group>
+                                </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="range_days_tree_view" model="ir.ui.view">
+        <field name="name">range.days.tree</field>
+        <field name="model">range.days</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" sample="1">
+                <field name="smartest_area"/>
+                <field name="smartest_days_worked"/>
+                <field name="smartest_number_of_days_allocated"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="range_days_action">
+        <field name="name">Range days for holidays</field>
+        <field name="res_model">range.days</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="range_days_menu_crm"
+              parent="hr_holidays.menu_hr_holidays_configuration"
+              action="range_days_action"
+              sequence="4"
+    />
+
+
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="smartest_product_template_form_inherit" model="ir.ui.view">
+        <field name="name">smartest.product.product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field name="vendor_reference"/>
+                <field name="brand_id" groups="smartest_base.group_multi_brand"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="smartest_product_template_search_view_inherit" model="ir.ui.view">
+        <field name="name">smartest.product.product.template.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="vendor_reference"/>
+                <field name="brand_id" groups="smartest_base.group_multi_brand"/>
+            </field>
+            <filter name="categ_id" position="after">
+                <filter string="Brand" name="brand_id" groups="smartest_base.group_multi_brand" context="{'group_by':'brand_id'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
+

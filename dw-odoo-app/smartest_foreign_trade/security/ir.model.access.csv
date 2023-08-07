@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_bank_agency_user,res.bank.agency,model_res_bank_agency,base.group_user,1,1,1,1
+access_smartest_import_plan_user,smartest.import.plan,model_smartest_import_plan,base.group_user,1,1,1,1
+access_smartest_import_file_user,smartest.import.file,model_smartest_import_file,base.group_user,1,1,1,1
+access_smartest_import_folder_user,smartest.import.folder,model_smartest_import_folder,base.group_user,1,1,1,1
+access_stock_landed_cost,stock.landed.cost,model_stock_landed_cost,smartest_foreign_trade.group_foreign_trade_user,1,1,1,0
+access_stock_valuation_layer,access_stock_valuation_layer,model_stock_valuation_layer,smartest_foreign_trade.group_foreign_trade_user,1,1,1,0
+access_export_folder,export.folder,model_export_folder,base.group_user,1,1,1,1
+

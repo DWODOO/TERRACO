@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!--************************** IEP Plan IN *************************-->
+        <record id="hr_iep_matrix_in_line0" model="hr.iep.matrix">
+            <field name="smartest_bound_from">0</field>
+            <field name="smartest_bound_to">1</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">0</field>
+            <field name="smartest_active">True</field>
+             <field name="smartest_iep_in">True</field>                 
+        </record>
+        <record id="hr_iep_matrix_in_line1" model="hr.iep.matrix">
+            <field name="smartest_bound_from">1</field>
+            <field name="smartest_bound_to">4</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">1</field>
+            <field name="smartest_active">True</field>
+             <field name="smartest_iep_in">True</field>                 
+        </record>
+        <record id="hr_iep_matrix_in_line2" model="hr.iep.matrix">
+            <field name="smartest_bound_from">4</field>
+            <field name="smartest_bound_to">7</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">1.5</field>
+            <field name="smartest_active">True</field>
+             <field name="smartest_iep_in">True</field>                 
+        </record>
+        <record id="hr_iep_matrix_in_line3" model="hr.iep.matrix">
+            <field name="smartest_bound_from">7</field>
+            <field name="smartest_bound_to">11</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">2</field>
+            <field name="smartest_active">True</field>
+             <field name="smartest_iep_in">True</field>                 
+        </record>
+        <record id="hr_iep_matrix_in_line4" model="hr.iep.matrix">
+            <field name="smartest_bound_from">11</field>
+            <field name="smartest_bound_to">16</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">2.5</field>
+            <field name="smartest_active">True</field>
+             <field name="smartest_iep_in">True</field>                 
+        </record>
+        <record id="hr_iep_matrix_in_line5" model="hr.iep.matrix">
+            <field name="smartest_bound_from">16</field>
+            <field name="smartest_bound_to">20</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">3.5</field>
+            <field name="smartest_active">True</field>
+            <field name="smartest_iep_in">True</field>    
+             </record>
+        <record id="hr_iep_matrix_in_line6" model="hr.iep.matrix">
+            <field name="smartest_bound_from">20</field>
+            <field name="smartest_bound_to">32</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">4</field>
+            <field name="smartest_active">True</field>
+            <field name="smartest_iep_in">True</field>    
+             </record>
+        <!--************************** IEP Plan OUT *************************-->
+        <record id="hr_iep_matrix_out_line0" model="hr.iep.matrix">
+            <field name="smartest_bound_from">0</field>
+            <field name="smartest_bound_to">1</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">0</field>
+            <field name="smartest_active">True</field>
+              <field name="smartest_iep_in">False</field>
+
+        </record>
+        <record id="hr_iep_matrix_out_line1" model="hr.iep.matrix">
+            <field name="smartest_bound_from">1</field>
+            <field name="smartest_bound_to">4</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">0.5</field>
+            <field name="smartest_active">True</field>
+              <field name="smartest_iep_in">False</field>
+
+        </record>
+        <record id="hr_iep_matrix_out_line2" model="hr.iep.matrix">
+            <field name="smartest_bound_from">4</field>
+            <field name="smartest_bound_to">7</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">0.75</field>
+            <field name="smartest_active">True</field>
+              <field name="smartest_iep_in">False</field>
+
+        </record>
+        <record id="hr_iep_matrix_out_line3" model="hr.iep.matrix">
+            <field name="smartest_bound_from">7</field>
+            <field name="smartest_bound_to">11</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">1</field>
+            <field name="smartest_active">True</field>
+              <field name="smartest_iep_in">False</field>
+
+        </record>
+        <record id="hr_iep_matrix_out_line4" model="hr.iep.matrix">
+            <field name="smartest_bound_from">11</field>
+            <field name="smartest_bound_to">16</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">1.25</field>
+            <field name="smartest_active">True</field>
+              <field name="smartest_iep_in">False</field>
+
+        </record>
+        <record id="hr_iep_matrix_out_line5" model="hr.iep.matrix">
+            <field name="smartest_bound_from">16</field>
+            <field name="smartest_bound_to">20</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">1.75</field>
+            <field name="smartest_active">False</field>
+            <field name="smartest_iep_in">False</field>
+             </record>
+        <record id="hr_iep_matrix_out_line6" model="hr.iep.matrix">
+            <field name="smartest_bound_from">20</field>
+            <field name="smartest_bound_to">100</field>
+            <field name="smartest_date_from" eval="time.strftime('2022-01-01')"/>
+            <field name="smartest_rate">2</field>
+            <field name="smartest_active">False</field>
+            <field name="smartest_iep_in">False</field>
+             </record>
+    </data>
+</odoo>

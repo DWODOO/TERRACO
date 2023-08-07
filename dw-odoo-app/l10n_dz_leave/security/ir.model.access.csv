@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_leave_cumulation_wizard_user,hr.leave.cumulation.wizard.user,l10n_dz_leave.model_hr_leave_cumulation_wizard,base.group_user,1,0,0,0
+access_hr_leave_cumulation_wizard_manager,hr.leave.cumulation.wizard.manager,l10n_dz_leave.model_hr_leave_cumulation_wizard,hr_payroll.group_hr_payroll_manager,1,1,1,1
+
+
+
+
+
+
+
+
+
+
+
+

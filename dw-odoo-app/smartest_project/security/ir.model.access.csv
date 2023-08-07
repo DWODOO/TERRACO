@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_project_leader,project.project.leader,project.model_project_project,smartest_project.group_project_leader,1,1,1,1
+access_project_task_type_leader,project.task.type leader,project.model_project_task_type,smartest_project.group_project_leader,1,1,1,1
+access_report_project_task_user,report.project.task.user,project.model_report_project_task_user,smartest_project.group_project_leader,1,1,1,1
+access_project_tags_leader,project.project_tags_leader,project.model_project_tags,smartest_project.group_project_leader,1,1,1,1
+access_mail_alias,mail.alias,mail.model_mail_alias,smartest_project.group_project_leader,1,1,1,1
+access_mail_activity_type_project_leader,mail.activity.type.project.leader,mail.model_mail_activity_type,smartest_project.group_project_leader,1,1,1,1
+access_account_analytic_account_leader,account.analytic.account,analytic.model_account_analytic_account,smartest_project.group_project_leader,1,1,1,1
+access_account_analytic_line_project,account.analytic.line project,analytic.model_account_analytic_line,smartest_project.group_project_leader,1,1,1,1
+access_project_attendance,project.project.attendance,smartest_project.model_project_attendance,,1,1,1,1
+
+access_smartest_sprint_user,smartest_sprint.project.sprint.user,model_project_sprint,base.group_user,1,0,0,0
+access_smartest_teams_user,smartest_teams.project.teams.user,model_project_teams,base.group_user,1,0,0,0
+
+access_smartest_sprint,smartest_sprint.project.sprint,model_project_sprint,smartest_project.group_project_leader,1,1,1,1
+access_smartest_teams,smartest_teams.project.teams,model_project_teams,project.group_project_manager,1,1,1,1

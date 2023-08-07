@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="employement_attestation_paperformat" model="report.paperformat">
+        <field name="name">Employement Attestation</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">32</field>
+        <field name="margin_bottom">3</field>
+        <field name="margin_left">20</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">20</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <template id="l10n_dz_hr.hr_report_employment_attestation">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <!--                    <div style="float:left;"> <span t-esc="o.get_work_attestation_sequence()">/</span></div>-->
+                        <div>
+                            <div style="text-align:right">
+                                Alger, le
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')"/>
+                            </div>
+                        </div>
+                        <div style="margin-top:61px">
+                            <strong>
+                                Réf:
+                                <span t-esc="o.last_report_sequence">/</span>
+                            </strong>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h2 style="text-align: center;text-decoration:underline">
+                            Attestation de travail
+                        </h2>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <p style="font-size:20px;">
+                            <div>
+                                Nous sousignés
+                                <strong>SPA SMARTEST ALGERIA</strong>
+                                <br/>
+                                Sise à
+                                <strong><span t-field="o.company_id.street"/>,<span t-field="o.company_id.street2"/>,
+                                    <span t-field="o.company_id.city"/>,
+                                    <span t-field="o.company_id.state_id"/>
+                                </strong>
+                                <br/>
+                                <br/>
+                                Attestons que : Madame/Monsieur:
+                                <strong>
+                                    <span t-field="o.name"/>
+                                </strong>
+                                <br/>
+                                <p>Est employé au sein de notre société en qualité de:</p>
+                                <strong>
+                                    <span t-field="o.job_id"/>
+                                </strong>
+                                .
+                                <br/>
+                                <br/>
+                                Statut juridique :
+                                <strong>
+                                    <span t-field="o.contract_id.contract_type_id.name"/>
+                                </strong>
+                                .
+                                <br/>
+                                <br/>
+                                Et ce depuis :
+                                <strong>
+                                    <span t-field="o.recruitment_date"/>
+                                </strong>
+                                à ce jour
+                                <br/>
+                                <br/>
+                            </div>
+                            <div style="text-align:center">
+                                Cette attestation, lui est délivrée pour servir et valoir ce que de droit.
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <p style="text-align: right;">La Direction des Ressource Humaine</p>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+<!--    <report-->
+<!--            string="Employment attestation"-->
+<!--            id="action_hr_employment_attestation"-->
+<!--            model="hr.employee"-->
+<!--            report_type="qweb-pdf"-->
+<!--            paperformat="employement_attestation_paperformat"-->
+<!--            name="l10n_dz_hr.hr_report_employment_attestation"-->
+<!--            file="l10n_dz_hr.hr_report_employment_attestation"-->
+<!--            print_report_name="('Employment attestation - %s' % (object.name))"-->
+<!--    />-->
+    <record id="action_hr_employment_attestation" model="ir.actions.report">
+        <field name="name">Employment attestation</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_dz_hr.hr_report_employment_attestation</field>
+        <field name="report_file">l10n_dz_hr.hr_report_employment_attestation</field>
+        <field name="print_report_name">'Employment attestation - %s' % (object.name)</field>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
+

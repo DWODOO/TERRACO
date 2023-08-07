@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="smartest_account.TaxTotalsField" t-inherit="account.TaxTotalsField" t-inherit-mode="extension" owl="1">
+        <xpath expr="//span[@name='amount_total']" position="attributes">
+            <attribute name="t-out">totals.formatted_amount_total_with_stamp</attribute>
+        </xpath>
+        <xpath expr="//span[@name='amount_total']//..//.." position="before">
+            <tr t-if="totals.stamp_tax_amount != 0">
+                <td class="o_td_label">
+                    <label class="o_form_label o_tax_total_label">Stamp duty</label>
+                </td>
+                <td>
+                    <span name="amount_stamp_duty" t-out="totals.formatted_stamp_tax_amount"/>
+                </td>
+            </tr>
+        </xpath>
+    </t>
+</templates>

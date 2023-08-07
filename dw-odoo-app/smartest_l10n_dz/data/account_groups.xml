@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Account Groups -->
+        <record id="partner_account_group_customer" model="partner.account.group">
+            <field name="name">Customer</field>
+            <field name="affected_partner">customer</field>
+<!--            <field name="customer_account_id" eval="ref('smartest_l10n_dz.dz_accounting_411100')"/>-->
+        </record>
+        <record id="partner_account_group_supplier" model="partner.account.group">
+            <field name="name">Supplier</field>
+            <field name="affected_partner">supplier</field>
+<!--            <field name="supplier_account_id" eval="ref('smartest_l10n_dz.dz_accounting_40100000')"/>-->
+        </record>
+    </data>
+</odoo>

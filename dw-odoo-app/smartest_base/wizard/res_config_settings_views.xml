@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--    Action    -->
+        <record id="action_partner_code_sequences" model="ir.actions.act_window">
+            <field name="name">Partner Code Sequences</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ir.sequence</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain"
+                   eval="[('id', 'in', [ref('smartest_base.supplier_sequence'), ref('smartest_base.customer_sequence')])]"/>
+        </record>
+
+        <!-- Form Inheritance -->
+        <record id="smartest_res_config_settings_view_form_inherit" model="ir.ui.view">
+            <field name="name">smartest.res.config.settings.view.form.inherit.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <div id="partner_autocomplete" position="after">
+                    <div class="col-xs-12 col-md-6 o_setting_box" id="partner_codes">
+                        <div class="o_setting_left_pane">
+                            <field name="group_res_partner_code"/>
+                        </div>
+                        <div class="o_setting_right_pane" id="partner_codes_settings">
+                            <label for="group_res_partner_code"/>
+                            <div class="text-muted">
+                                Use codes for Customers and Suppliers.
+                            </div>
+                            <button name="%(action_partner_code_sequences)d"
+                                    type="action"
+                                    string="Configure sequences"
+                                    attrs="{'invisible': [('group_res_partner_code', '=', False)]}"
+                                    icon="fa-arrow-right"
+                                    class="btn-link o_web_settings_access_rights"/>
+                        </div>
+                    </div>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

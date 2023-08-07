@@ -1,0 +1,88 @@
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="smartest_price_form">
+            <field name="name">pricelist.margin.form</field>
+            <field name="model">pricelist.margin</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="get_all_product" type="object" string="Display Products" optional="show"
+                                class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                        <button name="calculate_new_price" type="object" string="Calculate Prices" optional="show"
+                                class="oe_highlight" attrs="{'invisible': [('state', 'not in', ('confirmed', 'validation'))]}"/>
+                        <button name="validate_new_price" type="object" string="Validate" optional="show"
+                                class="oe_highlight" attrs="{'invisible': [('state', '!=', 'validation')]}"
+                                confirm="Are you sure that you want to confirm the new new prices in the price lists"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+                    <sheet>
+                        <h1>
+                            <field name="name" readonly="True"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="operation_type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="picking_ids" attrs="{'invisible': [('operation_type', '!=', 'reception')], 'required': [('operation_type', '=', 'reception')], 'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="product_category_ids" attrs="{'invisible': [('operation_type', '!=', 'category')], 'required': [('operation_type', '=', 'category')], 'readonly': [('state', '!=', 'draft')]}" widget="many2many_tags"/>
+                            </group>
+                            <group>
+
+                                <field name="use_highest_cost" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="use_product_sale_price" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="landed_cost" attrs="{'invisible': [('operation_type', '!=', 'reception')], 'readonly': [('state', '!=', 'draft')]}"/>
+                            </group>
+                        </group>
+
+                        <group name="pricelist_coeficients" string="Price List Coeficient" attrs="{'invisible': [('use_product_sale_price', '!=', False)]}">
+                            <field name="pricelist_coefficient_ids">
+                                <tree editable="bottom">
+                                    <field name="price_list_id"/>
+                                    <field name="coefficient"/>
+                                    <field name="add_articles" optional="show"/>
+                                </tree>
+                            </field>
+                        </group>
+
+                        <field name="pricelist_margin_line_ids">
+                            <tree editable="bottom">
+                                <field name="product_id" string="Product"
+                                       attrs="{'readonly': [('state','=','done')]}"/>
+                                <field name="purchase_price" attrs="{'readonly': [('state','=','done')]}"/>
+                                <field name="last_cost" attrs="{'readonly': [('state','=','done')]}"/>
+                                <field name="use_highest_cost" attrs="{'readonly': [('state','=','done')]}" optional="hide"/>
+                                <field name="highest_cost"
+                                       attrs="{'readonly': [('state','=','done')], 'invisible': [('use_highest_cost', '!=', True)]}"/>
+                                <field name="use_product_sale_price" attrs="{'readonly': [('state','=','done')]}" optional="hide"/>
+                                <field name="coefficient" attrs="{'readonly': [('state','=','done')]}"/>
+                                <field name="product_new_price" attrs="{'readonly': [('state','=','done')]}"/>
+                                <field name="state" invisible="True"/>
+                            </tree>
+                        </field>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="smartest_price_action">
+            <field name="name">price</field>
+            <field name="res_model">pricelist.margin</field>
+            <field name="view_mode">pricelist.margin</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p classe="o_view_nocontent_smiling_face">
+                    Create New Calculation !!
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="price_id" name="Price Lists" parent="purchase.menu_purchase_config" sequence="99"
+                  action="smartest_price_action"/>
+
+
+    </data>
+</odoo>

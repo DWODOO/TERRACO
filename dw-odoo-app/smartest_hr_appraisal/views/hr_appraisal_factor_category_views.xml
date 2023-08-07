@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!--
+        Form View - hr.appraisal.factor.category
+    -->
+    <record model="ir.ui.view" id="view_hr_appraisal_factor_category_form">
+        <field name="name">hr.appraisal.factor.category.form</field>
+        <field name="model">hr.appraisal.factor.category</field>
+        <field name="arch" type="xml">
+            <form string="Appraisal Factor Category">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_factors"
+                                type="object"
+                                class="oe_stat_button"
+                                attrs="{'invisible': [('factor_count', '=', 0)]}"
+                                icon="fa-sitemap">
+                            <field name="factor_count" widget="statinfo" string="Factors"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Teamwork"/>
+                        </h1>
+                    </div>
+                    <group cols="4">
+                        <field name="sequence"/>
+                    </group>
+                    <field name="description" nolabel="1" placeholder="Description..."/>
+              </sheet>
+          </form>
+        </field>
+    </record>
+
+    <!--
+        Tree View - hr.appraisal.factor.category
+    -->
+    <record model="ir.ui.view" id="view_hr_appraisal_factor_category_tree">
+        <field name="name">hr.appraisal.factor.category.tree</field>
+        <field name="model">hr.appraisal.factor.category</field>
+        <field name="arch" type="xml">
+            <tree string="Appraisal Factor Categories" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name" placeholder="Team work"/>
+                <field name="description" placeholder="Description"/>
+                <field name="factor_count" invisible="1"/>
+                <button name="action_view_factors" string="View Factors"
+                        attrs="{'invisible': [('factor_count', '=', 0)]}"
+                        type="object"
+                        icon="fa-sitemap text-info"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--
+        Search View - hr.appraisal.factor.category
+    -->
+    <record model="ir.ui.view" id="view_hr_appraisal_factor_category_search">
+        <field name="name">hr.appraisal.factor.category.search</field>
+        <field name="model">hr.appraisal.factor.category</field>
+        <field name="arch" type="xml">
+            <search string="Appraisal Factor Categories">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="sequence"/>
+            </search>
+        </field>
+    </record>
+
+    <!--
+        Action - hr.appraisal.factor.category
+    -->
+    <record id="appraisal_factor_category_action" model="ir.actions.act_window">
+        <field name="name">Factor Categories</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.appraisal.factor.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data is available.
+            </p>
+            <p class="text-muted">
+                This view allows you to create appraisal factors categories.
+            </p>
+        </field>
+    </record>
+
+    <!--
+        Menu Item - Appraisal Factor Categories (hr.appraisal.factor.category)
+    -->
+    <menuitem id="menu_hr_appraisal_factor_category" name="Appraisal Factor Categories"
+              action="appraisal_factor_category_action"
+              parent="hr_appraisal.menu_hr_appraisal_configuration" sequence="60"
+              groups="hr_appraisal.group_hr_appraisal_manager"/>
+
+</odoo>

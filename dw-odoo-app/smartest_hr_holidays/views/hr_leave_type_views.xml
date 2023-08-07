@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="smartest_edit_holiday_status_search_inherit" model="ir.ui.view">
+        <field name="name">smartest.hr.leave.type.search.inherit</field>
+        <field name="model">hr.leave.type</field>
+        <field name="inherit_id" ref="hr_holidays.view_holidays_status_filter"/>
+        <field name="arch" type="xml">
+            <field name="create_calendar_meeting" position="after">
+                <filter name="smartest_leave_categories" context="{'group_by':'smartest_leave_categories'}"/>
+            </field>
+        </field>
+    </record>
+    <record id="smartest_edit_holiday_status_form_inherit" model="ir.ui.view">
+        <field name="name">smartest.hr.leave.type.form.inherit</field>
+        <field name="model">hr.leave.type</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <field name="leave_validation_type" position="after">
+                <field name="smartest_portal_type_leave" widget="toggle_button"/>
+                <field name="smartest_include_carry_over" invisible="1"/>
+                <label for="smartest_holidays_request_delay"/>
+                <div class="o_row">
+                    <field name="smartest_holidays_request_delay"/>
+                    <span> Days</span>
+                </div>
+                <label for="smartest_duration_of_leave" attrs="{'invisible' : [('requires_allocation', '=', 'yes')]}"/>
+                <div class="o_row" attrs="{'invisible' : [('requires_allocation', '=', 'yes')]}">
+                    <field name="smartest_duration_of_leave"/>
+                    <span>Days</span>
+                </div>
+                <label for="smartest_include_carry_over"/>
+                <div class="o_row">
+                    <field name="smartest_include_carry_over"/>
+                </div>
+                <label for="smartest_carry_over_threshold"
+                       attrs="{'invisible' : [('smartest_include_carry_over', '=',False)]}"/>
+                <div class="o_row" attrs="{'invisible' : [('smartest_include_carry_over', '=', False)]}">
+                    <field name="smartest_carry_over_threshold"/>
+                    <span>Days</span>
+                </div>
+                <label for="smartest_holidays_mode"/>
+                <div class="o_row">
+                    <field name="smartest_holidays_mode"/>
+                </div>
+                <label for="smartest_cumulative_leave"/>
+                <div class="o_row">
+                    <field name="smartest_cumulative_leave"/>
+                </div>
+            </field>
+            <xpath expr="//group[@name='allocation_validation']//.." position="inside">
+                <separator/>
+                <group name="annulation_suspension_prolongation">
+                    <h2>Leave modification</h2>
+                    <field name="smartest_allow_prolong_suspend"/>
+                    <field name="smartest_allow_cancellation"/>
+                    <field name="smartest_allow_editing"/>
+                </group>
+                <group name="notification">
+                    <h2>Notifications</h2>
+                    <field name="smartest_notify_group_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                    <field name="smartest_type_leave_access_to_crud"/>
+                </group>
+                <separator/>
+                <group name="categories">
+                    <h2>Categories</h2>
+                    <field name="smartest_leave_categories" widget="many2one_tags" options="{'no_create': True}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="hr_holidays.open_view_holiday_status" model="ir.actions.act_window">
+        <field name="context">{'search_default_smartest_leave_categories': 1}</field>
+    </record>
+</odoo>

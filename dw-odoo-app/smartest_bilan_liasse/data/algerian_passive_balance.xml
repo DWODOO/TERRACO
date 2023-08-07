@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="smartest_accounting_bilan_pasif" model="account.report">
+            <field name="name">Bilan passif Algérien</field>
+            <field name="filter_show_draft">False</field>
+            <field name="filter_unreconciled">True</field>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_column_n" model="account.report.column">
+            <field name="name">N</field>
+            <field name="expression_label">n</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_parent1" model="account.report.line">
+            <field name="name">CAPITAUX PROPRES</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L01" model="account.report.line">
+            <field name="name">Capital émis</field>
+            <field name="code">PAS_R1L01</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L01_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">101 + 108</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R1L01"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L02" model="account.report.line">
+            <field name="name">Capital non appelé</field>
+            <field name="code">PAS_R1L02</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L02_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">109</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R1L02"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L03" model="account.report.line">
+            <field name="name">primes et reserves</field>
+            <field name="code">PAS_R1L03</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1S1L3_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">104 + 106</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R1L03"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L04" model="account.report.line">
+            <field name="name">Écart de réévaluation</field>
+            <field name="code">PAS_R1L04</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L04_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">105</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R1L04"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L05" model="account.report.line">
+            <field name="name">Écart d'équivalence (1)</field>
+            <field name="code">PAS_R1L05</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L05_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">105</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R1L05"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L06" model="account.report.line">
+            <field name="name">Résultat net</field>
+            <field name="code">PAS_R1L06</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L06_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">12</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R1L06"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L07" model="account.report.line">
+            <field name="name">Autre capitaux propres - retour a nouveau</field>
+            <field name="code">PAS_R1L07</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent1"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R1L07_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">11</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R1L07"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_parent2" model="account.report.line">
+            <field name="name">Passifs non courants</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R2L01" model="account.report.line">
+            <field name="name">Emprunts et dettes financières</field>
+            <field name="code">PAS_R2L01</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent2"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R2L01_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">16 + 17</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R2L01"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R2L02" model="account.report.line">
+            <field name="name">Impots (différés et provisionnés)</field>
+            <field name="code">PAS_R2L02</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent2"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R2L02_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">134 + 155</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R2L02"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R2L03" model="account.report.line">
+            <field name="name">Autres dettes non courantes</field>
+            <field name="code">PAS_R2L03</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent2"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R2L03_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">229</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R2L03"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R2L04" model="account.report.line">
+            <field name="name">Provisions et produits comptabilisés d'avance</field>
+            <field name="code">PAS_R2L04</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent2"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R2L04_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">15\(155) + 131 + 132</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R2L04"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_parent3" model="account.report.line">
+            <field name="name">Passifs courants</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R3L01" model="account.report.line">
+            <field name="name">Fournisseurs et comptes rattachés</field>
+            <field name="code">PAS_R3L01</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent3"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R3L01_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">40\(409)</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R3L01"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R3L02" model="account.report.line">
+            <field name="name">impots</field>
+            <field name="code">PAS_R3L02</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent3"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R3L02_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">444C + 445C + 447C</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R3L02"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R3L03" model="account.report.line">
+            <field name="name">Autres dettes</field>
+            <field name="code">PAS_R3L03</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent3"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R3L03_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">419 + 509 + 42C + 43C + 44C\(444C, 445C, 446C, 447C) + 45C + 46C + 48C</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R3L03"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R3L04" model="account.report.line">
+            <field name="name">Trésorerie passif</field>
+            <field name="code">PAS_R3L04</field>
+            <field name="groupby">account_id</field>
+            <field name="foldable">True</field>
+            <field name="hierarchy_level">3</field>
+            <field name="report_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif"/>
+            <field name="parent_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_parent3"/>
+        </record>
+        <record id="smartest_accounting_bilan_pasif_pas_R3L04_n" model="account.report.expression">
+            <field name="label">n</field>
+            <field name="engine">account_codes</field>
+            <field name="formula">519 + 51 + 52</field>
+            <field name="date_scope">to_beginning_of_period</field>
+            <field name="report_line_id" ref="smartest_bilan_liasse.smartest_accounting_bilan_pasif_pas_R3L04"/>
+        </record>
+    </data>
+</odoo>

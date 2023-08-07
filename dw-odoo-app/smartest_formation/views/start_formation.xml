@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="training_plan_formation_form_view">
+            <field name="name">plan.formation.view.form</field>
+            <field name="model">formation.start</field>
+            <field name="arch" type="xml">
+                <form >
+                    <header>
+                        <field name="formation_state" widget="statusbar"
+                               statusbar_visible="draft,request,confirmed,progress,done,cancel]"/>
+                        <button name="create_purchase_order" string="Create PO" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('formation_state', 'in', ['draft','cancel'])]}"/>
+                        <button name="action_request" string="Set as Request" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('formation_state', 'in', ['request','confirmed','progress','done','cancel'])]}"/>
+                        <button name="action_confirmed" string="Set as Confirmed" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('formation_state', 'in', ['draft','confirmed','progress','done','cancel'])]}"/>
+                        <button name="action_progress" string="Set as Progress" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('formation_state', 'in', ['draft','request','progress','done','cancel'])]}"/>
+                        <button name="action_done" string="Set as Done" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('formation_state', 'in', ['draft','request','confirmed','done','cancel'])]}"/>
+                        <button name="action_cancel" string="Cancel" type="object"
+                                attrs="{'invisible': [('formation_state', 'in', ['progress','done'])]}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="smartest_start_formation" string='formation' required="1" options="{'no_create': True}"/>
+                                <field name="smartest_plan_parent_id" readonly="1"/>
+                            </group>
+
+
+                            <group>
+                                <field name="smartest_responsible" options="{'no_create': True}"/>
+                                <field name="smartest_department_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                                <field name="smartest_employee_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                                <field name="smartest_employee_dep_ids" widget="many2many_tags" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="training_plan_formation_tree_view">
+            <field name="name">plan.formation.view.tree</field>
+            <field name="model">formation.start</field>
+            <field name="arch" type="xml">
+                <tree create="false">
+                    <field name="smartest_start_formation" required="1"/>
+                    <field name="smartest_responsible"/>
+                    <field name="smartest_department_ids" widget="many2many_tags"/>
+                    <field name="smartest_employee_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="start_formation_action_window">
+            <field name="name">Formations Planifiées</field>
+            <field name="res_model">formation.start</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

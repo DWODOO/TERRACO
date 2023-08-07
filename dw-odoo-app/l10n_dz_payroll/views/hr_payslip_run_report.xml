@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="hr_payslip_run_report_id">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+
+                <div class="page">
+                    <div class="row" style="text-align:center;">
+                        <h4>
+                            Etat des Retenues des Prêts/Avances sur Salaire
+                        </h4>
+
+                    </div>
+                    <br></br>
+                    <t t-foreach="docs" t-as="o">
+
+                        <table style="border:1px solid black;width:100%;border-collapse: collapse; border-spacing: 0 15px;">
+                            <tr>
+                                <td colspan="4" style="border:1px solid black; text-align:center;">
+                                <span t-field="o.name"/>
+                            </td>
+                            </tr>
+                            <t t-set="lines" t-value="o.slip_ids.line_ids.filtered(lambda x: x.code in ['R810','R820'])"/>
+                            <t t-if="lines">
+                            <tr>
+                                <td style="border:1px solid black; text-align:center; width:25%">Employee</td>
+                                <td style="border:1px solid black; text-align:center; width:25%">Matricule</td>
+                                <td style="border:1px solid black; text-align:center; width:25%">Type</td>
+                                <td style="border:1px solid black; text-align:center; width:25%">Montant</td>
+                            </tr>
+                            </t>
+                        <t t-foreach="lines" t-as="move">
+                            <tr>
+                            <td style="border:1px solid black; text-align:center;"><span t-field="move.slip_id.employee_id.name"/></td>
+                            <td style="border:1px solid black; text-align:center;"> <span t-field="move.slip_id.employee_id.company_cnas_id"/></td>
+                            <td style="border:1px solid black; text-align:center;"><span t-field="move.salary_rule_id.name"/></td>
+                            <td style="border:1px solid black; text-align:center;"><span t-field="move.amount"/></td>
+                        </tr>
+                        </t>
+                        </table>
+
+
+
+                    </t>
+
+                </div>
+            </t>
+        </t>
+
+
+    </template>
+</odoo>

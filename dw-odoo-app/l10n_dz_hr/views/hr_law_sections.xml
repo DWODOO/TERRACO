@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- LAWS-->
+
+
+    <record id="hr_law_sections_tree_view" model="ir.ui.view">
+        <field name="name">hr.law.sections.tree.view</field>
+        <field name="model">hr.law.sections</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="law_type"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_law_sections_form_view" model="ir.ui.view">
+        <field name="name">hr.law.sections.view.form</field>
+        <field name="model">hr.law.sections</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="law_type"/>
+                        <field name="description"/>
+                    </group>
+                    <div style="padding-top: 100px">
+                        <div class="row">
+                            <div class="col-12">
+                                <table>
+                                    <tr>
+                                        <td>Nom Prénom</td>
+                                        <strong>
+                                            <td>self.employee_id.name</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Date de début du contrat</td>
+                                        <strong>
+                                            <td>self.date_start</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Date de fin du contrat</td>
+                                        <strong>
+                                            <td>self.date_end</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Département</td>
+                                        <strong>
+                                            <td>self.department_id.name</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Poste</td>
+                                        <strong>
+                                            <td>self.job_id.name</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Type de contrat</td>
+                                        <strong>
+                                            <td>self.contract_type_id.name</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Article 12</td>
+                                        <strong>
+                                            <td>self.article12</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Catégorie socio-professionel</td>
+                                        <strong>
+                                            <td>self.socio_professionel_category_level_id.name</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Résponsable RH</td>
+                                        <strong>
+                                            <td>self.hr_responsible_id.name</td>
+                                        </strong>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="row">
+                            <div class="col-6">
+                                <table>
+                                    <tr>
+                                        <td>Préavie</td>
+                                        <strong>
+                                            <td>self.leave_notice</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Type de salaire</td>
+                                        <strong>
+                                            <td>self.wage_type</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Salaire</td>
+                                        <strong>
+                                            <td>self.wage</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Téléphone</td>
+                                        <strong>
+                                            <td>self.allowance_phone</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Performence</td>
+                                        <strong>
+                                            <td>self.allowance_performence</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Location</td>
+                                        <strong>
+                                            <td>self.allowance_rent</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Véhicule</td>
+                                        <strong>
+                                            <td>self.allowance_vehicle</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Panier (Jour / Mois)</td>
+                                        <strong>
+                                            <td>self.allowance_meal_type</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Panier</td>
+                                        <strong>
+                                            <td>self.allowance_meal</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Transport</td>
+                                        <strong>
+                                            <td>self.allowance_transportation</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Transport (Jour / Mois)</td>
+                                        <strong>
+                                            <td>self.allowance_transportation_type</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Responsabilité</td>
+                                        <strong>
+                                            <td>self.allowance_responsibility</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Disponibilité</td>
+                                        <strong>
+                                            <td>self.allowance_availability</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>P.O.P</td>
+                                        <strong>
+                                            <td>self.allowance_pop</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de D'espèce</td>
+                                        <strong>
+                                            <td>self.allowance_cash</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>P.A.P</td>
+                                        <strong>
+                                            <td>self.allowance_pap</td>
+                                        </strong>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <table>
+                                    <tr>
+                                        <td>H.S.E</td>
+                                        <strong>
+                                            <td>self.allowance_hse</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>I.F.F</td>
+                                        <strong>
+                                            <td>self.allowance_iff</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>I.F.S.P</td>
+                                        <strong>
+                                            <td>self.allowance_ifsp</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>I.T.P</td>
+                                        <strong>
+                                            <td>self.allowance_itp</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de Nuisance</td>
+                                        <strong>
+                                            <td>self.allowance_nuisance</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>P.E.A (En société)</td>
+                                        <strong>
+                                            <td>self.allowance_in_iep</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>P.E.A (Hors société)</td>
+                                        <strong>
+                                            <td>self.allowance_out_iep</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime Technique</td>
+                                        <strong>
+                                            <td>self.allowance_technicality</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime d'isolation</td>
+                                        <strong>
+                                            <td>self.allowance_isolated_area</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime salaire unique</td>
+                                        <strong>
+                                            <td>self.allowance_unique_salary</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de déplacement</td>
+                                        <strong>
+                                            <td>self.allowance_travel</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime de remboursement loyer</td>
+                                        <strong>
+                                            <td>self.allowance_refund_rent</td>
+                                        </strong>
+                                    </tr>
+                                    <tr>
+                                        <td>Prime d'habillement</td>
+                                        <strong>
+                                            <td>self.allowance_clothing</td>
+                                        </strong>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_law_sections_search">
+        <field name="name">hr.law.sections.search</field>
+        <field name="model">hr.law.sections</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Number"/>
+                <field name="description" string="Description"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter
+                            name="group_law_type"
+                            string="Law Type"
+                            domain="[]"
+                            context="{'group_by':'law_type'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_law_sections" model="ir.actions.act_window">
+        <field name="name">Law Sections</field>
+        <field name="res_model">hr.law.sections</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

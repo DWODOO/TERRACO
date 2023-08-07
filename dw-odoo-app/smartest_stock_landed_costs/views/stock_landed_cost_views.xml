@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Inherit Landed Cost form view to add smartest_stock_move_ids field-->
+    <record model="ir.ui.view" id="view_stock_landed_cost_form">
+        <field name="name">stock.landed.cost.form</field>
+        <field name="model">stock.landed.cost</field>
+        <field name="inherit_id" ref="stock_landed_costs.view_stock_landed_cost_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_cancel']" position="after">
+                <button name="cancel_and_reset" string="Cancel and Inverse" states="done" type="object"/>
+            </xpath>
+            <xpath expr="//field[@name='picking_ids']" position="after">
+                <field name="smartest_new_devise_rate"/>
+            </xpath>
+            <xpath expr="//page[@name='valuation_adjustments']" position="before">
+                <page string="Articles">
+                    <field name="smartest_product_ids">
+                        <tree>
+                            <field name="default_code" optional="show"/>
+                            <field name="name"/>
+                            <field name="categ_id" optional="hide"/>
+                            <field name="hs_code_id" optional="hide"/>
+                            <field name="hs_code_rate"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="theme_view_tree" model="ir.ui.view">
+        <field name="name">theme.view.tree</field>
+        <field name="model">theme</field>
+        <field name="arch" type="xml">
+            <tree default_order="create_date desc">
+                <field name="id" widget="handle" />
+                <field name="smartest_name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="theme_view_form" model="ir.ui.view">
+        <field name="name">theme.view.form</field>
+        <field name="model">theme</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="smartest_name" string="Nom du Theme" />
+                        <h1>
+                            <field name="smartest_name" placeholder="e.g. Linux Niveau 1" />
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page string='Formations'>
+                            <field name="smartest_course_details"
+                                options="{'no_create': True, 'no_edit': False}"
+                                context="{'parent_id': active_id, 'parent_model':'formation'}">
+                                <tree editable="bottom">
+                                    <field name="smartest_course_id" invisible="1"/>
+                                    <field name="smartest_name" required="1"/>
+                                    <field name="smartest_institute_id" />
+                                    <field name="smartest_agrement_course" />
+                                    <field name="smartest_duration" />
+                                    <field name="smartest_course_price" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="theme_action_window">
+        <field name="name">Theme</field>
+        <field name="res_model">theme</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- actions -->
+
+
+
+</odoo>

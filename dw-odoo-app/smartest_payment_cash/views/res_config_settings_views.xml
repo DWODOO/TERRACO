@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        Settings View        -->
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.cash</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="30"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Car Workshop" string="Car Cash"
+                         data-key="smartest_payment_cash" groups="smartest_payment_cash.group_cash_manager">
+                        <h2>Accounting</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane" id="auto_invoice_post">
+                                    <field name="auto_invoice_post"/>
+                                </div>
+                                <div class="o_setting_right_pane" id="auto_invoice_post">
+                                    <label for="auto_invoice_post"/>
+                                    <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."
+                                          groups="base.group_multi_company"/>
+                                    <div class="text-muted" name="auto_invoice_post">
+                                        If this field is checked the invoices will automatically validated
+                                        when closing a payment ticket.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane" id="auto_reconciliation">
+                                    <field name="auto_reconciliation"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="auto_reconciliation"/>
+                                    <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."
+                                          groups="base.group_multi_company"/>
+                                    <div class="text-muted" name="auto_reconciliation">
+                                        If this field is checked the cash payment will automatically reconciled
+                                        with the appropriate invoice.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane" id="cash_close_account">
+                                    <field name="group_cash_close"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="group_cash_close"/>
+                                    <div class="text-muted" name="cash_close_account">
+                                        If this field is checked the cash users will be able to close cash desks.
+                                    </div>
+                                    <div attrs="{'invisible': [('group_cash_close', '=', False)]}">
+                                        <field name="cash_close_account_id"
+                                               placeholder="Closing Account"
+                                               attrs="{'required': [('group_cash_close', '=', True)]}"/>
+                                        <span class="fa fa-lg fa-building-o m-1" title="Values set here are company-specific."
+                                              groups="base.group_multi_company"/>
+                                    </div>
+                                    <div attrs="{'invisible': [('group_cash_close', '=', False)]}">
+                                        <field name="cash_close_journal_id"
+                                               placeholder="Closing Journal"
+                                               attrs="{'required': [('group_cash_close', '=', True)]}"/>
+                                        <span class="fa fa-lg fa-building-o m-1" title="Values set here are company-specific."
+                                              groups="base.group_multi_company"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+        <!--        Action        -->
+        <record id="action_config_settings" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'smartest_payment_cash'}</field>
+        </record>
+    </data>
+</odoo>

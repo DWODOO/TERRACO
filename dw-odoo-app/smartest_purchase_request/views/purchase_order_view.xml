@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!-- Copyright 2018-2019 ForgeFlow, S.L.
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0) -->
+<odoo>
+    <record id="purchase_order_line_tree" model="ir.ui.view">
+        <field name="name">purchase.order.line.tree</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+            </xpath>
+        </field>
+    </record>
+    <record id="purchase_order_form" model="ir.ui.view">
+        <field name="name">purchase.order.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@id='draft_confirm']" position="replace">
+                <button name="button_approval" type="object"
+                        states="draft,technical_validation,quantity_validation,financial_validation"
+                        string="Validate Order"/>
+            </xpath>
+            <xpath expr="//button[@name='button_confirm']" position="replace">
+                <button name="button_approval" type="object" states="sent" string="Validate Order"/>
+            </xpath>
+            <field name="state" position="replace">
+                <field name="state" widget="statusbar"
+                       statusbar_visible="draft,sent,technical_validation,financial_validation,quantity_validation,purchase"
+                       readonly="1"/>/>
+            </field>
+            <xpath expr="sheet//div[@name='button_box']" position="inside">
+                <button name="action_view_purchase_request" type="object" class="oe_stat_button"
+                        icon="fa-shopping-cart">
+                    <field name="purchase_request_count" widget="statinfo" string="Request(s)"/>
+                </button>
+            </xpath>
+            <xpath expr="//sheet//group//group[2]//field[@name='date_order']" position="after">
+                <label for="purchase_request_ids" string="Origin Requests"/>
+                <div name="purchase_requests_div" class="o_row">
+                    <field name="purchase_request_ids" widget="many2many_tags"/>
+                </div>
+            </xpath>
+            <xpath expr="//group[@name='other_info']" position="inside">
+                <!--                <field name="picking_type_id"/>-->
+                <field name="require_tech_validation"/>
+                <field name="purchase_request_create_id" invisible="1"/>
+                <field name="tech_validator_id"
+                       attrs="{'invisible': [('require_tech_validation', '=', False)],'required': [('require_tech_validation', '=', True)]}"/>
+                <field name="service_done" attrs="{'invisible': [('state', '!=', 'purchase')]}"/>
+            </xpath>
+<!--            <xpath expr="//page[@name='purchase_delivery_invoice']//field[@name='date_planned']" position="attributes">-->
+<!--                <attribute name="attrs">{'readonly': ['state', 'not in', [('draft', 'sent', 'general_validation')]],-->
+<!--                                         'required': True}</attribute>-->
+<!--            </xpath>-->
+            <!--            <xpath expr="//field[@name='currency_id']" position='after'>-->
+            <!--                <field name="requisition_last_date" attrs="{'invisible': [('requisition_id','=',False)]}"/>-->
+            <!--            </xpath>-->
+        </field>
+    </record>
+</odoo>

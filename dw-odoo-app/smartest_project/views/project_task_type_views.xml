@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="smartest_task_type_edit_inherit" model="ir.ui.view">
+        <field name="name">smartest.project.task.type.edit.inherit</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_edit"/>
+        <field name="arch" type="xml">
+            <field name="is_closed" position="after">
+                <field name="smartest_use_by_default"/>
+            </field>
+            <field name="sequence" position="before">
+                <field name="smartest_dashboard_state"/>
+            </field>
+        </field>
+    </record>
+    <record id="smartest_task_type_tree_inherit" model="ir.ui.view">
+        <field name="name">smartest.project.task.type.tree.inherit</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_tree"/>
+        <field name="arch" type="xml">
+            <field name="fold" position="after">
+                <field name="smartest_use_by_default" optional="show"/>
+                <field name="smartest_dashboard_state" optional="hide"/>
+            </field>
+            <field name="user_id" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+
+        <menuitem name="Liasse Fiscale" id="product_test_smartsale" parent="account.menu_finance_reports"
+                  action="smartest_bilan_liasse.action_create_date_id" sequence="90"/>
+
+    </data>
+</odoo>

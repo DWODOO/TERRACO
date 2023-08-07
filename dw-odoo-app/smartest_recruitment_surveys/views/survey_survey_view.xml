@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="survey_survey_view_form" model="ir.ui.view">
+        <field name="name">survey.survey.form.smartest</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_survey_view_form"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="job_id"/>
+<!--                <field name="check_interview" widget="radio"/>-->
+                <field name="check_stage"/>
+            </field>
+        </field>
+    </record>
+</odoo>

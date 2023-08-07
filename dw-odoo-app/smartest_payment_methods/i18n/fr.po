@@ -1,0 +1,1493 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* smartest_payment_cash
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-12 09:38+0000\n"
+"PO-Revision-Date: 2022-05-12 09:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building-o m-1\" title=\"Values set here are "
+"company-specific.\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Les valeurs définies ici sont"
+" de la société-specific.\" groups=\"base.group_multi_company\"/>"
+
+#. module: smartest_payment_cash
+#: model:ir.model.constraint,message:smartest_payment_cash.constraint_cash_statement_date_range_uniq
+msgid "A Cash Statement can be opened once per day !"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "Account Moves"
+msgstr "Pièces comptables"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.res_config_settings_view_form
+msgid "Accounting"
+msgstr "Comptabilité"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_needaction
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_needaction
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_needaction
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_needaction
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_needaction
+msgid "Action Needed"
+msgstr "Action Requise"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__active
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_desk_view_search
+msgid "Active"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__activity_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__activity_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__activity_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__activity_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__activity_exception_decoration
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__activity_exception_decoration
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__activity_exception_decoration
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__activity_exception_decoration
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__activity_state
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__activity_state
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__activity_state
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__activity_state
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__activity_state
+msgid "Activity State"
+msgstr "Etat de l'activité"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__activity_type_icon
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__activity_type_icon
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__activity_type_icon
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__activity_type_icon
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.car_cash_menu_invoice_all
+msgid "All Invoices"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__allow_negative_closed_amount
+msgid "Allow negative closing Amount"
+msgstr "Autoriser montant de cloture negative"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__amount
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__amount
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_form
+msgid "Amount"
+msgstr "Montant"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__amount_paid
+msgid "Amount Paid"
+msgstr "Montant Payé"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__amount_residual
+msgid "Amount Residual"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_desk_view_search
+msgid "Archived"
+msgstr "Montant Dû"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_attachment_count
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_attachment_count
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_attachment_count
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_attachment_count
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_users__cash_desk_ids
+msgid "Authorized Cash Desks"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_company__auto_invoice_post
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_config_settings__auto_invoice_post
+msgid "Auto Invoice Post"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_company__auto_reconciliation
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_config_settings__auto_reconciliation
+msgid "Auto Reconciliation"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_bank_statement
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_search
+msgid "Caisse"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__ticket_cancel_id
+msgid "Cancel Ticket"
+msgstr "Ticket d'Annulation"
+
+#. module: smartest_payment_cash
+#: model:ir.actions.act_window,name:smartest_payment_cash.cash_ticket_cancel_action
+msgid "Cancel Tickets"
+msgstr "Tickets d'Annulation"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_statement__state__canceled
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_ticket__state__canceled
+msgid "Canceled"
+msgstr "Annulé"
+
+#. module: smartest_payment_cash
+#: model:ir.module.category,name:smartest_payment_cash.module_category_car_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.res_config_settings_view_form
+msgid "Car Cash"
+msgstr "Gestion de Caisse"
+
+#. module: smartest_payment_cash
+#: model:account.payment.method,name:smartest_payment_cash.account_payment_method_cash_in
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_root
+msgid "Cash"
+msgstr "Espèce"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_config_settings__group_cash_close
+msgid "Cash Accounting Close"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_company__cash_close_account_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_config_settings__cash_close_account_id
+msgid "Cash Close Account"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_company__cash_close_journal_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_config_settings__cash_close_journal_id
+msgid "Cash Close Journal"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model,name:smartest_payment_cash.model_cash_desk
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__cash_desk_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__cash_desk_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__cash_desk_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__cash_desk_id
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_cash_desk
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.view_users_form
+msgid "Cash Desk"
+msgstr "Caisse"
+
+#. module: smartest_payment_cash
+#: model:ir.actions.act_window,name:smartest_payment_cash.cash_desk_close_action
+#: model:ir.model,name:smartest_payment_cash.model_cash_desk_close
+msgid "Cash Desk Close"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/wizard/cash_desk_close.py:0
+#: code:addons/smartest_payment_cash/wizard/cash_desk_close.py:0
+#, python-format
+msgid "Cash Desk Closing"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.actions.act_window,name:smartest_payment_cash.cash_desk_action
+msgid "Cash Desks"
+msgstr "Caisses"
+
+#. module: smartest_payment_cash
+#: model:ir.actions.act_window,name:smartest_payment_cash.cash_statement_action
+#: model:ir.model,name:smartest_payment_cash.model_cash_statement
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_payment__cash_statement_id
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_cash_statement_menu
+msgid "Cash Statement"
+msgstr "Caisse"
+
+#. module: smartest_payment_cash
+#: model:ir.model,name:smartest_payment_cash.model_cash_ticket
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_payment__cash_ticket_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__cash_ticket_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__cash_ticket_id
+msgid "Cash Ticket"
+msgstr "Ticket de Caisse"
+
+#. module: smartest_payment_cash
+#: model:ir.model,name:smartest_payment_cash.model_cash_ticket_cancel
+msgid "Cash Ticket Cancel"
+msgstr "Annulation du Ticket de Caisse"
+
+#. module: smartest_payment_cash
+#: model:ir.model,name:smartest_payment_cash.model_cash_ticket_line
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_payment__ticket_line_id
+msgid "Cash Ticket Line"
+msgstr "Ligne Ticket de Caisse"
+
+#. module: smartest_payment_cash
+#: model:ir.actions.act_window,name:smartest_payment_cash.cash_ticket_action
+msgid "Cash Tickets"
+msgstr "Tickets de Caisse"
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_res_users
+msgid "Cashier"
+msgstr "Caissier"
+
+#. module: smartest_payment_cash
+#: model:ir.actions.act_window,name:smartest_payment_cash.res_users_action
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.view_users_search
+msgid "Cashiers"
+msgstr "Caissiers"
+
+#. module: smartest_payment_cash
+#: model:account.payment.method,name:smartest_payment_cash.account_payment_method_check_in
+msgid "Check"
+msgstr "Chèque"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__payment_customer_ids
+msgid "Clients Payment(s)"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_desk_close_view_form
+msgid "Close"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__close_account_id
+msgid "Close Account"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__close_amount
+msgid "Close Amount"
+msgstr "Montant de cloture"
+
+#. module: smartest_payment_cash
+#: model:res.groups,name:smartest_payment_cash.group_cash_close
+msgid "Close Cash"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_close_cash_desk
+msgid "Close Cash Desk"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__is_closed
+msgid "Closed?"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__close_account_id
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.res_config_settings_view_form
+msgid "Closing Account"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.res_config_settings_view_form
+msgid "Closing Journal"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__code
+msgid "Code"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model,name:smartest_payment_cash.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__company_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__company_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: smartest_payment_cash
+#: model:ir.model,name:smartest_payment_cash.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_form
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_form
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_ticket_cancel__state__confirm
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_search
+msgid "Confirmed"
+msgstr "Confirmé"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.actions.act_window,help:smartest_payment_cash.cash_desk_action
+msgid "Create new Cash Desk"
+msgstr "Créer une Nouvelle Caisse"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.actions.act_window,help:smartest_payment_cash.cash_statement_action
+msgid "Create new Cash Statement"
+msgstr "Créer une Nouvelle Caisse"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__create_uid
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__create_uid
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__create_uid
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__create_uid
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__create_uid
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__create_date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__create_date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__create_date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__create_date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__create_date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__create_date
+msgid "Created on"
+msgstr "Créé sur"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__currency_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__currency_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__currency_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_users__cash_desk_id
+msgid "Current used Cash Desk"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__partner_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__partner_id
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_search
+msgid "Customer"
+msgstr "Client"
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_cus_payment
+msgid "Customer Payment"
+msgstr "Paiement Client"
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_customer_payment
+msgid "Customer payment"
+msgstr "Paiment Client"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__date
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_search
+msgid "Date"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__date_from
+msgid "Date Start"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__date_to
+msgid "Date To"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__description
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_form
+msgid "Description"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_desk_close_view_form
+msgid "Discard"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__display_name
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__display_name
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__display_name
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__display_name
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__display_name
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__display_name
+msgid "Display Name"
+msgstr "Nom Affiché"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_form
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "Divers"
+msgstr "Autres"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_search
+msgid "Done"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_statement__state__draft
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_ticket__state__draft
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_ticket_cancel__state__draft
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_search
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_follower_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_follower_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_follower_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_follower_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_follower_ids
+msgid "Followers"
+msgstr "Abbonné(e)"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_partner_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_partner_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_partner_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_partner_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Abonnés (Contacts)"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__activity_type_icon
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__activity_type_icon
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__activity_type_icon
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__activity_type_icon
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_form
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "General"
+msgstr "Général"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_search
+msgid "Group By"
+msgstr "Grouper par"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__has_message
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__has_message
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__has_message
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__has_message
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.module.category,description:smartest_payment_cash.module_category_car_cash
+msgid "Helps you manage your car cash."
+msgstr "Outil de gestion de caisse véhicule"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__id
+msgid "ID"
+msgstr "Identifiant"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__activity_exception_icon
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__activity_exception_icon
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__activity_exception_icon
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__activity_exception_icon
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__activity_exception_icon
+msgid "Icon"
+msgstr "Icône"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__activity_exception_icon
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__activity_exception_icon
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__activity_exception_icon
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__activity_exception_icon
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icône d'exéption"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__message_needaction
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__message_unread
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__message_needaction
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__message_unread
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__message_needaction
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__message_unread
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__message_needaction
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__message_unread
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__message_needaction
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si coché, les nouveaux messages nécessitent votre attention"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__message_has_error
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__message_has_sms_error
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__message_has_error
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__message_has_sms_error
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__message_has_error
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__message_has_sms_error
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__message_has_error
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__message_has_sms_error
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__message_has_error
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si coché, certains messages comportent une erreur de livraison."
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.res_config_settings_view_form
+msgid ""
+"If this field is checked the cash payment will automatically reconciled\n"
+"                                        with the appropriate invoice."
+msgstr ""
+" Si ce champ est coché le paiement en espèces va être autematiquement rapproché\n"
+"                                        avec la facture appropriée."
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.res_config_settings_view_form
+msgid ""
+"If this field is checked the cash users will be able to close cash desks."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.res_config_settings_view_form
+msgid ""
+"If this field is checked the invoices will automatically validated\n"
+"                                        when closing a payment ticket."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_form
+msgid "Incoming payment"
+msgstr "Paiement(s) Entrant"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__invoice_count
+msgid "Invoice Count"
+msgstr "Nombre de Factures"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_bank_statement_line__invoice_outstanding_credits_debits_widget
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_move__invoice_outstanding_credits_debits_widget
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_payment__invoice_outstanding_credits_debits_widget
+msgid "Invoice Outstanding Credits Debits Widget"
+msgstr "Widget Débits Crédits en cours Facture"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+#, python-format
+msgid "Invoice(s)"
+msgstr "Facture(s)"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__invoice_ids
+#: model:ir.ui.menu,name:smartest_payment_cash.car_cash_menu_invoice
+msgid "Invoices"
+msgstr "Factures"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/account_payment.py:0
+#: code:addons/smartest_payment_cash/models/account_payment.py:0
+#, python-format
+msgid "Invoices(s)"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_is_follower
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_is_follower
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_is_follower
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_is_follower
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_is_follower
+msgid "Is Follower"
+msgstr "Est un abonné"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__journal_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__journal_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__journal_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__journal_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_res_users__journal_id
+msgid "Journal"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model,name:smartest_payment_cash.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk____last_update
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close____last_update
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement____last_update
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket____last_update
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel____last_update
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line____last_update
+msgid "Last Modified on"
+msgstr "Denière Modification le"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__write_uid
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__write_uid
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__write_uid
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__write_uid
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__write_uid
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__write_uid
+msgid "Last Updated by"
+msgstr "Denière Mise à Jour par"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__write_date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk_close__write_date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__write_date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__write_date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__write_date
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__write_date
+msgid "Last Updated on"
+msgstr "Denière Mise à Jour le"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_main_attachment_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_main_attachment_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_main_attachment_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_main_attachment_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Pièce Jointe Principale"
+
+#. module: smartest_payment_cash
+#: model:res.groups,name:smartest_payment_cash.group_cash_manager
+msgid "Manager"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_has_error
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_has_error
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_has_error
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_has_error
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_has_error
+msgid "Message Delivery error"
+msgstr "Erreur d'Envoi de Message"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__payment_method_id
+msgid "Method"
+msgstr "Methode"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__move_line_ids
+msgid "Move Line"
+msgstr "Ligne de Transfert"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__my_activity_date_deadline
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__my_activity_date_deadline
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__my_activity_date_deadline
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__my_activity_date_deadline
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__name
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__name
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__activity_calendar_event_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__activity_calendar_event_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__activity_calendar_event_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__activity_calendar_event_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__activity_date_deadline
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__activity_date_deadline
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__activity_date_deadline
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__activity_date_deadline
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Date limite de la prochaine activité"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__activity_summary
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__activity_summary
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__activity_summary
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__activity_summary
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__activity_summary
+msgid "Next Activity Summary"
+msgstr "Résumé de la prochaine activité"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__activity_type_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__activity_type_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__activity_type_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__activity_type_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__activity_type_id
+msgid "Next Activity Type"
+msgstr "Type de la prochaine activité"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/wizard/cash_desk_close.py:0
+#: code:addons/smartest_payment_cash/wizard/cash_desk_close.py:0
+#, python-format
+msgid "No Account Entry found to close!"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model_terms:ir.actions.act_window,help:smartest_payment_cash.cash_ticket_cancel_action
+msgid "No Cancel Ticket Available !"
+msgstr "Aucun Ticket d'Annulation Disponible!"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.actions.act_window,help:smartest_payment_cash.cash_ticket_action
+msgid "No Cash Ticket Available !"
+msgstr "Aucun Ticket de Caisse Disponible!"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.actions.act_window,help:smartest_payment_cash.payment_method_action
+msgid "No Payment Type Available !"
+msgstr "Aucun Type de Paiement Disponible!"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__note
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__note
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__note
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_form
+msgid "Note"
+msgstr "Note"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "Note..."
+msgstr "Notes..."
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__name
+msgid "Number"
+msgstr "Numero"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_needaction_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_needaction_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_needaction_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_needaction_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nomdre d'Actions"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_has_error_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_has_error_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_has_error_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_has_error_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_has_error_counter
+msgid "Number of errors"
+msgstr "Nombre d'Erreurs"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__message_needaction_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__message_needaction_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__message_needaction_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__message_needaction_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Nombre de messages nécessitant une action"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__message_has_error_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__message_has_error_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__message_has_error_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__message_has_error_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec une erreur d'envoi"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__message_unread_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__message_unread_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__message_unread_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__message_unread_counter
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Nombre de Messages Non-lus"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket_cancel.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket_cancel.py:0
+#, python-format
+msgid "Only draft ticket can be confirmed"
+msgstr "Seul Le Ticket Brouillon Peut être Confirmé"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket_cancel.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket_cancel.py:0
+#, python-format
+msgid "Only draft ticket can be deleted"
+msgstr "Seul Le Ticket Brouillon Peut être Supprimé"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#, python-format
+msgid "Only draft tickets can be deleted"
+msgstr "Seul Les Tickets Brouillon Peuvent être Supprimés"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#, python-format
+msgid "Only paid or partially paid ticket can be validated."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#, python-format
+msgid "Only ticket with a residual amount can be opened."
+msgstr "Seul Le Ticket Partiellement Payé Peut être Ouvert"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#, python-format
+msgid "Only validated ticket can be opened."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_statement__state__ongoing
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "Ongoing"
+msgstr "En cours"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__open_amount
+msgid "Open Amount"
+msgstr "Montant d'ouverture"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_search
+msgid "Opened"
+msgstr "Ouvert"
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_operation
+msgid "Operations"
+msgstr "Opérations"
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_other
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_form
+msgid "Other"
+msgstr "Autres"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_form
+msgid "Outgoing Payment"
+msgstr "Paiement(s) Sortant"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_ticket__state__paid
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_search
+msgid "Paid"
+msgstr "Payé"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_ticket__state__partially_paid
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_search
+msgid "Partially Paid"
+msgstr "Partiellement Payé"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__payment_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__account_payment_ids
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "Payment"
+msgstr "Paiement"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "Payment Lines"
+msgstr "Lignes de Paiement"
+
+#. module: smartest_payment_cash
+#: model:ir.actions.act_window,name:smartest_payment_cash.payment_method_action
+#: model:ir.model,name:smartest_payment_cash.model_account_payment_method
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_payment_method
+msgid "Payment Methods"
+msgstr "Methodes de Paiement"
+
+#. module: smartest_payment_cash
+#: model:ir.model,name:smartest_payment_cash.model_account_payment
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "Payments"
+msgstr "Paiements"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/account_move.py:0
+#: code:addons/smartest_payment_cash/models/account_move.py:0
+#, python-format
+msgid "Please define a sequence on your journal."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__reference
+msgid "Reference"
+msgstr "Référence"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__activity_user_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__activity_user_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__activity_user_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__activity_user_id
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__activity_user_id
+msgid "Responsible User"
+msgstr "Utilisateur Principal"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_has_sms_error
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_has_sms_error
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_has_sms_error
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_has_sms_error
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erreur d'Evoi SMS"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__sale_order_count
+msgid "Sale Order Count"
+msgstr "Nombre de Commandes de Vente"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__sale_order_ids
+msgid "Sale orders"
+msgstr "Commandes de Vente"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+#, python-format
+msgid "Sale(s)"
+msgstr "Vente(s)"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_bank_statement_line__sale_order_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_move__sale_order_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_payment__sale_order_ids
+msgid "Sales"
+msgstr "Ventes"
+
+#. module: smartest_payment_cash
+#: model:ir.actions.act_window,name:smartest_payment_cash.action_config_settings
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_settings
+msgid "Settings"
+msgstr "Configurations"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__code_journal
+msgid "Short Code"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__code_journal
+msgid ""
+"Shorter name used for display. The journal entries of this journal will also"
+" be named using this prefix by default."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__source
+msgid "Source"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__state
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__state
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__state
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_search
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_search
+msgid "State"
+msgstr "Etat"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__activity_state
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__activity_state
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__activity_state
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__activity_state
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Statut basé sur les activités\n"
+"En retard: la date d'échéance est déjà dépassée\n"
+"Aujourd'hui: la date d'activité est aujourd'hui\n"
+"Prévu: activités futures."
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_sup_payment
+msgid "Supplier Payment"
+msgstr "Paiement Fournisseur"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__payment_supplier_ids
+msgid "Supplier Payment(s)"
+msgstr "Paiement Fournisseur"
+
+#. module: smartest_payment_cash
+#: model:ir.model.constraint,message:smartest_payment_cash.constraint_cash_desk_uniq_code
+msgid "The cash point must be unique."
+msgstr "La Caisse Doit être Unique"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/account_move.py:0
+#: code:addons/smartest_payment_cash/models/account_move.py:0
+#, python-format
+msgid ""
+"The field 'Customer' is required, please complete it to validate the "
+"Customer Invoice."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/account_move.py:0
+#: code:addons/smartest_payment_cash/models/account_move.py:0
+#, python-format
+msgid ""
+"The field 'Vendor' is required, please complete it to validate the Vendor "
+"Bill."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/wizard/cash_desk_close.py:0
+#: code:addons/smartest_payment_cash/wizard/cash_desk_close.py:0
+#, python-format
+msgid "The total Amount is null!"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:res.groups,comment:smartest_payment_cash.group_cash_close
+msgid "The user will be able to generate account entry for cash closing."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:res.groups,comment:smartest_payment_cash.group_cash_user
+msgid "The user will be able to see documents."
+msgstr "L'Utilisateur Pourra Voir les Documents"
+
+#. module: smartest_payment_cash
+#: model:res.groups,comment:smartest_payment_cash.group_cash_manager
+msgid ""
+"The user will have access to the cash configuration as well as\n"
+"                statistic reports.\n"
+"            "
+msgstr ""
+"L'utilisateur aura accès à la configuration de la Caisse ainsi qu'aux\n"
+"rapports statistiques.\n"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#, python-format
+msgid "There is no invoice to view."
+msgstr "Aucunne Facture à Visualiser"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#, python-format
+msgid "There is no sale to view."
+msgstr "Aucune Ventre à Visualiser"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_desk.py:0
+#: code:addons/smartest_payment_cash/models/cash_desk.py:0
+#, python-format
+msgid "There is no ticket to view."
+msgstr "Aucun Ticket à Visualiser"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_desk.py:0
+#: code:addons/smartest_payment_cash/models/cash_desk.py:0
+#, python-format
+msgid "There is no user to view."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/account_move.py:0
+#: code:addons/smartest_payment_cash/models/account_move.py:0
+#, python-format
+msgid "This move is configured to be auto-posted on %s"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/account_move.py:0
+#: code:addons/smartest_payment_cash/models/account_move.py:0
+#, python-format
+msgid "This move is configured to be auto-posted on {}"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_bank_statement_line__ticket_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_move__ticket_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_account_payment__ticket_ids
+msgid "Ticket"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__amount
+msgid "Ticket Amount"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__amount_paid
+msgid "Ticket Amount Paid"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__amount_residual
+msgid "Ticket Amount Residual"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__ticket_count
+msgid "Ticket Count"
+msgstr "Nombre de Tickets"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__ticket_line_ids
+msgid "Ticket Line"
+msgstr "Ligne de Ticket"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_cancel_view_form
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "Ticket N°"
+msgstr "N° Ticket"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_desk.py:0
+#: code:addons/smartest_payment_cash/models/cash_desk.py:0
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_desk_view_form
+#, python-format
+msgid "Ticket(s)"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__ticket_ids
+msgid "Tickets"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__total_amount
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_form
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_tree
+msgid "Total"
+msgstr "Montant"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_tree
+msgid "Total Paid"
+msgstr "Montant Payé"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_tree
+msgid "Total Residual"
+msgstr "Montant Dû"
+
+#. module: smartest_payment_cash
+#: model:account.payment.method,name:smartest_payment_cash.account_payment_method_transfer_in
+msgid "Transfer"
+msgstr "Virement"
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_transfer
+msgid "Transfer Intern"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__activity_exception_decoration
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__activity_exception_decoration
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__activity_exception_decoration
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__activity_exception_decoration
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Type d'exéption dans l'enregistrement"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_unread
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_unread
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_unread
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_unread
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_unread
+msgid "Unread Messages"
+msgstr "Messages Non-lus"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__message_unread_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__message_unread_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__message_unread_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__message_unread_counter
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Compteur de Massages Non-lus"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__use_last_cash_statement_closed_amount
+msgid "Use Last Closed Amount"
+msgstr "Utiliser dernier montant de cloture"
+
+#. module: smartest_payment_cash
+#: model:res.groups,name:smartest_payment_cash.group_cash_user
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_desk.py:0
+#: code:addons/smartest_payment_cash/models/cash_desk.py:0
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_desk_view_form
+#, python-format
+msgid "User(s)"
+msgstr ""
+
+#. module: smartest_payment_cash
+#: model:ir.model,name:smartest_payment_cash.model_res_users
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__user_ids
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_desk_view_form
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__user_count
+msgid "Users count"
+msgstr "Nombre d'Utilisateurs"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_form
+msgid "Validate"
+msgstr "Valider"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_statement__state__validated
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_ticket_view_search
+msgid "Validated"
+msgstr "Valider"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_form
+msgid "Want to Proceed ?"
+msgstr "Continuer ?"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_desk__website_message_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_statement__website_message_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket__website_message_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_cancel__website_message_ids
+#: model:ir.model.fields,field_description:smartest_payment_cash.field_cash_ticket_line__website_message_ids
+msgid "Website Messages"
+msgstr "Messages du Site Web"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_desk__website_message_ids
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_statement__website_message_ids
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket__website_message_ids
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_cancel__website_message_ids
+#: model:ir.model.fields,help:smartest_payment_cash.field_cash_ticket_line__website_message_ids
+msgid "Website communication history"
+msgstr "Historique de communication sur le Site Web"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#, python-format
+msgid "You are allowed to confirm a ticket on this cash desk."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#, python-format
+msgid "You are not allowed to create cash payment lines on this cash desk. "
+msgstr ""
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_ticket.py:0
+#: code:addons/smartest_payment_cash/models/cash_ticket.py:0
+#, python-format
+msgid ""
+"You are not allowed to create cash payment lines. Please ask your "
+"administrator to associate your profile to a cash desk"
+msgstr ""
+"Vous N'êtes pas Autorisé à Créer des Lignes de Paiement. Veuillez Demander à"
+" votreAdministrateur de vous Associer à un Bureau de Caisse"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/account_move.py:0
+#: code:addons/smartest_payment_cash/models/account_move.py:0
+#, python-format
+msgid "You can not create ticket for no invoice account move"
+msgstr "Vous ne Pouvez pas Créer un Ticket sans une Facture"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_statement.py:0
+#: code:addons/smartest_payment_cash/models/cash_statement.py:0
+#, python-format
+msgid ""
+"You can't close a negative cash statement, Please make sure all the "
+"operation has been correct."
+msgstr "Vous ne pouvez pas cloturer une caisse avec une balance negative !"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_statement.py:0
+#: code:addons/smartest_payment_cash/models/cash_statement.py:0
+#, python-format
+msgid ""
+"You can't close an unbalanced cash statement, Please make sure the Total and"
+" the Closed Amount are equals."
+msgstr "Vous ne pouvez pas cloturer une caisse non correct, Merci de verifier que le montant de cloture est egale au montant total!"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/account_move.py:0
+#: code:addons/smartest_payment_cash/models/account_move.py:0
+#, python-format
+msgid ""
+"You cannot validate an invoice with a negative total amount. You should "
+"create a credit note instead. Use the action menu to transform it into a "
+"credit note or refund."
+msgstr ""
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/account_move.py:0
+#: code:addons/smartest_payment_cash/models/account_move.py:0
+#, python-format
+msgid "You don't have the access rights to post an invoice."
+msgstr "Vous n'avez pas le droit de valider une facture"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_statement.py:0
+#: code:addons/smartest_payment_cash/models/cash_statement.py:0
+#, python-format
+msgid "You have draft Payment(s), Please make sure to post them !."
+msgstr "Vous avez des payment brouillon, Merci de les valider avant de continuer !"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/cash_statement.py:0
+#: code:addons/smartest_payment_cash/models/cash_statement.py:0
+#, python-format
+msgid ""
+"You have old cash statement unclosed, Please make sure to Close them !."
+msgstr "Vous avez des caisse(s) anterieurs ouverte, veuillez vous assurer de les cloturer avant de continuer !"
+
+#. module: smartest_payment_cash
+#: code:addons/repositories/smartest-odoo-app/smartest_payment_cash/models/account_move.py:0
+#: code:addons/smartest_payment_cash/models/account_move.py:0
+#, python-format
+msgid "You need to add a line before posting."
+msgstr "Vous devez ajouter une ligne avant de valider"
+
+#. module: smartest_payment_cash
+#: model_terms:ir.ui.view,arch_db:smartest_payment_cash.cash_statement_view_form
+msgid "invoice(s)"
+msgstr "Facture(s)"
+
+#. module: smartest_payment_cash
+#: model:ir.ui.menu,name:smartest_payment_cash.smartest_payment_cash_menu_supplier_payment
+msgid "supplier payment"
+msgstr "Paiement Fournisseur"
+
+#. module: smartest_payment_cash
+#: model:ir.model.fields.selection,name:smartest_payment_cash.selection__cash_ticket__state__validated
+msgid "validated"
+msgstr "Valider"

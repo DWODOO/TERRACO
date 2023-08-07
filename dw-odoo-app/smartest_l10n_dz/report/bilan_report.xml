@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="dz_account_paperformat" model="report.paperformat">
+        <field name="name">A4</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">25</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+    <template id="actif_passif_report">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <style type="text/css">
+                    .table th,.table td {border: 2px solid black;padding : 4px;}
+                </style>
+                <div class="text-left" >
+                    <strong>Company: </strong><span t-esc="company"  /><br/>
+                    Exercice du : <strong t-esc="date_from" t-options="{'widget': 'date', 'format': 'dd/MM/yyyy'}" /> au : <strong t-esc="date_to" t-options="{'widget': 'date', 'format': 'dd/MM/yyyy'}" />
+                </div>
+                <div  style="padding:30px 60px;" class="text-center" >
+                    <strong style="background-color: #90a4ae;text-decoration:underline;padding:18px 55px;border: 2px solid black;"  >
+                        BILAN ACTIF
+                    </strong>
+                </div>
+                <table class="table" style="border-collapse: collapse;width: 100%;margin-top:12px;">
+                    <tr style="background-color: #90a4ae;"  >
+                        <td  class="align-middle text-center" rowspan="2" >
+                            <strong>ACTIF</strong>
+                        </td>
+                        <td colspan="3" class="text-center" >
+                            <strong><t t-esc="current_year" /></strong>
+                        </td>
+                        <td class="text-center">
+                            <strong><t t-esc="previous_year" /></strong>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #90a4ae;"  >
+                        <td class="text-center">
+                            <strong>BRUT</strong>
+                        </td>
+                        <td class="text-center">
+                            <strong>AMORT./PROV.</strong>
+                        </td>
+                        <td class="text-center">
+                            <strong>NET</strong>
+                        </td>
+                        <td class="text-center">
+                            <strong>NET</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" colspan="5">
+                            <strong>ACTIFS NON COURANTS</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ecart d’acquisition ( goodwill )</strong> </td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['goodwill']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['goodwill_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['goodwill'] - current['goodwill_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['goodwill']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Immobilisations incorporelles</strong>
+                        </td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['immo_incorp']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['immo_incorp_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['immo_incorp'] - current['immo_incorp_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['immo_incorp']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" >
+                            <strong>Immobilisations corporelles</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Terrains</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['terrains']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['terrains_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['terrains'] - current['terrains_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['terrains']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Bâtiments</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['batiment']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['batiment_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['batiment'] - current['batiment_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['batiment']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Autres immobilisations corporelles</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_immo_corp']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_immo_corp_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_immo_corp'] - current['autre_immo_corp_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['autre_immo_corp']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Immobilisations en concession</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['immo_concession']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['immo_concession_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['immo_concession'] - current['immo_concession_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['immo_concession']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Immobilisations en cours</strong>
+                        </td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['immo_encours']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['immo_encours_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['immo_encours'] - current['immo_encours_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['immo_encours']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <strong>Immobilisations financières</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Titres mis en équivalence <t t-if="consolidate" >- Entreprises associées (1)</t></span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['titre_equi']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['titre_equi_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['titre_equi'] - current['titre_equi_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['titre_equi']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Autres participations et créances rattachées</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autres_participation']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autres_participation_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autres_participation'] - current['autres_participation_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['autres_participation']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Autres titres immobilisés</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_titre']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_titre_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_titre'] - current['autre_titre_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['autre_titre']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Prêts et autres actifs financiers non courants</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['pret']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['pret_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['pret'] - current['pret_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['pret']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Impôt différé actif</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['impots_actif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['impots_actif_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['impots_actif'] - current['impots_actif_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['impots_actif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr style="background-color: #90a4ae;" >
+                        <td class="text-left" >
+                            <strong>TOTAL ACTIF NON COURANT</strong>
+                        </td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['actif_non_courant']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['actif_non_courant_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['actif_non_courant'] - current['actif_non_courant_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="previous['actif_non_courant']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" colspan="5" >
+                            <strong>ACTIF COURANT</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stocks et encours</strong></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['stock_encours']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['stock_encours_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['stock_encours'] - current['stock_encours_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['stock_encours']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" ><strong>Créances et emplois assimilés</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Clients</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['clients']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['clients_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['clients'] - current['clients_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['clients']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Autres débiteurs</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_debiteur']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_debiteur_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_debiteur'] - current['autre_debiteur_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['autre_debiteur']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Impôts et assimilés</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['impots_assim']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['impots_assim_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['impots_assim'] - current['impots_assim_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['impots_assim']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Autres créances et emplois assimilés</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_creance']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_creance_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['autre_creance'] - current['autre_creance_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['autre_creance']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" >
+                            <strong>Disponibilités et assimilés</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Placements et autres actifs financiers courants</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['placements_actif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['placements_actif_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['placements_actif'] - current['placements_actif_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['placements_actif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td><span style="padding-left: 20px; " >Trésorerie</span></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['tresorerie']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['tresorerie_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="current['tresorerie'] - current['tresorerie_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" style="font-size:13px;" ><t t-esc="previous['tresorerie']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr style="background-color: #90a4ae;" >
+                        <td>
+                            <strong>TOTAL ACTIF COURANT</strong>
+                        </td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['actif_courant']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['actif_courant_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['actif_courant'] - current['actif_courant_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="previous['actif_courant']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                    </tr>
+                    <tr style="background-color: #90a4ae;" >
+                        <td>
+                            <strong>TOTAL GENERAL ACTIF</strong>
+                        </td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['total_actif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['total_actif_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="current['total_actif'] - current['total_actif_amort']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" style="font-size:13px;" ><strong><t t-esc="previous['total_actif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+        <t t-call="web.basic_layout">
+            <div class="page">
+                 <style type="text/css">
+                    .table th,.table td {border: 2px solid black;padding : 4px;}
+                </style>
+                <div class="text-left" >
+                    <strong>Company: </strong><span t-esc="company"  /><br/>
+                    Exercice du : <strong t-esc="date_from" t-options="{'widget': 'date', 'format': 'dd/MM/yyyy'}" /> au : <strong t-esc="date_to" t-options="{'widget': 'date', 'format': 'dd/MM/yyyy'}" />
+                </div>
+                <div  style="padding:30px 60px;" class="text-center" >
+                    <strong style="background-color: #90a4ae;text-decoration:underline;padding:18px 55px;border: 2px solid black;"  >
+                        BILAN PASSIF
+                    </strong>
+                </div>
+                <table class="table" style="border-collapse: collapse;width: 100%;margin-top:12px;">
+                    <tr>
+                        <td colspan="3" class="text-left">
+                            <strong>CAPITAUX PROPRES</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Capital emis</td>
+                        <td class="text-right" ><t t-esc="current['capital_emis']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['capital_emis']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Capital non appelé</td>
+                        <td class="text-right" ><t t-esc="current['capital_non_app']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['capital_non_app']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Primes et réserves <t t-if="consolidate" > - Réserves Consolidées (1)</t></td>
+                        <td class="text-right" ><t t-esc="current['prime']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['prime']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ecart de réévaluation</td>
+                        <td class="text-right" ><t t-esc="current['ecart_reeval']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['ecart_reeval']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ecart d’équivalence </td>
+                        <td class="text-right" ><t t-esc="current['ecart_equi']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['ecart_equi']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Résultat net <t t-if="consolidate" >- Résultat net part du groupe (1)</t></td>
+                        <td class="text-right" ><t t-esc="current['resultat_net']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['resultat_net']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Report à nouveau</td>
+                        <td class="text-right" ><t t-esc="current['autre_capitaux']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['autre_capitaux']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <t t-if="consolidate" >
+                    <tr>
+                        <td><strong>Part de la société consolidante (1)</strong></td>
+                        <td class="text-right" ><strong><t t-esc="current['capitaux_propres']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" ><strong><t t-esc="previous['capitaux_propres']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Part des minoritaires (1)</strong></td>
+                        <td class="text-right" ></td>
+                        <td class="text-right" ></td>
+                    </tr>
+                    </t>
+                    <tr style="background-color: #90a4ae;" >
+                        <td class="text-center">
+                            <strong>TOTAL I</strong>
+                        </td>
+                        <td class="text-right" ><strong><t t-esc="current['capitaux_propres']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" ><strong><t t-esc="previous['capitaux_propres']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                    </tr>
+                    <tr>
+                        <td  colspan="3" class="text-left">
+                            <strong>PASSIFS NON-COURANTS</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Emprunts et dettes financières</td>
+                        <td class="text-right" ><t t-esc="current['emprunt_dette']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['emprunt_dette']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Impôts différés et provisionnés</td>
+                        <td class="text-right" ><t t-esc="current['impot_diff']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['impot_diff']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Autres dettes non courantes</td>
+                        <td class="text-right" ><t t-esc="current['autre_dette']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['autre_dette']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Provisions et produits constatés d'avance</td>
+                        <td class="text-right" ><t t-esc="current['provision_produit']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['provision_produit']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr style="background-color: #90a4ae;" >
+                        <td class="text-center">
+                            <strong>TOTAL PASSIFS NON-COURANTS II</strong>
+                        </td>
+                        <td class="text-right" ><strong><t t-esc="current['passif_non_courant']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" ><strong><t t-esc="previous['passif_non_courant']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-left">
+                            <strong>PASSIFS COURANTS</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fournisseurs et comptes rattachés</td>
+                        <td class="text-right" ><t t-esc="current['fournisseur']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['fournisseur']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Impôts</td>
+                        <td class="text-right" ><t t-esc="current['impots_passif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['impots_passif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Autres dettes</td>
+                        <td class="text-right" ><t t-esc="current['autre_dette_passif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['autre_dette_passif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Trésorerie Passif</td>
+                        <td class="text-right" ><t t-esc="current['tresorerie_passif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                        <td class="text-right" ><t t-esc="previous['tresorerie_passif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></td>
+                    </tr>
+                    <tr style="background-color: #90a4ae;" >
+                        <td class="text-center">
+                            <strong>TOTAL PASSIFS COURANTS III</strong>
+                        </td>
+                        <td class="text-right" ><strong><t t-esc="current['passif_courant']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" ><strong><t t-esc="previous['passif_courant']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                    </tr>
+                    <tr style="background-color: #90a4ae;" >
+                        <td class="text-center">
+                            <strong>TOTAL GENERAL PASSIF</strong>
+                        </td>
+                        <td class="text-right" ><strong><t t-esc="current['total_passif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                        <td class="text-right" ><strong><t t-esc="previous['total_passif']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" /></strong></td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </template>
+    <report
+            id="actif_passif_report_action"
+            model="bilan.report"
+            string="Bilan PASSIF ACTIF"
+            report_type="qweb-html"
+            paperformat="dz_account_paperformat"
+            name="smartest_l10n_dz.actif_passif_report"
+            file="smartest_l10n_dz.actif_passif_report"/>
+
+</odoo>

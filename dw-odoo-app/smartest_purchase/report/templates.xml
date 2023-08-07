@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="smartest_report_purchaseorder_document_inherit" inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//div[hasclass('page')]" position="inside">
+            <div name="signataire" class="row">
+                <div class="col-4 border p-1 mt-5" style="min-height: 180px;">
+                    <p class="text-center"><b>DEMENDEUR</b></p>
+                </div>
+                <div class="col-4 border p-1 mt-5" style="min-height: 180px;">
+                    <p class="text-center"><b>FINANCE</b></p>
+                </div>
+                <div class="col-4 border p-1 mt-5" style="min-height: 180px;">
+                    <p class="text-center"><b>DIRECTION GENERALE</b></p>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@id='informations']//div[1]" position="attributes">
+            <attribute name="class">col-3 bm-2 d-none</attribute>
+        </xpath>
+
+        <xpath expr="//div[@id='informations']" position="inside">
+            <div t-if="o.payment_term_id" class="col-3 bm-2">
+                <strong>Condition de paiement:</strong>
+                <p t-field="o.payment_term_id" class="m-0"/>
+            </div>
+        </xpath>
+
+<!--        <xpath expr="//t//t[2]//p" position="attributes">-->
+<!--            <attribute name="class">col-3 bm-2 d-none</attribute>-->
+<!--        </xpath>-->
+
+        <xpath expr="//t//t[2]//div" position="before">
+            <strong>Fournisseur:</strong>
+        </xpath>
+
+<!--        <xpath expr="//t//t[2]//p" position="after">-->
+<!--            <p>-->
+<!--                <t t-if="o.partner_id.commercial_register">-->
+<!--                    <b>RC:</b> <span t-field="o.partner_id.commercial_register"/>-->
+<!--                    <br/>-->
+<!--                </t>-->
+<!--                <t t-if="o.partner_id.fiscal_identification">-->
+<!--                    <b>NIF:</b> <span t-field="o.partner_id.fiscal_identification"/>-->
+<!--                    <br/>-->
+<!--                </t>-->
+<!--                <t t-if="o.partner_id.taxation">-->
+<!--                    <b>AI:</b> <span t-field="o.partner_id.taxation"/>-->
+<!--                    <br/>-->
+<!--                </t>-->
+<!--                <t t-if="o.partner_id.nis">-->
+<!--                    <b>NIS:</b> <span t-field="o.partner_id.nis"/>-->
+<!--                    <br/>-->
+<!--                </t>-->
+<!--            </p>-->
+<!--        </xpath>-->
+
+<!--        <xpath expr="//div[hasclass('page')]//h2[1]" position="replace">-->
+<!--            <h2 t-if="o.state == 'draft'">RFQ <span t-field="o.name"/></h2>-->
+<!--        </xpath>-->
+
+        <xpath expr="//div[hasclass('page')]//h2[1]" position="replace">
+            <h2 t-if="o.state in ['draft','sent', 'to approve']">Bon de commande N° <span t-field="o.name"/></h2>
+        </xpath>
+
+        <xpath expr="//div[hasclass('page')]//h2[2]" position="replace">
+            <h2 t-if="o.state in ['purchase', 'done']">Bon de commande N° <span t-field="o.name"/></h2>
+        </xpath>
+
+        <xpath expr="//div[hasclass('page')]//h2[3]" position="replace">
+            <h2 t-if="o.state == 'cancel'">Bon de commande Annulé N° <span t-field="o.name"/></h2>
+        </xpath>
+
+        <xpath expr="//th[@name='th_date_req']" position="replace"/>
+
+        <xpath expr="//table[hasclass('o_main_table')]//tbody//t[2]//tr//t[1]//td[3]" position="replace"/>
+
+        <xpath expr="//div[@name='purchase_shipping_address']" position="attributes">
+            <attribute name="t-options">{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}</attribute>
+        </xpath>
+    </template>
+</odoo>
