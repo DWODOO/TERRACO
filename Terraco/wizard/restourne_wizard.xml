@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_restourne_wizard_form" model="ir.ui.view">
+        <field name="name">restourne.wizard.form</field>
+        <field name="model">restourne.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Trimestre">
+                            <group>
+                                <field name="date_from" />
+
+                            </group>
+                            -
+                            <group>
+                                <field name="date_to" />
+                            </group>
+                        </group>
+
+                        <group string="Restourne">
+                            <label for="invoice_date"/>
+                            <div>
+                                <field name="invoice_date" />
+                            </div>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Done" name="create_restourne" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="restourne_wizard_action">
+        <field name="name">Restourne wizard</field>
+        <field name="res_model">restourne.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_restourne_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

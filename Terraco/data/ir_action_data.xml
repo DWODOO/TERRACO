@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="action_restourne_invoice" model="ir.actions.server">
+            <field name="name">Create restourne</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="state">code</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+            <field name="code">action = model.action_return_wizard_restourne()</field>
+        </record>
+    </data>
+</odoo>

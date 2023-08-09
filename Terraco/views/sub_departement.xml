@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="sub_department_type_view_tree" model="ir.ui.view">
+            <field name="name">sub.departement.view.tree</field>
+            <field name="model">sub.departement</field>
+            <field name="arch" type="xml">
+                <tree string="Sous Familles" editable="bottom">
+                    <field name="sub_departement"/>
+                    <field name="departement_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="purchase_request_treatment_view_tree" model="ir.ui.view">
+            <field name="name">purchase.request.treatment.view.tree</field>
+            <field name="model">purchase.request.treatment</field>
+            <field name="arch" type="xml">
+                <tree string="Sous Familles" editable="bottom">
+                    <field name="treatment"/>
+                    <field name="sub_departement"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="sub_departement_action_window">
+            <field name="name">Sous familles</field>
+            <field name="res_model">sub.departement</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="purchase_request_treatment_action_window">
+            <field name="name">Traitement</field>
+            <field name="res_model">purchase.request.treatment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Sous Familles" id="sub_departement" parent="purchase.menu_purchase_config" sequence='10'
+                  action="sub_departement_action_window"/>
+
+        <menuitem name="Traitement de la demande" id="purchase_request_treatment" parent="purchase.menu_purchase_config" sequence='11'
+                  action="purchase_request_treatment_action_window"/>
+
+
+    </data>
+</odoo>

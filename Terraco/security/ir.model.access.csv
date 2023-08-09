@@ -1,1 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_restourne,access_sale_restourne,model_sale_restourne,,1,1,1,1
+access_restourne_wizard,access_restourne_wizard,model_restourne_wizard,,1,1,1,1

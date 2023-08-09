@@ -16,15 +16,18 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','smartest_hr_purchase_request'],
 
     # always loaded
     'data': [
-        # 'security/security.xml',
-        # 'data/sequence.xml',
-        # 'security/ir.model.access.csv',
-        # 'views/stock_picking_views.xml',
-        # 'report/preforma_invoice_report.xml',
+        'security/ir.model.access.csv',
+        'views/sale_restourne_view.xml',
+        'views/account_move_views.xml',
+        'wizard/restourne_wizard.xml',
+        'data/product_template.xml',
+        'data/ir_action_data.xml',
+
+
     ],
     # only loaded in demonstration mode
     'demo': [
