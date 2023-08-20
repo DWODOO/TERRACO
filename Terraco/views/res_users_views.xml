@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record id="res_users_form_view_inher_discount" model="ir.ui.view">
+            <field name="name">res.users.form.inher_discount_limit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='preferences']" position="after">
+                    <group string="sale" name="sale">
+                        <field name="discount_limit" string="Discount Limit"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

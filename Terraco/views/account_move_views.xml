@@ -6,8 +6,9 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='currency_id']" position="before">
+            <xpath expr="//field[@name='to_check']" position="after">
                 <field name="restourne"/>
+                <field name="delivery" string="delivery"  attrs="{'invisible': [('state', '!=', 'posted')]}"/>
             </xpath>
         </field>
     </record>

@@ -23,6 +23,8 @@
         'security/ir.model.access.csv',
         'views/sale_restourne_view.xml',
         'views/account_move_views.xml',
+        'views/res_users_views.xml',
+        'views/sale_order.xml',
         'wizard/restourne_wizard.xml',
         'data/product_template.xml',
         'data/ir_action_data.xml',

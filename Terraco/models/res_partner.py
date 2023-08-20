@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from odoo import models,fields,api,_,Command
-from odoo.exceptions import ValidationError
+
 
 class ResPartner(models.Model):
 
@@ -17,10 +17,8 @@ class ResPartner(models.Model):
                 if total <= range.amount_max:
                     return total * (range.percentage /100)
 
-    @api.model
-    def action_return_wizard_restourne(self):
-        return self._action_open_wizard_restourne()
 
+    @api.model
     def _action_open_wizard_restourne(self):
         """Allow to keep the wizard modal open after executing the action."""
         return {
@@ -31,6 +29,7 @@ class ResPartner(models.Model):
             'view_mode': 'form',
             'target': 'new',
         }
+
 
 
 

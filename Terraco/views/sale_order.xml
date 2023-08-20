@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_inherit" model="ir.ui.view">
+        <field name="name">sale_order_view_form_inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_delivery']" position="replace">
+                <button type="object" name="action_view_delivery" class="oe_stat_button" icon="fa-truck"
+                        attrs="{'invisible': ['|',('delivery_count', '=', 0),('delivery', '!=', True)]}" groups="stock.group_stock_user">
+                    <field name="delivery_count" widget="statinfo" string="Delivery"/>
+                    <field name="delivery" invisible="1"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

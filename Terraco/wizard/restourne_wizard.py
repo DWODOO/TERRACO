@@ -38,6 +38,7 @@ class RestourneWizard(models.TransientModel):
 
     def create_restourne(self):
         product = self.env.ref('Terraco.product_template_restourne')
+        restourne_ids = []
         for rec in self.partner_ids:
             order_lines = []
             order_lines.append((0, 0, {
@@ -56,5 +57,13 @@ class RestourneWizard(models.TransientModel):
                 'journal_id': self.env['account.journal'].search([('type','=','sale')],limit=1).id,
                 'invoice_line_ids': order_lines,
             })
+            restourne_ids.append(move_ids.id)
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "account.move",
+            'name': _('Restournes'),
+            "views": [[False, "tree"], [False, "form"]],
+            "domain": [["id", "in", restourne_ids]],
+        }
 
 

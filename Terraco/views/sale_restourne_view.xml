@@ -20,9 +20,9 @@
     </record>
 
     <menuitem id="sale_restourne_manu"
-              parent="sale.sale_menu_root"
+              parent="account.account_invoicing_menu"
               action="sale_restourne_action"
-              sequence="35"
+              sequence="10"
     />
 
     <record id="action_invoice_type_out_refund" model="ir.actions.act_window">
@@ -35,8 +35,8 @@
         <field name="context">{'default_move_type': 'out_refund','default_restourne': True}</field>
     </record>
     <menuitem id="menu_invoice_type_out_refund"
-              parent="sale.sale_menu_root"
+              parent="account.menu_finance_receivables"
               action="action_invoice_type_out_refund"
-              sequence="36"
+              sequence="4"
     />
 </odoo>
