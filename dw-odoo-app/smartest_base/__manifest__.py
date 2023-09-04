@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'SMARTEST Base Module',
-    'version': '1.0.0',
+    'version': '1.1.0',
     'description': """
     Adds extra functionality and improvements to odoo 
     """,

@@ -14,7 +14,7 @@
     ],
     'data': [
         'data/leave_type_data.xml',
-        'wizard/hr_leave_cumulation_wizard_views.xml',
+        'wizard/restourne_wizard.xml',
         'views/payslip_views.xml',
         'security/ir.model.access.csv',
         'data/salary_structure_data.xml',

@@ -9,15 +9,15 @@ class AccountMove(models.Model):
         String="Restourne",
         domain="[('move_type', '=', 'out_refund')]"
     )
+
     delivery = fields.Boolean(
         String="possibility of delivery",
         store=True,
         compute="_compute_delivery"
     )
+
     @api.depends("payment_state")
     def _compute_delivery(self):
         for rec in self:
             if rec.payment_state == 'paid':
                 rec.delivery = True
-
-
