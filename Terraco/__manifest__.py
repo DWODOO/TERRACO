@@ -4,19 +4,18 @@
 
     'summary': """
         """,
-
+    'version': '1.1.0',
     'description': """
         specific dev for Terraco
 
     """,
-
     'author': "My Company",
     'website': "",
     'category': '',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','smartest_hr_purchase_request'],
+    'depends': ['base','account','sale'],
 
     # always loaded
     'data': [
@@ -28,8 +27,6 @@
         'wizard/restourne_wizard.xml',
         'data/product_template.xml',
         'data/ir_action_data.xml',
-
-
     ],
     # only loaded in demonstration mode
     'demo': [
