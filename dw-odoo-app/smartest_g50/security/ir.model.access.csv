@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_smartest_g50_smartest_g50,smartest_g50.smartest_g50,model_g_cinquante,,1,1,1,1
-access_smartest_g50_smartest_g50_line,smartest_g50.smartest_g50_line,model_g_cinquante_line,,1,1,1,1
-access_smartest_g50_smartest_g50_impot_line,smartest_g50.smartest_g50_impot_line,model_g_cinquante_impot_line,,1,1,1,1

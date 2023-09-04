@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-acces_samrtest_partner_account_group,smartest.partner.account.group,smartest_l10n_dz.model_partner_account_group,,1,1,1,1
-access_company_cnas,Access Res Company Cnas,model_res_company_cnas,,1,1,1,0

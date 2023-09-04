@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_range_days,access_range_days,model_range_days,,1,1,1,1
-access_leave_categories,access_leave_categories,model_leave_categories,,1,1,1,1
-access_smartest_hr_holidays_employee_request,hr.smartest_hr_holidays.employee.request,model_hr_leave,group_hr_holidays_responsible_unpaid_leave,1,1,1,1
-
-
-

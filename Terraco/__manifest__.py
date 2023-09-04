@@ -4,7 +4,7 @@
 
     'summary': """
         """,
-    'version': '1.1.0',
+    'version': '1.0.0',
     'description': """
         specific dev for Terraco
 

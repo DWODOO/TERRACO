@@ -1,6 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_purchase_request_user,purchase.request,model_purchase_request,group_purchase_request_user,1,1,1,1
-access_purchase_request_line_manager,purchase.request.line,model_purchase_request_line,group_purchase_request_user,1,1,1,1
-access_purchase_order_user,access.purchase.order.user,model_purchase_order,smartest_purchase_request.group_purchase_request_user,1,0,0,0
-access_purchase_validator,purchase.validator,model_purchase_validator,,1,1,1,1
-access_purchase_validator_line,purchase.validator.line,model_purchase_validator_line,,1,1,1,1

@@ -1,9 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_appraisal_portal,hr.appraisal.portal,hr_appraisal.model_hr_appraisal,base.group_portal,1,0,0,0
-access_hr_appraisal_line_portal,hr.appraisal.line.portal,smartest_hr_appraisal.model_hr_appraisal_line,base.group_portal,1,0,0,0
-access_hr_appraisal_public,hr.appraisal.public,hr_appraisal.model_hr_appraisal,base.group_public,1,0,0,0
-access_hr_appraisal_line_public,hr.appraisal.line.public,smartest_hr_appraisal.model_hr_appraisal_line,base.group_public,1,0,0,0
-access_hr_employee_public_portal,hr.employee.public.public,hr.model_hr_employee_public,base.group_public,1,0,0,0
-access_hr_appraisal_user,hr.appraisal.user,smartest_hr_appraisal.model_hr_appraisal,base.group_user,1,0,0,0
-access_hr_appraisal_line_user,hr.appraisal.line.user,smartest_hr_appraisal.model_hr_appraisal_line,base.group_user,1,0,0,0
-access_hr_employee_public_user,hr.employee.public.user,hr.model_hr_employee_public,base.group_user,1,0,0,0

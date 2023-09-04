@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_equipement_inventory,smartest_immobilisation.equipement.inventory,model_equipement_inventory,base.group_user,1,1,1,1
-access_equipement_inventory_line,smartest_immobilisation.equipement.inventory.line,model_equipement_inventory_line,base.group_user,1,1,1,1
-access_intermediate_line,smartest_immobilisation.intermediate.line,model_intermediate_line,base.group_user,1,1,1,1

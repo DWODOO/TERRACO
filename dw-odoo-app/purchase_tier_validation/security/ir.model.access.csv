@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_purchase_product_request_user,purchase.product.request,model_purchase_product_request,purchase_tier_validation.group_purchase_product_request_user,1,1,1,1
-access_purchase_product_request_line_user,purchase.product.request.line,model_purchase_product_request_line,purchase_tier_validation.group_purchase_product_request_user,1,1,1,1
-access_purchase_order,purchase.order,model_purchase_order,group_purchase_product_request_user,1,0,0,0
-access_purchase_order_line,purchase.order,model_purchase_order_line,group_purchase_product_request_user,1,0,0,0
