@@ -37,7 +37,7 @@ class RestourneWizard(models.TransientModel):
     partner_ids = fields.Many2many('res.partner', string='Partners', default=_default_partner_ids)
 
     def create_restourne(self):
-        product = self.env.ref('Terraco.product_template_restourne')
+        product = self.env.ref('terraco.product_template_restourne')
         restourne_ids = []
         for rec in self.partner_ids:
             order_lines = []
